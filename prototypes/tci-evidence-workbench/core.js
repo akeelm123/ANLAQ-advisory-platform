@@ -3,7 +3,7 @@
 const str = v => typeof v === "string" ? v.trim() : "";
 const required = (o,ks) => {for(const k of ks) if(!str(o[k])) throw Error(k+" is required");};
 const norm = v => str(v).toLowerCase();
-const create = () => ({version:"0.1.0-beta.1",baseline:"provisional",scope:null,requestEvents:[],evidence:[],findings:[],reviews:[],events:[]});
+const create = () => ({version:"0.1.0-rc.1",baseline:"1.0-reconstructed-rc.1",scope:null,requestEvents:[],evidence:[],findings:[],reviews:[],events:[]});
 const event = (s,action,id,actor) => s.events.push({sequence:s.events.length+1,time:new Date().toISOString(),action,id,actor});
 const id = (prefix,list) => prefix+String(list.length+1).padStart(3,"0");
 function setScope(s,o){
@@ -29,7 +29,7 @@ function addEvidence(s,o,criteria,requests=[]){
  checkScope(s);
  if(o.requestId){
   const req=requests.find(r=>r.id===o.requestId);
-  if(!req||req.dimension!==criteria.find(c=>c.id===o.criterion)?.dimension)throw Error("Request must match the criterion dimension");
+  if(!req||!Array.isArray(req.criterionIds)||!req.criterionIds.includes(o.criterion))throw Error("Request must have an approved mapping to this criterion");
  }
 
  required(o,["criterion","title","source","version","location","owner","period","note","actor","sha256"]);
@@ -37,11 +37,18 @@ function addEvidence(s,o,criteria,requests=[]){
  if(!/^[a-f0-9]{64}$/.test(o.sha256)) throw Error("Invalid source digest");
  const r={...o,id:id("EV-",s.evidence)}; s.evidence.push(r);event(s,"evidence captured",r.id,o.actor);return r;
 }
+function criterionCoverage(s,criterionId,requests){
+ return requests.filter(r=>r.criterionIds.includes(criterionId)).map(r=>({
+  requestId:r.id,title:r.title,relationship:r.links.find(l=>l.criterionId===criterionId).relationship,
+  received:s.evidence.some(e=>e.requestId===r.id&&e.criterion===criterionId)
+ }));
+}
 function addFinding(s,o,criteria){
  checkScope(s);
- required(o,["criterion","claim","evidenceClass","author","gap","contradiction","action"]);
+ required(o,["criterion","claim","evidenceClass","evidenceStrength","author","gap","contradiction","action"]);
  if(!criteria.some(c=>c.id===o.criterion))throw Error("Unknown criterion");
  if(!["E1","E2","E3","E4"].includes(o.evidenceClass))throw Error("Unknown evidence class");
+ if(!["Strong","Moderate","Weak","Not assessed"].includes(o.evidenceStrength))throw Error("Unknown evidence strength");
  if(!["none","open","resolved"].includes(o.contradiction))throw Error("Invalid contradiction status");
  if(o.contradiction!=="none"&&!str(o.contradictionDetail))throw Error("Describe the contradiction");
  if(o.contradiction==="resolved"&&!str(o.resolution))throw Error("Resolution rationale required");
@@ -62,13 +69,14 @@ function review(s,o){
  if(!["accept","return"].includes(o.decision))throw Error("Invalid review decision");
  if(o.decision==="accept"){
   if(!["E1","E2"].includes(f.evidenceClass)||f.contradiction==="open")throw Error("Insufficient or conflicting evidence; return for follow-up");
+  if(f.evidenceStrength==="Not assessed")throw Error("Evidence strength must be assessed before acceptance");
   if(o.confirmed!==true)throw Error("Confirm relevance, direct support, independent corroboration where applicable and unresolved gaps");
  }
  const r={...o,id:id("R-",s.reviews)};s.reviews.push(r);event(s,"human review: "+o.decision,r.id,o.reviewer);return r;
 }
-function gates(){return {pilotScoring:false,executiveRelease:false,publicDeployment:false,reason:"Approved register file and validation specification not verified; scoring calibration and release approval outstanding."};}
+function gates(){return {pilotScoring:false,executiveRelease:false,publicDeployment:false,reason:"Approved register integrated; final validation specification, scoring calibration, secure handling and release approval outstanding."};}
 function restore(raw,criteria,requests,baseline){
- if(!raw||raw.version!=="0.1.0-beta.1"||raw.baseline!=="provisional")throw Error("Unsupported snapshot version");
+ if(!raw||raw.version!=="0.1.0-rc.1"||raw.baseline!=="1.0-reconstructed-rc.1")throw Error("Unsupported snapshot version");
  if(JSON.stringify(raw.sourceManifest)!==JSON.stringify(baseline)||JSON.stringify(raw.requestCatalogue)!==JSON.stringify(requests))throw Error("Snapshot baseline mismatch");
  if(!["evidence","findings","reviews","requestEvents","events"].every(k=>Array.isArray(raw[k])))throw Error("Malformed snapshot");
  if(raw.events.length>20000)throw Error("Snapshot too large");
@@ -90,6 +98,6 @@ function restore(raw,criteria,requests,baseline){
  if(!!s.scope!==!!raw.scope||Object.keys(lists).some(k=>s[k].length!==lists[k].length))throw Error("Orphan records in snapshot");
  return s;
 }
-const api={create,setScope,requestState,markRequest,addEvidence,addFinding,review,gates,restore};
+const api={create,setScope,requestState,markRequest,criterionCoverage,addEvidence,addFinding,review,gates,restore};
 if(typeof module!=="undefined")module.exports=api;else g.TCI=api;
 })(globalThis);

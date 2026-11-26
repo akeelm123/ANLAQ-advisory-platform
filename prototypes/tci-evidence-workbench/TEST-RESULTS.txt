@@ -1,29 +1,33 @@
-✔ 28 source-derived criterion IDs are unique (0.769625ms)
-✔ requires source provenance and digest (0.803583ms)
-✔ rejects unknown criterion (0.046917ms)
-✔ rejects missing or mismatched reference (0.125333ms)
-✔ E2 rejects duplicated document or owner (0.075084ms)
-✔ E2 accepts distinct source and owner for review (0.057917ms)
-✔ unknown evidence may be drafted but not accepted (0.074708ms)
-✔ assertion cannot be accepted (0.04575ms)
-✔ open contradiction blocks acceptance (0.052875ms)
-✔ resolved contradiction requires rationale (0.074209ms)
-✔ self-review and missing confirmation blocked (0.059459ms)
-✔ accepted review is logged, cannot be overwritten; release stays locked (0.302625ms)
-✔ scope is mandatory and immutable (0.055833ms)
-✔ 21 legacy requests are unique, dimension labels align (0.05725ms)
-✔ request status cannot be fabricated as received (0.101917ms)
-✔ evidence cannot link to another dimension's request (0.070667ms)
-✔ restore replays scope, requests, evidence, finding, independent review (0.707917ms)
-✔ restore rejects version, catalogue, sequence, orphan and self review (0.393208ms)
-✔ restoring modified gate values cannot unlock scoring (0.084084ms)
-ℹ tests 19
+✔ 28 source-derived criterion IDs are unique (0.335ms)
+✔ requires source provenance and digest (0.801166ms)
+✔ rejects unknown criterion (0.049542ms)
+✔ rejects missing or mismatched reference (0.13025ms)
+✔ E2 rejects duplicated document or owner (0.08525ms)
+✔ E2 accepts distinct source and owner for review (0.061959ms)
+✔ unknown evidence may be drafted but not accepted (0.069458ms)
+✔ assertion cannot be accepted (0.0455ms)
+✔ open contradiction blocks acceptance (0.05525ms)
+✔ resolved contradiction requires rationale (0.081958ms)
+✔ self-review and missing confirmation blocked (0.092875ms)
+✔ accepted review is logged, cannot be overwritten; release stays locked (0.295167ms)
+✔ scope is mandatory and immutable (0.057459ms)
+✔ 32 approved catalogue requests and 89 unique mappings (0.074209ms)
+✔ request status cannot be fabricated as received (0.116791ms)
+✔ evidence cannot link to unmapped requests (0.045292ms)
+✔ restore replays scope, requests, evidence, finding, independent review (0.454083ms)
+✔ restore rejects version, catalogue, sequence, orphan and self review (1.456167ms)
+✔ restoring modified gate values cannot unlock scoring (0.25475ms)
+✔ approved register manifest has exact immutable approval and 89 source relationships (0.091833ms)
+✔ approved cross-dimension mapping accepted; same-dimension but unmapped rejected (0.039333ms)
+✔ criterion coverage requires actual criterion link, not request-level receipt (0.057875ms)
+✔ evidence strength stays independent of class; unassessed strength prevents acceptance (0.045584ms)
+ℹ tests 23
 ℹ suites 0
-ℹ pass 19
+ℹ pass 23
 ℹ fail 0
 ℹ cancelled 0
 ℹ skipped 0
 ℹ todo 0
-ℹ duration_ms 35.931042
+ℹ duration_ms 36.186
 
-Browser smoke: PASS — scope, request tracking, digest intake, finding, review, JSON export/restore and mobile width; no page errors.
+Browser smoke: PASS — 32 requests, scope, request tracking, digest intake, linked finding, separate evidence strength, independent review, JSON export/restore and mobile width; no page errors.

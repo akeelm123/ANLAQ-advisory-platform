@@ -1,33 +1,77 @@
 {
-  "baseline": "Source-derived provisional criteria; approved Master Evidence Register not retrieved",
+  "baseline": "Approved reconstructed Master Evidence Register working baseline",
+  "approval": {
+    "recordId": "TCI-MER-APR-002",
+    "status": "approved",
+    "approvedOn": "2026-11-26",
+    "approvedBy": "Project owner",
+    "decision": "User explicitly replied approved to v1.0-reconstructed-rc.1 review request.",
+    "scope": "Register candidate, including the 32 catalogue items, 89 mappings and draft validation rules as a working methodology baseline. Separate final validation specification, pilot calibration, security and release approvals remain outstanding.",
+    "version": "1.0-reconstructed-rc.1",
+    "commit": "029bd58c280908e39e0e378a554f0818fe60bafd",
+    "xlsxSha256": "fe6fe6f76feda4184976a528c8a78bc51c39e782e4261cffec71731de8c64767",
+    "jsonSha256": "f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559"
+  },
   "sources": [
     {
+      "id": "S01",
       "name": "TCI Assessment Methodology.docx",
+      "role": "Authoritative source",
       "sha256": "495596a9d1ee7a95f335c7a3bd687ce4303d49a3163a19cf2ca364d54b38b8b4"
     },
     {
+      "id": "S02",
       "name": "TCI Evidence Classification Standard.docx",
+      "role": "Authoritative source",
       "sha256": "bdb56c4a7b0a84378aaf661523f2bf4ab1c42e920f32c3088064bfef003ada87"
     },
     {
+      "id": "S03",
       "name": "TCI Seven-Dimension Evidence Guide.docx",
+      "role": "Authoritative source",
       "sha256": "589d90e83c92df60a061aef52ca634e0c7a703d150d472dc2be3bfa0751cc614"
     },
     {
+      "id": "S04",
       "name": "TCI_Scoring_Matrix_v1.xlsx",
+      "role": "Authoritative source",
       "sha256": "79875024e528e0fc5f5f7f87ac36100b2a202caa23c4fd4548c1a22b32d0b839"
     },
     {
+      "id": "S05",
       "name": "TCI_Evidence_Collection_Guide_v1.xlsx",
+      "role": "Authoritative source",
       "sha256": "761d1ffa10a61fb193855f1f4aa6b761c72d458f203b7d300d3f205e7e66e182"
     },
     {
+      "id": "S06",
       "name": "TCI_Response_Bank_Pilot.xlsx",
+      "role": "Authoritative source",
       "sha256": "d0377c8e987d8fb413a1bc77d159cde59429f9a2098a80a717924d6f4ad2e8cb"
     },
     {
+      "id": "S07",
       "name": "Transformation_Confidence_Assessment_Enhanced.xlsx",
+      "role": "Authoritative source",
       "sha256": "b610b92c11c8209eceedc228ab4792e0b1e3def0c5379841e265d8644d46aa19"
+    },
+    {
+      "id": "S08",
+      "name": "TCI_Executive_Diagnostic_Assessment_Aligned.xlsx",
+      "role": "Supporting pilot / diagnostic",
+      "sha256": "ffa5acd4476d63fc8a41f5c0376f01f32572b737b17610bdc22e02eb227fb001"
+    },
+    {
+      "id": "S09",
+      "name": "TCI_Calibration_Test_Cases.xlsx",
+      "role": "Supporting pilot / diagnostic",
+      "sha256": "59ab7952d807898dca253b5fd196cb8d16a10d9b5238881f71e52c95f5480d15"
+    },
+    {
+      "id": "S10",
+      "name": "TCI_End_to_End_Interview_Pilot_Project_Aurora.xlsx",
+      "role": "Supporting pilot / diagnostic",
+      "sha256": "d54159fa29a76c70d70a476d16533db961537e1c18dc6fdf5a1d2a40aa3fa1b5"
     }
   ],
   "criteria": [
@@ -35,225 +79,1168 @@
       "id": "Q01",
       "dimension": "Strategic Alignment",
       "criterion": "Strategy linkage",
-      "role": "Executive sponsor",
+      "stakeholder": "Executive sponsor",
       "question": "Which original business problem and strategic outcome justified the investment, and do they still hold?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 5"
+      "source": "S06 / Response bank / row 5",
+      "dimensionWeight": 15,
+      "criterionWeight": 30,
+      "minimum": "Transformation is demonstrably linked to enterprise strategy and the original business problem.",
+      "criteriaSource": "S07 / Dimension scoring / row 5",
+      "role": "Executive sponsor"
     },
     {
       "id": "Q02",
       "dimension": "Strategic Alignment",
       "criterion": "Investment thesis",
-      "role": "Strategy / finance lead",
+      "stakeholder": "Strategy / finance lead",
       "question": "How have scope, spend or priorities changed since approval, and were those changes re-approved against the investment thesis?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 10"
+      "source": "S06 / Response bank / row 10",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Current scope, spend and priorities remain consistent with the approved investment thesis.",
+      "criteriaSource": "S07 / Dimension scoring / row 7",
+      "role": "Strategy / finance lead"
     },
     {
       "id": "Q03",
       "dimension": "Strategic Alignment",
       "criterion": "Outcome clarity",
-      "role": "Business outcome owner",
+      "stakeholder": "Business outcome owner",
       "question": "Which measurable outcomes define success today, and who owns each one?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 15"
+      "source": "S06 / Response bank / row 15",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Measurable business outcomes and success measures are explicit.",
+      "criteriaSource": "S07 / Dimension scoring / row 6",
+      "role": "Business outcome owner"
     },
     {
       "id": "Q04",
       "dimension": "Strategic Alignment",
       "criterion": "Benefits ownership",
-      "role": "Executive sponsor",
+      "stakeholder": "Executive sponsor",
       "question": "What evidence would cause you to reduce, redirect or stop investment?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 20"
+      "source": "S06 / Response bank / row 20",
+      "dimensionWeight": 15,
+      "criterionWeight": 20,
+      "minimum": "Named business owners are accountable for intended outcomes and benefits.",
+      "criteriaSource": "S07 / Dimension scoring / row 8",
+      "role": "Executive sponsor"
     },
     {
       "id": "Q05",
       "dimension": "Leadership Commitment",
       "criterion": "Decision effectiveness",
-      "role": "Executive sponsor",
+      "stakeholder": "Executive sponsor",
       "question": "Which material decisions have been delayed in the last two review cycles, and why?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 25"
+      "source": "S06 / Response bank / row 25",
+      "dimensionWeight": 10,
+      "criterionWeight": 25,
+      "minimum": "Material decisions and trade-offs are made in a timely manner.",
+      "criteriaSource": "S07 / Dimension scoring / row 10",
+      "role": "Executive sponsor"
     },
     {
       "id": "Q06",
       "dimension": "Leadership Commitment",
       "criterion": "Constraint removal",
-      "role": "Governance lead",
+      "stakeholder": "Governance lead",
       "question": "Which unresolved escalations or constraints remain open, and who owns resolution?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 30"
+      "source": "S06 / Response bank / row 30",
+      "dimensionWeight": 10,
+      "criterionWeight": 25,
+      "minimum": "Leaders actively resolve blockers, escalations and resource constraints.",
+      "criteriaSource": "S07 / Dimension scoring / row 11",
+      "role": "Governance lead"
     },
     {
       "id": "Q07",
       "dimension": "Leadership Commitment",
       "criterion": "Executive ownership",
-      "role": "Business / technology leaders",
+      "stakeholder": "Business / technology leaders",
       "question": "Where is accountability shared, and where does it still fall between functions?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 35"
+      "source": "S06 / Response bank / row 35",
+      "dimensionWeight": 10,
+      "criterionWeight": 30,
+      "minimum": "Named leaders are accountable for decisions, outcomes and value.",
+      "criteriaSource": "S07 / Dimension scoring / row 9",
+      "role": "Business / technology leaders"
     },
     {
       "id": "Q08",
       "dimension": "Leadership Commitment",
       "criterion": "Governance behaviour",
-      "role": "Executive sponsor",
+      "stakeholder": "Executive sponsor",
       "question": "What action followed the last material warning that confidence was weakening?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 40"
+      "source": "S06 / Response bank / row 40",
+      "dimensionWeight": 10,
+      "criterionWeight": 20,
+      "minimum": "Governance reinforces accountability and acts when confidence weakens.",
+      "criteriaSource": "S07 / Dimension scoring / row 12",
+      "role": "Executive sponsor"
     },
     {
       "id": "Q09",
       "dimension": "Technology Readiness",
       "criterion": "Architecture & scale",
-      "role": "CTO / architect",
+      "stakeholder": "CTO / architect",
       "question": "Can the current architecture support required scale, resilience, security and change velocity?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 45"
+      "source": "S06 / Response bank / row 45",
+      "dimensionWeight": 15,
+      "criterionWeight": 30,
+      "minimum": "Architecture can support the intended outcome at the required scale.",
+      "criteriaSource": "S07 / Dimension scoring / row 13",
+      "role": "CTO / architect"
     },
     {
       "id": "Q10",
       "dimension": "Technology Readiness",
       "criterion": "Resilience & security",
-      "role": "Operations lead",
+      "stakeholder": "Operations lead",
       "question": "Which incidents, manual interventions or recovery weaknesses contradict the target-state claim?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 50"
+      "source": "S06 / Response bank / row 50",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Reliability, recovery, security and operational controls are adequate.",
+      "criteriaSource": "S07 / Dimension scoring / row 14",
+      "role": "Operations lead"
     },
     {
       "id": "Q11",
       "dimension": "Technology Readiness",
       "criterion": "Engineering capability",
-      "role": "Engineering lead",
+      "stakeholder": "Engineering lead",
       "question": "What evidence shows deployment, automation and engineering practices are sustainable?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 55"
+      "source": "S06 / Response bank / row 55",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Deployment, automation and engineering practices support sustainable change.",
+      "criteriaSource": "S07 / Dimension scoring / row 15",
+      "role": "Engineering lead"
     },
     {
       "id": "Q12",
       "dimension": "Technology Readiness",
       "criterion": "Cost & technical debt",
-      "role": "CTO / finance",
+      "stakeholder": "CTO / finance",
       "question": "How are technical debt, dependencies and operating cost affecting the investment case?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 60"
+      "source": "S06 / Response bank / row 60",
+      "dimensionWeight": 15,
+      "criterionWeight": 20,
+      "minimum": "Operating cost, dependencies and technical debt are understood and managed.",
+      "criteriaSource": "S07 / Dimension scoring / row 16",
+      "role": "CTO / finance"
     },
     {
       "id": "Q13",
       "dimension": "People & Culture",
       "criterion": "Adoption",
-      "role": "Business owner",
+      "stakeholder": "Business owner",
       "question": "What proportion of target users have adopted the new capability in day-to-day work?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 65"
+      "source": "S06 / Response bank / row 65",
+      "dimensionWeight": 10,
+      "criterionWeight": 30,
+      "minimum": "New capabilities are used in day-to-day work and adoption is measurable.",
+      "criteriaSource": "S07 / Dimension scoring / row 17",
+      "role": "Business owner"
     },
     {
       "id": "Q14",
       "dimension": "People & Culture",
       "criterion": "Skills & capacity",
-      "role": "Change / HR lead",
+      "stakeholder": "Change / HR lead",
       "question": "Which skills, capacity or incentives are still missing?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 70"
+      "source": "S06 / Response bank / row 70",
+      "dimensionWeight": 10,
+      "criterionWeight": 25,
+      "minimum": "Required skills, capacity and capability exist or have credible plans.",
+      "criteriaSource": "S07 / Dimension scoring / row 18",
+      "role": "Change / HR lead"
     },
     {
       "id": "Q15",
       "dimension": "People & Culture",
       "criterion": "Roles & decision rights",
-      "role": "Operating model owner",
+      "stakeholder": "Operating model owner",
       "question": "Which roles, accountabilities or decision rights changed because of the transformation?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 75"
+      "source": "S06 / Response bank / row 75",
+      "dimensionWeight": 10,
+      "criterionWeight": 25,
+      "minimum": "Roles, accountability and decision rights support the target operating model.",
+      "criteriaSource": "S07 / Dimension scoring / row 19",
+      "role": "Operating model owner"
     },
     {
       "id": "Q16",
       "dimension": "People & Culture",
       "criterion": "Behaviour & sustainability",
-      "role": "Users / business owner",
+      "stakeholder": "Users / business owner",
       "question": "Would the new way of working continue if the programme closed tomorrow?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 80"
+      "source": "S06 / Response bank / row 80",
+      "dimensionWeight": 10,
+      "criterionWeight": 20,
+      "minimum": "Behaviours and ways of working are changing and can persist after programme closure.",
+      "criteriaSource": "S07 / Dimension scoring / row 20",
+      "role": "Users / business owner"
     },
     {
       "id": "Q17",
       "dimension": "Data & AI Confidence",
       "criterion": "Ownership",
-      "role": "Data owner",
+      "stakeholder": "Data owner",
       "question": "Who owns the critical data and which quality measures demonstrate trust?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 85"
+      "source": "S06 / Response bank / row 85",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Critical data has clear ownership and accountability.",
+      "criteriaSource": "S07 / Dimension scoring / row 21",
+      "role": "Data owner"
     },
     {
       "id": "Q18",
       "dimension": "Data & AI Confidence",
       "criterion": "Quality",
-      "role": "Data governance",
+      "stakeholder": "Data governance",
       "question": "Which material data issues remain unresolved and how do they affect the decision?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 90"
+      "source": "S06 / Response bank / row 90",
+      "dimensionWeight": 15,
+      "criterionWeight": 30,
+      "minimum": "Material data quality is measured, visible and actively managed.",
+      "criteriaSource": "S07 / Dimension scoring / row 22",
+      "role": "Data governance"
     },
     {
       "id": "Q19",
       "dimension": "Data & AI Confidence",
       "criterion": "Lineage & definitions",
-      "role": "Analytics / architecture",
+      "stakeholder": "Analytics / architecture",
       "question": "Can a material executive measure be traced through definitions, lineage and source?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 95"
+      "source": "S06 / Response bank / row 95",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Definitions, metadata and lineage support traceability and trust.",
+      "criteriaSource": "S07 / Dimension scoring / row 23",
+      "role": "Analytics / architecture"
     },
     {
       "id": "Q20",
       "dimension": "Data & AI Confidence",
       "criterion": "Governance & access",
-      "role": "Risk / data owner",
+      "stakeholder": "Risk / data owner",
       "question": "Are access, governance and controls appropriate for the intended use?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 100"
+      "source": "S06 / Response bank / row 100",
+      "dimensionWeight": 15,
+      "criterionWeight": 20,
+      "minimum": "Access, governance and controls are appropriate for intended use.",
+      "criteriaSource": "S07 / Dimension scoring / row 24",
+      "role": "Risk / data owner"
     },
     {
       "id": "Q21",
       "dimension": "Delivery Excellence",
       "criterion": "Predictability & flow",
-      "role": "Delivery lead",
+      "stakeholder": "Delivery lead",
       "question": "How predictable are flow, cycle time and release outcomes across recent review periods?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 105"
+      "source": "S06 / Response bank / row 105",
+      "dimensionWeight": 15,
+      "criterionWeight": 30,
+      "minimum": "Delivery flow and cycle time demonstrate sufficient predictability.",
+      "criteriaSource": "S07 / Dimension scoring / row 25",
+      "role": "Delivery lead"
     },
     {
       "id": "Q22",
       "dimension": "Delivery Excellence",
       "criterion": "Quality",
-      "role": "Engineering / operations",
+      "stakeholder": "Engineering / operations",
       "question": "Do defect, incident and rework trends support claims of improving quality?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 110"
+      "source": "S06 / Response bank / row 110",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Release quality, defects and incidents show sustainable engineering discipline.",
+      "criteriaSource": "S07 / Dimension scoring / row 26",
+      "role": "Engineering / operations"
     },
     {
       "id": "Q23",
       "dimension": "Delivery Excellence",
       "criterion": "Dependencies & risk",
-      "role": "Dependency owners",
+      "stakeholder": "Dependency owners",
       "question": "Which dependencies repeatedly change delivery outcomes or create delay?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 115"
+      "source": "S06 / Response bank / row 115",
+      "dimensionWeight": 15,
+      "criterionWeight": 25,
+      "minimum": "Dependencies, rework and delivery risks are visible and actively managed.",
+      "criteriaSource": "S07 / Dimension scoring / row 27",
+      "role": "Dependency owners"
     },
     {
       "id": "Q24",
       "dimension": "Delivery Excellence",
       "criterion": "Learning & improvement",
-      "role": "Delivery lead",
+      "stakeholder": "Delivery lead",
       "question": "What changed after recent assumptions proved wrong, and what evidence shows learning?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 120"
+      "source": "S06 / Response bank / row 120",
+      "dimensionWeight": 15,
+      "criterionWeight": 20,
+      "minimum": "Teams adapt when assumptions fail and improve delivery over time.",
+      "criteriaSource": "S07 / Dimension scoring / row 28",
+      "role": "Delivery lead"
     },
     {
       "id": "Q25",
       "dimension": "Business Value Realisation",
       "criterion": "Benefits baseline",
-      "role": "Finance",
+      "stakeholder": "Finance",
       "question": "Which benefits are validated, which remain forecast or asserted, and against what baseline?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 125"
+      "source": "S06 / Response bank / row 125",
+      "dimensionWeight": 20,
+      "criterionWeight": 25,
+      "minimum": "Approved benefits case and baseline are clear and current.",
+      "criteriaSource": "S07 / Dimension scoring / row 29",
+      "role": "Finance"
     },
     {
       "id": "Q26",
       "dimension": "Business Value Realisation",
       "criterion": "Value evidence",
-      "role": "Business benefit owner",
+      "stakeholder": "Business benefit owner",
       "question": "What measurable value exists today and what portion is attributable to this investment?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 130"
+      "source": "S06 / Response bank / row 130",
+      "dimensionWeight": 20,
+      "criterionWeight": 35,
+      "minimum": "Realised financial, customer, productivity, revenue, cost or risk outcomes are evidenced.",
+      "criteriaSource": "S07 / Dimension scoring / row 30",
+      "role": "Business benefit owner"
     },
     {
       "id": "Q27",
       "dimension": "Business Value Realisation",
       "criterion": "Attribution & validation",
-      "role": "Operations / business",
+      "stakeholder": "Operations / business",
       "question": "Where is the organisation operating differently because of the delivered capability?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 135"
+      "source": "S06 / Response bank / row 135",
+      "dimensionWeight": 20,
+      "criterionWeight": 25,
+      "minimum": "Material benefits are attributable to the investment and validated where relevant.",
+      "criteriaSource": "S07 / Dimension scoring / row 31",
+      "role": "Operations / business"
     },
     {
       "id": "Q28",
       "dimension": "Business Value Realisation",
       "criterion": "Sustained ownership",
-      "role": "Business benefit owner",
+      "stakeholder": "Business benefit owner",
       "question": "Who owns benefits after the programme ends, and how will value continue to be measured?",
-      "source": "TCI_Response_Bank_Pilot.xlsx / Response bank / row 140"
+      "source": "S06 / Response bank / row 140",
+      "dimensionWeight": 20,
+      "criterionWeight": 15,
+      "minimum": "Named business owners remain accountable for benefits after programme delivery.",
+      "criteriaSource": "S07 / Dimension scoring / row 32",
+      "role": "Business benefit owner"
+    }
+  ],
+  "mappings": [
+    {
+      "criterion": "Q01",
+      "evidence": "SA-01",
+      "relationship": "Proposed primary",
+      "rationale": "Confirm link to enterprise strategy; test strategy linkage.",
+      "criterionSource": "S07 / Dimension scoring / row 5",
+      "evidenceSource": "S05 / Evidence Request List / row 2",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q01",
+      "evidence": "SA-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate benefits and investment rationale; test strategy linkage.",
+      "criterionSource": "S07 / Dimension scoring / row 5",
+      "evidenceSource": "S05 / Evidence Request List / row 3",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q01",
+      "evidence": "SA-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess sequencing and strategic focus; test strategy linkage.",
+      "criterionSource": "S07 / Dimension scoring / row 5",
+      "evidenceSource": "S05 / Evidence Request List / row 4",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q02",
+      "evidence": "SA-02",
+      "relationship": "Proposed primary",
+      "rationale": "Validate benefits and investment rationale; test investment thesis.",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "evidenceSource": "S05 / Evidence Request List / row 3",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q02",
+      "evidence": "SA-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess sequencing and strategic focus; test investment thesis.",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "evidenceSource": "S05 / Evidence Request List / row 4",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q02",
+      "evidence": "SA-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Confirm link to enterprise strategy; test investment thesis.",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "evidenceSource": "S05 / Evidence Request List / row 2",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q02",
+      "evidence": "SA-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Reconcile funded outcomes to current targets and measures; test investment thesis.",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "evidenceSource": "S03 / Strategic Alignment; S07 / Outcome clarity",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q03",
+      "evidence": "SA-04",
+      "relationship": "Proposed primary",
+      "rationale": "Reconcile funded outcomes to current targets and measures; test outcome clarity.",
+      "criterionSource": "S07 / Dimension scoring / row 6",
+      "evidenceSource": "S03 / Strategic Alignment; S07 / Outcome clarity",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q03",
+      "evidence": "SA-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate benefits and investment rationale; test outcome clarity.",
+      "criterionSource": "S07 / Dimension scoring / row 6",
+      "evidenceSource": "S05 / Evidence Request List / row 3",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q03",
+      "evidence": "BV-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate measurable value ownership; test outcome clarity.",
+      "criterionSource": "S07 / Dimension scoring / row 6",
+      "evidenceSource": "S05 / Evidence Request List / row 20",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q04",
+      "evidence": "BV-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate measurable value ownership; test benefits ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 8",
+      "evidenceSource": "S05 / Evidence Request List / row 20",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q04",
+      "evidence": "BV-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test ongoing ownership and sustainability of realised value; test benefits ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 8",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Sustained ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q04",
+      "evidence": "LC-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Establish sponsor, outcome ownership and escalation authority; test benefits ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 8",
+      "evidenceSource": "S03 / Leadership Commitment; S07 / Executive ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q05",
+      "evidence": "LC-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate active leadership decisions; test decision effectiveness.",
+      "criterionSource": "S07 / Dimension scoring / row 10",
+      "evidenceSource": "S05 / Evidence Request List / row 5",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q05",
+      "evidence": "LC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess decision velocity and accountability; test decision effectiveness.",
+      "criterionSource": "S07 / Dimension scoring / row 10",
+      "evidenceSource": "S05 / Evidence Request List / row 6",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q05",
+      "evidence": "DE-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess delivery constraints; test decision effectiveness.",
+      "criterionSource": "S07 / Dimension scoring / row 10",
+      "evidenceSource": "S05 / Evidence Request List / row 18",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q06",
+      "evidence": "DE-02",
+      "relationship": "Proposed primary",
+      "rationale": "Assess delivery constraints; test constraint removal.",
+      "criterionSource": "S07 / Dimension scoring / row 11",
+      "evidenceSource": "S05 / Evidence Request List / row 18",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q06",
+      "evidence": "LC-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate active leadership decisions; test constraint removal.",
+      "criterionSource": "S07 / Dimension scoring / row 11",
+      "evidenceSource": "S05 / Evidence Request List / row 5",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q06",
+      "evidence": "LC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess decision velocity and accountability; test constraint removal.",
+      "criterionSource": "S07 / Dimension scoring / row 11",
+      "evidenceSource": "S05 / Evidence Request List / row 6",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q07",
+      "evidence": "LC-04",
+      "relationship": "Proposed primary",
+      "rationale": "Establish sponsor, outcome ownership and escalation authority; test executive ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 9",
+      "evidenceSource": "S03 / Leadership Commitment; S07 / Executive ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q07",
+      "evidence": "LC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess decision velocity and accountability; test executive ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 9",
+      "evidenceSource": "S05 / Evidence Request List / row 6",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q07",
+      "evidence": "BV-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test ongoing ownership and sustainability of realised value; test executive ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 9",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Sustained ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q08",
+      "evidence": "LC-02",
+      "relationship": "Proposed primary",
+      "rationale": "Assess decision velocity and accountability; test governance behaviour.",
+      "criterionSource": "S07 / Dimension scoring / row 12",
+      "evidenceSource": "S05 / Evidence Request List / row 6",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q08",
+      "evidence": "LC-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate active leadership decisions; test governance behaviour.",
+      "criterionSource": "S07 / Dimension scoring / row 12",
+      "evidenceSource": "S05 / Evidence Request List / row 5",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q08",
+      "evidence": "LC-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Confirm consistent strategic intent; test governance behaviour.",
+      "criterionSource": "S07 / Dimension scoring / row 12",
+      "evidenceSource": "S05 / Evidence Request List / row 7",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q09",
+      "evidence": "TR-04",
+      "relationship": "Proposed primary",
+      "rationale": "Test architecture against required operating conditions; test architecture & scale.",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Architecture & scale, Resilience & security",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q09",
+      "evidence": "TR-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate future-state technology direction; test architecture & scale.",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "evidenceSource": "S05 / Evidence Request List / row 8",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q09",
+      "evidence": "TR-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess stability and control; test architecture & scale.",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "evidenceSource": "S05 / Evidence Request List / row 10",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q09",
+      "evidence": "TR-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess technology risk and remediation; test architecture & scale.",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "evidenceSource": "S05 / Evidence Request List / row 9",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q10",
+      "evidence": "TR-03",
+      "relationship": "Proposed primary",
+      "rationale": "Assess stability and control; test resilience & security.",
+      "criterionSource": "S07 / Dimension scoring / row 14",
+      "evidenceSource": "S05 / Evidence Request List / row 10",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q10",
+      "evidence": "TR-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test architecture against required operating conditions; test resilience & security.",
+      "criterionSource": "S07 / Dimension scoring / row 14",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Architecture & scale, Resilience & security",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q10",
+      "evidence": "DE-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess engineering discipline; test resilience & security.",
+      "criterionSource": "S07 / Dimension scoring / row 14",
+      "evidenceSource": "S05 / Evidence Request List / row 19",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q11",
+      "evidence": "TR-05",
+      "relationship": "Proposed primary",
+      "rationale": "Verify automation, deployment capability and cost exposure; test engineering capability.",
+      "criterionSource": "S07 / Dimension scoring / row 15",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Engineering capability, Cost & technical debt",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q11",
+      "evidence": "DE-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess engineering discipline; test engineering capability.",
+      "criterionSource": "S07 / Dimension scoring / row 15",
+      "evidenceSource": "S05 / Evidence Request List / row 19",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q11",
+      "evidence": "DE-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate predictability and flow; test engineering capability.",
+      "criterionSource": "S07 / Dimension scoring / row 15",
+      "evidenceSource": "S05 / Evidence Request List / row 17",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q12",
+      "evidence": "TR-02",
+      "relationship": "Proposed primary",
+      "rationale": "Assess technology risk and remediation; test cost & technical debt.",
+      "criterionSource": "S07 / Dimension scoring / row 16",
+      "evidenceSource": "S05 / Evidence Request List / row 9",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q12",
+      "evidence": "TR-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Verify automation, deployment capability and cost exposure; test cost & technical debt.",
+      "criterionSource": "S07 / Dimension scoring / row 16",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Engineering capability, Cost & technical debt",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q12",
+      "evidence": "SA-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate benefits and investment rationale; test cost & technical debt.",
+      "criterionSource": "S07 / Dimension scoring / row 16",
+      "evidenceSource": "S05 / Evidence Request List / row 3",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q13",
+      "evidence": "PC-04",
+      "relationship": "Proposed primary",
+      "rationale": "Verify real operational uptake, not training completion alone; test adoption.",
+      "criterionSource": "S07 / Dimension scoring / row 17",
+      "evidenceSource": "S03 / People & Culture; S07 / Adoption",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q13",
+      "evidence": "PC-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess behavioural change readiness; test adoption.",
+      "criterionSource": "S07 / Dimension scoring / row 17",
+      "evidenceSource": "S05 / Evidence Request List / row 11",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q13",
+      "evidence": "BV-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess impact beyond delivery; test adoption.",
+      "criterionSource": "S07 / Dimension scoring / row 17",
+      "evidenceSource": "S05 / Evidence Request List / row 22",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q14",
+      "evidence": "PC-02",
+      "relationship": "Proposed primary",
+      "rationale": "Validate people readiness; test skills & capacity.",
+      "criterionSource": "S07 / Dimension scoring / row 18",
+      "evidenceSource": "S05 / Evidence Request List / row 12",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q14",
+      "evidence": "PC-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test accountability and sustainable new ways of working; test skills & capacity.",
+      "criterionSource": "S07 / Dimension scoring / row 18",
+      "evidenceSource": "S03 / People & Culture; S07 / Roles & decision rights",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q14",
+      "evidence": "PC-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess cultural signals; test skills & capacity.",
+      "criterionSource": "S07 / Dimension scoring / row 18",
+      "evidenceSource": "S05 / Evidence Request List / row 13",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q15",
+      "evidence": "PC-05",
+      "relationship": "Proposed primary",
+      "rationale": "Test accountability and sustainable new ways of working; test roles & decision rights.",
+      "criterionSource": "S07 / Dimension scoring / row 19",
+      "evidenceSource": "S03 / People & Culture; S07 / Roles & decision rights",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q15",
+      "evidence": "LC-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Establish sponsor, outcome ownership and escalation authority; test roles & decision rights.",
+      "criterionSource": "S07 / Dimension scoring / row 19",
+      "evidenceSource": "S03 / Leadership Commitment; S07 / Executive ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q15",
+      "evidence": "PC-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess behavioural change readiness; test roles & decision rights.",
+      "criterionSource": "S07 / Dimension scoring / row 19",
+      "evidenceSource": "S05 / Evidence Request List / row 11",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q16",
+      "evidence": "PC-04",
+      "relationship": "Proposed primary",
+      "rationale": "Verify real operational uptake, not training completion alone; test behaviour & sustainability.",
+      "criterionSource": "S07 / Dimension scoring / row 20",
+      "evidenceSource": "S03 / People & Culture; S07 / Adoption",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q16",
+      "evidence": "PC-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test accountability and sustainable new ways of working; test behaviour & sustainability.",
+      "criterionSource": "S07 / Dimension scoring / row 20",
+      "evidenceSource": "S03 / People & Culture; S07 / Roles & decision rights",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q16",
+      "evidence": "PC-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess cultural signals; test behaviour & sustainability.",
+      "criterionSource": "S07 / Dimension scoring / row 20",
+      "evidenceSource": "S05 / Evidence Request List / row 13",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q17",
+      "evidence": "DC-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate ownership and controls; test ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 21",
+      "evidenceSource": "S05 / Evidence Request List / row 14",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q17",
+      "evidence": "DC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess data quality focus; test ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 21",
+      "evidenceSource": "S05 / Evidence Request List / row 15",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q17",
+      "evidence": "DC-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test actual data quality, remediation and decision impact; test ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 21",
+      "evidenceSource": "S03 / Data Confidence; S07 / Quality",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q18",
+      "evidence": "DC-04",
+      "relationship": "Proposed primary",
+      "rationale": "Test actual data quality, remediation and decision impact; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 22",
+      "evidenceSource": "S03 / Data Confidence; S07 / Quality",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q18",
+      "evidence": "DC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess data quality focus; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 22",
+      "evidenceSource": "S05 / Evidence Request List / row 15",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q18",
+      "evidence": "DE-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess delivery constraints; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 22",
+      "evidenceSource": "S05 / Evidence Request List / row 18",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q19",
+      "evidence": "DC-03",
+      "relationship": "Proposed primary",
+      "rationale": "Assess trust and traceability; test lineage & definitions.",
+      "criterionSource": "S07 / Dimension scoring / row 23",
+      "evidenceSource": "S05 / Evidence Request List / row 16",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q19",
+      "evidence": "DC-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess data quality focus; test lineage & definitions.",
+      "criterionSource": "S07 / Dimension scoring / row 23",
+      "evidenceSource": "S05 / Evidence Request List / row 15",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q19",
+      "evidence": "SA-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Reconcile funded outcomes to current targets and measures; test lineage & definitions.",
+      "criterionSource": "S07 / Dimension scoring / row 23",
+      "evidenceSource": "S03 / Strategic Alignment; S07 / Outcome clarity",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q20",
+      "evidence": "DC-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate ownership and controls; test governance & access.",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "evidenceSource": "S05 / Evidence Request List / row 14",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q20",
+      "evidence": "DC-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess trust and traceability; test governance & access.",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "evidenceSource": "S05 / Evidence Request List / row 16",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q20",
+      "evidence": "TR-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test architecture against required operating conditions; test governance & access.",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Architecture & scale, Resilience & security",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q20",
+      "evidence": "DC-05",
+      "relationship": "Conditional (AI in scope)",
+      "rationale": "Where AI is in scope, test fitness for intended use and material controls; test governance & access.",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "evidenceSource": "S01 / AI investment scope; S03 / Data Confidence; MD-007",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q21",
+      "evidence": "DE-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate predictability and flow; test predictability & flow.",
+      "criterionSource": "S07 / Dimension scoring / row 25",
+      "evidenceSource": "S05 / Evidence Request List / row 17",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q21",
+      "evidence": "DE-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess delivery constraints; test predictability & flow.",
+      "criterionSource": "S07 / Dimension scoring / row 25",
+      "evidenceSource": "S05 / Evidence Request List / row 18",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q21",
+      "evidence": "SA-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess sequencing and strategic focus; test predictability & flow.",
+      "criterionSource": "S07 / Dimension scoring / row 25",
+      "evidenceSource": "S05 / Evidence Request List / row 4",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q22",
+      "evidence": "DE-03",
+      "relationship": "Proposed primary",
+      "rationale": "Assess engineering discipline; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 26",
+      "evidenceSource": "S05 / Evidence Request List / row 19",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q22",
+      "evidence": "TR-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess stability and control; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 26",
+      "evidenceSource": "S05 / Evidence Request List / row 10",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q22",
+      "evidence": "TR-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Verify automation, deployment capability and cost exposure; test quality.",
+      "criterionSource": "S07 / Dimension scoring / row 26",
+      "evidenceSource": "S03 / Technology Readiness; S07 / Engineering capability, Cost & technical debt",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q23",
+      "evidence": "DE-02",
+      "relationship": "Proposed primary",
+      "rationale": "Assess delivery constraints; test dependencies & risk.",
+      "criterionSource": "S07 / Dimension scoring / row 27",
+      "evidenceSource": "S05 / Evidence Request List / row 18",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q23",
+      "evidence": "DE-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate predictability and flow; test dependencies & risk.",
+      "criterionSource": "S07 / Dimension scoring / row 27",
+      "evidenceSource": "S05 / Evidence Request List / row 17",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q23",
+      "evidence": "TR-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess technology risk and remediation; test dependencies & risk.",
+      "criterionSource": "S07 / Dimension scoring / row 27",
+      "evidenceSource": "S05 / Evidence Request List / row 9",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q24",
+      "evidence": "DE-04",
+      "relationship": "Proposed primary",
+      "rationale": "Test whether lessons result in observable improvement; test learning & improvement.",
+      "criterionSource": "S07 / Dimension scoring / row 28",
+      "evidenceSource": "S03 / Delivery Excellence; S07 / Learning & improvement",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q24",
+      "evidence": "DE-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate predictability and flow; test learning & improvement.",
+      "criterionSource": "S07 / Dimension scoring / row 28",
+      "evidenceSource": "S05 / Evidence Request List / row 17",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q24",
+      "evidence": "DE-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess engineering discipline; test learning & improvement.",
+      "criterionSource": "S07 / Dimension scoring / row 28",
+      "evidenceSource": "S05 / Evidence Request List / row 19",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q25",
+      "evidence": "BV-01",
+      "relationship": "Proposed primary",
+      "rationale": "Validate measurable value ownership; test benefits baseline.",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "evidenceSource": "S05 / Evidence Request List / row 20",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q25",
+      "evidence": "SA-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate benefits and investment rationale; test benefits baseline.",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "evidenceSource": "S05 / Evidence Request List / row 3",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q25",
+      "evidence": "BV-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Reconcile realised, forecast and asserted benefits against approval; test benefits baseline.",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Attribution & validation; S10 / Executive judgement",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q25",
+      "evidence": "SA-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Reconcile funded outcomes to current targets and measures; test benefits baseline.",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "evidenceSource": "S03 / Strategic Alignment; S07 / Outcome clarity",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q26",
+      "evidence": "BV-02",
+      "relationship": "Proposed primary",
+      "rationale": "Assess realised value; test value evidence.",
+      "criterionSource": "S07 / Dimension scoring / row 30",
+      "evidenceSource": "S05 / Evidence Request List / row 21",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q26",
+      "evidence": "BV-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess impact beyond delivery; test value evidence.",
+      "criterionSource": "S07 / Dimension scoring / row 30",
+      "evidenceSource": "S05 / Evidence Request List / row 22",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q26",
+      "evidence": "BV-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Reconcile realised, forecast and asserted benefits against approval; test value evidence.",
+      "criterionSource": "S07 / Dimension scoring / row 30",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Attribution & validation; S10 / Executive judgement",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q27",
+      "evidence": "BV-04",
+      "relationship": "Proposed primary",
+      "rationale": "Reconcile realised, forecast and asserted benefits against approval; test attribution & validation.",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Attribution & validation; S10 / Executive judgement",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q27",
+      "evidence": "BV-02",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess realised value; test attribution & validation.",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "evidenceSource": "S05 / Evidence Request List / row 21",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q27",
+      "evidence": "PC-04",
+      "relationship": "Proposed supplementary",
+      "rationale": "Verify real operational uptake, not training completion alone; test attribution & validation.",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "evidenceSource": "S03 / People & Culture; S07 / Adoption",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q27",
+      "evidence": "BV-03",
+      "relationship": "Proposed supplementary",
+      "rationale": "Assess impact beyond delivery; test attribution & validation.",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "evidenceSource": "S05 / Evidence Request List / row 22",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q28",
+      "evidence": "BV-05",
+      "relationship": "Proposed primary",
+      "rationale": "Test ongoing ownership and sustainability of realised value; test sustained ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 32",
+      "evidenceSource": "S03 / Business Value Realisation; S07 / Sustained ownership",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q28",
+      "evidence": "BV-01",
+      "relationship": "Proposed supplementary",
+      "rationale": "Validate measurable value ownership; test sustained ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 32",
+      "evidenceSource": "S05 / Evidence Request List / row 20",
+      "status": "Reconstructed; not approved"
+    },
+    {
+      "criterion": "Q28",
+      "evidence": "PC-05",
+      "relationship": "Proposed supplementary",
+      "rationale": "Test accountability and sustainable new ways of working; test sustained ownership.",
+      "criterionSource": "S07 / Dimension scoring / row 32",
+      "evidenceSource": "S03 / People & Culture; S07 / Roles & decision rights",
+      "status": "Reconstructed; not approved"
     }
   ]
 }

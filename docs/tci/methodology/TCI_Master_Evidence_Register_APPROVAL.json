@@ -1,0 +1,12 @@
+{
+  "recordId": "TCI-MER-APR-002",
+  "status": "approved",
+  "approvedOn": "2026-11-26",
+  "approvedBy": "Project owner",
+  "decision": "User explicitly replied approved to v1.0-reconstructed-rc.1 review request.",
+  "scope": "Register candidate, including the 32 catalogue items, 89 mappings and draft validation rules as a working methodology baseline. Separate final validation specification, pilot calibration, security and release approvals remain outstanding.",
+  "version": "1.0-reconstructed-rc.1",
+  "commit": "029bd58c280908e39e0e378a554f0818fe60bafd",
+  "xlsxSha256": "fe6fe6f76feda4184976a528c8a78bc51c39e782e4261cffec71731de8c64767",
+  "jsonSha256": "f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559"
+}
