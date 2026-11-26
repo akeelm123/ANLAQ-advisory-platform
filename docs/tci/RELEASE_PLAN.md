@@ -5,6 +5,7 @@ Releases are capability gates, not calendar promises. Only mark released when th
 
 | Release | Capability | Acceptance gate | Status |
 |---|---|---|---|
+| v0.1.0-alpha | Manual evidence workbench | Synthetic workflow and control tests | Implemented; formative review pending |
 | v0.1 | Evidence collection | Evidence coverage and usability | Proposed |
 | v0.2 | Evidence intelligence | Extraction accuracy | Proposed |
 | v0.3 | Intelligent interviews | Interview quality | Proposed |
@@ -32,3 +33,5 @@ Releases are capability gates, not calendar promises. Only mark released when th
 - **v1.0:** security, auditability, support and explicit final release approval.
 
 The 7 dimensions are Strategic Alignment; Leadership Commitment; Technology Readiness; People & Culture; Data & AI Confidence; Delivery Excellence; Business Value Realisation. Canonical scoring weights are 15%, 10%, 15%, 10%, 15%, 15% and 20%, respectively. They are methodology baselines—not verified deployed code.
+
+[Detailed alpha release plan and gates](../../prototypes/tci-evidence-workbench/RELEASE_PLAN.md). Scoring and release remain locked.
