@@ -1,1 +1,1 @@
-PASS: synthetic contributor, assessor, reviewer and owner browser journey; catalogue, request, source upload, quarantine, evidence linkage, independent review, locked release, logout, mobile width; no page errors.
+PASS: synthetic contributor, assessor, reviewer and owner browser journey; catalogue, request, source upload, quarantine, evidence linkage, exact-citation draft extraction, independent extraction and finding review, locked release, logout, mobile width; no page errors.

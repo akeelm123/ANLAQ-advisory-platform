@@ -136,4 +136,17 @@ class DataPlaneTest(unittest.TestCase):
         p=Path(self.tmp.name)/"changed.json";p.write_text("{}")
         with self.assertRaises(Invalid):DataPlane(":memory:",self.key,self.audit_key,p,SPEC)
 
+    def test20_extraction_encrypted_immutable_and_scoped(self):
+        import json
+        fixture=json.loads((HERE/"golden-fixtures.json").read_text())["fixtures"][0]
+        raw=fixture["text"].encode();v=self.dp.upload(self.t("contributor"),self.a,"Synthetic extraction source","sample.txt",raw,intake={"criterion":"Q01","requestId":"SA-01","sourceOwner":"Synthetic","period":"FY26","sourceVersion":"1","locator":"line 1"})
+        self.dp.inspect_quarantine(self.t("assessor"),self.a,v["versionId"]);self.dp.screen(self.t("assessor"),self.a,v["versionId"],"accepted","Synthetic")
+        run=self.dp.run_extraction(self.t("assessor"),self.a,v["versionId"],"Q01")
+        row=self.dp.db.execute("SELECT ciphertext FROM extraction_runs WHERE id=?",(run,)).fetchone()
+        self.assertNotIn(fixture["expected"][0]["value"].encode(),row["ciphertext"])
+        with self.assertRaises(Denied):self.dp.list_extractions(self.t("other"),self.a)
+        with self.assertRaises(sqlite3.IntegrityError):
+            with self.dp.db:self.dp.db.execute("UPDATE extraction_runs SET method='otherwise' WHERE id=?",(run,))
+        self.assertEqual(self.dp.list_extractions(self.t("reviewer"),self.a)[0]["result"]["counts"]["present"],5)
+        self.assertTrue(self.dp.verify_audit())
 if __name__=="__main__":unittest.main(verbosity=2)

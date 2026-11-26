@@ -1,0 +1,1722 @@
+{
+  "version": "0.2.0-alpha.1",
+  "scope": "Fictional labelled UTF-8 text; not real documents or semantic extraction",
+  "fixtures": [
+    {
+      "criterionId": "Q01",
+      "requestId": "SA-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q01\nApproved strategy objective: Reduce fictional processing delay\noriginal problem: Manual fictional approval queues\nbusiness case scope: Synthetic intake workflow\nfunding decision date: 2026-01-10\ncurrent mandate and outcomes: Synthetic mandate: shorten processing time\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "approved_strategy_objective",
+          "value": "Reduce fictional processing delay",
+          "line": 3,
+          "startColumn": 30,
+          "endColumn": 62,
+          "excerpt": "Approved strategy objective: Reduce fictional processing delay"
+        },
+        {
+          "key": "original_problem",
+          "value": "Manual fictional approval queues",
+          "line": 4,
+          "startColumn": 19,
+          "endColumn": 50,
+          "excerpt": "original problem: Manual fictional approval queues"
+        },
+        {
+          "key": "business_case_scope",
+          "value": "Synthetic intake workflow",
+          "line": 5,
+          "startColumn": 22,
+          "endColumn": 46,
+          "excerpt": "business case scope: Synthetic intake workflow"
+        },
+        {
+          "key": "funding_decision_date",
+          "value": "2026-01-10",
+          "line": 6,
+          "startColumn": 24,
+          "endColumn": 33,
+          "excerpt": "funding decision date: 2026-01-10"
+        },
+        {
+          "key": "current_mandate_and_outcomes",
+          "value": "Synthetic mandate: shorten processing time",
+          "line": 7,
+          "startColumn": 31,
+          "endColumn": 72,
+          "excerpt": "current mandate and outcomes: Synthetic mandate: shorten processing time"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q02",
+      "requestId": "SA-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q02\nOriginal and current approved scope: Original 2 workflows; revised 3 workflows\ninvestment amount: SGD 120000 synthetic investment\ncost basis: Nominal SGD, FY26\ndates: 2026-01-10; 2026-04-04\nassumptions: 20 synthetic cases per month\nchange approvals: Synthetic change approval CH-01\nrevised priorities: Prioritise intake before reporting\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "original_and_current_approved_scope",
+          "value": "Original 2 workflows; revised 3 workflows",
+          "line": 3,
+          "startColumn": 38,
+          "endColumn": 78,
+          "excerpt": "Original and current approved scope: Original 2 workflows; revised 3 workflows"
+        },
+        {
+          "key": "investment_amount",
+          "value": "SGD 120000 synthetic investment",
+          "line": 4,
+          "startColumn": 20,
+          "endColumn": 50,
+          "excerpt": "investment amount: SGD 120000 synthetic investment"
+        },
+        {
+          "key": "cost_basis",
+          "value": "Nominal SGD, FY26",
+          "line": 5,
+          "startColumn": 13,
+          "endColumn": 29,
+          "excerpt": "cost basis: Nominal SGD, FY26"
+        },
+        {
+          "key": "dates",
+          "value": "2026-01-10; 2026-04-04",
+          "line": 6,
+          "startColumn": 8,
+          "endColumn": 29,
+          "excerpt": "dates: 2026-01-10; 2026-04-04"
+        },
+        {
+          "key": "assumptions",
+          "value": "20 synthetic cases per month",
+          "line": 7,
+          "startColumn": 14,
+          "endColumn": 41,
+          "excerpt": "assumptions: 20 synthetic cases per month"
+        },
+        {
+          "key": "change_approvals",
+          "value": "Synthetic change approval CH-01",
+          "line": 8,
+          "startColumn": 19,
+          "endColumn": 49,
+          "excerpt": "change approvals: Synthetic change approval CH-01"
+        },
+        {
+          "key": "revised_priorities",
+          "value": "Prioritise intake before reporting",
+          "line": 9,
+          "startColumn": 21,
+          "endColumn": 54,
+          "excerpt": "revised priorities: Prioritise intake before reporting"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q03",
+      "requestId": "SA-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q03\nOutcome identifier: OUT-SYN-01\nbaseline: 10 fictional days\ntarget: 5 fictional days\nactual measure: 6 fictional days\nunit: calendar days\nperiod: FY26 Q2\ndata owner and accountable outcome owner: Synthetic data owner; synthetic outcome owner\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "outcome_identifier",
+          "value": "OUT-SYN-01",
+          "line": 3,
+          "startColumn": 21,
+          "endColumn": 30,
+          "excerpt": "Outcome identifier: OUT-SYN-01"
+        },
+        {
+          "key": "baseline",
+          "value": "10 fictional days",
+          "line": 4,
+          "startColumn": 11,
+          "endColumn": 27,
+          "excerpt": "baseline: 10 fictional days"
+        },
+        {
+          "key": "target",
+          "value": "5 fictional days",
+          "line": 5,
+          "startColumn": 9,
+          "endColumn": 24,
+          "excerpt": "target: 5 fictional days"
+        },
+        {
+          "key": "actual_measure",
+          "value": "6 fictional days",
+          "line": 6,
+          "startColumn": 17,
+          "endColumn": 32,
+          "excerpt": "actual measure: 6 fictional days"
+        },
+        {
+          "key": "unit",
+          "value": "calendar days",
+          "line": 7,
+          "startColumn": 7,
+          "endColumn": 19,
+          "excerpt": "unit: calendar days"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 8,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "data_owner_and_accountable_outcome_owner",
+          "value": "Synthetic data owner; synthetic outcome owner",
+          "line": 9,
+          "startColumn": 43,
+          "endColumn": 87,
+          "excerpt": "data owner and accountable outcome owner: Synthetic data owner; synthetic outcome owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q04",
+      "requestId": "BV-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q04\nBenefit ID: BEN-SYN-01\naccountable business owner: Synthetic business owner\nacceptance: Owner accepted responsibility in mock record\nbenefit target: 5 fictional days saved\nescalation/stop conditions: Reassess if agreed outcome is not supported\npost-delivery owner: Synthetic operations owner\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "line": 3,
+          "startColumn": 13,
+          "endColumn": 22,
+          "excerpt": "Benefit ID: BEN-SYN-01"
+        },
+        {
+          "key": "accountable_business_owner",
+          "value": "Synthetic business owner",
+          "line": 4,
+          "startColumn": 29,
+          "endColumn": 52,
+          "excerpt": "accountable business owner: Synthetic business owner"
+        },
+        {
+          "key": "acceptance",
+          "value": "Owner accepted responsibility in mock record",
+          "line": 5,
+          "startColumn": 13,
+          "endColumn": 56,
+          "excerpt": "acceptance: Owner accepted responsibility in mock record"
+        },
+        {
+          "key": "benefit_target",
+          "value": "5 fictional days saved",
+          "line": 6,
+          "startColumn": 17,
+          "endColumn": 38,
+          "excerpt": "benefit target: 5 fictional days saved"
+        },
+        {
+          "key": "escalation_stop_conditions",
+          "value": "Reassess if agreed outcome is not supported",
+          "line": 7,
+          "startColumn": 29,
+          "endColumn": 71,
+          "excerpt": "escalation/stop conditions: Reassess if agreed outcome is not supported"
+        },
+        {
+          "key": "post_delivery_owner",
+          "value": "Synthetic operations owner",
+          "line": 8,
+          "startColumn": 22,
+          "endColumn": 47,
+          "excerpt": "post-delivery owner: Synthetic operations owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q05\nDecision ID: DEC-SYN-01\nmateriality: Decision-critical to fictional scope\nraised date: 2026-03-01\nrequired-by date: 2026-03-10\nactual decision date: 2026-03-09\nowner: Synthetic sponsor\ndecision and rationale: Approve fictional scope with documented rationale\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "decision_id",
+          "value": "DEC-SYN-01",
+          "line": 3,
+          "startColumn": 14,
+          "endColumn": 23,
+          "excerpt": "Decision ID: DEC-SYN-01"
+        },
+        {
+          "key": "materiality",
+          "value": "Decision-critical to fictional scope",
+          "line": 4,
+          "startColumn": 14,
+          "endColumn": 49,
+          "excerpt": "materiality: Decision-critical to fictional scope"
+        },
+        {
+          "key": "raised_date",
+          "value": "2026-03-01",
+          "line": 5,
+          "startColumn": 14,
+          "endColumn": 23,
+          "excerpt": "raised date: 2026-03-01"
+        },
+        {
+          "key": "required_by_date",
+          "value": "2026-03-10",
+          "line": 6,
+          "startColumn": 19,
+          "endColumn": 28,
+          "excerpt": "required-by date: 2026-03-10"
+        },
+        {
+          "key": "actual_decision_date",
+          "value": "2026-03-09",
+          "line": 7,
+          "startColumn": 23,
+          "endColumn": 32,
+          "excerpt": "actual decision date: 2026-03-09"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic sponsor",
+          "line": 8,
+          "startColumn": 8,
+          "endColumn": 24,
+          "excerpt": "owner: Synthetic sponsor"
+        },
+        {
+          "key": "decision_and_rationale",
+          "value": "Approve fictional scope with documented rationale",
+          "line": 9,
+          "startColumn": 25,
+          "endColumn": 73,
+          "excerpt": "decision and rationale: Approve fictional scope with documented rationale"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q06",
+      "requestId": "DE-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q06\nEscalation ID: ESC-SYN-01\nblocker: Synthetic capacity constraint\nimpact: Fictional milestone affected\naccountable leader: Synthetic delivery sponsor\ndate raised: 2026-02-01\naction: Allocate fictional specialist\nclosure evidence: Mock closure record CL-01\nresource commitment: Two fictional resource days\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "escalation_id",
+          "value": "ESC-SYN-01",
+          "line": 3,
+          "startColumn": 16,
+          "endColumn": 25,
+          "excerpt": "Escalation ID: ESC-SYN-01"
+        },
+        {
+          "key": "blocker",
+          "value": "Synthetic capacity constraint",
+          "line": 4,
+          "startColumn": 10,
+          "endColumn": 38,
+          "excerpt": "blocker: Synthetic capacity constraint"
+        },
+        {
+          "key": "impact",
+          "value": "Fictional milestone affected",
+          "line": 5,
+          "startColumn": 9,
+          "endColumn": 36,
+          "excerpt": "impact: Fictional milestone affected"
+        },
+        {
+          "key": "accountable_leader",
+          "value": "Synthetic delivery sponsor",
+          "line": 6,
+          "startColumn": 21,
+          "endColumn": 46,
+          "excerpt": "accountable leader: Synthetic delivery sponsor"
+        },
+        {
+          "key": "date_raised",
+          "value": "2026-02-01",
+          "line": 7,
+          "startColumn": 14,
+          "endColumn": 23,
+          "excerpt": "date raised: 2026-02-01"
+        },
+        {
+          "key": "action",
+          "value": "Allocate fictional specialist",
+          "line": 8,
+          "startColumn": 9,
+          "endColumn": 37,
+          "excerpt": "action: Allocate fictional specialist"
+        },
+        {
+          "key": "closure_evidence",
+          "value": "Mock closure record CL-01",
+          "line": 9,
+          "startColumn": 19,
+          "endColumn": 43,
+          "excerpt": "closure evidence: Mock closure record CL-01"
+        },
+        {
+          "key": "resource_commitment",
+          "value": "Two fictional resource days",
+          "line": 10,
+          "startColumn": 22,
+          "endColumn": 48,
+          "excerpt": "resource commitment: Two fictional resource days"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q07",
+      "requestId": "LC-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q07\nSponsor: Synthetic sponsor\noutcome owners: Synthetic outcome owner\nbusiness/technology responsibilities: Synthetic business and technology responsibilities\nsigned delegations: Mock delegated authority D-01\nhandover: Synthetic handover H-01\nexceptions: No fictional exceptions recorded\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "sponsor",
+          "value": "Synthetic sponsor",
+          "line": 3,
+          "startColumn": 10,
+          "endColumn": 26,
+          "excerpt": "Sponsor: Synthetic sponsor"
+        },
+        {
+          "key": "outcome_owners",
+          "value": "Synthetic outcome owner",
+          "line": 4,
+          "startColumn": 17,
+          "endColumn": 39,
+          "excerpt": "outcome owners: Synthetic outcome owner"
+        },
+        {
+          "key": "business_technology_responsibilities",
+          "value": "Synthetic business and technology responsibilities",
+          "line": 5,
+          "startColumn": 39,
+          "endColumn": 88,
+          "excerpt": "business/technology responsibilities: Synthetic business and technology responsibilities"
+        },
+        {
+          "key": "signed_delegations",
+          "value": "Mock delegated authority D-01",
+          "line": 6,
+          "startColumn": 21,
+          "endColumn": 49,
+          "excerpt": "signed delegations: Mock delegated authority D-01"
+        },
+        {
+          "key": "handover",
+          "value": "Synthetic handover H-01",
+          "line": 7,
+          "startColumn": 11,
+          "endColumn": 33,
+          "excerpt": "handover: Synthetic handover H-01"
+        },
+        {
+          "key": "exceptions",
+          "value": "No fictional exceptions recorded",
+          "line": 8,
+          "startColumn": 13,
+          "endColumn": 44,
+          "excerpt": "exceptions: No fictional exceptions recorded"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q08",
+      "requestId": "LC-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q08\nGovernance meeting date: 2026-05-01\nwarning/indicator: Mock adoption warning\ndecision: Review fictional rollout\naction owner: Synthetic action owner\ndue date: 2026-05-15\nclosure/outcome: Mock closure record and observed result\ncommunication: Fictional steering note\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "governance_meeting_date",
+          "value": "2026-05-01",
+          "line": 3,
+          "startColumn": 26,
+          "endColumn": 35,
+          "excerpt": "Governance meeting date: 2026-05-01"
+        },
+        {
+          "key": "warning_indicator",
+          "value": "Mock adoption warning",
+          "line": 4,
+          "startColumn": 20,
+          "endColumn": 40,
+          "excerpt": "warning/indicator: Mock adoption warning"
+        },
+        {
+          "key": "decision",
+          "value": "Review fictional rollout",
+          "line": 5,
+          "startColumn": 11,
+          "endColumn": 34,
+          "excerpt": "decision: Review fictional rollout"
+        },
+        {
+          "key": "action_owner",
+          "value": "Synthetic action owner",
+          "line": 6,
+          "startColumn": 15,
+          "endColumn": 36,
+          "excerpt": "action owner: Synthetic action owner"
+        },
+        {
+          "key": "due_date",
+          "value": "2026-05-15",
+          "line": 7,
+          "startColumn": 11,
+          "endColumn": 20,
+          "excerpt": "due date: 2026-05-15"
+        },
+        {
+          "key": "closure_outcome",
+          "value": "Mock closure record and observed result",
+          "line": 8,
+          "startColumn": 18,
+          "endColumn": 56,
+          "excerpt": "closure/outcome: Mock closure record and observed result"
+        },
+        {
+          "key": "communication",
+          "value": "Fictional steering note",
+          "line": 9,
+          "startColumn": 16,
+          "endColumn": 38,
+          "excerpt": "communication: Fictional steering note"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q09",
+      "requestId": "TR-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q09\nIntended workload/scale: 100 fictional requests/minute\narchitecture version: Synthetic architecture v2\nrequired performance/security/recovery conditions: Mock agreed performance/security/recovery requirements\ntest results: Synthetic test report: 100 fictional requests/minute\nexceptions: One fictional exception recorded\ndependencies: Mock external integration\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "intended_workload_scale",
+          "value": "100 fictional requests/minute",
+          "line": 3,
+          "startColumn": 26,
+          "endColumn": 54,
+          "excerpt": "Intended workload/scale: 100 fictional requests/minute"
+        },
+        {
+          "key": "architecture_version",
+          "value": "Synthetic architecture v2",
+          "line": 4,
+          "startColumn": 23,
+          "endColumn": 47,
+          "excerpt": "architecture version: Synthetic architecture v2"
+        },
+        {
+          "key": "required_performance_security_recovery_conditions",
+          "value": "Mock agreed performance/security/recovery requirements",
+          "line": 5,
+          "startColumn": 52,
+          "endColumn": 105,
+          "excerpt": "required performance/security/recovery conditions: Mock agreed performance/security/recovery requirements"
+        },
+        {
+          "key": "test_results",
+          "value": "Synthetic test report: 100 fictional requests/minute",
+          "line": 6,
+          "startColumn": 15,
+          "endColumn": 66,
+          "excerpt": "test results: Synthetic test report: 100 fictional requests/minute"
+        },
+        {
+          "key": "exceptions",
+          "value": "One fictional exception recorded",
+          "line": 7,
+          "startColumn": 13,
+          "endColumn": 44,
+          "excerpt": "exceptions: One fictional exception recorded"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock external integration",
+          "line": 8,
+          "startColumn": 15,
+          "endColumn": 39,
+          "excerpt": "dependencies: Mock external integration"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q10",
+      "requestId": "TR-03",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q10\nReliability and incident metrics: Mock availability 99.0%; one incident\nperiod: FY26 Q2\nseverity: Synthetic minor incident\nrecovery objectives/results: Mock recovery target 60 min; result 45 min\nsecurity assurance: Synthetic control assurance report\nexceptions: One documented fictional exception\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "reliability_and_incident_metrics",
+          "value": "Mock availability 99.0%; one incident",
+          "line": 3,
+          "startColumn": 35,
+          "endColumn": 71,
+          "excerpt": "Reliability and incident metrics: Mock availability 99.0%; one incident"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 4,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "severity",
+          "value": "Synthetic minor incident",
+          "line": 5,
+          "startColumn": 11,
+          "endColumn": 34,
+          "excerpt": "severity: Synthetic minor incident"
+        },
+        {
+          "key": "recovery_objectives_results",
+          "value": "Mock recovery target 60 min; result 45 min",
+          "line": 6,
+          "startColumn": 30,
+          "endColumn": 71,
+          "excerpt": "recovery objectives/results: Mock recovery target 60 min; result 45 min"
+        },
+        {
+          "key": "security_assurance",
+          "value": "Synthetic control assurance report",
+          "line": 7,
+          "startColumn": 21,
+          "endColumn": 54,
+          "excerpt": "security assurance: Synthetic control assurance report"
+        },
+        {
+          "key": "exceptions",
+          "value": "One documented fictional exception",
+          "line": 8,
+          "startColumn": 13,
+          "endColumn": 46,
+          "excerpt": "exceptions: One documented fictional exception"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q11",
+      "requestId": "TR-05",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q11\nDeployment cadence: Two fictional releases/week\nlead time: 3 fictional days\nautomation coverage: Mock automation coverage 80%\nmanual interventions: One fictional manual intervention\nrelease outcomes: Two synthetic successful releases\nplatform adoption: 10 fictional platform users\ncost basis: Synthetic engineering cost basis\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "deployment_cadence",
+          "value": "Two fictional releases/week",
+          "line": 3,
+          "startColumn": 21,
+          "endColumn": 47,
+          "excerpt": "Deployment cadence: Two fictional releases/week"
+        },
+        {
+          "key": "lead_time",
+          "value": "3 fictional days",
+          "line": 4,
+          "startColumn": 12,
+          "endColumn": 27,
+          "excerpt": "lead time: 3 fictional days"
+        },
+        {
+          "key": "automation_coverage",
+          "value": "Mock automation coverage 80%",
+          "line": 5,
+          "startColumn": 22,
+          "endColumn": 49,
+          "excerpt": "automation coverage: Mock automation coverage 80%"
+        },
+        {
+          "key": "manual_interventions",
+          "value": "One fictional manual intervention",
+          "line": 6,
+          "startColumn": 23,
+          "endColumn": 55,
+          "excerpt": "manual interventions: One fictional manual intervention"
+        },
+        {
+          "key": "release_outcomes",
+          "value": "Two synthetic successful releases",
+          "line": 7,
+          "startColumn": 19,
+          "endColumn": 51,
+          "excerpt": "release outcomes: Two synthetic successful releases"
+        },
+        {
+          "key": "platform_adoption",
+          "value": "10 fictional platform users",
+          "line": 8,
+          "startColumn": 20,
+          "endColumn": 46,
+          "excerpt": "platform adoption: 10 fictional platform users"
+        },
+        {
+          "key": "cost_basis",
+          "value": "Synthetic engineering cost basis",
+          "line": 9,
+          "startColumn": 13,
+          "endColumn": 44,
+          "excerpt": "cost basis: Synthetic engineering cost basis"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q12",
+      "requestId": "TR-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q12\nTechnical debt item: DEBT-SYN-01\ndependency: Mock legacy dependency\naccountable owner: Synthetic technical owner\nrisk: Fictional cost exposure\nremediation: Mock remediation plan\noperating cost baseline/actual: SGD 1000 baseline / SGD 1100 actual\nbasis: Nominal SGD per month\nperiod: FY26 Q2\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "technical_debt_item",
+          "value": "DEBT-SYN-01",
+          "line": 3,
+          "startColumn": 22,
+          "endColumn": 32,
+          "excerpt": "Technical debt item: DEBT-SYN-01"
+        },
+        {
+          "key": "dependency",
+          "value": "Mock legacy dependency",
+          "line": 4,
+          "startColumn": 13,
+          "endColumn": 34,
+          "excerpt": "dependency: Mock legacy dependency"
+        },
+        {
+          "key": "accountable_owner",
+          "value": "Synthetic technical owner",
+          "line": 5,
+          "startColumn": 20,
+          "endColumn": 44,
+          "excerpt": "accountable owner: Synthetic technical owner"
+        },
+        {
+          "key": "risk",
+          "value": "Fictional cost exposure",
+          "line": 6,
+          "startColumn": 7,
+          "endColumn": 29,
+          "excerpt": "risk: Fictional cost exposure"
+        },
+        {
+          "key": "remediation",
+          "value": "Mock remediation plan",
+          "line": 7,
+          "startColumn": 14,
+          "endColumn": 34,
+          "excerpt": "remediation: Mock remediation plan"
+        },
+        {
+          "key": "operating_cost_baseline_actual",
+          "value": "SGD 1000 baseline / SGD 1100 actual",
+          "line": 8,
+          "startColumn": 33,
+          "endColumn": 67,
+          "excerpt": "operating cost baseline/actual: SGD 1000 baseline / SGD 1100 actual"
+        },
+        {
+          "key": "basis",
+          "value": "Nominal SGD per month",
+          "line": 9,
+          "startColumn": 8,
+          "endColumn": 28,
+          "excerpt": "basis: Nominal SGD per month"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 10,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q13\nTarget user/process population: Fictional operations workflow population\neligible denominator: 100 fictional eligible users\nactive users: 70 fictional active users\nusage definition: Mock completed target workflow within period\nperiod: FY26 Q2\nadoption target: 80 fictional users\nprocess evidence: Synthetic sampled workflow evidence\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "target_user_process_population",
+          "value": "Fictional operations workflow population",
+          "line": 3,
+          "startColumn": 33,
+          "endColumn": 72,
+          "excerpt": "Target user/process population: Fictional operations workflow population"
+        },
+        {
+          "key": "eligible_denominator",
+          "value": "100 fictional eligible users",
+          "line": 4,
+          "startColumn": 23,
+          "endColumn": 50,
+          "excerpt": "eligible denominator: 100 fictional eligible users"
+        },
+        {
+          "key": "active_users",
+          "value": "70 fictional active users",
+          "line": 5,
+          "startColumn": 15,
+          "endColumn": 39,
+          "excerpt": "active users: 70 fictional active users"
+        },
+        {
+          "key": "usage_definition",
+          "value": "Mock completed target workflow within period",
+          "line": 6,
+          "startColumn": 19,
+          "endColumn": 62,
+          "excerpt": "usage definition: Mock completed target workflow within period"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 7,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "adoption_target",
+          "value": "80 fictional users",
+          "line": 8,
+          "startColumn": 18,
+          "endColumn": 35,
+          "excerpt": "adoption target: 80 fictional users"
+        },
+        {
+          "key": "process_evidence",
+          "value": "Synthetic sampled workflow evidence",
+          "line": 9,
+          "startColumn": 19,
+          "endColumn": 53,
+          "excerpt": "process evidence: Synthetic sampled workflow evidence"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q14",
+      "requestId": "PC-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q14\nRequired roles and skill demand: Four fictional analyst roles\ncapacity baseline: Three fictional trained roles\ncurrent gap: One fictional role gap\nplan: Mock training and hiring plan\nfunding: SGD 1000 synthetic funding\neffectiveness evidence: Fictional observed capability check\nowner: Synthetic HR owner\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "required_roles_and_skill_demand",
+          "value": "Four fictional analyst roles",
+          "line": 3,
+          "startColumn": 34,
+          "endColumn": 61,
+          "excerpt": "Required roles and skill demand: Four fictional analyst roles"
+        },
+        {
+          "key": "capacity_baseline",
+          "value": "Three fictional trained roles",
+          "line": 4,
+          "startColumn": 20,
+          "endColumn": 48,
+          "excerpt": "capacity baseline: Three fictional trained roles"
+        },
+        {
+          "key": "current_gap",
+          "value": "One fictional role gap",
+          "line": 5,
+          "startColumn": 14,
+          "endColumn": 35,
+          "excerpt": "current gap: One fictional role gap"
+        },
+        {
+          "key": "plan",
+          "value": "Mock training and hiring plan",
+          "line": 6,
+          "startColumn": 7,
+          "endColumn": 35,
+          "excerpt": "plan: Mock training and hiring plan"
+        },
+        {
+          "key": "funding",
+          "value": "SGD 1000 synthetic funding",
+          "line": 7,
+          "startColumn": 10,
+          "endColumn": 35,
+          "excerpt": "funding: SGD 1000 synthetic funding"
+        },
+        {
+          "key": "effectiveness_evidence",
+          "value": "Fictional observed capability check",
+          "line": 8,
+          "startColumn": 25,
+          "endColumn": 59,
+          "excerpt": "effectiveness evidence: Fictional observed capability check"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic HR owner",
+          "line": 9,
+          "startColumn": 8,
+          "endColumn": 25,
+          "excerpt": "owner: Synthetic HR owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q15",
+      "requestId": "PC-05",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q15\nBefore/after roles: Before: fictional coordinator; after: fictional owner\ndecision right: Mock approval right\naccountable owner: Synthetic operating owner\neffective date: 2026-05-01\napproved operating model: Mock approved target operating model\nobserved workflow: Fictional observed decision workflow\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "before_after_roles",
+          "value": "Before: fictional coordinator; after: fictional owner",
+          "line": 3,
+          "startColumn": 21,
+          "endColumn": 73,
+          "excerpt": "Before/after roles: Before: fictional coordinator; after: fictional owner"
+        },
+        {
+          "key": "decision_right",
+          "value": "Mock approval right",
+          "line": 4,
+          "startColumn": 17,
+          "endColumn": 35,
+          "excerpt": "decision right: Mock approval right"
+        },
+        {
+          "key": "accountable_owner",
+          "value": "Synthetic operating owner",
+          "line": 5,
+          "startColumn": 20,
+          "endColumn": 44,
+          "excerpt": "accountable owner: Synthetic operating owner"
+        },
+        {
+          "key": "effective_date",
+          "value": "2026-05-01",
+          "line": 6,
+          "startColumn": 17,
+          "endColumn": 26,
+          "excerpt": "effective date: 2026-05-01"
+        },
+        {
+          "key": "approved_operating_model",
+          "value": "Mock approved target operating model",
+          "line": 7,
+          "startColumn": 27,
+          "endColumn": 62,
+          "excerpt": "approved operating model: Mock approved target operating model"
+        },
+        {
+          "key": "observed_workflow",
+          "value": "Fictional observed decision workflow",
+          "line": 8,
+          "startColumn": 20,
+          "endColumn": 55,
+          "excerpt": "observed workflow: Fictional observed decision workflow"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q16",
+      "requestId": "PC-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q16\nBehaviour/usage trend: Mock usage 60 to 70 fictional users\ntarget workflow: Synthetic target workflow\nreporting period: FY26 Q1–Q2\noperating model owner: Synthetic BAU owner\nhandover plan: Mock handover checkpoint\nfeedback limitations: Small fictional sample\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "behaviour_usage_trend",
+          "value": "Mock usage 60 to 70 fictional users",
+          "line": 3,
+          "startColumn": 24,
+          "endColumn": 58,
+          "excerpt": "Behaviour/usage trend: Mock usage 60 to 70 fictional users"
+        },
+        {
+          "key": "target_workflow",
+          "value": "Synthetic target workflow",
+          "line": 4,
+          "startColumn": 18,
+          "endColumn": 42,
+          "excerpt": "target workflow: Synthetic target workflow"
+        },
+        {
+          "key": "reporting_period",
+          "value": "FY26 Q1–Q2",
+          "line": 5,
+          "startColumn": 19,
+          "endColumn": 28,
+          "excerpt": "reporting period: FY26 Q1–Q2"
+        },
+        {
+          "key": "operating_model_owner",
+          "value": "Synthetic BAU owner",
+          "line": 6,
+          "startColumn": 24,
+          "endColumn": 42,
+          "excerpt": "operating model owner: Synthetic BAU owner"
+        },
+        {
+          "key": "handover_plan",
+          "value": "Mock handover checkpoint",
+          "line": 7,
+          "startColumn": 16,
+          "endColumn": 39,
+          "excerpt": "handover plan: Mock handover checkpoint"
+        },
+        {
+          "key": "feedback_limitations",
+          "value": "Small fictional sample",
+          "line": 8,
+          "startColumn": 23,
+          "endColumn": 44,
+          "excerpt": "feedback limitations: Small fictional sample"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q17",
+      "requestId": "DC-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q17\nCritical data element: CDE-SYN-01\nnamed accountable data owner: Synthetic data owner\nscope: Mock intake data\nagreed responsibility: Mock accepted responsibility\nquality measures: Fictional completeness metric\ndecision impact: Synthetic decision dependency\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "critical_data_element",
+          "value": "CDE-SYN-01",
+          "line": 3,
+          "startColumn": 24,
+          "endColumn": 33,
+          "excerpt": "Critical data element: CDE-SYN-01"
+        },
+        {
+          "key": "named_accountable_data_owner",
+          "value": "Synthetic data owner",
+          "line": 4,
+          "startColumn": 31,
+          "endColumn": 50,
+          "excerpt": "named accountable data owner: Synthetic data owner"
+        },
+        {
+          "key": "scope",
+          "value": "Mock intake data",
+          "line": 5,
+          "startColumn": 8,
+          "endColumn": 23,
+          "excerpt": "scope: Mock intake data"
+        },
+        {
+          "key": "agreed_responsibility",
+          "value": "Mock accepted responsibility",
+          "line": 6,
+          "startColumn": 24,
+          "endColumn": 51,
+          "excerpt": "agreed responsibility: Mock accepted responsibility"
+        },
+        {
+          "key": "quality_measures",
+          "value": "Fictional completeness metric",
+          "line": 7,
+          "startColumn": 19,
+          "endColumn": 47,
+          "excerpt": "quality measures: Fictional completeness metric"
+        },
+        {
+          "key": "decision_impact",
+          "value": "Synthetic decision dependency",
+          "line": 8,
+          "startColumn": 18,
+          "endColumn": 46,
+          "excerpt": "decision impact: Synthetic decision dependency"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q18",
+      "requestId": "DC-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q18\nQuality rule: Mock non-blank field rule\npopulation/denominator: 100 fictional records\nperiod: FY26 Q2\nexception count: 4 fictional exceptions\ntrend: 5 to 4 fictional exceptions\nissue owner/age: Synthetic owner; 2 fictional days old\ndecision impact: Mock decision affected\nremediation: Fictional remediation action\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "quality_rule",
+          "value": "Mock non-blank field rule",
+          "line": 3,
+          "startColumn": 15,
+          "endColumn": 39,
+          "excerpt": "Quality rule: Mock non-blank field rule"
+        },
+        {
+          "key": "population_denominator",
+          "value": "100 fictional records",
+          "line": 4,
+          "startColumn": 25,
+          "endColumn": 45,
+          "excerpt": "population/denominator: 100 fictional records"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 5,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "exception_count",
+          "value": "4 fictional exceptions",
+          "line": 6,
+          "startColumn": 18,
+          "endColumn": 39,
+          "excerpt": "exception count: 4 fictional exceptions"
+        },
+        {
+          "key": "trend",
+          "value": "5 to 4 fictional exceptions",
+          "line": 7,
+          "startColumn": 8,
+          "endColumn": 34,
+          "excerpt": "trend: 5 to 4 fictional exceptions"
+        },
+        {
+          "key": "issue_owner_age",
+          "value": "Synthetic owner; 2 fictional days old",
+          "line": 8,
+          "startColumn": 18,
+          "endColumn": 54,
+          "excerpt": "issue owner/age: Synthetic owner; 2 fictional days old"
+        },
+        {
+          "key": "decision_impact",
+          "value": "Mock decision affected",
+          "line": 9,
+          "startColumn": 18,
+          "endColumn": 39,
+          "excerpt": "decision impact: Mock decision affected"
+        },
+        {
+          "key": "remediation",
+          "value": "Fictional remediation action",
+          "line": 10,
+          "startColumn": 14,
+          "endColumn": 41,
+          "excerpt": "remediation: Fictional remediation action"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q19",
+      "requestId": "DC-03",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q19\nMaterial measure ID: KPI-SYN-01\nsource record: Mock source table\nmetric definition: Fictional completed case definition\ntransformations: Mock group-by total\nlineage: Synthetic source-to-report path\nversion: v1\nreporting period: FY26 Q2\nreconciliation: 100 fictional records reconciled\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "material_measure_id",
+          "value": "KPI-SYN-01",
+          "line": 3,
+          "startColumn": 22,
+          "endColumn": 31,
+          "excerpt": "Material measure ID: KPI-SYN-01"
+        },
+        {
+          "key": "source_record",
+          "value": "Mock source table",
+          "line": 4,
+          "startColumn": 16,
+          "endColumn": 32,
+          "excerpt": "source record: Mock source table"
+        },
+        {
+          "key": "metric_definition",
+          "value": "Fictional completed case definition",
+          "line": 5,
+          "startColumn": 20,
+          "endColumn": 54,
+          "excerpt": "metric definition: Fictional completed case definition"
+        },
+        {
+          "key": "transformations",
+          "value": "Mock group-by total",
+          "line": 6,
+          "startColumn": 18,
+          "endColumn": 36,
+          "excerpt": "transformations: Mock group-by total"
+        },
+        {
+          "key": "lineage",
+          "value": "Synthetic source-to-report path",
+          "line": 7,
+          "startColumn": 10,
+          "endColumn": 40,
+          "excerpt": "lineage: Synthetic source-to-report path"
+        },
+        {
+          "key": "version",
+          "value": "v1",
+          "line": 8,
+          "startColumn": 10,
+          "endColumn": 11,
+          "excerpt": "version: v1"
+        },
+        {
+          "key": "reporting_period",
+          "value": "FY26 Q2",
+          "line": 9,
+          "startColumn": 19,
+          "endColumn": 25,
+          "excerpt": "reporting period: FY26 Q2"
+        },
+        {
+          "key": "reconciliation",
+          "value": "100 fictional records reconciled",
+          "line": 10,
+          "startColumn": 17,
+          "endColumn": 48,
+          "excerpt": "reconciliation: 100 fictional records reconciled"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q20",
+      "requestId": "DC-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q20\nIntended use: Synthetic intake workflow\ndata access model: Mock least-privilege access roles\ngovernance/control owner: Synthetic governance owner\ncontrol test evidence: Mock control review evidence\nexceptions: No fictional exceptions\nscope: Synthetic data processing\nAI use and evaluation if applicable: AI not in synthetic scenario scope; applicability unverified\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "intended_use",
+          "value": "Synthetic intake workflow",
+          "line": 3,
+          "startColumn": 15,
+          "endColumn": 39,
+          "excerpt": "Intended use: Synthetic intake workflow"
+        },
+        {
+          "key": "data_access_model",
+          "value": "Mock least-privilege access roles",
+          "line": 4,
+          "startColumn": 20,
+          "endColumn": 52,
+          "excerpt": "data access model: Mock least-privilege access roles"
+        },
+        {
+          "key": "governance_control_owner",
+          "value": "Synthetic governance owner",
+          "line": 5,
+          "startColumn": 27,
+          "endColumn": 52,
+          "excerpt": "governance/control owner: Synthetic governance owner"
+        },
+        {
+          "key": "control_test_evidence",
+          "value": "Mock control review evidence",
+          "line": 6,
+          "startColumn": 24,
+          "endColumn": 51,
+          "excerpt": "control test evidence: Mock control review evidence"
+        },
+        {
+          "key": "exceptions",
+          "value": "No fictional exceptions",
+          "line": 7,
+          "startColumn": 13,
+          "endColumn": 35,
+          "excerpt": "exceptions: No fictional exceptions"
+        },
+        {
+          "key": "scope",
+          "value": "Synthetic data processing",
+          "line": 8,
+          "startColumn": 8,
+          "endColumn": 32,
+          "excerpt": "scope: Synthetic data processing"
+        },
+        {
+          "key": "ai_use_and_evaluation_if_applicable",
+          "value": "AI not in synthetic scenario scope; applicability unverified",
+          "line": 9,
+          "startColumn": 38,
+          "endColumn": 97,
+          "excerpt": "AI use and evaluation if applicable: AI not in synthetic scenario scope; applicability unverified"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q21",
+      "requestId": "DE-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q21\nDelivery period: FY26 Q2\nflow metric definitions: Mock cycle-time definition\ncommitments: Four fictional committed releases\nactual release dates: 2026-04-01; 2026-05-01\nthroughput/cycle time: 4 fictional releases; 3 fictional days\ndependencies: Mock integration dependency\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "delivery_period",
+          "value": "FY26 Q2",
+          "line": 3,
+          "startColumn": 18,
+          "endColumn": 24,
+          "excerpt": "Delivery period: FY26 Q2"
+        },
+        {
+          "key": "flow_metric_definitions",
+          "value": "Mock cycle-time definition",
+          "line": 4,
+          "startColumn": 26,
+          "endColumn": 51,
+          "excerpt": "flow metric definitions: Mock cycle-time definition"
+        },
+        {
+          "key": "commitments",
+          "value": "Four fictional committed releases",
+          "line": 5,
+          "startColumn": 14,
+          "endColumn": 46,
+          "excerpt": "commitments: Four fictional committed releases"
+        },
+        {
+          "key": "actual_release_dates",
+          "value": "2026-04-01; 2026-05-01",
+          "line": 6,
+          "startColumn": 23,
+          "endColumn": 44,
+          "excerpt": "actual release dates: 2026-04-01; 2026-05-01"
+        },
+        {
+          "key": "throughput_cycle_time",
+          "value": "4 fictional releases; 3 fictional days",
+          "line": 7,
+          "startColumn": 24,
+          "endColumn": 61,
+          "excerpt": "throughput/cycle time: 4 fictional releases; 3 fictional days"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock integration dependency",
+          "line": 8,
+          "startColumn": 15,
+          "endColumn": 41,
+          "excerpt": "dependencies: Mock integration dependency"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q22",
+      "requestId": "DE-03",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q22\nRelease ID: REL-SYN-01\ndefect/incident severity: One fictional minor defect\nrework: 2 fictional hours\nperiod: FY26 Q2\nquality criteria: Mock release acceptance criteria\nchange failures: Zero fictional change failures\nremediation: Mock remediation action\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "release_id",
+          "value": "REL-SYN-01",
+          "line": 3,
+          "startColumn": 13,
+          "endColumn": 22,
+          "excerpt": "Release ID: REL-SYN-01"
+        },
+        {
+          "key": "defect_incident_severity",
+          "value": "One fictional minor defect",
+          "line": 4,
+          "startColumn": 27,
+          "endColumn": 52,
+          "excerpt": "defect/incident severity: One fictional minor defect"
+        },
+        {
+          "key": "rework",
+          "value": "2 fictional hours",
+          "line": 5,
+          "startColumn": 9,
+          "endColumn": 25,
+          "excerpt": "rework: 2 fictional hours"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 6,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "quality_criteria",
+          "value": "Mock release acceptance criteria",
+          "line": 7,
+          "startColumn": 19,
+          "endColumn": 50,
+          "excerpt": "quality criteria: Mock release acceptance criteria"
+        },
+        {
+          "key": "change_failures",
+          "value": "Zero fictional change failures",
+          "line": 8,
+          "startColumn": 18,
+          "endColumn": 47,
+          "excerpt": "change failures: Zero fictional change failures"
+        },
+        {
+          "key": "remediation",
+          "value": "Mock remediation action",
+          "line": 9,
+          "startColumn": 14,
+          "endColumn": 36,
+          "excerpt": "remediation: Mock remediation action"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q23",
+      "requestId": "DE-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q23\nDependency/risk ID: DEP-SYN-01\ncriticality: Decision-relevant fictional dependency\nimpact: One fictional milestone\naccountable owner: Synthetic accountable owner\ndue date: 2026-06-01\nmitigation: Mock mitigation plan\noutcomes: Mock effect: no fictional delay\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "dependency_risk_id",
+          "value": "DEP-SYN-01",
+          "line": 3,
+          "startColumn": 21,
+          "endColumn": 30,
+          "excerpt": "Dependency/risk ID: DEP-SYN-01"
+        },
+        {
+          "key": "criticality",
+          "value": "Decision-relevant fictional dependency",
+          "line": 4,
+          "startColumn": 14,
+          "endColumn": 51,
+          "excerpt": "criticality: Decision-relevant fictional dependency"
+        },
+        {
+          "key": "impact",
+          "value": "One fictional milestone",
+          "line": 5,
+          "startColumn": 9,
+          "endColumn": 31,
+          "excerpt": "impact: One fictional milestone"
+        },
+        {
+          "key": "accountable_owner",
+          "value": "Synthetic accountable owner",
+          "line": 6,
+          "startColumn": 20,
+          "endColumn": 46,
+          "excerpt": "accountable owner: Synthetic accountable owner"
+        },
+        {
+          "key": "due_date",
+          "value": "2026-06-01",
+          "line": 7,
+          "startColumn": 11,
+          "endColumn": 20,
+          "excerpt": "due date: 2026-06-01"
+        },
+        {
+          "key": "mitigation",
+          "value": "Mock mitigation plan",
+          "line": 8,
+          "startColumn": 13,
+          "endColumn": 32,
+          "excerpt": "mitigation: Mock mitigation plan"
+        },
+        {
+          "key": "outcomes",
+          "value": "Mock effect: no fictional delay",
+          "line": 9,
+          "startColumn": 11,
+          "endColumn": 41,
+          "excerpt": "outcomes: Mock effect: no fictional delay"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q24",
+      "requestId": "DE-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q24\nFailed assumption: Mock assumption of 100 fictional users\nlesson: Fictional adoption lesson\ncorrective action: Mock workflow revision\nowner: Synthetic delivery owner\ntime: 2026-05-05\nbaseline/post-change measures: 60 to 70 fictional users\noutcomes: Mock observed improvement\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "failed_assumption",
+          "value": "Mock assumption of 100 fictional users",
+          "line": 3,
+          "startColumn": 20,
+          "endColumn": 57,
+          "excerpt": "Failed assumption: Mock assumption of 100 fictional users"
+        },
+        {
+          "key": "lesson",
+          "value": "Fictional adoption lesson",
+          "line": 4,
+          "startColumn": 9,
+          "endColumn": 33,
+          "excerpt": "lesson: Fictional adoption lesson"
+        },
+        {
+          "key": "corrective_action",
+          "value": "Mock workflow revision",
+          "line": 5,
+          "startColumn": 20,
+          "endColumn": 41,
+          "excerpt": "corrective action: Mock workflow revision"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic delivery owner",
+          "line": 6,
+          "startColumn": 8,
+          "endColumn": 31,
+          "excerpt": "owner: Synthetic delivery owner"
+        },
+        {
+          "key": "time",
+          "value": "2026-05-05",
+          "line": 7,
+          "startColumn": 7,
+          "endColumn": 16,
+          "excerpt": "time: 2026-05-05"
+        },
+        {
+          "key": "baseline_post_change_measures",
+          "value": "60 to 70 fictional users",
+          "line": 8,
+          "startColumn": 32,
+          "endColumn": 55,
+          "excerpt": "baseline/post-change measures: 60 to 70 fictional users"
+        },
+        {
+          "key": "outcomes",
+          "value": "Mock observed improvement",
+          "line": 9,
+          "startColumn": 11,
+          "endColumn": 35,
+          "excerpt": "outcomes: Mock observed improvement"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q25",
+      "requestId": "BV-01",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q25\nOriginal approved benefit ID/baseline: BEN-SYN-01; 10 fictional days\ntarget: 5 fictional days\nmeasure basis: Calendar days per fictional case\nperiod: FY26 Q2\nowner: Synthetic benefit owner\napproved changes: Mock approved revision CH-01\ncurrent expectation: 6 fictional days\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "original_approved_benefit_id_baseline",
+          "value": "BEN-SYN-01; 10 fictional days",
+          "line": 3,
+          "startColumn": 40,
+          "endColumn": 68,
+          "excerpt": "Original approved benefit ID/baseline: BEN-SYN-01; 10 fictional days"
+        },
+        {
+          "key": "target",
+          "value": "5 fictional days",
+          "line": 4,
+          "startColumn": 9,
+          "endColumn": 24,
+          "excerpt": "target: 5 fictional days"
+        },
+        {
+          "key": "measure_basis",
+          "value": "Calendar days per fictional case",
+          "line": 5,
+          "startColumn": 16,
+          "endColumn": 47,
+          "excerpt": "measure basis: Calendar days per fictional case"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 6,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic benefit owner",
+          "line": 7,
+          "startColumn": 8,
+          "endColumn": 30,
+          "excerpt": "owner: Synthetic benefit owner"
+        },
+        {
+          "key": "approved_changes",
+          "value": "Mock approved revision CH-01",
+          "line": 8,
+          "startColumn": 19,
+          "endColumn": 46,
+          "excerpt": "approved changes: Mock approved revision CH-01"
+        },
+        {
+          "key": "current_expectation",
+          "value": "6 fictional days",
+          "line": 9,
+          "startColumn": 22,
+          "endColumn": 37,
+          "excerpt": "current expectation: 6 fictional days"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q26\nBenefit ID: BEN-SYN-01\nactual realised outcome: SGD 4000 synthetic realised value\noriginal target: SGD 5000 synthetic target\nperiod: FY26 Q2\ncurrency/unit: SGD\nbenefit basis: Mock realised cash basis\nsource: Synthetic finance record\nFinance validation: Mock finance review label\nforecast separately: SGD 2000 fictional forecast, separate\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "line": 3,
+          "startColumn": 13,
+          "endColumn": 22,
+          "excerpt": "Benefit ID: BEN-SYN-01"
+        },
+        {
+          "key": "actual_realised_outcome",
+          "value": "SGD 4000 synthetic realised value",
+          "line": 4,
+          "startColumn": 26,
+          "endColumn": 58,
+          "excerpt": "actual realised outcome: SGD 4000 synthetic realised value"
+        },
+        {
+          "key": "original_target",
+          "value": "SGD 5000 synthetic target",
+          "line": 5,
+          "startColumn": 18,
+          "endColumn": 42,
+          "excerpt": "original target: SGD 5000 synthetic target"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "line": 6,
+          "startColumn": 9,
+          "endColumn": 15,
+          "excerpt": "period: FY26 Q2"
+        },
+        {
+          "key": "currency_unit",
+          "value": "SGD",
+          "line": 7,
+          "startColumn": 16,
+          "endColumn": 18,
+          "excerpt": "currency/unit: SGD"
+        },
+        {
+          "key": "benefit_basis",
+          "value": "Mock realised cash basis",
+          "line": 8,
+          "startColumn": 16,
+          "endColumn": 39,
+          "excerpt": "benefit basis: Mock realised cash basis"
+        },
+        {
+          "key": "source",
+          "value": "Synthetic finance record",
+          "line": 9,
+          "startColumn": 9,
+          "endColumn": 32,
+          "excerpt": "source: Synthetic finance record"
+        },
+        {
+          "key": "finance_validation",
+          "value": "Mock finance review label",
+          "line": 10,
+          "startColumn": 21,
+          "endColumn": 45,
+          "excerpt": "Finance validation: Mock finance review label"
+        },
+        {
+          "key": "forecast_separately",
+          "value": "SGD 2000 fictional forecast, separate",
+          "line": 11,
+          "startColumn": 22,
+          "endColumn": 58,
+          "excerpt": "forecast separately: SGD 2000 fictional forecast, separate"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q27",
+      "requestId": "BV-04",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q27\nBenefit ID: BEN-SYN-01\noperating change: Mock shorter workflow\nbaseline/control or comparison: 10 fictional days before; 6 after\nattribution assumptions: Mock comparable population assumption\nexternal influences: Fictional seasonal variation\nFinance/reviewer validation: Synthetic independent review record\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "line": 3,
+          "startColumn": 13,
+          "endColumn": 22,
+          "excerpt": "Benefit ID: BEN-SYN-01"
+        },
+        {
+          "key": "operating_change",
+          "value": "Mock shorter workflow",
+          "line": 4,
+          "startColumn": 19,
+          "endColumn": 39,
+          "excerpt": "operating change: Mock shorter workflow"
+        },
+        {
+          "key": "baseline_control_or_comparison",
+          "value": "10 fictional days before; 6 after",
+          "line": 5,
+          "startColumn": 33,
+          "endColumn": 65,
+          "excerpt": "baseline/control or comparison: 10 fictional days before; 6 after"
+        },
+        {
+          "key": "attribution_assumptions",
+          "value": "Mock comparable population assumption",
+          "line": 6,
+          "startColumn": 26,
+          "endColumn": 62,
+          "excerpt": "attribution assumptions: Mock comparable population assumption"
+        },
+        {
+          "key": "external_influences",
+          "value": "Fictional seasonal variation",
+          "line": 7,
+          "startColumn": 22,
+          "endColumn": 49,
+          "excerpt": "external influences: Fictional seasonal variation"
+        },
+        {
+          "key": "finance_reviewer_validation",
+          "value": "Synthetic independent review record",
+          "line": 8,
+          "startColumn": 30,
+          "endColumn": 64,
+          "excerpt": "Finance/reviewer validation: Synthetic independent review record"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q28",
+      "requestId": "BV-05",
+      "text": "SYNTHETIC TEST DATA — not an assessment\nCriterion: Q28\nBenefit owner: Synthetic benefit owner\naccepted BAU responsibility: Mock BAU responsibility accepted\nmeasurement frequency: Monthly mock review\nongoing funding/support: SGD 500 synthetic operating support\nhandover date: 2026-06-01\npost-close outcomes: Mock post-close outcome measure\nUnrecognised note: Synthetic noise; no inferred values.\n",
+      "expected": [
+        {
+          "key": "benefit_owner",
+          "value": "Synthetic benefit owner",
+          "line": 3,
+          "startColumn": 16,
+          "endColumn": 38,
+          "excerpt": "Benefit owner: Synthetic benefit owner"
+        },
+        {
+          "key": "accepted_bau_responsibility",
+          "value": "Mock BAU responsibility accepted",
+          "line": 4,
+          "startColumn": 30,
+          "endColumn": 61,
+          "excerpt": "accepted BAU responsibility: Mock BAU responsibility accepted"
+        },
+        {
+          "key": "measurement_frequency",
+          "value": "Monthly mock review",
+          "line": 5,
+          "startColumn": 24,
+          "endColumn": 42,
+          "excerpt": "measurement frequency: Monthly mock review"
+        },
+        {
+          "key": "ongoing_funding_support",
+          "value": "SGD 500 synthetic operating support",
+          "line": 6,
+          "startColumn": 26,
+          "endColumn": 60,
+          "excerpt": "ongoing funding/support: SGD 500 synthetic operating support"
+        },
+        {
+          "key": "handover_date",
+          "value": "2026-06-01",
+          "line": 7,
+          "startColumn": 16,
+          "endColumn": 25,
+          "excerpt": "handover date: 2026-06-01"
+        },
+        {
+          "key": "post_close_outcomes",
+          "value": "Mock post-close outcome measure",
+          "line": 8,
+          "startColumn": 22,
+          "endColumn": 52,
+          "excerpt": "post-close outcomes: Mock post-close outcome measure"
+        }
+      ]
+    }
+  ]
+}

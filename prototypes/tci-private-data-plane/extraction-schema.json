@@ -1,0 +1,1354 @@
+{
+  "version": "0.2.0-alpha.1",
+  "specSha256": "8d4e730b5ed3cf38fdb4dcd896fa21bc14bf38689babc24159a460980099b00c",
+  "rules": [
+    {
+      "criterionId": "Q01",
+      "ruleId": "EVS-Q01",
+      "primary": [
+        "SA-01"
+      ],
+      "supplementary": [
+        "SA-02",
+        "SA-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "approved_strategy_objective",
+          "label": "Approved strategy objective",
+          "sourcePhrase": "Approved strategy objective"
+        },
+        {
+          "key": "original_problem",
+          "label": "original problem",
+          "sourcePhrase": "original problem"
+        },
+        {
+          "key": "business_case_scope",
+          "label": "business case scope",
+          "sourcePhrase": "business case scope"
+        },
+        {
+          "key": "funding_decision_date",
+          "label": "funding decision date",
+          "sourcePhrase": "funding decision date"
+        },
+        {
+          "key": "current_mandate_and_outcomes",
+          "label": "current mandate and outcomes",
+          "sourcePhrase": "current mandate and outcomes"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q02",
+      "ruleId": "EVS-Q02",
+      "primary": [
+        "SA-02"
+      ],
+      "supplementary": [
+        "SA-03",
+        "SA-01",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "original_and_current_approved_scope",
+          "label": "Original and current approved scope",
+          "sourcePhrase": "Original and current approved scope"
+        },
+        {
+          "key": "investment_amount",
+          "label": "investment amount",
+          "sourcePhrase": "investment amount"
+        },
+        {
+          "key": "cost_basis",
+          "label": "cost basis",
+          "sourcePhrase": "cost basis"
+        },
+        {
+          "key": "dates",
+          "label": "dates",
+          "sourcePhrase": "dates"
+        },
+        {
+          "key": "assumptions",
+          "label": "assumptions",
+          "sourcePhrase": "assumptions"
+        },
+        {
+          "key": "change_approvals",
+          "label": "change approvals",
+          "sourcePhrase": "change approvals"
+        },
+        {
+          "key": "revised_priorities",
+          "label": "revised priorities",
+          "sourcePhrase": "revised priorities"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q03",
+      "ruleId": "EVS-Q03",
+      "primary": [
+        "SA-04"
+      ],
+      "supplementary": [
+        "SA-02",
+        "BV-01"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "outcome_identifier",
+          "label": "Outcome identifier",
+          "sourcePhrase": "Outcome identifier"
+        },
+        {
+          "key": "baseline",
+          "label": "baseline",
+          "sourcePhrase": "baseline"
+        },
+        {
+          "key": "target",
+          "label": "target",
+          "sourcePhrase": "target"
+        },
+        {
+          "key": "actual_measure",
+          "label": "actual measure",
+          "sourcePhrase": "actual measure"
+        },
+        {
+          "key": "unit",
+          "label": "unit",
+          "sourcePhrase": "unit"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "data_owner_and_accountable_outcome_owner",
+          "label": "data owner and accountable outcome owner",
+          "sourcePhrase": "data owner and accountable outcome owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q04",
+      "ruleId": "EVS-Q04",
+      "primary": [
+        "BV-01"
+      ],
+      "supplementary": [
+        "BV-05",
+        "LC-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "benefit_id",
+          "label": "Benefit ID",
+          "sourcePhrase": "Benefit ID"
+        },
+        {
+          "key": "accountable_business_owner",
+          "label": "accountable business owner",
+          "sourcePhrase": "accountable business owner"
+        },
+        {
+          "key": "acceptance",
+          "label": "acceptance",
+          "sourcePhrase": "acceptance"
+        },
+        {
+          "key": "benefit_target",
+          "label": "benefit target",
+          "sourcePhrase": "benefit target"
+        },
+        {
+          "key": "escalation_stop_conditions",
+          "label": "escalation/stop conditions",
+          "sourcePhrase": "escalation/stop conditions"
+        },
+        {
+          "key": "post_delivery_owner",
+          "label": "post-delivery owner",
+          "sourcePhrase": "post-delivery owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q05",
+      "ruleId": "EVS-Q05",
+      "primary": [
+        "LC-01"
+      ],
+      "supplementary": [
+        "LC-02",
+        "DE-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "decision_id",
+          "label": "Decision ID",
+          "sourcePhrase": "Decision ID"
+        },
+        {
+          "key": "materiality",
+          "label": "materiality",
+          "sourcePhrase": "materiality"
+        },
+        {
+          "key": "raised_date",
+          "label": "raised date",
+          "sourcePhrase": "raised date"
+        },
+        {
+          "key": "required_by_date",
+          "label": "required-by date",
+          "sourcePhrase": "required-by date"
+        },
+        {
+          "key": "actual_decision_date",
+          "label": "actual decision date",
+          "sourcePhrase": "actual decision date"
+        },
+        {
+          "key": "owner",
+          "label": "owner",
+          "sourcePhrase": "owner"
+        },
+        {
+          "key": "decision_and_rationale",
+          "label": "decision and rationale",
+          "sourcePhrase": "decision and rationale"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q06",
+      "ruleId": "EVS-Q06",
+      "primary": [
+        "DE-02"
+      ],
+      "supplementary": [
+        "LC-01",
+        "LC-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "escalation_id",
+          "label": "Escalation ID",
+          "sourcePhrase": "Escalation ID"
+        },
+        {
+          "key": "blocker",
+          "label": "blocker",
+          "sourcePhrase": "blocker"
+        },
+        {
+          "key": "impact",
+          "label": "impact",
+          "sourcePhrase": "impact"
+        },
+        {
+          "key": "accountable_leader",
+          "label": "accountable leader",
+          "sourcePhrase": "accountable leader"
+        },
+        {
+          "key": "date_raised",
+          "label": "date raised",
+          "sourcePhrase": "date raised"
+        },
+        {
+          "key": "action",
+          "label": "action",
+          "sourcePhrase": "action"
+        },
+        {
+          "key": "closure_evidence",
+          "label": "closure evidence",
+          "sourcePhrase": "closure evidence"
+        },
+        {
+          "key": "resource_commitment",
+          "label": "resource commitment",
+          "sourcePhrase": "resource commitment"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q07",
+      "ruleId": "EVS-Q07",
+      "primary": [
+        "LC-04"
+      ],
+      "supplementary": [
+        "LC-02",
+        "BV-05"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "sponsor",
+          "label": "Sponsor",
+          "sourcePhrase": "Sponsor"
+        },
+        {
+          "key": "outcome_owners",
+          "label": "outcome owners",
+          "sourcePhrase": "outcome owners"
+        },
+        {
+          "key": "business_technology_responsibilities",
+          "label": "business/technology responsibilities",
+          "sourcePhrase": "business/technology responsibilities"
+        },
+        {
+          "key": "signed_delegations",
+          "label": "signed delegations",
+          "sourcePhrase": "signed delegations"
+        },
+        {
+          "key": "handover",
+          "label": "handover",
+          "sourcePhrase": "handover"
+        },
+        {
+          "key": "exceptions",
+          "label": "exceptions",
+          "sourcePhrase": "exceptions"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q08",
+      "ruleId": "EVS-Q08",
+      "primary": [
+        "LC-02"
+      ],
+      "supplementary": [
+        "LC-01",
+        "LC-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "governance_meeting_date",
+          "label": "Governance meeting date",
+          "sourcePhrase": "Governance meeting date"
+        },
+        {
+          "key": "warning_indicator",
+          "label": "warning/indicator",
+          "sourcePhrase": "warning/indicator"
+        },
+        {
+          "key": "decision",
+          "label": "decision",
+          "sourcePhrase": "decision"
+        },
+        {
+          "key": "action_owner",
+          "label": "action owner",
+          "sourcePhrase": "action owner"
+        },
+        {
+          "key": "due_date",
+          "label": "due date",
+          "sourcePhrase": "due date"
+        },
+        {
+          "key": "closure_outcome",
+          "label": "closure/outcome",
+          "sourcePhrase": "closure/outcome"
+        },
+        {
+          "key": "communication",
+          "label": "communication",
+          "sourcePhrase": "communication"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q09",
+      "ruleId": "EVS-Q09",
+      "primary": [
+        "TR-04"
+      ],
+      "supplementary": [
+        "TR-01",
+        "TR-03",
+        "TR-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "intended_workload_scale",
+          "label": "Intended workload/scale",
+          "sourcePhrase": "Intended workload/scale"
+        },
+        {
+          "key": "architecture_version",
+          "label": "architecture version",
+          "sourcePhrase": "architecture version"
+        },
+        {
+          "key": "required_performance_security_recovery_conditions",
+          "label": "required performance/security/recovery conditions",
+          "sourcePhrase": "required performance/security/recovery conditions"
+        },
+        {
+          "key": "test_results",
+          "label": "test results",
+          "sourcePhrase": "test results"
+        },
+        {
+          "key": "exceptions",
+          "label": "exceptions",
+          "sourcePhrase": "exceptions"
+        },
+        {
+          "key": "dependencies",
+          "label": "dependencies",
+          "sourcePhrase": "dependencies"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q10",
+      "ruleId": "EVS-Q10",
+      "primary": [
+        "TR-03"
+      ],
+      "supplementary": [
+        "TR-04",
+        "DE-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "reliability_and_incident_metrics",
+          "label": "Reliability and incident metrics",
+          "sourcePhrase": "Reliability and incident metrics"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "severity",
+          "label": "severity",
+          "sourcePhrase": "severity"
+        },
+        {
+          "key": "recovery_objectives_results",
+          "label": "recovery objectives/results",
+          "sourcePhrase": "recovery objectives/results"
+        },
+        {
+          "key": "security_assurance",
+          "label": "security assurance",
+          "sourcePhrase": "security assurance"
+        },
+        {
+          "key": "exceptions",
+          "label": "exceptions",
+          "sourcePhrase": "exceptions"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q11",
+      "ruleId": "EVS-Q11",
+      "primary": [
+        "TR-05"
+      ],
+      "supplementary": [
+        "DE-03",
+        "DE-01"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "deployment_cadence",
+          "label": "Deployment cadence",
+          "sourcePhrase": "Deployment cadence"
+        },
+        {
+          "key": "lead_time",
+          "label": "lead time",
+          "sourcePhrase": "lead time"
+        },
+        {
+          "key": "automation_coverage",
+          "label": "automation coverage",
+          "sourcePhrase": "automation coverage"
+        },
+        {
+          "key": "manual_interventions",
+          "label": "manual interventions",
+          "sourcePhrase": "manual interventions"
+        },
+        {
+          "key": "release_outcomes",
+          "label": "release outcomes",
+          "sourcePhrase": "release outcomes"
+        },
+        {
+          "key": "platform_adoption",
+          "label": "platform adoption",
+          "sourcePhrase": "platform adoption"
+        },
+        {
+          "key": "cost_basis",
+          "label": "cost basis",
+          "sourcePhrase": "cost basis"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q12",
+      "ruleId": "EVS-Q12",
+      "primary": [
+        "TR-02"
+      ],
+      "supplementary": [
+        "TR-05",
+        "SA-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "technical_debt_item",
+          "label": "Technical debt item",
+          "sourcePhrase": "Technical debt item"
+        },
+        {
+          "key": "dependency",
+          "label": "dependency",
+          "sourcePhrase": "dependency"
+        },
+        {
+          "key": "accountable_owner",
+          "label": "accountable owner",
+          "sourcePhrase": "accountable owner"
+        },
+        {
+          "key": "risk",
+          "label": "risk",
+          "sourcePhrase": "risk"
+        },
+        {
+          "key": "remediation",
+          "label": "remediation",
+          "sourcePhrase": "remediation"
+        },
+        {
+          "key": "operating_cost_baseline_actual",
+          "label": "operating cost baseline/actual",
+          "sourcePhrase": "operating cost baseline/actual"
+        },
+        {
+          "key": "basis",
+          "label": "basis",
+          "sourcePhrase": "basis"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q13",
+      "ruleId": "EVS-Q13",
+      "primary": [
+        "PC-04"
+      ],
+      "supplementary": [
+        "PC-01",
+        "BV-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "target_user_process_population",
+          "label": "Target user/process population",
+          "sourcePhrase": "Target user/process population"
+        },
+        {
+          "key": "eligible_denominator",
+          "label": "eligible denominator",
+          "sourcePhrase": "eligible denominator"
+        },
+        {
+          "key": "active_users",
+          "label": "active users",
+          "sourcePhrase": "active users"
+        },
+        {
+          "key": "usage_definition",
+          "label": "usage definition",
+          "sourcePhrase": "usage definition"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "adoption_target",
+          "label": "adoption target",
+          "sourcePhrase": "adoption target"
+        },
+        {
+          "key": "process_evidence",
+          "label": "process evidence",
+          "sourcePhrase": "process evidence"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q14",
+      "ruleId": "EVS-Q14",
+      "primary": [
+        "PC-02"
+      ],
+      "supplementary": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "required_roles_and_skill_demand",
+          "label": "Required roles and skill demand",
+          "sourcePhrase": "Required roles and skill demand"
+        },
+        {
+          "key": "capacity_baseline",
+          "label": "capacity baseline",
+          "sourcePhrase": "capacity baseline"
+        },
+        {
+          "key": "current_gap",
+          "label": "current gap",
+          "sourcePhrase": "current gap"
+        },
+        {
+          "key": "plan",
+          "label": "plan",
+          "sourcePhrase": "plan"
+        },
+        {
+          "key": "funding",
+          "label": "funding",
+          "sourcePhrase": "funding"
+        },
+        {
+          "key": "effectiveness_evidence",
+          "label": "effectiveness evidence",
+          "sourcePhrase": "effectiveness evidence"
+        },
+        {
+          "key": "owner",
+          "label": "owner",
+          "sourcePhrase": "owner"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q15",
+      "ruleId": "EVS-Q15",
+      "primary": [
+        "PC-05"
+      ],
+      "supplementary": [
+        "LC-04",
+        "PC-01"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "before_after_roles",
+          "label": "Before/after roles",
+          "sourcePhrase": "Before/after roles"
+        },
+        {
+          "key": "decision_right",
+          "label": "decision right",
+          "sourcePhrase": "decision right"
+        },
+        {
+          "key": "accountable_owner",
+          "label": "accountable owner",
+          "sourcePhrase": "accountable owner"
+        },
+        {
+          "key": "effective_date",
+          "label": "effective date",
+          "sourcePhrase": "effective date"
+        },
+        {
+          "key": "approved_operating_model",
+          "label": "approved operating model",
+          "sourcePhrase": "approved operating model"
+        },
+        {
+          "key": "observed_workflow",
+          "label": "observed workflow",
+          "sourcePhrase": "observed workflow"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q16",
+      "ruleId": "EVS-Q16",
+      "primary": [
+        "PC-04"
+      ],
+      "supplementary": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "behaviour_usage_trend",
+          "label": "Behaviour/usage trend",
+          "sourcePhrase": "Behaviour/usage trend"
+        },
+        {
+          "key": "target_workflow",
+          "label": "target workflow",
+          "sourcePhrase": "target workflow"
+        },
+        {
+          "key": "reporting_period",
+          "label": "reporting period",
+          "sourcePhrase": "reporting period"
+        },
+        {
+          "key": "operating_model_owner",
+          "label": "operating model owner",
+          "sourcePhrase": "operating model owner"
+        },
+        {
+          "key": "handover_plan",
+          "label": "handover plan",
+          "sourcePhrase": "handover plan"
+        },
+        {
+          "key": "feedback_limitations",
+          "label": "feedback limitations",
+          "sourcePhrase": "feedback limitations"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q17",
+      "ruleId": "EVS-Q17",
+      "primary": [
+        "DC-01"
+      ],
+      "supplementary": [
+        "DC-02",
+        "DC-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "critical_data_element",
+          "label": "Critical data element",
+          "sourcePhrase": "Critical data element"
+        },
+        {
+          "key": "named_accountable_data_owner",
+          "label": "named accountable data owner",
+          "sourcePhrase": "named accountable data owner"
+        },
+        {
+          "key": "scope",
+          "label": "scope",
+          "sourcePhrase": "scope"
+        },
+        {
+          "key": "agreed_responsibility",
+          "label": "agreed responsibility",
+          "sourcePhrase": "agreed responsibility"
+        },
+        {
+          "key": "quality_measures",
+          "label": "quality measures",
+          "sourcePhrase": "quality measures"
+        },
+        {
+          "key": "decision_impact",
+          "label": "decision impact",
+          "sourcePhrase": "decision impact"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q18",
+      "ruleId": "EVS-Q18",
+      "primary": [
+        "DC-04"
+      ],
+      "supplementary": [
+        "DC-02",
+        "DE-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "quality_rule",
+          "label": "Quality rule",
+          "sourcePhrase": "Quality rule"
+        },
+        {
+          "key": "population_denominator",
+          "label": "population/denominator",
+          "sourcePhrase": "population/denominator"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "exception_count",
+          "label": "exception count",
+          "sourcePhrase": "exception count"
+        },
+        {
+          "key": "trend",
+          "label": "trend",
+          "sourcePhrase": "trend"
+        },
+        {
+          "key": "issue_owner_age",
+          "label": "issue owner/age",
+          "sourcePhrase": "issue owner/age"
+        },
+        {
+          "key": "decision_impact",
+          "label": "decision impact",
+          "sourcePhrase": "decision impact"
+        },
+        {
+          "key": "remediation",
+          "label": "remediation",
+          "sourcePhrase": "remediation"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q19",
+      "ruleId": "EVS-Q19",
+      "primary": [
+        "DC-03"
+      ],
+      "supplementary": [
+        "DC-02",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "material_measure_id",
+          "label": "Material measure ID",
+          "sourcePhrase": "Material measure ID"
+        },
+        {
+          "key": "source_record",
+          "label": "source record",
+          "sourcePhrase": "source record"
+        },
+        {
+          "key": "metric_definition",
+          "label": "metric definition",
+          "sourcePhrase": "metric definition"
+        },
+        {
+          "key": "transformations",
+          "label": "transformations",
+          "sourcePhrase": "transformations"
+        },
+        {
+          "key": "lineage",
+          "label": "lineage",
+          "sourcePhrase": "lineage"
+        },
+        {
+          "key": "version",
+          "label": "version",
+          "sourcePhrase": "version"
+        },
+        {
+          "key": "reporting_period",
+          "label": "reporting period",
+          "sourcePhrase": "reporting period"
+        },
+        {
+          "key": "reconciliation",
+          "label": "reconciliation",
+          "sourcePhrase": "reconciliation"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q20",
+      "ruleId": "EVS-Q20",
+      "primary": [
+        "DC-01"
+      ],
+      "supplementary": [
+        "DC-03",
+        "TR-04"
+      ],
+      "conditional": [
+        "DC-05"
+      ],
+      "fields": [
+        {
+          "key": "intended_use",
+          "label": "Intended use",
+          "sourcePhrase": "Intended use"
+        },
+        {
+          "key": "data_access_model",
+          "label": "data access model",
+          "sourcePhrase": "data access model"
+        },
+        {
+          "key": "governance_control_owner",
+          "label": "governance/control owner",
+          "sourcePhrase": "governance/control owner"
+        },
+        {
+          "key": "control_test_evidence",
+          "label": "control test evidence",
+          "sourcePhrase": "control test evidence"
+        },
+        {
+          "key": "exceptions",
+          "label": "exceptions",
+          "sourcePhrase": "exceptions"
+        },
+        {
+          "key": "scope",
+          "label": "scope",
+          "sourcePhrase": "scope"
+        },
+        {
+          "key": "ai_use_and_evaluation_if_applicable",
+          "label": "AI use and evaluation if applicable",
+          "sourcePhrase": "AI use and evaluation if applicable"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q21",
+      "ruleId": "EVS-Q21",
+      "primary": [
+        "DE-01"
+      ],
+      "supplementary": [
+        "DE-02",
+        "SA-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "delivery_period",
+          "label": "Delivery period",
+          "sourcePhrase": "Delivery period"
+        },
+        {
+          "key": "flow_metric_definitions",
+          "label": "flow metric definitions",
+          "sourcePhrase": "flow metric definitions"
+        },
+        {
+          "key": "commitments",
+          "label": "commitments",
+          "sourcePhrase": "commitments"
+        },
+        {
+          "key": "actual_release_dates",
+          "label": "actual release dates",
+          "sourcePhrase": "actual release dates"
+        },
+        {
+          "key": "throughput_cycle_time",
+          "label": "throughput/cycle time",
+          "sourcePhrase": "throughput/cycle time"
+        },
+        {
+          "key": "dependencies",
+          "label": "dependencies",
+          "sourcePhrase": "dependencies"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q22",
+      "ruleId": "EVS-Q22",
+      "primary": [
+        "DE-03"
+      ],
+      "supplementary": [
+        "TR-03",
+        "TR-05"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "release_id",
+          "label": "Release ID",
+          "sourcePhrase": "Release ID"
+        },
+        {
+          "key": "defect_incident_severity",
+          "label": "defect/incident severity",
+          "sourcePhrase": "defect/incident severity"
+        },
+        {
+          "key": "rework",
+          "label": "rework",
+          "sourcePhrase": "rework"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "quality_criteria",
+          "label": "quality criteria",
+          "sourcePhrase": "quality criteria"
+        },
+        {
+          "key": "change_failures",
+          "label": "change failures",
+          "sourcePhrase": "change failures"
+        },
+        {
+          "key": "remediation",
+          "label": "remediation",
+          "sourcePhrase": "remediation"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q23",
+      "ruleId": "EVS-Q23",
+      "primary": [
+        "DE-02"
+      ],
+      "supplementary": [
+        "DE-01",
+        "TR-02"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "dependency_risk_id",
+          "label": "Dependency/risk ID",
+          "sourcePhrase": "Dependency/risk ID"
+        },
+        {
+          "key": "criticality",
+          "label": "criticality",
+          "sourcePhrase": "criticality"
+        },
+        {
+          "key": "impact",
+          "label": "impact",
+          "sourcePhrase": "impact"
+        },
+        {
+          "key": "accountable_owner",
+          "label": "accountable owner",
+          "sourcePhrase": "accountable owner"
+        },
+        {
+          "key": "due_date",
+          "label": "due date",
+          "sourcePhrase": "due date"
+        },
+        {
+          "key": "mitigation",
+          "label": "mitigation",
+          "sourcePhrase": "mitigation"
+        },
+        {
+          "key": "outcomes",
+          "label": "outcomes",
+          "sourcePhrase": "outcomes"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q24",
+      "ruleId": "EVS-Q24",
+      "primary": [
+        "DE-04"
+      ],
+      "supplementary": [
+        "DE-01",
+        "DE-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "failed_assumption",
+          "label": "Failed assumption",
+          "sourcePhrase": "Failed assumption"
+        },
+        {
+          "key": "lesson",
+          "label": "lesson",
+          "sourcePhrase": "lesson"
+        },
+        {
+          "key": "corrective_action",
+          "label": "corrective action",
+          "sourcePhrase": "corrective action"
+        },
+        {
+          "key": "owner",
+          "label": "owner",
+          "sourcePhrase": "owner"
+        },
+        {
+          "key": "time",
+          "label": "time",
+          "sourcePhrase": "time"
+        },
+        {
+          "key": "baseline_post_change_measures",
+          "label": "baseline/post-change measures",
+          "sourcePhrase": "baseline/post-change measures"
+        },
+        {
+          "key": "outcomes",
+          "label": "outcomes",
+          "sourcePhrase": "outcomes"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q25",
+      "ruleId": "EVS-Q25",
+      "primary": [
+        "BV-01"
+      ],
+      "supplementary": [
+        "SA-02",
+        "BV-04",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "original_approved_benefit_id_baseline",
+          "label": "Original approved benefit ID/baseline",
+          "sourcePhrase": "Original approved benefit ID/baseline"
+        },
+        {
+          "key": "target",
+          "label": "target",
+          "sourcePhrase": "target"
+        },
+        {
+          "key": "measure_basis",
+          "label": "measure basis",
+          "sourcePhrase": "measure basis"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "owner",
+          "label": "owner",
+          "sourcePhrase": "owner"
+        },
+        {
+          "key": "approved_changes",
+          "label": "approved changes",
+          "sourcePhrase": "approved changes"
+        },
+        {
+          "key": "current_expectation",
+          "label": "current expectation",
+          "sourcePhrase": "current expectation"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q26",
+      "ruleId": "EVS-Q26",
+      "primary": [
+        "BV-02"
+      ],
+      "supplementary": [
+        "BV-03",
+        "BV-04"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "benefit_id",
+          "label": "Benefit ID",
+          "sourcePhrase": "Benefit ID"
+        },
+        {
+          "key": "actual_realised_outcome",
+          "label": "actual realised outcome",
+          "sourcePhrase": "actual realised outcome"
+        },
+        {
+          "key": "original_target",
+          "label": "original target",
+          "sourcePhrase": "original target"
+        },
+        {
+          "key": "period",
+          "label": "period",
+          "sourcePhrase": "period"
+        },
+        {
+          "key": "currency_unit",
+          "label": "currency/unit",
+          "sourcePhrase": "currency/unit"
+        },
+        {
+          "key": "benefit_basis",
+          "label": "benefit basis",
+          "sourcePhrase": "benefit basis"
+        },
+        {
+          "key": "source",
+          "label": "source",
+          "sourcePhrase": "source"
+        },
+        {
+          "key": "finance_validation",
+          "label": "Finance validation",
+          "sourcePhrase": "Finance validation"
+        },
+        {
+          "key": "forecast_separately",
+          "label": "forecast separately",
+          "sourcePhrase": "forecast separately"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q27",
+      "ruleId": "EVS-Q27",
+      "primary": [
+        "BV-04"
+      ],
+      "supplementary": [
+        "BV-02",
+        "PC-04",
+        "BV-03"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "benefit_id",
+          "label": "Benefit ID",
+          "sourcePhrase": "Benefit ID"
+        },
+        {
+          "key": "operating_change",
+          "label": "operating change",
+          "sourcePhrase": "operating change"
+        },
+        {
+          "key": "baseline_control_or_comparison",
+          "label": "baseline/control or comparison",
+          "sourcePhrase": "baseline/control or comparison"
+        },
+        {
+          "key": "attribution_assumptions",
+          "label": "attribution assumptions",
+          "sourcePhrase": "attribution assumptions"
+        },
+        {
+          "key": "external_influences",
+          "label": "external influences",
+          "sourcePhrase": "external influences"
+        },
+        {
+          "key": "finance_reviewer_validation",
+          "label": "Finance/reviewer validation",
+          "sourcePhrase": "Finance/reviewer validation"
+        }
+      ]
+    },
+    {
+      "criterionId": "Q28",
+      "ruleId": "EVS-Q28",
+      "primary": [
+        "BV-05"
+      ],
+      "supplementary": [
+        "BV-01",
+        "PC-05"
+      ],
+      "conditional": [],
+      "fields": [
+        {
+          "key": "benefit_owner",
+          "label": "Benefit owner",
+          "sourcePhrase": "Benefit owner"
+        },
+        {
+          "key": "accepted_bau_responsibility",
+          "label": "accepted BAU responsibility",
+          "sourcePhrase": "accepted BAU responsibility"
+        },
+        {
+          "key": "measurement_frequency",
+          "label": "measurement frequency",
+          "sourcePhrase": "measurement frequency"
+        },
+        {
+          "key": "ongoing_funding_support",
+          "label": "ongoing funding/support",
+          "sourcePhrase": "ongoing funding/support"
+        },
+        {
+          "key": "handover_date",
+          "label": "handover date",
+          "sourcePhrase": "handover date"
+        },
+        {
+          "key": "post_close_outcomes",
+          "label": "post-close outcomes",
+          "sourcePhrase": "post-close outcomes"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "recordId":"TCI-PROT-APR-003",
+  "approvedOn":"2026-11-26",
+  "approvedBy":"Project owner",
+  "status":"approved",
+  "candidate":"0.1.0-rc.2",
+  "commit":"d45227180c951ea12f59e9b87792d638f10c4f19",
+  "scope":"Integrated synthetic evidence collection candidate accepted for continued prototyping. Approval does not close formal production security acceptance, approve real-client use, select a hosting region or processor, approve scoring, or authorise public deployment.",
+  "decision":"User explicitly approved and authorised proceeding."
+}

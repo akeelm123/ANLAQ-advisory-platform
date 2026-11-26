@@ -1,6 +1,5 @@
-# v0.1.0-rc.2 release note
+# Release note — v0.2.0-alpha.1
 
-The integrated local browser is backed by scoped authenticated service operations and the approved register and validation specification. All 32 catalogue items and 89 mappings are present; request tracking, encrypted document versions, manual quarantine disposition, evidence-linked findings and independent review are exercised through the browser. No scoring or executive decision can be issued.
+Approved v0.1.0-rc.2 synthetic collection foundation; v0.2 adds a traceable labelled-text extraction candidate, encrypted draft extraction records, exact line/column citations, explicit missing/ambiguous values and independent source review. 28 fictional golden fixtures verify 190 source fields, 142 automated tests and an integrated browser workflow pass.
 
-**Go:** formative synthetic review of this candidate.
-**No-go:** formal release, real-client uploads, public promotion or scoring until the remaining acceptance gates are independently satisfied.
+Formal v0.2 acceptance remains gated on representative document parsers, independently verified golden documents and semantic accuracy. Private hosting, security acceptance, production data handling and scoring are separate gates.

@@ -1,30 +1,28 @@
-# ANLAQ TCI™ authenticated evidence workbench — v0.1.0-rc.2
+# ANLAQ TCI™ authenticated evidence workbench — v0.2.0-alpha.1
 
-Integrated local synthetic release candidate. The browser now uses a loopback-only authenticated API calling the tested evidence data plane. The approved register and validation specification are pinned by SHA-256. No cloud service, client data, external processor, live scoring or public deployment.
+The approved v0.1.0-rc.2 synthetic candidate is recorded in RC2-APPROVAL.json. This extension implements deterministic labelled-text extraction linked to the exact approved register and validation specification. The integrated browser and backend are synthetic-only, loopback-only and not a production or hosted security implementation.
 
-## Local formative review
+## Local demonstration
 
-Run from this directory with Python and the requirement installed in an isolated environment:
+Run from this directory with Python and the declared dependency installed into an isolated environment:
 
 ```text
 python serve.py
 ```
 
-The launcher binds only to 127.0.0.1:8765 (use --port 0 to allocate a free port). It prints the localhost URL and randomly generated temporary credentials for contributor, assessor, reviewer, owner and separate synthetic tenant. Use the printed URL and roles to test the workflow. Never reuse these accounts, enter real evidence or publish the console output. The browser stores the bearer token in memory only; sign-out revokes it and clears assessment data from the DOM. The service uses a temporary synthetic database; graceful shutdown removes it. Keys are per-run and not persisted. A server restart begins a new synthetic session.
+The launcher binds only to 127.0.0.1:8765 (or --port 0). It prints the temporary localhost URL and randomly generated synthetic credentials for each role. Never publish console credentials or submit real data. Use an assessor to raise a request, contributor to submit a fictional labelled text fixture, assessor to inspect/accept quarantine and run extraction, reviewer to preview the source and review captured fields, owner to confirm release is locked.
 
-Review flow: sign in as assessor, raise a request, sign out; contributor selects an approved criterion/request, enters provenance and uploads a UTF-8 synthetic .txt source; assessor inspects quarantine and records disposition, then drafts a finding linked to an accepted source version; independent reviewer previews evidence and records a review; owner sees the result but release remains locked. Source receipt is not evidence sufficiency.
+The schema is tied to the approved specification hash. See extraction-schema.json (28 criteria, 190 field labels) and golden-fixtures.json (28 entirely fictional labelled examples). The extractor returns exact text, source line and column, excerpt, missing or ambiguous state. Extraction results are encrypted at rest in a temporary local database, linked to an immutable accepted source version and digest, and independently reviewed. Acceptance refers to captured field accuracy only; extraction does not establish claim truth, evidence sufficiency or executive judgement. Superseding evidence invalidates the extraction state.
 
-## Reproduce verification
+## Verification
 
 ```text
-python -m unittest -v test_data_plane.py test_api.py
+python -m unittest -v test_data_plane.py test_api.py test_extraction.py
 node browser-smoke.cjs
 ```
 
-Use Playwright and Chrome for the browser test. If the repo directory structure differs, set TCI_REGISTER and TCI_SPEC to the exact approved JSON files; TCI_PYTHON can select the Python runtime and PLAYWRIGHT_MODULE can select the installed Playwright module. The tests spawn a transient localhost service with randomly generated credentials and no real data.
+Tests resolve the approved register and specification files in the repository. If local layout differs, use TCI_REGISTER and TCI_SPEC to point to their exact JSON files. Set TCI_PYTHON and PLAYWRIGHT_MODULE for a non-default Python or Playwright installation. Chrome is required for the browser smoke test. See EXTRACTION-ACCEPTANCE.md, TEST-RESULTS.txt, EXTRACTION-TEST-RESULTS.txt and BROWSER-RESULTS.txt.
 
-23 service/API tests and the four-role browser workflow passed. Review TEST-RESULTS.txt, BROWSER-RESULTS.txt and SECURITY-ACCEPTANCE.md. The earlier workbench remains a separate local-only illustrative client; this integrated candidate is here in the data-plane directory.
+## Limits
 
-## Production limitations
-
-This is not production security acceptance. HTTP is loopback only; no external IdP/MFA, HTTPS deployment, managed secret store, multi-tenant cloud storage, malware scanning, production retention/deletion, backup/recovery, external audit anchoring or secure export. Scope is bootstrapped for the synthetic session; real assessment provisioning is not implemented. Only synthetic text up to 256 KiB is accepted. Manual screening is not malware scanning. Alternative evidence and conditional applicability acceptance are still conservatively blocked. Semantic evidence extraction and actual-document validation remain separate work. No formal v0.1 release, real-client processing, scoring, executive output or deployment is authorised.
+Only synthetic UTF-8 labelled .txt files up to 256 KiB are supported. This is not AI extraction, OCR, free-form document interpretation or proof of production security. The original field labels may contain multiple related attributes; no automatic semantic decomposition or numeric conversion. Unknown labels remain missing; conflicting values remain ambiguous. The authenticated local store has no external IdP/MFA, managed keys, TLS deployment, private cloud infrastructure, production malware screening, retention, secure exports or operational security assessment. Scope is bootstrapped for synthetic testing. No formal production release, scoring, client processing or public deployment is authorised.

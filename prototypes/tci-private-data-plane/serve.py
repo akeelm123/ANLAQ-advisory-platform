@@ -66,7 +66,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -82,6 +82,10 @@ class Handler(BaseHTTPRequestHandler):
                 fid=self.dp.draft_finding(token,aid,data["criterion"],data["claim"],data["evidenceClass"],data["strength"],data["contradiction"],data["links"]);return self.payload(201,{"findingId":fid})
             elif action=="review":
                 self.dp.review(token,aid,data["findingId"],data["decision"],data["reason"],data.get("confirmed",False))
+            elif action=="extract":
+                return self.payload(201,{"runId":self.dp.run_extraction(token,aid,data["versionId"],data["criterion"])})
+            elif action=="extraction-review":
+                self.dp.review_extraction(token,aid,data["runId"],data["decision"],data["reason"],data.get("confirmed",False))
             elif action=="release":self.dp.release(token,aid)
             else:return self.payload(404,{"error":"Unknown route"})
             return self.payload(200,{"ok":True})

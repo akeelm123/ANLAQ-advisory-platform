@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib, hmac, json, os, secrets, sqlite3, time, uuid
 from pathlib import Path
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from extraction import load_schema, extract, VERSION as EXTRACTION_VERSION
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -37,11 +38,17 @@ class DataPlane:
         CREATE TABLE IF NOT EXISTS findings(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),criterion TEXT NOT NULL,author TEXT NOT NULL REFERENCES users(id),claim TEXT NOT NULL,evidence_class TEXT NOT NULL,strength TEXT NOT NULL,contradiction INTEGER NOT NULL,created_at REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS links(finding_id TEXT NOT NULL REFERENCES findings(id),version_id TEXT NOT NULL REFERENCES versions(id),request_id TEXT NOT NULL,locator TEXT NOT NULL,PRIMARY KEY(finding_id,version_id,request_id));
         CREATE TABLE IF NOT EXISTS reviews(id TEXT PRIMARY KEY,finding_id TEXT UNIQUE NOT NULL REFERENCES findings(id),reviewer TEXT NOT NULL REFERENCES users(id),decision TEXT NOT NULL,reason TEXT NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS extraction_runs(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),version_id TEXT NOT NULL REFERENCES versions(id),criterion TEXT NOT NULL,actor TEXT NOT NULL REFERENCES users(id),schema_hash TEXT NOT NULL,method TEXT NOT NULL,nonce BLOB NOT NULL,ciphertext BLOB NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS extraction_reviews(id TEXT PRIMARY KEY,run_id TEXT UNIQUE NOT NULL REFERENCES extraction_runs(id),reviewer TEXT NOT NULL REFERENCES users(id),decision TEXT NOT NULL,reason TEXT NOT NULL,created_at REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS audit(seq INTEGER PRIMARY KEY,assessment_id TEXT NOT NULL,actor TEXT NOT NULL,action TEXT NOT NULL,record_id TEXT NOT NULL,time REAL NOT NULL,previous TEXT NOT NULL,mac TEXT NOT NULL);
         CREATE TRIGGER IF NOT EXISTS immutable_versions_update BEFORE UPDATE ON versions BEGIN SELECT RAISE(ABORT,'immutable source version'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_versions_delete BEFORE DELETE ON versions BEGIN SELECT RAISE(ABORT,'immutable source version'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_audit_update BEFORE UPDATE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_audit_delete BEFORE DELETE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_extraction_update BEFORE UPDATE ON extraction_runs BEGIN SELECT RAISE(ABORT,'immutable extraction'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_extraction_delete BEFORE DELETE ON extraction_runs BEGIN SELECT RAISE(ABORT,'immutable extraction'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_extraction_review_update BEFORE UPDATE ON extraction_reviews BEGIN SELECT RAISE(ABORT,'immutable extraction review'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_extraction_review_delete BEFORE DELETE ON extraction_reviews BEGIN SELECT RAISE(ABORT,'immutable extraction review'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_intake_update BEFORE UPDATE ON intake BEGIN SELECT RAISE(ABORT,'immutable intake'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_intake_delete BEFORE DELETE ON intake BEGIN SELECT RAISE(ABORT,'immutable intake'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_request_update BEFORE UPDATE ON request_updates BEGIN SELECT RAISE(ABORT,'immutable request event'); END;
@@ -63,6 +70,7 @@ class DataPlane:
         spec=json.loads(sb)
         self.rules={r["criterionId"]:r for r in spec["rules"]}
         self.mappings={c:set(r["primary"]+r["supplementary"]+r["conditional"]) for c,r in self.rules.items()}
+        self.extraction_rules,self.extraction_schema_hash=load_schema(Path(__file__).with_name("extraction-schema.json"),sb)
     # Trusted local bootstrap only. No exposed self-service administrator endpoint.
     def bootstrap_user(self,username,password):
         username=required(username,"username")
@@ -257,6 +265,52 @@ class DataPlane:
         if any(not self._latest(self._version(assessment,l["version_id"])) for l in self.db.execute("SELECT version_id FROM links WHERE finding_id=?",(finding,))):return "superseded"
         r=self.db.execute("SELECT decision FROM reviews WHERE finding_id=?",(finding,)).fetchone()
         return r["decision"] if r else "draft"
+    def run_extraction(self,token,assessment,version,criterion):
+        if criterion not in self.extraction_rules:raise Invalid("Unknown extraction criterion")
+        with self.db:
+            a=self._actor(token,assessment,{"assessor"})
+            v=self._version(assessment,version)
+            if v["status"]!="accepted" or not self._latest(v):raise Invalid("Extraction requires accepted current source version")
+            intake=self.db.execute("SELECT request_id FROM intake WHERE version_id=?",(version,)).fetchone()
+            if not intake or intake["request_id"] not in self.mappings[criterion]:raise Invalid("Source request must be mapped to selected criterion")
+            raw=self._read_bytes(a,assessment,v)
+            result=extract(raw.decode("utf-8"),self.extraction_rules[criterion])
+            rid=ident();nonce=secrets.token_bytes(12)
+            aad=canonical([assessment,rid,version,criterion,self.extraction_schema_hash,EXTRACTION_VERSION]).encode()
+            encrypted=AESGCM(self.key).encrypt(nonce,canonical(result).encode(),aad)
+            self.db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?,?,?)",(rid,assessment,version,criterion,a["id"],self.extraction_schema_hash,EXTRACTION_VERSION,nonce,encrypted,self.clock()))
+            self._audit(assessment,a["id"],"draft extraction created",rid)
+            return rid
+    def _extraction_payload(self,row):
+        aad=canonical([row["assessment_id"],row["id"],row["version_id"],row["criterion"],row["schema_hash"],row["method"]]).encode()
+        return json.loads(AESGCM(self.key).decrypt(row["nonce"],row["ciphertext"],aad))
+    def list_extractions(self,token,assessment):
+        self._actor(token,assessment,{"assessor","reviewer","owner"})
+        out=[]
+        for row in self.db.execute("SELECT * FROM extraction_runs WHERE assessment_id=? ORDER BY created_at",(assessment,)):
+            v=self._version(assessment,row["version_id"]);p=self._extraction_payload(row)
+            review=self.db.execute("SELECT decision,reason FROM extraction_reviews WHERE run_id=?",(row["id"],)).fetchone()
+            stale=not self._latest(v)
+            out.append({"id":row["id"],"versionId":v["id"],"sourceTitle":v["title"],"sourceSha256":v["digest"],"schemaSha256":row["schema_hash"],"criterionId":row["criterion"],"method":row["method"],"state":"superseded" if stale else review["decision"] if review else "draft","reviewReason":review["reason"] if review else None,"result":p})
+        return out
+    def review_extraction(self,token,assessment,run,decision,reason,confirmed=False):
+        if decision not in {"accept","return"}:raise Invalid("Invalid extraction review decision")
+        reason=required(reason,"review rationale")
+        with self.db:
+            a=self._actor(token,assessment,{"reviewer"})
+            r=self.db.execute("SELECT * FROM extraction_runs WHERE id=? AND assessment_id=?",(run,assessment)).fetchone()
+            if not r or r["actor"]==a["id"]:raise Denied("Independent extraction review required")
+            if self.db.execute("SELECT 1 FROM extraction_reviews WHERE run_id=?",(run,)).fetchone():raise Invalid("Extraction already reviewed")
+            v=self._version(assessment,r["version_id"])
+            if decision=="accept":
+                if not self._latest(v) or v["status"]!="accepted":raise Invalid("Source superseded or unavailable")
+                result=self._extraction_payload(r)
+                if result["counts"]["missing"] or result["counts"]["ambiguous"]:raise Invalid("Missing or ambiguous fields; return for follow-up")
+                if confirmed is not True or not self.db.execute("SELECT 1 FROM audit WHERE assessment_id=? AND actor=? AND action='evidence downloaded' AND record_id=?",(assessment,a["id"],v["id"])).fetchone():raise Invalid("Independent source preview and confirmation required")
+            rid=ident()
+            self.db.execute("INSERT INTO extraction_reviews VALUES (?,?,?,?,?,?)",(rid,run,a["id"],decision,reason,self.clock()))
+            self._audit(assessment,a["id"],"extraction review "+decision,rid)
+            return rid
     def release(self,token,assessment):
         self._actor(token,assessment,{"owner"})
         raise Denied("Scoring, executive release, real-client processing and deployment locked")
