@@ -1,0 +1,1858 @@
+{
+  "version": "1.0-rc.1",
+  "status": "Draft pending owner approval",
+  "approvedRegister": {
+    "recordId": "TCI-MER-APR-002",
+    "status": "approved",
+    "approvedOn": "2026-11-26",
+    "approvedBy": "Project owner",
+    "decision": "User explicitly replied approved to v1.0-reconstructed-rc.1 review request.",
+    "scope": "Register candidate, including the 32 catalogue items, 89 mappings and draft validation rules as a working methodology baseline. Separate final validation specification, pilot calibration, security and release approvals remain outstanding.",
+    "version": "1.0-reconstructed-rc.1",
+    "commit": "029bd58c280908e39e0e378a554f0818fe60bafd",
+    "xlsxSha256": "fe6fe6f76feda4184976a528c8a78bc51c39e782e4261cffec71731de8c64767",
+    "jsonSha256": "f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559"
+  },
+  "rules": [
+    {
+      "ruleId": "EVS-Q01",
+      "criterionId": "Q01",
+      "dimension": "Strategic Alignment",
+      "criterion": "Strategy linkage",
+      "intent": "Transformation is demonstrably linked to enterprise strategy and the original business problem.",
+      "criterionSource": "S07 / Dimension scoring / row 5",
+      "question": "Which original business problem and strategic outcome justified the investment, and do they still hold?",
+      "stakeholder": "Executive sponsor",
+      "primary": [
+        "SA-01"
+      ],
+      "supplementary": [
+        "SA-02",
+        "SA-03"
+      ],
+      "conditional": [],
+      "fields": "Approved strategy objective, original problem, business case scope, funding decision date, current mandate and outcomes",
+      "test": "Trace current scope and funded outcomes to named original business problem and strategy objective; verify any material change was approved.",
+      "corroboration": "Compare signed mandate with original approved business case and current roadmap.",
+      "contradiction": "Current strategy claim conflicts with original funded problem or scope expansion lacks approval.",
+      "followUp": "Ask sponsor for original mandate, investment decision and approved changes.",
+      "met": "Current funded outcomes demonstrably trace to the original strategic problem.",
+      "notMet": "Current work has drifted from the approved strategic purpose, confirmed by signed records.",
+      "insufficient": "Cannot locate original investment rationale or current strategic mandate.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q02",
+      "criterionId": "Q02",
+      "dimension": "Strategic Alignment",
+      "criterion": "Investment thesis",
+      "intent": "Current scope, spend and priorities remain consistent with the approved investment thesis.",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "question": "How have scope, spend or priorities changed since approval, and were those changes re-approved against the investment thesis?",
+      "stakeholder": "Strategy / finance lead",
+      "primary": [
+        "SA-02"
+      ],
+      "supplementary": [
+        "SA-03",
+        "SA-01",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": "Original and current approved scope, investment amount, cost basis, dates, assumptions, change approvals, revised priorities",
+      "test": "Reconcile original vs current scope, spend and priorities using comparable basis; establish authority and date of material changes.",
+      "corroboration": "Check business case/change log against finance actuals and roadmap.",
+      "contradiction": "Reported spend/scope differs from approved baseline; an unapproved change is called approved.",
+      "followUp": "Ask strategy/finance lead for dated approval and itemised baseline-to-current bridge.",
+      "met": "Current investment remains consistent with original or formally approved revised thesis.",
+      "notMet": "Material changes or spend variance are documented without reapproval.",
+      "insufficient": "Missing original case, current scope/spend or comparable approval trail.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q03",
+      "criterionId": "Q03",
+      "dimension": "Strategic Alignment",
+      "criterion": "Outcome clarity",
+      "intent": "Measurable business outcomes and success measures are explicit.",
+      "criterionSource": "S07 / Dimension scoring / row 6",
+      "question": "Which measurable outcomes define success today, and who owns each one?",
+      "stakeholder": "Business outcome owner",
+      "primary": [
+        "SA-04"
+      ],
+      "supplementary": [
+        "SA-02",
+        "BV-01"
+      ],
+      "conditional": [],
+      "fields": "Outcome identifier, baseline, target, actual measure, unit, period, data owner and accountable outcome owner",
+      "test": "Check each material outcome has an agreed measurable definition, baseline, target, owner and reporting period; do not equate activity with outcome.",
+      "corroboration": "Reconcile business case outcome schedule with KPI register and benefit plan; verify measurement definitions.",
+      "contradiction": "KPI definitions or target figures differ between leadership and source records.",
+      "followUp": "Ask owner for versioned outcome scorecard, measure dictionary and signed target baseline.",
+      "met": "Material funded outcomes are explicit, measurable and traceable to approved targets.",
+      "notMet": "Documented outcomes are vague, activity-only or lack accountable measurement.",
+      "insufficient": "No reliable baseline/target or metric definitions.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q04",
+      "criterionId": "Q04",
+      "dimension": "Strategic Alignment",
+      "criterion": "Benefits ownership",
+      "intent": "Named business owners are accountable for intended outcomes and benefits.",
+      "criterionSource": "S07 / Dimension scoring / row 8",
+      "question": "What evidence would cause you to reduce, redirect or stop investment?",
+      "stakeholder": "Executive sponsor",
+      "primary": [
+        "BV-01"
+      ],
+      "supplementary": [
+        "BV-05",
+        "LC-04"
+      ],
+      "conditional": [],
+      "fields": "Benefit ID, accountable business owner, acceptance, benefit target, escalation/stop conditions, post-delivery owner",
+      "test": "Trace material benefits to named accountable owners with decision authority and continuing obligations; check decision triggers are documented rather than inferred.",
+      "corroboration": "Compare benefits plan with signed accountability record and BAU ownership.",
+      "contradiction": "Programme names sponsor as owner but business owner denies accountability.",
+      "followUp": "Ask sponsor for owner acceptance, decision rights and benefit review arrangements.",
+      "met": "All material benefits have named accountable owners and clear decision responsibilities.",
+      "notMet": "Signed records show gaps or disputed ownership for material benefits.",
+      "insufficient": "Ownership is only verbally asserted or responsibility records unavailable.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q05",
+      "criterionId": "Q05",
+      "dimension": "Leadership Commitment",
+      "criterion": "Decision effectiveness",
+      "intent": "Material decisions and trade-offs are made in a timely manner.",
+      "criterionSource": "S07 / Dimension scoring / row 10",
+      "question": "Which material decisions have been delayed in the last two review cycles, and why?",
+      "stakeholder": "Executive sponsor",
+      "primary": [
+        "LC-01"
+      ],
+      "supplementary": [
+        "LC-02",
+        "DE-02"
+      ],
+      "conditional": [],
+      "fields": "Decision ID, materiality, raised date, required-by date, actual decision date, owner, decision and rationale",
+      "test": "Compare required-by vs actual decision dates and assess material delay/impact on agreed review cycle; no invented time threshold.",
+      "corroboration": "Cross-check decision log with steering minutes, risk/dependency impacts and owner.",
+      "contradiction": "Reported timely decisions conflict with dated overdue items.",
+      "followUp": "Ask sponsor for specific delayed decisions and resolution evidence.",
+      "met": "Records show material decisions are made by required dates or managed with explicit trade-offs.",
+      "notMet": "Decision records evidence recurring material late decisions affecting outcomes.",
+      "insufficient": "Decision log missing dates, required deadlines or materiality.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q06",
+      "criterionId": "Q06",
+      "dimension": "Leadership Commitment",
+      "criterion": "Constraint removal",
+      "intent": "Leaders actively resolve blockers, escalations and resource constraints.",
+      "criterionSource": "S07 / Dimension scoring / row 11",
+      "question": "Which unresolved escalations or constraints remain open, and who owns resolution?",
+      "stakeholder": "Governance lead",
+      "primary": [
+        "DE-02"
+      ],
+      "supplementary": [
+        "LC-01",
+        "LC-02"
+      ],
+      "conditional": [],
+      "fields": "Escalation ID, blocker, impact, accountable leader, date raised, action, closure evidence, resource commitment",
+      "test": "Test whether decision-critical blockers were owned, acted on and resolved with actual closure evidence, not simply marked closed.",
+      "corroboration": "Triangulate risk/dependency register with sponsor decisions and steering actions.",
+      "contradiction": "Minutes claim resolution but delivery risk remains open or recurrence is evidenced.",
+      "followUp": "Ask governance lead for closure evidence, resource decisions, owner and residual risk.",
+      "met": "Material constraints have evidenced action and timely management against agreed plans.",
+      "notMet": "Material blockers remain unresolved despite escalation, confirmed by records.",
+      "insufficient": "Cannot establish impact, owner, closure or decision chronology.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q07",
+      "criterionId": "Q07",
+      "dimension": "Leadership Commitment",
+      "criterion": "Executive ownership",
+      "intent": "Named leaders are accountable for decisions, outcomes and value.",
+      "criterionSource": "S07 / Dimension scoring / row 9",
+      "question": "Where is accountability shared, and where does it still fall between functions?",
+      "stakeholder": "Business / technology leaders",
+      "primary": [
+        "LC-04"
+      ],
+      "supplementary": [
+        "LC-02",
+        "BV-05"
+      ],
+      "conditional": [],
+      "fields": "Sponsor, outcome owners, business/technology responsibilities, signed delegations, handover, exceptions",
+      "test": "Verify named leaders have accepted responsibility and authority for outcomes and value; identify accountability gaps across functions.",
+      "corroboration": "Compare governance accountability record with decision minutes and post-delivery owners.",
+      "contradiction": "RACI names a role that lacks delegated authority or the owner disputes responsibility.",
+      "followUp": "Ask business and technology leaders to reconcile ownership and delegated authority.",
+      "met": "Named accountable leaders and decision rights are accepted and evidenced.",
+      "notMet": "Records establish fragmented accountability or unresolved ownership gaps.",
+      "insufficient": "No reliable accountability or delegation records.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q08",
+      "criterionId": "Q08",
+      "dimension": "Leadership Commitment",
+      "criterion": "Governance behaviour",
+      "intent": "Governance reinforces accountability and acts when confidence weakens.",
+      "criterionSource": "S07 / Dimension scoring / row 12",
+      "question": "What action followed the last material warning that confidence was weakening?",
+      "stakeholder": "Executive sponsor",
+      "primary": [
+        "LC-02"
+      ],
+      "supplementary": [
+        "LC-01",
+        "LC-03"
+      ],
+      "conditional": [],
+      "fields": "Governance meeting date, warning/indicator, decision, action owner, due date, closure/outcome, communication",
+      "test": "Trace a material confidence warning to the governance decision and ensuing corrective action; confirm follow-through.",
+      "corroboration": "Check steering decisions, decision log and communications against dated outcomes.",
+      "contradiction": "Governance claims action was taken but the decision log or follow-up shows no action.",
+      "followUp": "Ask sponsor for warning-to-decision-to-action trail and outcome.",
+      "met": "Governance records demonstrate active response to material warnings.",
+      "notMet": "Recorded warnings remained ignored or actions unowned beyond agreed dates.",
+      "insufficient": "No warning/action records or unable to verify follow-through.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q09",
+      "criterionId": "Q09",
+      "dimension": "Technology Readiness",
+      "criterion": "Architecture & scale",
+      "intent": "Architecture can support the intended outcome at the required scale.",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "question": "Can the current architecture support required scale, resilience, security and change velocity?",
+      "stakeholder": "CTO / architect",
+      "primary": [
+        "TR-04"
+      ],
+      "supplementary": [
+        "TR-01",
+        "TR-03",
+        "TR-02"
+      ],
+      "conditional": [],
+      "fields": "Intended workload/scale, architecture version, required performance/security/recovery conditions, test results, exceptions, dependencies",
+      "test": "Compare observed results to programme-approved scale and operating requirements on equivalent configurations; assess material exceptions.",
+      "corroboration": "Reconcile architecture roadmap with independent load/control tests, resilience metrics and debt risks.",
+      "contradiction": "Design claims scale readiness while representative tests show unresolved material failure.",
+      "followUp": "Ask CTO for approved requirements, representative test evidence and exception decisions.",
+      "met": "Representative operating evidence supports required scale and technical conditions.",
+      "notMet": "Representative evidence demonstrates inability to meet a material agreed requirement.",
+      "insufficient": "Design-only claim, no representative test or missing agreed requirement.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q10",
+      "criterionId": "Q10",
+      "dimension": "Technology Readiness",
+      "criterion": "Resilience & security",
+      "intent": "Reliability, recovery, security and operational controls are adequate.",
+      "criterionSource": "S07 / Dimension scoring / row 14",
+      "question": "Which incidents, manual interventions or recovery weaknesses contradict the target-state claim?",
+      "stakeholder": "Operations lead",
+      "primary": [
+        "TR-03"
+      ],
+      "supplementary": [
+        "TR-04",
+        "DE-03"
+      ],
+      "conditional": [],
+      "fields": "Reliability and incident metrics, period, severity, recovery objectives/results, security assurance, exceptions",
+      "test": "Test observed reliability, recovery and control exceptions against agreed service/control requirements; do not infer safety from no incidents alone.",
+      "corroboration": "Compare operational monitoring with recovery/security assurance and release/incident records.",
+      "contradiction": "Reported stability conflicts with incidents, recovery gaps or material open exceptions.",
+      "followUp": "Ask operations lead for service measures, test reports and remediation status.",
+      "met": "Operating and control records support agreed reliability, recovery and security conditions.",
+      "notMet": "Records demonstrate material reliability/recovery/control failure.",
+      "insufficient": "No current operating data or control assurance; thresholds unknown.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q11",
+      "criterionId": "Q11",
+      "dimension": "Technology Readiness",
+      "criterion": "Engineering capability",
+      "intent": "Deployment, automation and engineering practices support sustainable change.",
+      "criterionSource": "S07 / Dimension scoring / row 15",
+      "question": "What evidence shows deployment, automation and engineering practices are sustainable?",
+      "stakeholder": "Engineering lead",
+      "primary": [
+        "TR-05"
+      ],
+      "supplementary": [
+        "DE-03",
+        "DE-01"
+      ],
+      "conditional": [],
+      "fields": "Deployment cadence, lead time, automation coverage, manual interventions, release outcomes, platform adoption, cost basis",
+      "test": "Assess actual deployment and engineering practice against intended sustainable delivery capability; distinguish automation design from observed outcomes.",
+      "corroboration": "Compare engineering metrics with release quality and delivery flow records.",
+      "contradiction": "Automation claims conflict with repeated manual releases or unstable outcomes.",
+      "followUp": "Ask engineering lead for deployment records, quality outcomes and intervention logs.",
+      "met": "Observed engineering practices support repeatable sustainable change.",
+      "notMet": "Release/deployment records demonstrate persistent manual bottlenecks or unsafe instability.",
+      "insufficient": "No verifiable deployment/automation outcomes.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q12",
+      "criterionId": "Q12",
+      "dimension": "Technology Readiness",
+      "criterion": "Cost & technical debt",
+      "intent": "Operating cost, dependencies and technical debt are understood and managed.",
+      "criterionSource": "S07 / Dimension scoring / row 16",
+      "question": "How are technical debt, dependencies and operating cost affecting the investment case?",
+      "stakeholder": "CTO / finance",
+      "primary": [
+        "TR-02"
+      ],
+      "supplementary": [
+        "TR-05",
+        "SA-02"
+      ],
+      "conditional": [],
+      "fields": "Technical debt item, dependency, accountable owner, risk, remediation, operating cost baseline/actual, basis, period",
+      "test": "Reconcile operating cost to investment assumptions; test material debt/dependency impacts and credible remediation ownership.",
+      "corroboration": "Compare technical debt register with engineering cost metrics and approved business case.",
+      "contradiction": "Debt risks/costs omitted from case or reported cost conflicts with Finance records.",
+      "followUp": "Ask CTO/Finance for operating cost bridge, material debt and mitigation.",
+      "met": "Material cost and debt exposure are understood and managed against agreed plan.",
+      "notMet": "Verified debt/cost exposure threatens business case without credible remedy.",
+      "insufficient": "Missing cost basis, debt catalogue or validated exposure.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q13",
+      "criterionId": "Q13",
+      "dimension": "People & Culture",
+      "criterion": "Adoption",
+      "intent": "New capabilities are used in day-to-day work and adoption is measurable.",
+      "criterionSource": "S07 / Dimension scoring / row 17",
+      "question": "What proportion of target users have adopted the new capability in day-to-day work?",
+      "stakeholder": "Business owner",
+      "primary": [
+        "PC-04"
+      ],
+      "supplementary": [
+        "PC-01",
+        "BV-03"
+      ],
+      "conditional": [],
+      "fields": "Target user/process population, eligible denominator, active users, usage definition, period, adoption target, process evidence",
+      "test": "Compare observed adoption against agreed target and appropriate denominator; distinguish training or logins from use of target workflow.",
+      "corroboration": "Check telemetry or sampled workflow evidence against change plan and user outcome measures.",
+      "contradiction": "Programme reports adoption using training completion or incompatible denominator.",
+      "followUp": "Ask business owner for eligible population, usage definition and operational evidence.",
+      "met": "Observed workflow adoption meets agreed target on comparable definition.",
+      "notMet": "Credible usage evidence shows material failure to adopt agreed workflow.",
+      "insufficient": "Missing denominator, usage definition or operational evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q14",
+      "criterionId": "Q14",
+      "dimension": "People & Culture",
+      "criterion": "Skills & capacity",
+      "intent": "Required skills, capacity and capability exist or have credible plans.",
+      "criterionSource": "S07 / Dimension scoring / row 18",
+      "question": "Which skills, capacity or incentives are still missing?",
+      "stakeholder": "Change / HR lead",
+      "primary": [
+        "PC-02"
+      ],
+      "supplementary": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditional": [],
+      "fields": "Required roles and skill demand, capacity baseline, current gap, plan, funding, effectiveness evidence, owner",
+      "test": "Compare skill/capacity requirements against available capability and credible funded remediation; validate actual capability, not training attendance only.",
+      "corroboration": "Compare skills plan with operating model and representative employee/user evidence.",
+      "contradiction": "Reported readiness conflicts with vacancies, insufficient capacity or observed skill gaps.",
+      "followUp": "Ask change/HR lead for skill requirements, resourcing plan and evidence of capability.",
+      "met": "Required capability exists or credible funded plans cover material gaps.",
+      "notMet": "Evidence establishes material unaddressed skill or capacity constraints.",
+      "insufficient": "No role requirements, current capacity or credible skill assessment.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q15",
+      "criterionId": "Q15",
+      "dimension": "People & Culture",
+      "criterion": "Roles & decision rights",
+      "intent": "Roles, accountability and decision rights support the target operating model.",
+      "criterionSource": "S07 / Dimension scoring / row 19",
+      "question": "Which roles, accountabilities or decision rights changed because of the transformation?",
+      "stakeholder": "Operating model owner",
+      "primary": [
+        "PC-05"
+      ],
+      "supplementary": [
+        "LC-04",
+        "PC-01"
+      ],
+      "conditional": [],
+      "fields": "Before/after roles, decision right, accountable owner, effective date, approved operating model, observed workflow",
+      "test": "Test that relevant roles/rights changed as approved and are operating in practice; verify business ownership at handover.",
+      "corroboration": "Compare target operating model with approved delegation and change adoption evidence.",
+      "contradiction": "Documented new roles conflict with observed decision-making or unchanged practice.",
+      "followUp": "Ask operating model owner for signed role decisions and workflow examples.",
+      "met": "Accountability and decision rights support the intended operating model in practice.",
+      "notMet": "Evidence establishes material role ambiguity or conflicting decision rights.",
+      "insufficient": "No approved target operating model or observed workflow evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q16",
+      "criterionId": "Q16",
+      "dimension": "People & Culture",
+      "criterion": "Behaviour & sustainability",
+      "intent": "Behaviours and ways of working are changing and can persist after programme closure.",
+      "criterionSource": "S07 / Dimension scoring / row 20",
+      "question": "Would the new way of working continue if the programme closed tomorrow?",
+      "stakeholder": "Users / business owner",
+      "primary": [
+        "PC-04"
+      ],
+      "supplementary": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditional": [],
+      "fields": "Behaviour/usage trend, target workflow, reporting period, operating model owner, handover plan, feedback limitations",
+      "test": "Test sustained adoption and behaviours beyond initial rollout; check whether BAU ownership and support are in place.",
+      "corroboration": "Triangulate observed usage with role/operating model change and representative feedback.",
+      "contradiction": "Programme claims sustained change but usage falls or BAU owners cannot maintain capability.",
+      "followUp": "Ask business owner for longitudinal usage, handover and representative feedback.",
+      "met": "Evidence shows intended behaviours persist with ongoing operating ownership.",
+      "notMet": "Verified behaviour regression or unsupported handover undermines sustainability.",
+      "insufficient": "Only point-in-time claim or no ongoing operating evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q17",
+      "criterionId": "Q17",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Ownership",
+      "intent": "Critical data has clear ownership and accountability.",
+      "criterionSource": "S07 / Dimension scoring / row 21",
+      "question": "Who owns the critical data and which quality measures demonstrate trust?",
+      "stakeholder": "Data owner",
+      "primary": [
+        "DC-01"
+      ],
+      "supplementary": [
+        "DC-02",
+        "DC-04"
+      ],
+      "conditional": [],
+      "fields": "Critical data element, named accountable data owner, scope, agreed responsibility, quality measures, decision impact",
+      "test": "Verify every material critical data element has an accountable accepted owner and ownership is acted upon.",
+      "corroboration": "Compare governance model and critical data element register with quality issue ownership.",
+      "contradiction": "Governance lists a nominal owner but issue records show no accepted accountability.",
+      "followUp": "Ask data owner for signed responsibilities and issue resolution evidence.",
+      "met": "Material critical data elements have evidenced ownership and accountability.",
+      "notMet": "Records establish unowned critical data or unresolved accountability gaps.",
+      "insufficient": "Critical data scope or owner acceptance unavailable.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q18",
+      "criterionId": "Q18",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Quality",
+      "intent": "Material data quality is measured, visible and actively managed.",
+      "criterionSource": "S07 / Dimension scoring / row 22",
+      "question": "Which material data issues remain unresolved and how do they affect the decision?",
+      "stakeholder": "Data governance",
+      "primary": [
+        "DC-04"
+      ],
+      "supplementary": [
+        "DC-02",
+        "DE-02"
+      ],
+      "conditional": [],
+      "fields": "Quality rule, population/denominator, period, exception count, trend, issue owner/age, decision impact, remediation",
+      "test": "Compare actual data quality against approved use-specific quality rules; trace material exceptions to impact and remediation.",
+      "corroboration": "Reconcile quality metrics with critical element register and dependency/risk records.",
+      "contradiction": "Reported data readiness conflicts with unresolved material quality exceptions.",
+      "followUp": "Ask governance lead for metric definitions, issue evidence, agreed limits and impact.",
+      "met": "Quality is measured and material issues are actively managed for intended use.",
+      "notMet": "Operating evidence shows material quality failures impacting decision/use.",
+      "insufficient": "No quality rules, denominator, recent measures or impact evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q19",
+      "criterionId": "Q19",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Lineage & definitions",
+      "intent": "Definitions, metadata and lineage support traceability and trust.",
+      "criterionSource": "S07 / Dimension scoring / row 23",
+      "question": "Can a material executive measure be traced through definitions, lineage and source?",
+      "stakeholder": "Analytics / architecture",
+      "primary": [
+        "DC-03"
+      ],
+      "supplementary": [
+        "DC-02",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": "Material measure ID, source record, metric definition, transformations, lineage, version, reporting period, reconciliation",
+      "test": "Trace material executive measure end-to-end to source; reconcile transformations and definition/period with reported figure.",
+      "corroboration": "Compare lineage metadata with critical element register and outcome KPI definition.",
+      "contradiction": "Two dashboards disagree due to changed definitions, lineage gaps or incompatible periods.",
+      "followUp": "Ask analytics lead for lineage, source reconciliation and authoritative measure definitions.",
+      "met": "A material measure is reproducibly traceable to source using consistent definitions.",
+      "notMet": "Documented lineage or definition mismatch undermines trust in material figures.",
+      "insufficient": "Missing source provenance or reproducible lineage.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q20",
+      "criterionId": "Q20",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Governance & access",
+      "intent": "Access, governance and controls are appropriate for intended use.",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "question": "Are access, governance and controls appropriate for the intended use?",
+      "stakeholder": "Risk / data owner",
+      "primary": [
+        "DC-01"
+      ],
+      "supplementary": [
+        "DC-03",
+        "TR-04"
+      ],
+      "conditional": [
+        "DC-05"
+      ],
+      "fields": "Intended use, data access model, governance/control owner, control test evidence, exceptions, scope, AI use and evaluation if applicable",
+      "test": "Test approved access and governance controls for intended use; if AI in scope, verify intended use, evaluation/risk/control evidence; no invented thresholds.",
+      "corroboration": "Compare data governance with lineage/control assurance and conditional AI evaluation evidence.",
+      "contradiction": "Policy claims control but actual access/control test exceptions conflict, or AI evaluation omitted for in-scope use.",
+      "followUp": "Ask risk/data owner for relevant control evidence, exception approvals and AI applicability decision.",
+      "met": "Evidence supports appropriate governance/access controls and relevant AI controls.",
+      "notMet": "Verified material access/governance or applicable AI-control deficiencies.",
+      "insufficient": "Missing control evidence or AI applicability unresolved.",
+      "applicability": "Criterion required. DC-05 only if AI in scope; if applicability is uncertain, keep conditional evidence open; approved out-of-scope rationale required.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q21",
+      "criterionId": "Q21",
+      "dimension": "Delivery Excellence",
+      "criterion": "Predictability & flow",
+      "intent": "Delivery flow and cycle time demonstrate sufficient predictability.",
+      "criterionSource": "S07 / Dimension scoring / row 25",
+      "question": "How predictable are flow, cycle time and release outcomes across recent review periods?",
+      "stakeholder": "Delivery lead",
+      "primary": [
+        "DE-01"
+      ],
+      "supplementary": [
+        "DE-02",
+        "SA-03"
+      ],
+      "conditional": [],
+      "fields": "Delivery period, flow metric definitions, commitments, actual release dates, throughput/cycle time, dependencies",
+      "test": "Compare planned versus actual flow and releases using consistent periods/definitions; identify material deviation and variance explanation.",
+      "corroboration": "Reconcile delivery dashboard with dependency records and prioritised roadmap.",
+      "contradiction": "Reported predictability conflicts with repeated rescheduling or changed metric baselines.",
+      "followUp": "Ask delivery lead for baseline, recent trend, actual outcome and variance records.",
+      "met": "Actual flow/release outcomes support agreed delivery predictability.",
+      "notMet": "Verified recurring variance materially undermines delivery predictability.",
+      "insufficient": "Missing commitments, actuals or consistent metric definitions.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q22",
+      "criterionId": "Q22",
+      "dimension": "Delivery Excellence",
+      "criterion": "Quality",
+      "intent": "Release quality, defects and incidents show sustainable engineering discipline.",
+      "criterionSource": "S07 / Dimension scoring / row 26",
+      "question": "Do defect, incident and rework trends support claims of improving quality?",
+      "stakeholder": "Engineering / operations",
+      "primary": [
+        "DE-03"
+      ],
+      "supplementary": [
+        "TR-03",
+        "TR-05"
+      ],
+      "conditional": [],
+      "fields": "Release ID, defect/incident severity, rework, period, quality criteria, change failures, remediation",
+      "test": "Compare defect, rework and incident outcomes against agreed release and quality criteria; examine trend and material exceptions.",
+      "corroboration": "Compare quality/release metrics with operational resilience and engineering records.",
+      "contradiction": "Reported improvement conflicts with severe incidents or excluded defects.",
+      "followUp": "Ask engineering/operations for consistent release, defect and incident data.",
+      "met": "Observed quality/release trends support sustainable engineering discipline.",
+      "notMet": "Verified material quality degradation or recurring adverse release outcomes.",
+      "insufficient": "No comparable quality trend, criteria or release/incident records.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q23",
+      "criterionId": "Q23",
+      "dimension": "Delivery Excellence",
+      "criterion": "Dependencies & risk",
+      "intent": "Dependencies, rework and delivery risks are visible and actively managed.",
+      "criterionSource": "S07 / Dimension scoring / row 27",
+      "question": "Which dependencies repeatedly change delivery outcomes or create delay?",
+      "stakeholder": "Dependency owners",
+      "primary": [
+        "DE-02"
+      ],
+      "supplementary": [
+        "DE-01",
+        "TR-02"
+      ],
+      "conditional": [],
+      "fields": "Dependency/risk ID, criticality, impact, accountable owner, due date, mitigation, outcomes",
+      "test": "Trace material dependencies and risks to actual delivery impact, ownership, mitigation and closure; distinguish risk prediction from realised delay.",
+      "corroboration": "Reconcile risk register with delivery flow and technical debt records.",
+      "contradiction": "Reported mitigation conflicts with recurring delay or unresolved risk.",
+      "followUp": "Ask dependency owners for impacted milestones, mitigations and closure evidence.",
+      "met": "Material dependencies/risks are visible, owned and actively managed.",
+      "notMet": "Documented repeated material dependency delays or unmitigated risk.",
+      "insufficient": "No current dependency ownership, impact or mitigation evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q24",
+      "criterionId": "Q24",
+      "dimension": "Delivery Excellence",
+      "criterion": "Learning & improvement",
+      "intent": "Teams adapt when assumptions fail and improve delivery over time.",
+      "criterionSource": "S07 / Dimension scoring / row 28",
+      "question": "What changed after recent assumptions proved wrong, and what evidence shows learning?",
+      "stakeholder": "Delivery lead",
+      "primary": [
+        "DE-04"
+      ],
+      "supplementary": [
+        "DE-01",
+        "DE-03"
+      ],
+      "conditional": [],
+      "fields": "Failed assumption, lesson, corrective action, owner, time, baseline/post-change measures, outcomes",
+      "test": "Trace learning action to changed practice and observed improvement; check whether outcome evidence supports the claim.",
+      "corroboration": "Triangulate retrospective/action records with delivery flow and quality outcomes.",
+      "contradiction": "Retrospective claims improvement without changed metrics or repeat issue remains.",
+      "followUp": "Ask delivery lead for action closure, before/after measures and exceptions.",
+      "met": "Observed changes demonstrate learning after failed assumptions.",
+      "notMet": "Records show repeated failure without corrective action or ineffective change.",
+      "insufficient": "No retrospective/action trail or comparable outcomes.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q25",
+      "criterionId": "Q25",
+      "dimension": "Business Value Realisation",
+      "criterion": "Benefits baseline",
+      "intent": "Approved benefits case and baseline are clear and current.",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "question": "Which benefits are validated, which remain forecast or asserted, and against what baseline?",
+      "stakeholder": "Finance",
+      "primary": [
+        "BV-01"
+      ],
+      "supplementary": [
+        "SA-02",
+        "BV-04",
+        "SA-04"
+      ],
+      "conditional": [],
+      "fields": "Original approved benefit ID/baseline, target, measure basis, period, owner, approved changes, current expectation",
+      "test": "Use original approved benefit case as reference; reconcile revised expectations/assumptions and comparable measurement periods; no reset without approval.",
+      "corroboration": "Compare benefit plan, original business case, Finance bridge and KPI register.",
+      "contradiction": "Current benefits are compared to revised forecast instead of original approved target without explanation.",
+      "followUp": "Ask Finance for original baseline, approved change and current comparable benefit schedule.",
+      "met": "Approved original baseline and authorised revisions are clear and comparable.",
+      "notMet": "Records establish material unapproved baseline changes or invalid measurement basis.",
+      "insufficient": "Original case/benefit baseline or comparability missing.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q26",
+      "criterionId": "Q26",
+      "dimension": "Business Value Realisation",
+      "criterion": "Value evidence",
+      "intent": "Realised financial, customer, productivity, revenue, cost or risk outcomes are evidenced.",
+      "criterionSource": "S07 / Dimension scoring / row 30",
+      "question": "What measurable value exists today and what portion is attributable to this investment?",
+      "stakeholder": "Business benefit owner",
+      "primary": [
+        "BV-02"
+      ],
+      "supplementary": [
+        "BV-03",
+        "BV-04"
+      ],
+      "conditional": [],
+      "fields": "Benefit ID, actual realised outcome, original target, period, currency/unit, benefit basis, source, Finance validation, forecast separately",
+      "test": "Reconcile realised vs forecast/asserted benefit measures on equivalent periods and basis; distinguish cash, productivity and avoidance without adding incompatible amounts.",
+      "corroboration": "Compare financial/operational records with customer outcome measures and Finance bridge.",
+      "contradiction": "Programme reported realised value exceeds Finance evidence or combines forecasts with actuals.",
+      "followUp": "Ask benefit owner and Finance for itemised realised/forecast/asserted benefit bridge.",
+      "met": "Credible measured outcomes support realised value on an agreed basis.",
+      "notMet": "Verified realised benefits materially miss agreed outcome or reported value unsupported by actual records.",
+      "insufficient": "No reliable actual, approved basis, period or validation; distinguish unknown from weak.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q27",
+      "criterionId": "Q27",
+      "dimension": "Business Value Realisation",
+      "criterion": "Attribution & validation",
+      "intent": "Material benefits are attributable to the investment and validated where relevant.",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "question": "Where is the organisation operating differently because of the delivered capability?",
+      "stakeholder": "Operations / business",
+      "primary": [
+        "BV-04"
+      ],
+      "supplementary": [
+        "BV-02",
+        "PC-04",
+        "BV-03"
+      ],
+      "conditional": [],
+      "fields": "Benefit ID, operating change, baseline/control or comparison, attribution assumptions, external influences, Finance/reviewer validation",
+      "test": "Test that material benefit is attributable to delivered capability, with comparable baseline, alternative explanations and independent validation where relevant.",
+      "corroboration": "Compare Finance attribution bridge with realised value evidence and operational adoption/customer outcomes.",
+      "contradiction": "Measured benefit occurs but cannot be attributed to programme rather than external factors or double-counting.",
+      "followUp": "Ask operations/business owner for attributable change evidence, assumptions and Finance reconciliation.",
+      "met": "Independent evidence supports attribution and relevant validation of material benefits.",
+      "notMet": "Credible evidence contradicts claimed attribution or identifies double counting.",
+      "insufficient": "No attribution basis, comparable baseline or corroborating operating evidence.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    },
+    {
+      "ruleId": "EVS-Q28",
+      "criterionId": "Q28",
+      "dimension": "Business Value Realisation",
+      "criterion": "Sustained ownership",
+      "intent": "Named business owners remain accountable for benefits after programme delivery.",
+      "criterionSource": "S07 / Dimension scoring / row 32",
+      "question": "Who owns benefits after the programme ends, and how will value continue to be measured?",
+      "stakeholder": "Business benefit owner",
+      "primary": [
+        "BV-05"
+      ],
+      "supplementary": [
+        "BV-01",
+        "PC-05"
+      ],
+      "conditional": [],
+      "fields": "Benefit owner, accepted BAU responsibility, measurement frequency, ongoing funding/support, handover date, post-close outcomes",
+      "test": "Verify material benefits have named accepted owners and continuing measurement after programme closure; test sustainability assumptions.",
+      "corroboration": "Compare BAU handover with approved benefits plan and operating model evidence.",
+      "contradiction": "Programme claims ongoing ownership but no accepted BAU handover or reporting arrangements.",
+      "followUp": "Ask benefit owner for signed handover, funding and continuing metric plan.",
+      "met": "Accepted ongoing owners and measurement arrangements support sustainable value.",
+      "notMet": "Evidence establishes unowned material benefits or missing continuing operating support.",
+      "insufficient": "No reliable handover, owner acceptance or measurement arrangements.",
+      "applicability": "Required for flagship assessment unless owner approves a specific documented exception. No reweighting; N/A requires separate approval.",
+      "output": "Evidence-linked finding; class and strength; materiality; outcome category; gap/contradiction; owner and follow-up; independent review; no score.",
+      "status": "Draft — owner approval required"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "EVS-Q01-MET",
+      "ruleId": "EVS-Q01",
+      "criterionId": "Q01",
+      "case": "Current funded outcomes demonstrably trace to the original strategic problem.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q01-NOT-MET",
+      "ruleId": "EVS-Q01",
+      "criterionId": "Q01",
+      "case": "Current work has drifted from the approved strategic purpose, confirmed by signed records.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q01-MISSING",
+      "ruleId": "EVS-Q01",
+      "criterionId": "Q01",
+      "case": "Cannot locate original investment rationale or current strategic mandate.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q01-CONFLICT",
+      "ruleId": "EVS-Q01",
+      "criterionId": "Q01",
+      "case": "Current strategy claim conflicts with original funded problem or scope expansion lacks approval.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q02-MET",
+      "ruleId": "EVS-Q02",
+      "criterionId": "Q02",
+      "case": "Current investment remains consistent with original or formally approved revised thesis.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q02-NOT-MET",
+      "ruleId": "EVS-Q02",
+      "criterionId": "Q02",
+      "case": "Material changes or spend variance are documented without reapproval.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q02-MISSING",
+      "ruleId": "EVS-Q02",
+      "criterionId": "Q02",
+      "case": "Missing original case, current scope/spend or comparable approval trail.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q02-CONFLICT",
+      "ruleId": "EVS-Q02",
+      "criterionId": "Q02",
+      "case": "Reported spend/scope differs from approved baseline; an unapproved change is called approved.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q03-MET",
+      "ruleId": "EVS-Q03",
+      "criterionId": "Q03",
+      "case": "Material funded outcomes are explicit, measurable and traceable to approved targets.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q03-NOT-MET",
+      "ruleId": "EVS-Q03",
+      "criterionId": "Q03",
+      "case": "Documented outcomes are vague, activity-only or lack accountable measurement.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q03-MISSING",
+      "ruleId": "EVS-Q03",
+      "criterionId": "Q03",
+      "case": "No reliable baseline/target or metric definitions.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q03-CONFLICT",
+      "ruleId": "EVS-Q03",
+      "criterionId": "Q03",
+      "case": "KPI definitions or target figures differ between leadership and source records.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q04-MET",
+      "ruleId": "EVS-Q04",
+      "criterionId": "Q04",
+      "case": "All material benefits have named accountable owners and clear decision responsibilities.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q04-NOT-MET",
+      "ruleId": "EVS-Q04",
+      "criterionId": "Q04",
+      "case": "Signed records show gaps or disputed ownership for material benefits.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q04-MISSING",
+      "ruleId": "EVS-Q04",
+      "criterionId": "Q04",
+      "case": "Ownership is only verbally asserted or responsibility records unavailable.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q04-CONFLICT",
+      "ruleId": "EVS-Q04",
+      "criterionId": "Q04",
+      "case": "Programme names sponsor as owner but business owner denies accountability.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q05-MET",
+      "ruleId": "EVS-Q05",
+      "criterionId": "Q05",
+      "case": "Records show material decisions are made by required dates or managed with explicit trade-offs.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q05-NOT-MET",
+      "ruleId": "EVS-Q05",
+      "criterionId": "Q05",
+      "case": "Decision records evidence recurring material late decisions affecting outcomes.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q05-MISSING",
+      "ruleId": "EVS-Q05",
+      "criterionId": "Q05",
+      "case": "Decision log missing dates, required deadlines or materiality.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q05-CONFLICT",
+      "ruleId": "EVS-Q05",
+      "criterionId": "Q05",
+      "case": "Reported timely decisions conflict with dated overdue items.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q06-MET",
+      "ruleId": "EVS-Q06",
+      "criterionId": "Q06",
+      "case": "Material constraints have evidenced action and timely management against agreed plans.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q06-NOT-MET",
+      "ruleId": "EVS-Q06",
+      "criterionId": "Q06",
+      "case": "Material blockers remain unresolved despite escalation, confirmed by records.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q06-MISSING",
+      "ruleId": "EVS-Q06",
+      "criterionId": "Q06",
+      "case": "Cannot establish impact, owner, closure or decision chronology.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q06-CONFLICT",
+      "ruleId": "EVS-Q06",
+      "criterionId": "Q06",
+      "case": "Minutes claim resolution but delivery risk remains open or recurrence is evidenced.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q07-MET",
+      "ruleId": "EVS-Q07",
+      "criterionId": "Q07",
+      "case": "Named accountable leaders and decision rights are accepted and evidenced.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q07-NOT-MET",
+      "ruleId": "EVS-Q07",
+      "criterionId": "Q07",
+      "case": "Records establish fragmented accountability or unresolved ownership gaps.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q07-MISSING",
+      "ruleId": "EVS-Q07",
+      "criterionId": "Q07",
+      "case": "No reliable accountability or delegation records.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q07-CONFLICT",
+      "ruleId": "EVS-Q07",
+      "criterionId": "Q07",
+      "case": "RACI names a role that lacks delegated authority or the owner disputes responsibility.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q08-MET",
+      "ruleId": "EVS-Q08",
+      "criterionId": "Q08",
+      "case": "Governance records demonstrate active response to material warnings.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q08-NOT-MET",
+      "ruleId": "EVS-Q08",
+      "criterionId": "Q08",
+      "case": "Recorded warnings remained ignored or actions unowned beyond agreed dates.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q08-MISSING",
+      "ruleId": "EVS-Q08",
+      "criterionId": "Q08",
+      "case": "No warning/action records or unable to verify follow-through.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q08-CONFLICT",
+      "ruleId": "EVS-Q08",
+      "criterionId": "Q08",
+      "case": "Governance claims action was taken but the decision log or follow-up shows no action.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q09-MET",
+      "ruleId": "EVS-Q09",
+      "criterionId": "Q09",
+      "case": "Representative operating evidence supports required scale and technical conditions.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q09-NOT-MET",
+      "ruleId": "EVS-Q09",
+      "criterionId": "Q09",
+      "case": "Representative evidence demonstrates inability to meet a material agreed requirement.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q09-MISSING",
+      "ruleId": "EVS-Q09",
+      "criterionId": "Q09",
+      "case": "Design-only claim, no representative test or missing agreed requirement.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q09-CONFLICT",
+      "ruleId": "EVS-Q09",
+      "criterionId": "Q09",
+      "case": "Design claims scale readiness while representative tests show unresolved material failure.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q10-MET",
+      "ruleId": "EVS-Q10",
+      "criterionId": "Q10",
+      "case": "Operating and control records support agreed reliability, recovery and security conditions.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q10-NOT-MET",
+      "ruleId": "EVS-Q10",
+      "criterionId": "Q10",
+      "case": "Records demonstrate material reliability/recovery/control failure.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q10-MISSING",
+      "ruleId": "EVS-Q10",
+      "criterionId": "Q10",
+      "case": "No current operating data or control assurance; thresholds unknown.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q10-CONFLICT",
+      "ruleId": "EVS-Q10",
+      "criterionId": "Q10",
+      "case": "Reported stability conflicts with incidents, recovery gaps or material open exceptions.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q11-MET",
+      "ruleId": "EVS-Q11",
+      "criterionId": "Q11",
+      "case": "Observed engineering practices support repeatable sustainable change.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q11-NOT-MET",
+      "ruleId": "EVS-Q11",
+      "criterionId": "Q11",
+      "case": "Release/deployment records demonstrate persistent manual bottlenecks or unsafe instability.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q11-MISSING",
+      "ruleId": "EVS-Q11",
+      "criterionId": "Q11",
+      "case": "No verifiable deployment/automation outcomes.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q11-CONFLICT",
+      "ruleId": "EVS-Q11",
+      "criterionId": "Q11",
+      "case": "Automation claims conflict with repeated manual releases or unstable outcomes.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q12-MET",
+      "ruleId": "EVS-Q12",
+      "criterionId": "Q12",
+      "case": "Material cost and debt exposure are understood and managed against agreed plan.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q12-NOT-MET",
+      "ruleId": "EVS-Q12",
+      "criterionId": "Q12",
+      "case": "Verified debt/cost exposure threatens business case without credible remedy.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q12-MISSING",
+      "ruleId": "EVS-Q12",
+      "criterionId": "Q12",
+      "case": "Missing cost basis, debt catalogue or validated exposure.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q12-CONFLICT",
+      "ruleId": "EVS-Q12",
+      "criterionId": "Q12",
+      "case": "Debt risks/costs omitted from case or reported cost conflicts with Finance records.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q13-MET",
+      "ruleId": "EVS-Q13",
+      "criterionId": "Q13",
+      "case": "Observed workflow adoption meets agreed target on comparable definition.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q13-NOT-MET",
+      "ruleId": "EVS-Q13",
+      "criterionId": "Q13",
+      "case": "Credible usage evidence shows material failure to adopt agreed workflow.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q13-MISSING",
+      "ruleId": "EVS-Q13",
+      "criterionId": "Q13",
+      "case": "Missing denominator, usage definition or operational evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q13-CONFLICT",
+      "ruleId": "EVS-Q13",
+      "criterionId": "Q13",
+      "case": "Programme reports adoption using training completion or incompatible denominator.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q14-MET",
+      "ruleId": "EVS-Q14",
+      "criterionId": "Q14",
+      "case": "Required capability exists or credible funded plans cover material gaps.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q14-NOT-MET",
+      "ruleId": "EVS-Q14",
+      "criterionId": "Q14",
+      "case": "Evidence establishes material unaddressed skill or capacity constraints.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q14-MISSING",
+      "ruleId": "EVS-Q14",
+      "criterionId": "Q14",
+      "case": "No role requirements, current capacity or credible skill assessment.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q14-CONFLICT",
+      "ruleId": "EVS-Q14",
+      "criterionId": "Q14",
+      "case": "Reported readiness conflicts with vacancies, insufficient capacity or observed skill gaps.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q15-MET",
+      "ruleId": "EVS-Q15",
+      "criterionId": "Q15",
+      "case": "Accountability and decision rights support the intended operating model in practice.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q15-NOT-MET",
+      "ruleId": "EVS-Q15",
+      "criterionId": "Q15",
+      "case": "Evidence establishes material role ambiguity or conflicting decision rights.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q15-MISSING",
+      "ruleId": "EVS-Q15",
+      "criterionId": "Q15",
+      "case": "No approved target operating model or observed workflow evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q15-CONFLICT",
+      "ruleId": "EVS-Q15",
+      "criterionId": "Q15",
+      "case": "Documented new roles conflict with observed decision-making or unchanged practice.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q16-MET",
+      "ruleId": "EVS-Q16",
+      "criterionId": "Q16",
+      "case": "Evidence shows intended behaviours persist with ongoing operating ownership.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q16-NOT-MET",
+      "ruleId": "EVS-Q16",
+      "criterionId": "Q16",
+      "case": "Verified behaviour regression or unsupported handover undermines sustainability.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q16-MISSING",
+      "ruleId": "EVS-Q16",
+      "criterionId": "Q16",
+      "case": "Only point-in-time claim or no ongoing operating evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q16-CONFLICT",
+      "ruleId": "EVS-Q16",
+      "criterionId": "Q16",
+      "case": "Programme claims sustained change but usage falls or BAU owners cannot maintain capability.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q17-MET",
+      "ruleId": "EVS-Q17",
+      "criterionId": "Q17",
+      "case": "Material critical data elements have evidenced ownership and accountability.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q17-NOT-MET",
+      "ruleId": "EVS-Q17",
+      "criterionId": "Q17",
+      "case": "Records establish unowned critical data or unresolved accountability gaps.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q17-MISSING",
+      "ruleId": "EVS-Q17",
+      "criterionId": "Q17",
+      "case": "Critical data scope or owner acceptance unavailable.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q17-CONFLICT",
+      "ruleId": "EVS-Q17",
+      "criterionId": "Q17",
+      "case": "Governance lists a nominal owner but issue records show no accepted accountability.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q18-MET",
+      "ruleId": "EVS-Q18",
+      "criterionId": "Q18",
+      "case": "Quality is measured and material issues are actively managed for intended use.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q18-NOT-MET",
+      "ruleId": "EVS-Q18",
+      "criterionId": "Q18",
+      "case": "Operating evidence shows material quality failures impacting decision/use.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q18-MISSING",
+      "ruleId": "EVS-Q18",
+      "criterionId": "Q18",
+      "case": "No quality rules, denominator, recent measures or impact evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q18-CONFLICT",
+      "ruleId": "EVS-Q18",
+      "criterionId": "Q18",
+      "case": "Reported data readiness conflicts with unresolved material quality exceptions.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q19-MET",
+      "ruleId": "EVS-Q19",
+      "criterionId": "Q19",
+      "case": "A material measure is reproducibly traceable to source using consistent definitions.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q19-NOT-MET",
+      "ruleId": "EVS-Q19",
+      "criterionId": "Q19",
+      "case": "Documented lineage or definition mismatch undermines trust in material figures.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q19-MISSING",
+      "ruleId": "EVS-Q19",
+      "criterionId": "Q19",
+      "case": "Missing source provenance or reproducible lineage.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q19-CONFLICT",
+      "ruleId": "EVS-Q19",
+      "criterionId": "Q19",
+      "case": "Two dashboards disagree due to changed definitions, lineage gaps or incompatible periods.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q20-MET",
+      "ruleId": "EVS-Q20",
+      "criterionId": "Q20",
+      "case": "Evidence supports appropriate governance/access controls and relevant AI controls.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q20-NOT-MET",
+      "ruleId": "EVS-Q20",
+      "criterionId": "Q20",
+      "case": "Verified material access/governance or applicable AI-control deficiencies.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q20-MISSING",
+      "ruleId": "EVS-Q20",
+      "criterionId": "Q20",
+      "case": "Missing control evidence or AI applicability unresolved.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q20-CONFLICT",
+      "ruleId": "EVS-Q20",
+      "criterionId": "Q20",
+      "case": "Policy claims control but actual access/control test exceptions conflict, or AI evaluation omitted for in-scope use.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q21-MET",
+      "ruleId": "EVS-Q21",
+      "criterionId": "Q21",
+      "case": "Actual flow/release outcomes support agreed delivery predictability.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q21-NOT-MET",
+      "ruleId": "EVS-Q21",
+      "criterionId": "Q21",
+      "case": "Verified recurring variance materially undermines delivery predictability.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q21-MISSING",
+      "ruleId": "EVS-Q21",
+      "criterionId": "Q21",
+      "case": "Missing commitments, actuals or consistent metric definitions.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q21-CONFLICT",
+      "ruleId": "EVS-Q21",
+      "criterionId": "Q21",
+      "case": "Reported predictability conflicts with repeated rescheduling or changed metric baselines.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q22-MET",
+      "ruleId": "EVS-Q22",
+      "criterionId": "Q22",
+      "case": "Observed quality/release trends support sustainable engineering discipline.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q22-NOT-MET",
+      "ruleId": "EVS-Q22",
+      "criterionId": "Q22",
+      "case": "Verified material quality degradation or recurring adverse release outcomes.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q22-MISSING",
+      "ruleId": "EVS-Q22",
+      "criterionId": "Q22",
+      "case": "No comparable quality trend, criteria or release/incident records.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q22-CONFLICT",
+      "ruleId": "EVS-Q22",
+      "criterionId": "Q22",
+      "case": "Reported improvement conflicts with severe incidents or excluded defects.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q23-MET",
+      "ruleId": "EVS-Q23",
+      "criterionId": "Q23",
+      "case": "Material dependencies/risks are visible, owned and actively managed.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q23-NOT-MET",
+      "ruleId": "EVS-Q23",
+      "criterionId": "Q23",
+      "case": "Documented repeated material dependency delays or unmitigated risk.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q23-MISSING",
+      "ruleId": "EVS-Q23",
+      "criterionId": "Q23",
+      "case": "No current dependency ownership, impact or mitigation evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q23-CONFLICT",
+      "ruleId": "EVS-Q23",
+      "criterionId": "Q23",
+      "case": "Reported mitigation conflicts with recurring delay or unresolved risk.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q24-MET",
+      "ruleId": "EVS-Q24",
+      "criterionId": "Q24",
+      "case": "Observed changes demonstrate learning after failed assumptions.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q24-NOT-MET",
+      "ruleId": "EVS-Q24",
+      "criterionId": "Q24",
+      "case": "Records show repeated failure without corrective action or ineffective change.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q24-MISSING",
+      "ruleId": "EVS-Q24",
+      "criterionId": "Q24",
+      "case": "No retrospective/action trail or comparable outcomes.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q24-CONFLICT",
+      "ruleId": "EVS-Q24",
+      "criterionId": "Q24",
+      "case": "Retrospective claims improvement without changed metrics or repeat issue remains.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q25-MET",
+      "ruleId": "EVS-Q25",
+      "criterionId": "Q25",
+      "case": "Approved original baseline and authorised revisions are clear and comparable.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q25-NOT-MET",
+      "ruleId": "EVS-Q25",
+      "criterionId": "Q25",
+      "case": "Records establish material unapproved baseline changes or invalid measurement basis.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q25-MISSING",
+      "ruleId": "EVS-Q25",
+      "criterionId": "Q25",
+      "case": "Original case/benefit baseline or comparability missing.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q25-CONFLICT",
+      "ruleId": "EVS-Q25",
+      "criterionId": "Q25",
+      "case": "Current benefits are compared to revised forecast instead of original approved target without explanation.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q26-MET",
+      "ruleId": "EVS-Q26",
+      "criterionId": "Q26",
+      "case": "Credible measured outcomes support realised value on an agreed basis.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q26-NOT-MET",
+      "ruleId": "EVS-Q26",
+      "criterionId": "Q26",
+      "case": "Verified realised benefits materially miss agreed outcome or reported value unsupported by actual records.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q26-MISSING",
+      "ruleId": "EVS-Q26",
+      "criterionId": "Q26",
+      "case": "No reliable actual, approved basis, period or validation; distinguish unknown from weak.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q26-CONFLICT",
+      "ruleId": "EVS-Q26",
+      "criterionId": "Q26",
+      "case": "Programme reported realised value exceeds Finance evidence or combines forecasts with actuals.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q27-MET",
+      "ruleId": "EVS-Q27",
+      "criterionId": "Q27",
+      "case": "Independent evidence supports attribution and relevant validation of material benefits.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q27-NOT-MET",
+      "ruleId": "EVS-Q27",
+      "criterionId": "Q27",
+      "case": "Credible evidence contradicts claimed attribution or identifies double counting.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q27-MISSING",
+      "ruleId": "EVS-Q27",
+      "criterionId": "Q27",
+      "case": "No attribution basis, comparable baseline or corroborating operating evidence.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q27-CONFLICT",
+      "ruleId": "EVS-Q27",
+      "criterionId": "Q27",
+      "case": "Measured benefit occurs but cannot be attributed to programme rather than external factors or double-counting.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q28-MET",
+      "ruleId": "EVS-Q28",
+      "criterionId": "Q28",
+      "case": "Accepted ongoing owners and measurement arrangements support sustainable value.",
+      "expected": "Condition supported",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q28-NOT-MET",
+      "ruleId": "EVS-Q28",
+      "criterionId": "Q28",
+      "case": "Evidence establishes unowned material benefits or missing continuing operating support.",
+      "expected": "Condition not met (supported weakness)",
+      "assumptions": "Synthetic example; for supported conditions assume required cited evidence, independent reviewer acceptance and no unresolved material conflicts.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q28-MISSING",
+      "ruleId": "EVS-Q28",
+      "criterionId": "Q28",
+      "case": "No reliable handover, owner acceptance or measurement arrangements.",
+      "expected": "Insufficient — withhold judgement",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    },
+    {
+      "id": "EVS-Q28-CONFLICT",
+      "ruleId": "EVS-Q28",
+      "criterionId": "Q28",
+      "case": "Programme claims ongoing ownership but no accepted BAU handover or reporting arrangements.",
+      "expected": "Contradiction — investigate",
+      "assumptions": "Synthetic example; material to decision; never assign low score merely for missing evidence.",
+      "status": "Proposed acceptance scenario — not executed against real data"
+    }
+  ],
+  "globalRules": {
+    "provenance": "Record source ID/version, original digest, owner, period, precise locator and excerpt. A digest proves byte identity, not truth.",
+    "materiality": "Assessor records decision relevance and materiality; no numeric thresholds until calibrated.",
+    "primary": "Primary source or genuinely equivalent evidence with documented human acceptance is required for material judgement. Supplementary evidence is selected according to claim; it is not automatically mandatory. Conditional evidence must be requested if trigger applies.",
+    "independence": "Distinct bytes or owners are only structural indicators; reviewer must confirm source independence, relevance, common basis and credibility.",
+    "classification": "E1 directly documented; E2 credible independent corroboration; E3 asserted; E4 unknown. Strength Strong/Moderate/Weak remains separate from class and condition.",
+    "contradiction": "Open material contradiction takes precedence over supported condition; preserve competing evidence and reasoned resolution with reviewer.",
+    "sufficiency": "Treat material missing or weak untested claim as insufficient; no automatic low score; distinguish supported adverse evidence from unknown.",
+    "review": "Reviewer separate from author, named rationale and precise citations; accept or return, never infer consent.",
+    "scoring": "Scoring eligibility remains locked for this draft; later approval and calibration required, N/A treatment and critical-risk thresholds unapproved.",
+    "pilot": "Only synthetic and explicitly authorised pilot inputs; no public deployment or client data in GitHub."
+  }
+}
