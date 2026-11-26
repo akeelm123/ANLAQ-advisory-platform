@@ -1,19 +1,30 @@
-# ANLAQ TCI™ private evidence data plane — v0.1.0-dev.1
+# ANLAQ TCI™ authenticated evidence workbench — v0.1.0-rc.2
 
-A local, synthetic-only reference implementation of the approved evidence handling and validation designs. **Not a production backend or deployed service.** No network listener, cloud connection, external processor, client data or executable extraction. The existing browser workbench is not yet connected to this data plane.
+Integrated local synthetic release candidate. The browser now uses a loopback-only authenticated API calling the tested evidence data plane. The approved register and validation specification are pinned by SHA-256. No cloud service, client data, external processor, live scoring or public deployment.
 
-The Python service interface persists evidence metadata and authenticated users in a local SQLite database and encrypts synthetic document bytes using AES-GCM with independently supplied in-memory keys. Passwords use scrypt; session tokens are random, stored only as hashes, expire after 30 minutes and require live assessment membership. Each method checks membership and role; access to versions, findings and reviews is constrained to an assessment. Original source versions, dispositions, evidence associations, findings and reviews are immutable in the service model. Review acceptance checks approved criterion mappings, independent reviewer identity, class/strength, material contradiction, primary evidence and current source versions. Alternative evidence and conditional applicability workflow are conservatively blocked pending integration. A chained HMAC audit log detects changes within the local trust model; it is not an externally anchored production audit system.
+## Local formative review
 
-Only synthetic UTF-8 .txt files up to 256 KiB are accepted. An independent assessor inspects quarantined content and records disposition; this is basic format validation and manual synthetic screening, NOT malware detection. Other document formats, malware scanning, storage provider, private network API, TLS, MFA, managed keys, key rotation, metadata encryption, retention/deletion, production backup/recovery, monitoring and operational security sign-off remain outstanding. Do not use real client data. Never put database, credentials, keys, uploaded documents or exports in the repository.
-
-## Run synthetic regression tests
-
-From this folder in the repository, install the declared dependency in an isolated local environment and run:
+Run from this directory with Python and the requirement installed in an isolated environment:
 
 ```text
-python -m unittest -v test_data_plane.py
+python serve.py
 ```
 
-Tests resolve the exact approved JSON register and specification from the repository; if the directory layout differs, explicitly pass TCI_REGISTER and TCI_SPEC environment variables pointing at those artefacts. SHA-256 mismatch fails closed. A temporary database is created and removed by tests; synthetic credentials and keys are generated at runtime. No default user passwords or keys are committed. See TEST-RESULTS.txt and SECURITY-ACCEPTANCE.md.
+The launcher binds only to 127.0.0.1:8765 (use --port 0 to allocate a free port). It prints the localhost URL and randomly generated temporary credentials for contributor, assessor, reviewer, owner and separate synthetic tenant. Use the printed URL and roles to test the workflow. Never reuse these accounts, enter real evidence or publish the console output. The browser stores the bearer token in memory only; sign-out revokes it and clears assessment data from the DOM. The service uses a temporary synthetic database; graceful shutdown removes it. Keys are per-run and not persisted. A server restart begins a new synthetic session.
 
-The approved baseline is separately recorded in approval.json. No scoring, executive release, live-client processing or deployment is authorised.
+Review flow: sign in as assessor, raise a request, sign out; contributor selects an approved criterion/request, enters provenance and uploads a UTF-8 synthetic .txt source; assessor inspects quarantine and records disposition, then drafts a finding linked to an accepted source version; independent reviewer previews evidence and records a review; owner sees the result but release remains locked. Source receipt is not evidence sufficiency.
+
+## Reproduce verification
+
+```text
+python -m unittest -v test_data_plane.py test_api.py
+node browser-smoke.cjs
+```
+
+Use Playwright and Chrome for the browser test. If the repo directory structure differs, set TCI_REGISTER and TCI_SPEC to the exact approved JSON files; TCI_PYTHON can select the Python runtime and PLAYWRIGHT_MODULE can select the installed Playwright module. The tests spawn a transient localhost service with randomly generated credentials and no real data.
+
+23 service/API tests and the four-role browser workflow passed. Review TEST-RESULTS.txt, BROWSER-RESULTS.txt and SECURITY-ACCEPTANCE.md. The earlier workbench remains a separate local-only illustrative client; this integrated candidate is here in the data-plane directory.
+
+## Production limitations
+
+This is not production security acceptance. HTTP is loopback only; no external IdP/MFA, HTTPS deployment, managed secret store, multi-tenant cloud storage, malware scanning, production retention/deletion, backup/recovery, external audit anchoring or secure export. Scope is bootstrapped for the synthetic session; real assessment provisioning is not implemented. Only synthetic text up to 256 KiB is accepted. Manual screening is not malware scanning. Alternative evidence and conditional applicability acceptance are still conservatively blocked. Semantic evidence extraction and actual-document validation remain separate work. No formal v0.1 release, real-client processing, scoring, executive output or deployment is authorised.

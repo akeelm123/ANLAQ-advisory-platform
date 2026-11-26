@@ -17,8 +17,12 @@ test16_audit_integrity_and_no_raw_content (test_data_plane.DataPlaneTest.test16_
 test17_release_gates_remain_closed (test_data_plane.DataPlaneTest.test17_release_gates_remain_closed) ... ok
 test18_persisted_database_reopen_integrity (test_data_plane.DataPlaneTest.test18_persisted_database_reopen_integrity) ... ok
 test19_hash_mismatch_rejected (test_data_plane.DataPlaneTest.test19_hash_mismatch_rejected) ... ok
+test01_auth_and_assessment_isolation (test_api.APITest.test01_auth_and_assessment_isolation) ... ok
+test02_origin_and_role_gates (test_api.APITest.test02_origin_and_role_gates) ... ok
+test03_full_workflow (test_api.APITest.test03_full_workflow) ... ok
+test04_logout_revokes_token (test_api.APITest.test04_logout_revokes_token) ... ok
 
 ----------------------------------------------------------------------
-Ran 19 tests in 0.388s
+Ran 23 tests in 0.663s
 
 OK

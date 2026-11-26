@@ -32,6 +32,8 @@ class DataPlane:
         CREATE TABLE IF NOT EXISTS docs(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),title TEXT NOT NULL,created_by TEXT NOT NULL REFERENCES users(id));
         CREATE TABLE IF NOT EXISTS versions(id TEXT PRIMARY KEY,doc_id TEXT NOT NULL REFERENCES docs(id),version INTEGER NOT NULL,filename TEXT NOT NULL,digest TEXT NOT NULL,nonce BLOB NOT NULL,ciphertext BLOB NOT NULL,created_by TEXT NOT NULL REFERENCES users(id),created_at REAL NOT NULL,UNIQUE(doc_id,version));
         CREATE TABLE IF NOT EXISTS disposition(version_id TEXT PRIMARY KEY REFERENCES versions(id),status TEXT NOT NULL,actor TEXT NOT NULL REFERENCES users(id),reason TEXT NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS intake(version_id TEXT PRIMARY KEY REFERENCES versions(id),criterion TEXT NOT NULL,request_id TEXT NOT NULL,source_owner TEXT NOT NULL,period TEXT NOT NULL,source_version TEXT NOT NULL,locator TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS request_updates(id INTEGER PRIMARY KEY AUTOINCREMENT,assessment_id TEXT NOT NULL REFERENCES assessments(id),request_id TEXT NOT NULL,actor TEXT NOT NULL REFERENCES users(id),status TEXT NOT NULL,reason TEXT NOT NULL,created_at REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS findings(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),criterion TEXT NOT NULL,author TEXT NOT NULL REFERENCES users(id),claim TEXT NOT NULL,evidence_class TEXT NOT NULL,strength TEXT NOT NULL,contradiction INTEGER NOT NULL,created_at REAL NOT NULL);
         CREATE TABLE IF NOT EXISTS links(finding_id TEXT NOT NULL REFERENCES findings(id),version_id TEXT NOT NULL REFERENCES versions(id),request_id TEXT NOT NULL,locator TEXT NOT NULL,PRIMARY KEY(finding_id,version_id,request_id));
         CREATE TABLE IF NOT EXISTS reviews(id TEXT PRIMARY KEY,finding_id TEXT UNIQUE NOT NULL REFERENCES findings(id),reviewer TEXT NOT NULL REFERENCES users(id),decision TEXT NOT NULL,reason TEXT NOT NULL,created_at REAL NOT NULL);
@@ -40,6 +42,10 @@ class DataPlane:
         CREATE TRIGGER IF NOT EXISTS immutable_versions_delete BEFORE DELETE ON versions BEGIN SELECT RAISE(ABORT,'immutable source version'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_audit_update BEFORE UPDATE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_audit_delete BEFORE DELETE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_intake_update BEFORE UPDATE ON intake BEGIN SELECT RAISE(ABORT,'immutable intake'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_intake_delete BEFORE DELETE ON intake BEGIN SELECT RAISE(ABORT,'immutable intake'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_request_update BEFORE UPDATE ON request_updates BEGIN SELECT RAISE(ABORT,'immutable request event'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_request_delete BEFORE DELETE ON request_updates BEGIN SELECT RAISE(ABORT,'immutable request event'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_disposition_update BEFORE UPDATE ON disposition BEGIN SELECT RAISE(ABORT,'immutable disposition'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_disposition_delete BEFORE DELETE ON disposition BEGIN SELECT RAISE(ABORT,'immutable disposition'); END;
         CREATE TRIGGER IF NOT EXISTS immutable_findings_update BEFORE UPDATE ON findings BEGIN SELECT RAISE(ABORT,'immutable finding'); END;
@@ -53,6 +59,7 @@ class DataPlane:
         self.register_hash=digest(rb); self.spec_hash=digest(sb)
         # Fail closed on unapproved or changed methodology. Approval is versioned in repo.
         if self.register_hash!="f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559" or self.spec_hash!="8d4e730b5ed3cf38fdb4dcd896fa21bc14bf38689babc24159a460980099b00c": raise Invalid("Methodology hash mismatch")
+        reg=json.loads(rb);self.catalogue={r["id"]:r for r in reg["evidenceCatalogue"]};self.criteria=reg["criteria"]
         spec=json.loads(sb)
         self.rules={r["criterionId"]:r for r in spec["rules"]}
         self.mappings={c:set(r["primary"]+r["supplementary"]+r["conditional"]) for c,r in self.rules.items()}
@@ -81,6 +88,14 @@ class DataPlane:
         token=secrets.token_urlsafe(32)
         with self.db:self.db.execute("INSERT INTO sessions VALUES (?,?,?)",(digest(token.encode()),row["id"],self.clock()+1800))
         return token
+    def _session_user(self,token):
+        if not isinstance(token,str):raise Denied("Access denied")
+        row=self.db.execute("SELECT u.id,u.username FROM sessions s JOIN users u ON u.id=s.user_id WHERE s.digest=? AND s.expires>? AND u.active=1",(digest(token.encode()),self.clock())).fetchone()
+        if not row:raise Denied("Access denied")
+        return row
+    def list_assessments(self,token):
+        u=self._session_user(token)
+        return [dict(r) for r in self.db.execute("SELECT a.id,a.title,a.scope,m.role FROM assessments a JOIN membership m ON a.id=m.assessment_id WHERE m.user_id=? AND m.active=1 AND a.register_hash=? AND a.spec_hash=? ORDER BY a.title",(u["id"],self.register_hash,self.spec_hash))]
     def logout(self,token):
         with self.db:self.db.execute("DELETE FROM sessions WHERE digest=?",(digest(token.encode()),))
     def _actor(self,token,assessment,roles):
@@ -115,7 +130,7 @@ class DataPlane:
         return row
     def _latest(self,row):
         return self.db.execute("SELECT max(version) FROM versions WHERE doc_id=?",(row["doc_id"],)).fetchone()[0]==row["version"]
-    def upload(self,token,assessment,title,filename,data,document=None):
+    def upload(self,token,assessment,title,filename,data,document=None,intake=None):
         # Strict text-only synthetic scope. This is not malware scanning.
         if not isinstance(data,bytes) or not 0<len(data)<=MAX_FILE:raise Invalid("Synthetic text file size")
         filename=required(filename,"filename");title=required(title,"title")
@@ -123,6 +138,9 @@ class DataPlane:
         try:text=data.decode("utf-8")
         except UnicodeDecodeError:raise Invalid("UTF-8 text required")
         if any(ord(c)<32 and c not in "\n\r\t" for c in text):raise Invalid("Unsupported control content")
+        if intake is not None:
+            if not isinstance(intake,dict) or intake.get("criterion") not in self.mappings or intake.get("requestId") not in self.mappings[intake["criterion"]]:raise Invalid("Approved criterion/request mapping required")
+            intake={**intake,**{k:required(intake.get(k),k) for k in ["sourceOwner","period","sourceVersion","locator"]}}
         with self.db:
             a=self._actor(token,assessment,{"contributor","assessor"})
             if document:
@@ -135,6 +153,7 @@ class DataPlane:
             vid=ident();dhash=digest(data);nonce=secrets.token_bytes(12);aad=canonical([a["tenant_id"],assessment,document,vid,v,dhash]).encode()
             ciphertext=AESGCM(self.key).encrypt(nonce,data,aad)
             self.db.execute("INSERT INTO versions VALUES (?,?,?,?,?,?,?,?,?)",(vid,document,v,filename,dhash,nonce,ciphertext,a["id"],self.clock()))
+            if intake is not None:self.db.execute("INSERT INTO intake VALUES (?,?,?,?,?,?,?)",(vid,intake["criterion"],intake["requestId"],intake["sourceOwner"],intake["period"],intake["sourceVersion"],intake["locator"]))
             self._audit(assessment,a["id"],"source quarantined",vid)
             return {"documentId":document,"versionId":vid,"version":v,"sha256":dhash,"status":"quarantined"}
     def _read_bytes(self,a,assessment,v):
@@ -166,6 +185,35 @@ class DataPlane:
             raw=self._read_bytes(a,assessment,v)
             self._audit(assessment,a["id"],"evidence downloaded",version)
             return raw
+    def list_versions(self,token,assessment):
+        a=self._actor(token,assessment,ROLES); own=a["role"]=="contributor"
+        rows=self.db.execute("""SELECT v.id AS versionId,v.doc_id AS documentId,v.version,v.filename,v.digest AS sha256,d.title,coalesce(p.status,'quarantined') AS status,
+        i.criterion,i.request_id AS requestId,i.source_owner AS sourceOwner,i.period,i.source_version AS sourceVersion,i.locator,v.created_by
+        FROM versions v JOIN docs d ON v.doc_id=d.id LEFT JOIN disposition p ON p.version_id=v.id LEFT JOIN intake i ON i.version_id=v.id WHERE d.assessment_id=? ORDER BY v.created_at,v.version""",(assessment,))
+        return [{**{k:r[k] for k in r.keys() if k!="created_by"},"own":r["created_by"]==a["id"]} for r in rows if not own or r["created_by"]==a["id"]]
+    def mark_request(self,token,assessment,request_id,status,reason):
+        if request_id not in self.catalogue or status not in {"requested","missing"}:raise Invalid("Invalid request update")
+        reason=required(reason,"request rationale")
+        with self.db:
+            a=self._actor(token,assessment,{"assessor"})
+            if any(r["id"]==request_id and r["status"]=="received" for r in self.catalogue_view(token,assessment)["requests"]):raise Invalid("Accepted current evidence exists; record a finding for quality or gaps")
+            cur=self.db.execute("INSERT INTO request_updates(assessment_id,request_id,actor,status,reason,created_at) VALUES (?,?,?,?,?,?)",(assessment,request_id,a["id"],status,reason,self.clock()))
+            self._audit(assessment,a["id"],"request "+status,str(cur.lastrowid))
+    def catalogue_view(self,token,assessment):
+        a=self._actor(token,assessment,ROLES)
+        versions=self.list_versions(token,assessment)
+        latest={}
+        for v in versions:
+            if v["documentId"] not in latest or v["version"]>latest[v["documentId"]]["version"]:latest[v["documentId"]]=v
+        received={v["requestId"] for v in latest.values() if v["status"]=="accepted"}
+        updates={}
+        for r in self.db.execute("SELECT request_id,status FROM request_updates WHERE assessment_id=? ORDER BY id",(assessment,)):updates[r["request_id"]]=r["status"]
+        requests=[{"id":r["id"],"title":r["title"],"dimension":r["dimension"],"status":"received" if r["id"] in received else updates.get(r["id"],"not requested"),"criteria":[k for k,ids in self.mappings.items() if r["id"] in ids]} for r in self.catalogue.values()]
+        return {"criteria":[{"id":r["id"],"dimension":r["dimension"],"criterion":r["criterion"],"question":r["question"]} for r in self.criteria],"requests":requests,"catalogueCount":len(requests),"coverageVisibility":"own accepted versions only" if a["role"]=="contributor" else "assessment accepted current versions"}
+    def list_findings(self,token,assessment):
+        self._actor(token,assessment,{"assessor","reviewer","owner"})
+        rows=list(self.db.execute("SELECT id,criterion,claim,evidence_class AS evidenceClass,strength,contradiction,created_at FROM findings WHERE assessment_id=? ORDER BY created_at",(assessment,)))
+        return [{**dict(r),"state":self.review_state(token,assessment,r["id"]),"links":[dict(l) for l in self.db.execute("SELECT version_id AS versionId,request_id AS requestId,locator FROM links WHERE finding_id=?",(r["id"],))]} for r in rows]
     def draft_finding(self,token,assessment,criterion,claim,evidence_class,strength,contradiction,links):
         if criterion not in self.mappings or evidence_class not in {"E1","E2","E3","E4"} or strength not in {"Strong","Moderate","Weak","Not assessed"} or type(contradiction) is not bool:raise Invalid("Invalid finding metadata")
         claim=required(claim,"claim")
@@ -177,6 +225,8 @@ class DataPlane:
                 if link["requestId"] not in self.mappings[criterion]:raise Invalid("Unmapped request")
                 v=self._version(assessment,link["versionId"])
                 if v["status"]!="accepted" or not self._latest(v):raise Invalid("Only accepted current source versions")
+                intake=self.db.execute("SELECT request_id FROM intake WHERE version_id=?",(v["id"],)).fetchone()
+                if intake and intake["request_id"]!=link["requestId"]:raise Invalid("Finding request must match source intake record")
                 self.db.execute("INSERT INTO links VALUES (?,?,?,?)",(fid,v["id"],link["requestId"],required(link["locator"],"precise locator")))
             self._audit(assessment,a["id"],"finding drafted",fid)
             return fid
