@@ -9,9 +9,9 @@
 ## Current state
 
 - **Approved / complete (conversation-confirmed):** authoritative IP collection; reconciliation; MD-001–007; Master Evidence Register v1.0.
-- **Not completed / not verified:** Evidence Validation Specification, platform architecture, prototype implementation, testing and deployment.
-- **Approval queue:** no new deliverable ready for approval. The first planned gate is the Evidence Validation Specification.
-- **Repository verification:** At baseline the default branch contained only its initial README. This tracker introduces the first implementation artefacts.
+- **In progress:** Common evidence validation controls drafted; v0.1.0-alpha workbench implemented and tested (12/12 control tests and synthetic browser smoke passed). Approved register file not retrieved. Criterion-specific validation, production architecture, integrated tests and deployment remain outstanding.
+- **Approval queue:** Alpha available for formative review; formal gate remains the Evidence Validation Specification.
+- **Repository verification:** [Alpha source and test evidence](../../prototypes/tci-evidence-workbench/README.md) are on the prototyping branch. No implementation has been merged or deployed.
 
 ## Update procedure
 
