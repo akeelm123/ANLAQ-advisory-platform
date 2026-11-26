@@ -8,3 +8,6 @@ Cross-criterion prototype controls: require a source title, owner, version, repo
 Per-criterion specification still required for all 28 criteria: approved criterion ID and intent, mandatory/conditional/supplementary evidence IDs, exact extraction fields, validation tests, independence rules, contradiction procedure, sufficiency and scoring eligibility, follow-up and output template. Use the approved workbook mapping (89 relationships reported in prior conversation) rather than inventing mappings. The local source-derived 28 questions are available in sources.json for review only.
 
 All numerical scoring, executive release and public deployment remain disabled regardless of review.
+
+## Beta.1 collection controls
+The 21 legacy request items are sourced from TCI_Evidence_Collection_Guide_v1.xlsx / Evidence Request List; they do not establish approved 32-item coverage. A request link is optional and has a provisional dimension consistency check. Received is derived from linked evidence, and does not imply validation. Scope is immutable in the current session. Snapshot recovery replays structural controls and requires identical source catalogue versions; self-declared identities and file digests remain unauthenticated.

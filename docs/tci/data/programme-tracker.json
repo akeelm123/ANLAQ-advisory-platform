@@ -132,7 +132,7 @@
       "status": "in_progress",
       "deliverable": "D08",
       "owner": "Implementation team",
-      "evidence": "Provisional evidence/finding/review model; production model outstanding. prototypes/tci-evidence-workbench/core.js",
+      "evidence": "Beta.1 scope, request records, evidence model and versioned snapshot replay; production data model outstanding. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -173,10 +173,10 @@
       "id": "3.1",
       "title": "Assessment workspace and scope definition",
       "phase": "phase-3",
-      "status": "planned",
+      "status": "in_progress",
       "deliverable": "v0.1",
       "owner": "Implementation team",
-      "evidence": "",
+      "evidence": "Beta.1 scope captures title, decision, exclusions, period and owner; tested. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -187,7 +187,7 @@
       "status": "in_progress",
       "deliverable": "v0.1",
       "owner": "Implementation team",
-      "evidence": "Manual evidence intake implemented; secure storage and evidence coverage outstanding. prototypes/tci-evidence-workbench/index.html",
+      "evidence": "Beta.1 provisional 21-item request checklist, status tracking and synthetic file digest capture; secure storage and authoritative coverage outstanding. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -209,7 +209,7 @@
       "status": "in_progress",
       "deliverable": "v0.2",
       "owner": "Implementation team",
-      "evidence": "Provisional criterion links implemented; approved mappings not reconciled. prototypes/tci-evidence-workbench/sources.json",
+      "evidence": "Beta.1 provisional dimension-linked request capture; approved mappings not reconciled. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -319,7 +319,7 @@
       "status": "in_progress",
       "deliverable": "D12",
       "owner": "Implementation team",
-      "evidence": "12 local control tests and synthetic browser smoke passed; integrated pack outstanding. prototypes/tci-evidence-workbench/TEST-RESULTS.txt",
+      "evidence": "19/19 automated controls and synthetic browser smoke passed, including restore; integrated test pack outstanding. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -385,7 +385,7 @@
       "status": "in_progress",
       "deliverable": "D11",
       "owner": "Implementation team",
-      "evidence": "Local alpha available; managed development environment outstanding. prototypes/tci-evidence-workbench/README.md",
+      "evidence": "Local beta.1 workspace and repeatable synthetic tests; managed environment outstanding. See prototypes/tci-evidence-workbench/ACCEPTANCE-v0.1.md",
       "github_issue": null,
       "updated_at": "2026-11-26"
     },
@@ -521,14 +521,14 @@
       "title": "Working Prototype",
       "version": "v0.1",
       "status": "in_progress",
-      "notes": "v0.1.0-alpha implemented and tested; not released. prototypes/tci-evidence-workbench/README.md"
+      "notes": "v0.1.0-beta.1 implemented and synthetic tested; v0.1 acceptance blocked."
     },
     {
       "id": "D12",
       "title": "Integrated Test Pack",
       "version": "v1.0",
       "status": "in_progress",
-      "notes": "12/12 tests and synthetic browser test passed; integrated testing outstanding."
+      "notes": "19/19 control tests and synthetic browser workflow passed; integrated pack outstanding."
     },
     {
       "id": "D13",
@@ -674,11 +674,11 @@
       "item": "Prototype architecture and first release",
       "status": "not_ready",
       "date": null,
-      "basis": "Alpha available for formative review; formal release acceptance not ready."
+      "basis": "Beta.1 available for formative review; formal acceptance blocked on approved register and evidence handling."
     }
   ],
   "warnings": [
-    "Local alpha source and test evidence exist on the prototyping branch; release acceptance pending.",
+    "Beta.1 source, acceptance record and test evidence are on the prototyping branch. Release gates remain closed.",
     "This GitHub repository is public. Do not commit confidential assessment inputs, client evidence or proprietary source IP without an explicit publication decision.",
     "Proposed releases and approval gates are not yet user-approved delivery commitments.",
     "Pilot scoring is not a production-calibrated confidence assessment."
