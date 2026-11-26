@@ -1,0 +1,864 @@
+{
+  "version": "0.2.0-alpha.2",
+  "scope": "21 entirely fictional labelled-format fixtures crossing seven dimensions; no free-form semantic claims",
+  "fixtures": [
+    {
+      "filename": "Q01.pdf",
+      "criterionId": "Q01",
+      "requestId": "SA-01",
+      "expected": [
+        {
+          "key": "approved_strategy_objective",
+          "value": "Reduce fictional processing delay",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "original_problem",
+          "value": "Manual fictional approval queues",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "business_case_scope",
+          "value": "Synthetic intake workflow",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "funding_decision_date",
+          "value": "2026-01-10",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "current_mandate_and_outcomes",
+          "value": "Synthetic mandate: shorten processing time",
+          "location": "PDF page 1, extracted line 7"
+        }
+      ],
+      "sha256": "6e14067a4fd9465aabb2f43daafb6994c469516a2d4338f8cd92eeafdc3ba7df"
+    },
+    {
+      "filename": "Q01.docx",
+      "criterionId": "Q01",
+      "requestId": "SA-01",
+      "expected": [
+        {
+          "key": "approved_strategy_objective",
+          "value": "Reduce fictional processing delay",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "original_problem",
+          "value": "Manual fictional approval queues",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "business_case_scope",
+          "value": "Synthetic intake workflow",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "funding_decision_date",
+          "value": "2026-01-10",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "current_mandate_and_outcomes",
+          "value": "Synthetic mandate: shorten processing time",
+          "location": "Table 1, row 6, cell 2"
+        }
+      ],
+      "sha256": "25c059a92586d309041076b76286295d2830f7a7b8ffb87f308aa56b1162c4bd"
+    },
+    {
+      "filename": "Q01.xlsx",
+      "criterionId": "Q01",
+      "requestId": "SA-01",
+      "expected": [
+        {
+          "key": "approved_strategy_objective",
+          "value": "Reduce fictional processing delay",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "original_problem",
+          "value": "Manual fictional approval queues",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "business_case_scope",
+          "value": "Synthetic intake workflow",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "funding_decision_date",
+          "value": "2026-01-10",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "current_mandate_and_outcomes",
+          "value": "Synthetic mandate: shorten processing time",
+          "location": "Sheet Evidence!B7"
+        }
+      ],
+      "sha256": "eded3370ed65933ac1e9992106a7b2012a778634e8ab624480bf2c3c7718c8b5"
+    },
+    {
+      "filename": "Q05.pdf",
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "expected": [
+        {
+          "key": "decision_id",
+          "value": "DEC-SYN-01",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "materiality",
+          "value": "Decision-critical to fictional scope",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "raised_date",
+          "value": "2026-03-01",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "required_by_date",
+          "value": "2026-03-10",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "actual_decision_date",
+          "value": "2026-03-09",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic sponsor",
+          "location": "PDF page 1, extracted line 8"
+        },
+        {
+          "key": "decision_and_rationale",
+          "value": "Approve fictional scope with documented rationale",
+          "location": "PDF page 1, extracted line 9"
+        }
+      ],
+      "sha256": "369b22acc950268aa9b1fde705a7457a50c783ce9762f2ae101612e19b0ba9b3"
+    },
+    {
+      "filename": "Q05.docx",
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "expected": [
+        {
+          "key": "decision_id",
+          "value": "DEC-SYN-01",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "materiality",
+          "value": "Decision-critical to fictional scope",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "raised_date",
+          "value": "2026-03-01",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "required_by_date",
+          "value": "2026-03-10",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "actual_decision_date",
+          "value": "2026-03-09",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic sponsor",
+          "location": "Table 1, row 7, cell 2"
+        },
+        {
+          "key": "decision_and_rationale",
+          "value": "Approve fictional scope with documented rationale",
+          "location": "Table 1, row 8, cell 2"
+        }
+      ],
+      "sha256": "3feb66eed220bb841576669c36e2451ce98a4afc91de91eec3778b011915ec9c"
+    },
+    {
+      "filename": "Q05.xlsx",
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "expected": [
+        {
+          "key": "decision_id",
+          "value": "DEC-SYN-01",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "materiality",
+          "value": "Decision-critical to fictional scope",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "raised_date",
+          "value": "2026-03-01",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "required_by_date",
+          "value": "2026-03-10",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "actual_decision_date",
+          "value": "2026-03-09",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "owner",
+          "value": "Synthetic sponsor",
+          "location": "Sheet Evidence!B8"
+        },
+        {
+          "key": "decision_and_rationale",
+          "value": "Approve fictional scope with documented rationale",
+          "location": "Sheet Evidence!B9"
+        }
+      ],
+      "sha256": "feb4a5e2faf95f42bf66f20a759c09652143a371d8c16a9552d3444032449782"
+    },
+    {
+      "filename": "Q09.pdf",
+      "criterionId": "Q09",
+      "requestId": "TR-04",
+      "expected": [
+        {
+          "key": "intended_workload_scale",
+          "value": "100 fictional requests/minute",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "architecture_version",
+          "value": "Synthetic architecture v2",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "required_performance_security_recovery_conditions",
+          "value": "Mock agreed performance/security/recovery requirements",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "test_results",
+          "value": "Synthetic test report: 100 fictional requests/minute",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "exceptions",
+          "value": "One fictional exception recorded",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock external integration",
+          "location": "PDF page 1, extracted line 8"
+        }
+      ],
+      "sha256": "31fd3c454f267b7f115a64fd1358121a659d7aa1c73b13698a099365c88d97f4"
+    },
+    {
+      "filename": "Q09.docx",
+      "criterionId": "Q09",
+      "requestId": "TR-04",
+      "expected": [
+        {
+          "key": "intended_workload_scale",
+          "value": "100 fictional requests/minute",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "architecture_version",
+          "value": "Synthetic architecture v2",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "required_performance_security_recovery_conditions",
+          "value": "Mock agreed performance/security/recovery requirements",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "test_results",
+          "value": "Synthetic test report: 100 fictional requests/minute",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "exceptions",
+          "value": "One fictional exception recorded",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock external integration",
+          "location": "Table 1, row 7, cell 2"
+        }
+      ],
+      "sha256": "853e6d40bb298607325b6f8e0df6551ba23e35e57645fea4918fd0c48c9fc444"
+    },
+    {
+      "filename": "Q09.xlsx",
+      "criterionId": "Q09",
+      "requestId": "TR-04",
+      "expected": [
+        {
+          "key": "intended_workload_scale",
+          "value": "100 fictional requests/minute",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "architecture_version",
+          "value": "Synthetic architecture v2",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "required_performance_security_recovery_conditions",
+          "value": "Mock agreed performance/security/recovery requirements",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "test_results",
+          "value": "Synthetic test report: 100 fictional requests/minute",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "exceptions",
+          "value": "One fictional exception recorded",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock external integration",
+          "location": "Sheet Evidence!B8"
+        }
+      ],
+      "sha256": "53b039954a5f2f02c9e685b006f6070bdd3bc92a2b0a97251829ba6915799a57"
+    },
+    {
+      "filename": "Q13.pdf",
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "expected": [
+        {
+          "key": "target_user_process_population",
+          "value": "Fictional operations workflow population",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "eligible_denominator",
+          "value": "100 fictional eligible users",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "active_users",
+          "value": "70 fictional active users",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "usage_definition",
+          "value": "Mock completed target workflow within period",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "adoption_target",
+          "value": "80 fictional users",
+          "location": "PDF page 1, extracted line 8"
+        },
+        {
+          "key": "process_evidence",
+          "value": "Synthetic sampled workflow evidence",
+          "location": "PDF page 1, extracted line 9"
+        }
+      ],
+      "sha256": "8427547b252a375ec6c4d3041c717b451338ba9a500cfc91458a365b0988884a"
+    },
+    {
+      "filename": "Q13.docx",
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "expected": [
+        {
+          "key": "target_user_process_population",
+          "value": "Fictional operations workflow population",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "eligible_denominator",
+          "value": "100 fictional eligible users",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "active_users",
+          "value": "70 fictional active users",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "usage_definition",
+          "value": "Mock completed target workflow within period",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "adoption_target",
+          "value": "80 fictional users",
+          "location": "Table 1, row 7, cell 2"
+        },
+        {
+          "key": "process_evidence",
+          "value": "Synthetic sampled workflow evidence",
+          "location": "Table 1, row 8, cell 2"
+        }
+      ],
+      "sha256": "1156aa6272741107fcf6f9ba87004a9aa5e417a6ff4edd76a9bf186bbeb1a382"
+    },
+    {
+      "filename": "Q13.xlsx",
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "expected": [
+        {
+          "key": "target_user_process_population",
+          "value": "Fictional operations workflow population",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "eligible_denominator",
+          "value": "100 fictional eligible users",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "active_users",
+          "value": "70 fictional active users",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "usage_definition",
+          "value": "Mock completed target workflow within period",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "adoption_target",
+          "value": "80 fictional users",
+          "location": "Sheet Evidence!B8"
+        },
+        {
+          "key": "process_evidence",
+          "value": "Synthetic sampled workflow evidence",
+          "location": "Sheet Evidence!B9"
+        }
+      ],
+      "sha256": "d3688392ef96efd25edc4a13b96db497892ec197d8f12bfeb03dc9f4f8c92e2a"
+    },
+    {
+      "filename": "Q17.pdf",
+      "criterionId": "Q17",
+      "requestId": "DC-01",
+      "expected": [
+        {
+          "key": "critical_data_element",
+          "value": "CDE-SYN-01",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "named_accountable_data_owner",
+          "value": "Synthetic data owner",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "scope",
+          "value": "Mock intake data",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "agreed_responsibility",
+          "value": "Mock accepted responsibility",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "quality_measures",
+          "value": "Fictional completeness metric",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "decision_impact",
+          "value": "Synthetic decision dependency",
+          "location": "PDF page 1, extracted line 8"
+        }
+      ],
+      "sha256": "e7cb017d41e5868cb8ea2bd28d1e67e9c3535456ce80cec9825de2ae5f5cedd0"
+    },
+    {
+      "filename": "Q17.docx",
+      "criterionId": "Q17",
+      "requestId": "DC-01",
+      "expected": [
+        {
+          "key": "critical_data_element",
+          "value": "CDE-SYN-01",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "named_accountable_data_owner",
+          "value": "Synthetic data owner",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "scope",
+          "value": "Mock intake data",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "agreed_responsibility",
+          "value": "Mock accepted responsibility",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "quality_measures",
+          "value": "Fictional completeness metric",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "decision_impact",
+          "value": "Synthetic decision dependency",
+          "location": "Table 1, row 7, cell 2"
+        }
+      ],
+      "sha256": "20953fc4c4d3e7457c0d980fd91f7cc3e8c0d99b39244ddebd8c4041694b2a25"
+    },
+    {
+      "filename": "Q17.xlsx",
+      "criterionId": "Q17",
+      "requestId": "DC-01",
+      "expected": [
+        {
+          "key": "critical_data_element",
+          "value": "CDE-SYN-01",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "named_accountable_data_owner",
+          "value": "Synthetic data owner",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "scope",
+          "value": "Mock intake data",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "agreed_responsibility",
+          "value": "Mock accepted responsibility",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "quality_measures",
+          "value": "Fictional completeness metric",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "decision_impact",
+          "value": "Synthetic decision dependency",
+          "location": "Sheet Evidence!B8"
+        }
+      ],
+      "sha256": "781e039e627d375483ac528cc8069f886e7d8fe678e919f15587bc6122d6e519"
+    },
+    {
+      "filename": "Q21.pdf",
+      "criterionId": "Q21",
+      "requestId": "DE-01",
+      "expected": [
+        {
+          "key": "delivery_period",
+          "value": "FY26 Q2",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "flow_metric_definitions",
+          "value": "Mock cycle-time definition",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "commitments",
+          "value": "Four fictional committed releases",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "actual_release_dates",
+          "value": "2026-04-01; 2026-05-01",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "throughput_cycle_time",
+          "value": "4 fictional releases; 3 fictional days",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock integration dependency",
+          "location": "PDF page 1, extracted line 8"
+        }
+      ],
+      "sha256": "653bf4b8b3697713c0d456a39747a9ea2652c2f3ba8dbfe83731574f473bb9fa"
+    },
+    {
+      "filename": "Q21.docx",
+      "criterionId": "Q21",
+      "requestId": "DE-01",
+      "expected": [
+        {
+          "key": "delivery_period",
+          "value": "FY26 Q2",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "flow_metric_definitions",
+          "value": "Mock cycle-time definition",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "commitments",
+          "value": "Four fictional committed releases",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "actual_release_dates",
+          "value": "2026-04-01; 2026-05-01",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "throughput_cycle_time",
+          "value": "4 fictional releases; 3 fictional days",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock integration dependency",
+          "location": "Table 1, row 7, cell 2"
+        }
+      ],
+      "sha256": "3c34b6b6330b5a4d24d0c9e5abc9357e6030417eaab7e06aa096453b3b668efb"
+    },
+    {
+      "filename": "Q21.xlsx",
+      "criterionId": "Q21",
+      "requestId": "DE-01",
+      "expected": [
+        {
+          "key": "delivery_period",
+          "value": "FY26 Q2",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "flow_metric_definitions",
+          "value": "Mock cycle-time definition",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "commitments",
+          "value": "Four fictional committed releases",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "actual_release_dates",
+          "value": "2026-04-01; 2026-05-01",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "throughput_cycle_time",
+          "value": "4 fictional releases; 3 fictional days",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "dependencies",
+          "value": "Mock integration dependency",
+          "location": "Sheet Evidence!B8"
+        }
+      ],
+      "sha256": "abc1ecf396228ea4089525e301535467090ffd5efe3ffe2ef7c9bf783b43490a"
+    },
+    {
+      "filename": "Q26.pdf",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "location": "PDF page 1, extracted line 3"
+        },
+        {
+          "key": "actual_realised_outcome",
+          "value": "SGD 4000 synthetic realised value",
+          "location": "PDF page 1, extracted line 4"
+        },
+        {
+          "key": "original_target",
+          "value": "SGD 5000 synthetic target",
+          "location": "PDF page 1, extracted line 5"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "PDF page 1, extracted line 6"
+        },
+        {
+          "key": "currency_unit",
+          "value": "SGD",
+          "location": "PDF page 1, extracted line 7"
+        },
+        {
+          "key": "benefit_basis",
+          "value": "Mock realised cash basis",
+          "location": "PDF page 1, extracted line 8"
+        },
+        {
+          "key": "source",
+          "value": "Synthetic finance record",
+          "location": "PDF page 1, extracted line 9"
+        },
+        {
+          "key": "finance_validation",
+          "value": "Mock finance review label",
+          "location": "PDF page 1, extracted line 10"
+        },
+        {
+          "key": "forecast_separately",
+          "value": "SGD 2000 fictional forecast, separate",
+          "location": "PDF page 1, extracted line 11"
+        }
+      ],
+      "sha256": "5cb5d2ddb951877a6d68a9dec7b6b038ac352fb4d9542290c40b8bc15ff9e633"
+    },
+    {
+      "filename": "Q26.docx",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "location": "Table 1, row 2, cell 2"
+        },
+        {
+          "key": "actual_realised_outcome",
+          "value": "SGD 4000 synthetic realised value",
+          "location": "Table 1, row 3, cell 2"
+        },
+        {
+          "key": "original_target",
+          "value": "SGD 5000 synthetic target",
+          "location": "Table 1, row 4, cell 2"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "Table 1, row 5, cell 2"
+        },
+        {
+          "key": "currency_unit",
+          "value": "SGD",
+          "location": "Table 1, row 6, cell 2"
+        },
+        {
+          "key": "benefit_basis",
+          "value": "Mock realised cash basis",
+          "location": "Table 1, row 7, cell 2"
+        },
+        {
+          "key": "source",
+          "value": "Synthetic finance record",
+          "location": "Table 1, row 8, cell 2"
+        },
+        {
+          "key": "finance_validation",
+          "value": "Mock finance review label",
+          "location": "Table 1, row 9, cell 2"
+        },
+        {
+          "key": "forecast_separately",
+          "value": "SGD 2000 fictional forecast, separate",
+          "location": "Table 1, row 10, cell 2"
+        }
+      ],
+      "sha256": "bb33dba783b5a557eae7213d213dd52327ba42cb222f958787dbd2181e3f98af"
+    },
+    {
+      "filename": "Q26.xlsx",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "expected": [
+        {
+          "key": "benefit_id",
+          "value": "BEN-SYN-01",
+          "location": "Sheet Evidence!B3"
+        },
+        {
+          "key": "actual_realised_outcome",
+          "value": "SGD 4000 synthetic realised value",
+          "location": "Sheet Evidence!B4"
+        },
+        {
+          "key": "original_target",
+          "value": "SGD 5000 synthetic target",
+          "location": "Sheet Evidence!B5"
+        },
+        {
+          "key": "period",
+          "value": "FY26 Q2",
+          "location": "Sheet Evidence!B6"
+        },
+        {
+          "key": "currency_unit",
+          "value": "SGD",
+          "location": "Sheet Evidence!B7"
+        },
+        {
+          "key": "benefit_basis",
+          "value": "Mock realised cash basis",
+          "location": "Sheet Evidence!B8"
+        },
+        {
+          "key": "source",
+          "value": "Synthetic finance record",
+          "location": "Sheet Evidence!B9"
+        },
+        {
+          "key": "finance_validation",
+          "value": "Mock finance review label",
+          "location": "Sheet Evidence!B10"
+        },
+        {
+          "key": "forecast_separately",
+          "value": "SGD 2000 fictional forecast, separate",
+          "location": "Sheet Evidence!B11"
+        }
+      ],
+      "sha256": "249791b7c7d78ef5cd847ac8658545b3b93fbb986e758ef01ba2ced630b1a05b"
+    }
+  ]
+}

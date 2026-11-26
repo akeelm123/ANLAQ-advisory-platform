@@ -1,0 +1,30 @@
+test_Q01_docx (test_document_parser.DocumentFixtureTest.test_Q01_docx) ... ok
+test_Q01_pdf (test_document_parser.DocumentFixtureTest.test_Q01_pdf) ... ok
+test_Q01_xlsx (test_document_parser.DocumentFixtureTest.test_Q01_xlsx) ... ok
+test_Q05_docx (test_document_parser.DocumentFixtureTest.test_Q05_docx) ... ok
+test_Q05_pdf (test_document_parser.DocumentFixtureTest.test_Q05_pdf) ... ok
+test_Q05_xlsx (test_document_parser.DocumentFixtureTest.test_Q05_xlsx) ... ok
+test_Q09_docx (test_document_parser.DocumentFixtureTest.test_Q09_docx) ... ok
+test_Q09_pdf (test_document_parser.DocumentFixtureTest.test_Q09_pdf) ... ok
+test_Q09_xlsx (test_document_parser.DocumentFixtureTest.test_Q09_xlsx) ... ok
+test_Q13_docx (test_document_parser.DocumentFixtureTest.test_Q13_docx) ... ok
+test_Q13_pdf (test_document_parser.DocumentFixtureTest.test_Q13_pdf) ... ok
+test_Q13_xlsx (test_document_parser.DocumentFixtureTest.test_Q13_xlsx) ... ok
+test_Q17_docx (test_document_parser.DocumentFixtureTest.test_Q17_docx) ... ok
+test_Q17_pdf (test_document_parser.DocumentFixtureTest.test_Q17_pdf) ... ok
+test_Q17_xlsx (test_document_parser.DocumentFixtureTest.test_Q17_xlsx) ... ok
+test_Q21_docx (test_document_parser.DocumentFixtureTest.test_Q21_docx) ... ok
+test_Q21_pdf (test_document_parser.DocumentFixtureTest.test_Q21_pdf) ... ok
+test_Q21_xlsx (test_document_parser.DocumentFixtureTest.test_Q21_xlsx) ... ok
+test_Q26_docx (test_document_parser.DocumentFixtureTest.test_Q26_docx) ... ok
+test_Q26_pdf (test_document_parser.DocumentFixtureTest.test_Q26_pdf) ... ok
+test_Q26_xlsx (test_document_parser.DocumentFixtureTest.test_Q26_xlsx) ... ok
+test_literal_numeric_cell_and_formula_non_evaluation (test_document_parser.DocumentFixtureTest.test_literal_numeric_cell_and_formula_non_evaluation) ... ok
+test_manifest (test_document_parser.DocumentFixtureTest.test_manifest) ... ok
+test_no_inference_for_unstructured_text (test_document_parser.DocumentFixtureTest.test_no_inference_for_unstructured_text) ... ok
+test_unsupported_formats_and_malformed_documents (test_document_parser.DocumentFixtureTest.test_unsupported_formats_and_malformed_documents) ... ok
+
+----------------------------------------------------------------------
+Ran 25 tests in 0.210s
+
+OK

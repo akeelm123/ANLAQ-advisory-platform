@@ -28,8 +28,8 @@ class APITest(unittest.TestCase):
  def post(self,action,role,data,aid=None):
     return self.call(f"/api/assessments/{aid or self.a}/{action}","POST",data,self.tokens[role])
  def dashboard(self,role,aid=None):return self.call(f"/api/assessments/{aid or self.a}/dashboard",token=self.tokens[role])
- def upload(self,request="SA-01",criterion="Q01",document=None,raw=b"Synthetic evidence only"):
-    return self.post("upload","contributor",{"title":"Integrated synthetic mandate","filename":"sample.txt","contentBase64":base64.b64encode(raw).decode(),"documentId":document,"intake":{"criterion":criterion,"requestId":request,"sourceOwner":"Synthetic sponsor","period":"FY26","sourceVersion":"1","locator":"line 1"}})
+ def upload(self,request="SA-01",criterion="Q01",document=None,raw=b"Synthetic evidence only",filename="sample.txt"):
+    return self.post("upload","contributor",{"title":"Integrated synthetic mandate","filename":filename,"contentBase64":base64.b64encode(raw).decode(),"documentId":document,"intake":{"criterion":criterion,"requestId":request,"sourceOwner":"Synthetic sponsor","period":"FY26","sourceVersion":"1","locator":"line 1"}})
  def test01_auth_and_assessment_isolation(self):
     self.assertEqual(self.call("/api/assessments")[0],403)
     self.assertEqual(self.dashboard("other")[0],403)
@@ -74,7 +74,7 @@ class APITest(unittest.TestCase):
     self.assertEqual(self.post("extract","assessor",{"versionId":vid,"criterion":"Q10"})[0],400)
     self.assertEqual(self.post("extract","contributor",{"versionId":vid,"criterion":"Q01"})[0],403)
     st,d=self.post("extract","assessor",{"versionId":vid,"criterion":"Q01"});self.assertEqual(st,201);rid=d["runId"]
-    records=self.dashboard("reviewer")[1]["extractions"];r=next(x for x in records if x["id"]==rid);self.assertEqual(r["sourceSha256"],v["sha256"]);self.assertEqual(r["result"]["counts"]["present"],5);self.assertEqual(r["result"]["fields"][0]["citations"][0]["line"],3)
+    records=self.dashboard("reviewer")[1]["extractions"];r=next(x for x in records if x["id"]==rid);self.assertEqual(r["sourceSha256"],v["sha256"]);self.assertEqual(r["result"]["counts"]["present"],5);self.assertEqual(r["result"]["fields"][0]["citations"][0]["location"],"Text line 3")
     self.assertEqual(self.dashboard("contributor")[1]["extractions"],[])
     review={"runId":rid,"decision":"accept","reason":"Reviewed exact citations","confirmed":True}
     self.assertEqual(self.post("extraction-review","assessor",review)[0],403)
@@ -91,4 +91,16 @@ class APITest(unittest.TestCase):
     self.post("preview","reviewer",{"versionId":vid})
     self.assertEqual(self.post("extraction-review","reviewer",{"runId":rid,"decision":"accept","reason":"Synthetic","confirmed":True})[0],400)
     self.assertEqual(self.post("extraction-review","reviewer",{"runId":rid,"decision":"return","reason":"Missing fields"})[0],200)
+ def test07_supported_document_formats_end_to_end(self):
+    import zipfile
+    for ext in ["pdf","docx","xlsx"]:
+        with zipfile.ZipFile(HERE/"document-fixtures.zip") as z:raw=z.read("Q01."+ext)
+        st,d=self.upload(raw=raw,filename="Q01."+ext);self.assertEqual(st,201);vid=d["record"]["versionId"]
+        st,preview=self.post("inspect","assessor",{"versionId":vid});self.assertEqual(st,200);self.assertIn("Reduce fictional processing delay",preview["text"])
+        self.assertEqual(self.post("screen","assessor",{"versionId":vid,"decision":"accepted","reason":"Synthetic document inspected"})[0],200)
+        st,r=self.post("extract","assessor",{"versionId":vid,"criterion":"Q01"});self.assertEqual(st,201)
+        ex=next(x for x in self.dashboard("reviewer")[1]["extractions"] if x["id"]==r["runId"])
+        self.assertEqual(ex["result"]["format"],ext);self.assertEqual(ex["result"]["counts"]["present"],5)
+        self.assertEqual(self.post("preview","reviewer",{"versionId":vid})[0],200)
+        self.assertEqual(self.post("extraction-review","reviewer",{"runId":r["runId"],"decision":"accept","reason":"Synthetic precise location review","confirmed":True})[0],200)
 if __name__=="__main__":unittest.main(verbosity=2)

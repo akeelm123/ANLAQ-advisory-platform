@@ -4,6 +4,7 @@ import argparse,base64,binascii,json,os,secrets,tempfile,signal
 from http.server import BaseHTTPRequestHandler,HTTPServer
 from pathlib import Path
 from data_plane import DataPlane,Denied,Invalid
+from document_parser import preview_document
 
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parent.parent
@@ -75,9 +76,13 @@ class Handler(BaseHTTPRequestHandler):
                 return self.payload(201,{"record":record})
             if action=="request":
                 self.dp.mark_request(token,aid,data["requestId"],data["status"],data["reason"])
-            elif action=="inspect":return self.payload(200,{"text":self.dp.inspect_quarantine(token,aid,data["versionId"]).decode("utf-8")})
+            elif action=="inspect":
+                raw=self.dp.inspect_quarantine(token,aid,data["versionId"]);v=self.dp._version(aid,data["versionId"])
+                return self.payload(200,{"text":raw.decode("utf-8") if v["filename"].lower().endswith(".txt") else preview_document(v["filename"],raw)})
             elif action=="screen":self.dp.screen(token,aid,data["versionId"],data["decision"],data["reason"])
-            elif action=="preview":return self.payload(200,{"text":self.dp.download(token,aid,data["versionId"]).decode("utf-8")})
+            elif action=="preview":
+                raw=self.dp.download(token,aid,data["versionId"]);v=self.dp._version(aid,data["versionId"])
+                return self.payload(200,{"text":raw.decode("utf-8") if v["filename"].lower().endswith(".txt") else preview_document(v["filename"],raw)})
             elif action=="finding":
                 fid=self.dp.draft_finding(token,aid,data["criterion"],data["claim"],data["evidenceClass"],data["strength"],data["contradiction"],data["links"]);return self.payload(201,{"findingId":fid})
             elif action=="review":

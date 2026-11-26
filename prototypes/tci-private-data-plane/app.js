@@ -20,7 +20,7 @@ function showExtractionSources(){
 function showExtractions(){
  $("extractions").replaceChildren();
  for(const r of view.extractions){const card=item($("extractions"),"article","","record");item(card,"strong",r.criterionId+" · "+r.sourceTitle+" · "+r.state);item(card,"p",r.result.counts.present+" present · "+r.result.counts.missing+" missing · "+r.result.counts.ambiguous+" ambiguous · scoring locked");item(card,"small","Source SHA-256 "+r.sourceSha256+" · method "+r.method);
- const details=document.createElement("details");card.append(details);item(details,"summary","Review field values and source citations");for(const f of r.result.fields){const block=item(details,"div","","record");item(block,"strong",f.label+" · "+f.status);if(f.value!==null)item(block,"p",f.value);for(const c of f.citations)item(block,"p","Line "+c.line+", columns "+c.startColumn+"–"+c.endColumn+": "+c.excerpt);}
+ const details=document.createElement("details");card.append(details);item(details,"summary","Review field values and source citations");for(const f of r.result.fields){const block=item(details,"div","","record");item(block,"strong",f.label+" · "+f.status);if(f.value!==null)item(block,"p",f.value);for(const c of f.citations)item(block,"p",(c.location||"Line "+c.line)+(c.startColumn?", columns "+c.startColumn+"–"+c.endColumn:"")+": "+c.excerpt);}
  }
  fill($("extraction-run"),[["","Choose draft extraction"],...view.extractions.filter(r=>r.state==="draft").map(r=>[r.id,r.criterionId+" · "+r.sourceTitle])]);
 }
@@ -55,7 +55,7 @@ $("logout").addEventListener("click",()=>run(async()=>{try{await api("/api/logou
 $("assessment").addEventListener("change",()=>run(async()=>{assessment=$("assessment").value;await refresh();}));
 $("upload-criterion").addEventListener("change",showUploadRequests);$("finding-criterion").addEventListener("change",showFindingLinks);$("extraction-criterion").addEventListener("change",showExtractionSources);
 bind("request",async(o,f)=>{await api(path("request"),"POST",o);f.reset();await refresh();status("Request update recorded.");});
-bind("upload",async(o,f)=>{const file=o.file;if(!file||file.size<1||file.size>256*1024)throw Error("Synthetic text file must be 1–262144 bytes");const bytes=new Uint8Array(await file.arrayBuffer());let raw="";for(const b of bytes)raw+=String.fromCharCode(b);
+bind("upload",async(o,f)=>{const file=o.file;if(!file||file.size<1||file.size>256*1024)throw Error("Synthetic document must be 1–262144 bytes");const bytes=new Uint8Array(await file.arrayBuffer());let raw="";for(const b of bytes)raw+=String.fromCharCode(b);
  await api(path("upload"),"POST",{title:o.title,filename:file.name,documentId:o.documentId,contentBase64:btoa(raw),intake:{criterion:o.criterion,requestId:o.requestId,sourceOwner:o.sourceOwner,period:o.period,sourceVersion:o.sourceVersion,locator:o.locator}});f.reset();await refresh();status("Source submitted to quarantine.");});
 $("quarantine").addEventListener("change",()=>{inspected=null;$("quarantine-text").textContent="";});
 $("inspect").addEventListener("click",()=>run(async()=>{const id=$("quarantine").value;if(!id)throw Error("Choose a quarantined source");const r=await api(path("inspect"),"POST",{versionId:id});inspected=id;$("quarantine-text").textContent=r.text;status("Synthetic quarantine content inspected.");}));

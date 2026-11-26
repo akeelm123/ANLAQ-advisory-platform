@@ -1,28 +1,24 @@
-# ANLAQ TCI™ authenticated evidence workbench — v0.2.0-alpha.1
+# ANLAQ TCI™ authenticated evidence workbench — v0.2.0-alpha.2
 
-The approved v0.1.0-rc.2 synthetic candidate is recorded in RC2-APPROVAL.json. This extension implements deterministic labelled-text extraction linked to the exact approved register and validation specification. The integrated browser and backend are synthetic-only, loopback-only and not a production or hosted security implementation.
+Synthetic-only cross-format extraction candidate. The approved register and validation specification remain pinned at their exact SHA-256. The local browser and authenticated data plane now accept passive synthetic TXT, PDF, DOCX and XLSX (max 256 KiB per file). No public deployment, external model or processor.
 
-## Local demonstration
+## Review locally
 
-Run from this directory with Python and the declared dependency installed into an isolated environment:
+Run `python serve.py` with declared requirements installed in an isolated Python environment. The launcher binds only to 127.0.0.1 and prints randomly generated temporary synthetic credentials. Use the temporary accounts to raise a request, submit a synthetic fixture, inspect quarantine and accept, extract draft labelled fields, independently preview and review the source, and observe release remains locked. Do not upload real client documents.
 
-```text
-python serve.py
-```
-
-The launcher binds only to 127.0.0.1:8765 (or --port 0). It prints the temporary localhost URL and randomly generated synthetic credentials for each role. Never publish console credentials or submit real data. Use an assessor to raise a request, contributor to submit a fictional labelled text fixture, assessor to inspect/accept quarantine and run extraction, reviewer to preview the source and review captured fields, owner to confirm release is locked.
-
-The schema is tied to the approved specification hash. See extraction-schema.json (28 criteria, 190 field labels) and golden-fixtures.json (28 entirely fictional labelled examples). The extractor returns exact text, source line and column, excerpt, missing or ambiguous state. Extraction results are encrypted at rest in a temporary local database, linked to an immutable accepted source version and digest, and independently reviewed. Acceptance refers to captured field accuracy only; extraction does not establish claim truth, evidence sufficiency or executive judgement. Superseding evidence invalidates the extraction state.
+`document-fixtures.zip` contains 21 fictional documents spanning seven dimensions, with exact SHA-256 and expected values/locations in golden-document-fixtures.json. Extract the specific synthetic file locally for manual demonstration. numeric-formula-fixture.xlsx demonstrates direct typed numeric cells and unevaluated formulas. Prior 28 labelled TXT fixtures remain in golden-fixtures.json.
 
 ## Verification
 
 ```text
-python -m unittest -v test_data_plane.py test_api.py test_extraction.py
+python -m unittest -v test_data_plane.py test_api.py test_extraction.py test_document_parser.py
 node browser-smoke.cjs
 ```
 
-Tests resolve the approved register and specification files in the repository. If local layout differs, use TCI_REGISTER and TCI_SPEC to point to their exact JSON files. Set TCI_PYTHON and PLAYWRIGHT_MODULE for a non-default Python or Playwright installation. Chrome is required for the browser smoke test. See EXTRACTION-ACCEPTANCE.md, TEST-RESULTS.txt, EXTRACTION-TEST-RESULTS.txt and BROWSER-RESULTS.txt.
+Tests resolve the exact approved JSON files in the repository. If local layout differs use TCI_REGISTER and TCI_SPEC. TCI_PYTHON and PLAYWRIGHT_MODULE select alternate local runtimes. Chrome is required for the browser smoke. 168 automated tests and integrated Excel browser journey passed. See DOCUMENT-EXTRACTION-ACCEPTANCE.md and TEST-RESULTS.txt.
 
-## Limits
+The fixture builders use python-docx, reportlab and @oai/artifact-tool for synthetic generation; the committed archive contains the actual verified bytes. Regenerating files changes binary checksums unless deterministic writers are configured; the existing manifest describes the committed bytes.
 
-Only synthetic UTF-8 labelled .txt files up to 256 KiB are supported. This is not AI extraction, OCR, free-form document interpretation or proof of production security. The original field labels may contain multiple related attributes; no automatic semantic decomposition or numeric conversion. Unknown labels remain missing; conflicting values remain ambiguous. The authenticated local store has no external IdP/MFA, managed keys, TLS deployment, private cloud infrastructure, production malware screening, retention, secure exports or operational security assessment. Scope is bootstrapped for synthetic testing. No formal production release, scoring, client processing or public deployment is authorised.
+## Limitations
+
+This recognises labelled field/value text and simple tables, not semantic extraction of arbitrary documents. PDF text layer only; no OCR, complex reading-order support or geometric citations. Word body paragraphs and simple two-cell rows only; nested/merged content unsupported. Excel visible sheet columns A/B, literal values only; formulas are left missing. Extracted values remain draft and require independent source review. Production malware screening, parser isolation, managed security, real-client processing, formal v0.2 release, scoring and public deployment remain outstanding. Do not treat this localhost prototype as production security.

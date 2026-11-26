@@ -3,7 +3,8 @@ from __future__ import annotations
 import hashlib, hmac, json, os, secrets, sqlite3, time, uuid
 from pathlib import Path
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
-from extraction import load_schema, extract, VERSION as EXTRACTION_VERSION
+from extraction import load_schema
+from document_parser import parse_document,extract_document,UnsupportedDocument,METHOD as EXTRACTION_VERSION
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -139,13 +140,13 @@ class DataPlane:
     def _latest(self,row):
         return self.db.execute("SELECT max(version) FROM versions WHERE doc_id=?",(row["doc_id"],)).fetchone()[0]==row["version"]
     def upload(self,token,assessment,title,filename,data,document=None,intake=None):
-        # Strict text-only synthetic scope. This is not malware scanning.
-        if not isinstance(data,bytes) or not 0<len(data)<=MAX_FILE:raise Invalid("Synthetic text file size")
+        self._actor(token,assessment,{"contributor","assessor"})
+        # Bounded synthetic format preflight only; not malware screening or parser isolation.
+        if not isinstance(data,bytes) or not 0<len(data)<=MAX_FILE:raise Invalid("Synthetic file size")
         filename=required(filename,"filename");title=required(title,"title")
-        if Path(filename).name!=filename or "/" in filename or "\\" in filename or not filename.lower().endswith(".txt"):raise Invalid("Synthetic .txt files only")
-        try:text=data.decode("utf-8")
-        except UnicodeDecodeError:raise Invalid("UTF-8 text required")
-        if any(ord(c)<32 and c not in "\n\r\t" for c in text):raise Invalid("Unsupported control content")
+        if Path(filename).name!=filename or "/" in filename or "\\" in filename:raise Invalid("Invalid filename")
+        try:parse_document(filename,data)
+        except UnsupportedDocument as e:raise Invalid(str(e)) from e
         if intake is not None:
             if not isinstance(intake,dict) or intake.get("criterion") not in self.mappings or intake.get("requestId") not in self.mappings[intake["criterion"]]:raise Invalid("Approved criterion/request mapping required")
             intake={**intake,**{k:required(intake.get(k),k) for k in ["sourceOwner","period","sourceVersion","locator"]}}
@@ -274,7 +275,8 @@ class DataPlane:
             intake=self.db.execute("SELECT request_id FROM intake WHERE version_id=?",(version,)).fetchone()
             if not intake or intake["request_id"] not in self.mappings[criterion]:raise Invalid("Source request must be mapped to selected criterion")
             raw=self._read_bytes(a,assessment,v)
-            result=extract(raw.decode("utf-8"),self.extraction_rules[criterion])
+            try:result=extract_document(v["filename"],raw,self.extraction_rules[criterion])
+            except UnsupportedDocument as e:raise Invalid(str(e)) from e
             rid=ident();nonce=secrets.token_bytes(12)
             aad=canonical([assessment,rid,version,criterion,self.extraction_schema_hash,EXTRACTION_VERSION]).encode()
             encrypted=AESGCM(self.key).encrypt(nonce,canonical(result).encode(),aad)
