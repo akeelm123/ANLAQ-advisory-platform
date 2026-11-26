@@ -1,0 +1,22 @@
+✔ 28 source-derived criterion IDs are unique (0.600375ms)
+✔ requires source provenance and digest (0.167292ms)
+✔ rejects unknown criterion (0.053875ms)
+✔ rejects missing or mismatched reference (3.538458ms)
+✔ E2 rejects duplicated document or owner (0.116958ms)
+✔ E2 accepts distinct source and owner for review (0.054ms)
+✔ unknown evidence may be drafted but not accepted (0.077583ms)
+✔ assertion cannot be accepted (0.052792ms)
+✔ open contradiction blocks acceptance (0.068917ms)
+✔ resolved contradiction requires rationale (0.075666ms)
+✔ self-review and missing confirmation blocked (0.061625ms)
+✔ accepted review is logged, cannot be overwritten; release stays locked (0.332291ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 12
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40.167625
+
+Browser end-to-end: PASS — local file, digest intake, linked finding, independent review, JSON download and mobile width; no page errors.
