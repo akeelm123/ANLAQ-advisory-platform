@@ -1,0 +1,213 @@
+"""Synthetic-only local data plane reference; no server, client deployment or scoring."""
+from __future__ import annotations
+import hashlib, hmac, json, os, secrets, sqlite3, time, uuid
+from pathlib import Path
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+
+class Denied(Exception): pass
+class Invalid(Exception): pass
+
+ROLES={"contributor","assessor","reviewer","owner"}
+MAX_FILE=256*1024
+def ident(): return uuid.uuid4().hex
+def digest(b): return hashlib.sha256(b).hexdigest()
+def canonical(o): return json.dumps(o,sort_keys=True,separators=(",",":"),ensure_ascii=False)
+def required(v,label):
+    if not isinstance(v,str) or not v.strip() or len(v)>4000: raise Invalid(label+" required")
+    return v.strip()
+def password_hash(password,salt):
+    return hashlib.scrypt(password.encode(),salt=salt,n=2**14,r=8,p=1,dklen=32)
+
+class DataPlane:
+    def __init__(self,path,key,audit_key,register_path,spec_path,clock=time.time):
+        if len(key)!=32 or len(audit_key)!=32 or key==audit_key:raise Invalid("Independent 32-byte encryption and audit keys required")
+        self.key=key; self.audit_key=audit_key; self.clock=clock; self.db=sqlite3.connect(path); self.db.row_factory=sqlite3.Row
+        self.db.execute("PRAGMA foreign_keys=ON")
+        self.db.executescript("""
+        CREATE TABLE IF NOT EXISTS users(id TEXT PRIMARY KEY, username TEXT UNIQUE NOT NULL, salt BLOB NOT NULL, password BLOB NOT NULL, active INTEGER NOT NULL DEFAULT 1);
+        CREATE TABLE IF NOT EXISTS sessions(digest TEXT PRIMARY KEY,user_id TEXT NOT NULL REFERENCES users(id),expires REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS tenants(id TEXT PRIMARY KEY,name TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS assessments(id TEXT PRIMARY KEY,tenant_id TEXT NOT NULL REFERENCES tenants(id),title TEXT NOT NULL,scope TEXT NOT NULL,register_hash TEXT NOT NULL,spec_hash TEXT NOT NULL);
+        CREATE TABLE IF NOT EXISTS membership(assessment_id TEXT NOT NULL REFERENCES assessments(id),user_id TEXT NOT NULL REFERENCES users(id),role TEXT NOT NULL,active INTEGER NOT NULL DEFAULT 1,PRIMARY KEY(assessment_id,user_id));
+        CREATE TABLE IF NOT EXISTS docs(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),title TEXT NOT NULL,created_by TEXT NOT NULL REFERENCES users(id));
+        CREATE TABLE IF NOT EXISTS versions(id TEXT PRIMARY KEY,doc_id TEXT NOT NULL REFERENCES docs(id),version INTEGER NOT NULL,filename TEXT NOT NULL,digest TEXT NOT NULL,nonce BLOB NOT NULL,ciphertext BLOB NOT NULL,created_by TEXT NOT NULL REFERENCES users(id),created_at REAL NOT NULL,UNIQUE(doc_id,version));
+        CREATE TABLE IF NOT EXISTS disposition(version_id TEXT PRIMARY KEY REFERENCES versions(id),status TEXT NOT NULL,actor TEXT NOT NULL REFERENCES users(id),reason TEXT NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS findings(id TEXT PRIMARY KEY,assessment_id TEXT NOT NULL REFERENCES assessments(id),criterion TEXT NOT NULL,author TEXT NOT NULL REFERENCES users(id),claim TEXT NOT NULL,evidence_class TEXT NOT NULL,strength TEXT NOT NULL,contradiction INTEGER NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS links(finding_id TEXT NOT NULL REFERENCES findings(id),version_id TEXT NOT NULL REFERENCES versions(id),request_id TEXT NOT NULL,locator TEXT NOT NULL,PRIMARY KEY(finding_id,version_id,request_id));
+        CREATE TABLE IF NOT EXISTS reviews(id TEXT PRIMARY KEY,finding_id TEXT UNIQUE NOT NULL REFERENCES findings(id),reviewer TEXT NOT NULL REFERENCES users(id),decision TEXT NOT NULL,reason TEXT NOT NULL,created_at REAL NOT NULL);
+        CREATE TABLE IF NOT EXISTS audit(seq INTEGER PRIMARY KEY,assessment_id TEXT NOT NULL,actor TEXT NOT NULL,action TEXT NOT NULL,record_id TEXT NOT NULL,time REAL NOT NULL,previous TEXT NOT NULL,mac TEXT NOT NULL);
+        CREATE TRIGGER IF NOT EXISTS immutable_versions_update BEFORE UPDATE ON versions BEGIN SELECT RAISE(ABORT,'immutable source version'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_versions_delete BEFORE DELETE ON versions BEGIN SELECT RAISE(ABORT,'immutable source version'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_audit_update BEFORE UPDATE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_audit_delete BEFORE DELETE ON audit BEGIN SELECT RAISE(ABORT,'append only audit'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_disposition_update BEFORE UPDATE ON disposition BEGIN SELECT RAISE(ABORT,'immutable disposition'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_disposition_delete BEFORE DELETE ON disposition BEGIN SELECT RAISE(ABORT,'immutable disposition'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_findings_update BEFORE UPDATE ON findings BEGIN SELECT RAISE(ABORT,'immutable finding'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_findings_delete BEFORE DELETE ON findings BEGIN SELECT RAISE(ABORT,'immutable finding'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_links_update BEFORE UPDATE ON links BEGIN SELECT RAISE(ABORT,'immutable link'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_links_delete BEFORE DELETE ON links BEGIN SELECT RAISE(ABORT,'immutable link'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_reviews_update BEFORE UPDATE ON reviews BEGIN SELECT RAISE(ABORT,'immutable review'); END;
+        CREATE TRIGGER IF NOT EXISTS immutable_reviews_delete BEFORE DELETE ON reviews BEGIN SELECT RAISE(ABORT,'immutable review'); END;
+        """)
+        rb=Path(register_path).read_bytes(); sb=Path(spec_path).read_bytes()
+        self.register_hash=digest(rb); self.spec_hash=digest(sb)
+        # Fail closed on unapproved or changed methodology. Approval is versioned in repo.
+        if self.register_hash!="f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559" or self.spec_hash!="8d4e730b5ed3cf38fdb4dcd896fa21bc14bf38689babc24159a460980099b00c": raise Invalid("Methodology hash mismatch")
+        spec=json.loads(sb)
+        self.rules={r["criterionId"]:r for r in spec["rules"]}
+        self.mappings={c:set(r["primary"]+r["supplementary"]+r["conditional"]) for c,r in self.rules.items()}
+    # Trusted local bootstrap only. No exposed self-service administrator endpoint.
+    def bootstrap_user(self,username,password):
+        username=required(username,"username")
+        if not isinstance(password,str) or len(password)<12 or len(password)>256: raise Invalid("Synthetic password length 12–256")
+        uid=ident();salt=secrets.token_bytes(16)
+        with self.db:self.db.execute("INSERT INTO users(id,username,salt,password) VALUES (?,?,?,?)",(uid,username,salt,password_hash(password,salt)))
+        return uid
+    def bootstrap_assessment(self,tenant_name,title,scope):
+        tid,aid=ident(),ident()
+        with self.db:
+            self.db.execute("INSERT INTO tenants VALUES (?,?)",(tid,required(tenant_name,"tenant")))
+            self.db.execute("INSERT INTO assessments VALUES (?,?,?,?,?,?)",(aid,tid,required(title,"title"),required(scope,"scope"),self.register_hash,self.spec_hash))
+        return aid
+    def bootstrap_membership(self,assessment,user,role):
+        if role not in ROLES:raise Invalid("Unknown role")
+        with self.db:self.db.execute("INSERT INTO membership VALUES (?,?,?,1)",(assessment,user,role))
+    def login(self,username,password):
+        if not isinstance(username,str) or not isinstance(password,str) or len(password)>256:raise Denied("Invalid credentials")
+        row=self.db.execute("SELECT * FROM users WHERE username=?",(username,)).fetchone()
+        salt=row["salt"] if row else b"\x00"*16
+        candidate=password_hash(password,salt)
+        if not row or not hmac.compare_digest(candidate,row["password"]) or not row["active"]:raise Denied("Invalid credentials")
+        token=secrets.token_urlsafe(32)
+        with self.db:self.db.execute("INSERT INTO sessions VALUES (?,?,?)",(digest(token.encode()),row["id"],self.clock()+1800))
+        return token
+    def logout(self,token):
+        with self.db:self.db.execute("DELETE FROM sessions WHERE digest=?",(digest(token.encode()),))
+    def _actor(self,token,assessment,roles):
+        if not isinstance(token,str):raise Denied("Access denied")
+        r=self.db.execute("""SELECT u.id,m.role,a.tenant_id,a.register_hash,a.spec_hash FROM sessions s JOIN users u ON u.id=s.user_id JOIN membership m ON m.user_id=u.id JOIN assessments a ON a.id=m.assessment_id WHERE s.digest=? AND s.expires>? AND u.active=1 AND m.active=1 AND m.assessment_id=?""",(digest(token.encode()),self.clock(),assessment)).fetchone()
+        if not r or r["role"] not in roles or r["register_hash"]!=self.register_hash or r["spec_hash"]!=self.spec_hash:raise Denied("Access denied")
+        return r
+    def revoke_membership(self,token,assessment,user):
+        with self.db:
+            a=self._actor(token,assessment,{"owner"})
+            if a["id"]==user:raise Denied("Cannot revoke own membership")
+            changed=self.db.execute("UPDATE membership SET active=0 WHERE assessment_id=? AND user_id=? AND active=1",(assessment,user)).rowcount
+            if changed!=1:raise Denied("Access denied")
+            self._audit(assessment,a["id"],"membership revoked",user)
+    def _audit(self,assessment,actor,action,record):
+        last=self.db.execute("SELECT seq,mac FROM audit ORDER BY seq DESC LIMIT 1").fetchone()
+        seq=(last["seq"]+1) if last else 1; previous=last["mac"] if last else "GENESIS"
+        t=float(self.clock());body=[seq,assessment,actor,action,record,t,previous]
+        mac=hmac.new(self.audit_key,canonical(body).encode(),hashlib.sha256).hexdigest()
+        self.db.execute("INSERT INTO audit VALUES (?,?,?,?,?,?,?,?)",(*body,mac))
+    def verify_audit(self):
+        prior="GENESIS";expected=1
+        for r in self.db.execute("SELECT * FROM audit ORDER BY seq"):
+            body=[r["seq"],r["assessment_id"],r["actor"],r["action"],r["record_id"],r["time"],r["previous"]]
+            if r["seq"]!=expected or r["previous"]!=prior or not hmac.compare_digest(r["mac"],hmac.new(self.audit_key,canonical(body).encode(),hashlib.sha256).hexdigest()):return False
+            prior=r["mac"];expected+=1
+        return True
+    def _version(self,assessment,version):
+        row=self.db.execute("""SELECT v.*,d.assessment_id,d.title,coalesce(p.status,'quarantined') AS status
+          FROM versions v JOIN docs d ON d.id=v.doc_id LEFT JOIN disposition p ON p.version_id=v.id WHERE v.id=? AND d.assessment_id=?""",(version,assessment)).fetchone()
+        if not row:raise Denied("Access denied")
+        return row
+    def _latest(self,row):
+        return self.db.execute("SELECT max(version) FROM versions WHERE doc_id=?",(row["doc_id"],)).fetchone()[0]==row["version"]
+    def upload(self,token,assessment,title,filename,data,document=None):
+        # Strict text-only synthetic scope. This is not malware scanning.
+        if not isinstance(data,bytes) or not 0<len(data)<=MAX_FILE:raise Invalid("Synthetic text file size")
+        filename=required(filename,"filename");title=required(title,"title")
+        if Path(filename).name!=filename or "/" in filename or "\\" in filename or not filename.lower().endswith(".txt"):raise Invalid("Synthetic .txt files only")
+        try:text=data.decode("utf-8")
+        except UnicodeDecodeError:raise Invalid("UTF-8 text required")
+        if any(ord(c)<32 and c not in "\n\r\t" for c in text):raise Invalid("Unsupported control content")
+        with self.db:
+            a=self._actor(token,assessment,{"contributor","assessor"})
+            if document:
+                d=self.db.execute("SELECT * FROM docs WHERE id=? AND assessment_id=?",(document,assessment)).fetchone()
+                if not d or (a["role"]=="contributor" and d["created_by"]!=a["id"]):raise Denied("Access denied")
+                v=self.db.execute("SELECT max(version) FROM versions WHERE doc_id=?",(document,)).fetchone()[0]+1
+            else:
+                document=ident();v=1
+                self.db.execute("INSERT INTO docs VALUES (?,?,?,?)",(document,assessment,title,a["id"]))
+            vid=ident();dhash=digest(data);nonce=secrets.token_bytes(12);aad=canonical([a["tenant_id"],assessment,document,vid,v,dhash]).encode()
+            ciphertext=AESGCM(self.key).encrypt(nonce,data,aad)
+            self.db.execute("INSERT INTO versions VALUES (?,?,?,?,?,?,?,?,?)",(vid,document,v,filename,dhash,nonce,ciphertext,a["id"],self.clock()))
+            self._audit(assessment,a["id"],"source quarantined",vid)
+            return {"documentId":document,"versionId":vid,"version":v,"sha256":dhash,"status":"quarantined"}
+    def _read_bytes(self,a,assessment,v):
+        aad=canonical([a["tenant_id"],assessment,v["doc_id"],v["id"],v["version"],v["digest"]]).encode()
+        raw=AESGCM(self.key).decrypt(v["nonce"],v["ciphertext"],aad)
+        if digest(raw)!=v["digest"]:raise Invalid("Integrity failure")
+        return raw
+    def inspect_quarantine(self,token,assessment,version):
+        with self.db:
+            a=self._actor(token,assessment,{"assessor"});v=self._version(assessment,version)
+            if v["status"]!="quarantined" or v["created_by"]==a["id"]:raise Denied("Access denied")
+            raw=self._read_bytes(a,assessment,v)
+            self._audit(assessment,a["id"],"quarantine inspected",version)
+            return raw
+    def screen(self,token,assessment,version,decision,reason):
+        if decision not in {"accepted","rejected"}:raise Invalid("Invalid disposition")
+        reason=required(reason,"screening rationale")
+        with self.db:
+            a=self._actor(token,assessment,{"assessor"});v=self._version(assessment,version)
+            if v["status"]!="quarantined":raise Invalid("Disposition immutable")
+            if v["created_by"]==a["id"]:raise Denied("Independent screening required")
+            if not self.db.execute("SELECT 1 FROM audit WHERE assessment_id=? AND actor=? AND action='quarantine inspected' AND record_id=?",(assessment,a["id"],version)).fetchone():raise Invalid("Inspect quarantined synthetic content first")
+            self.db.execute("INSERT INTO disposition VALUES (?,?,?,?,?)",(version,decision,a["id"],reason,self.clock()))
+            self._audit(assessment,a["id"],"synthetic screening "+decision,version)
+    def download(self,token,assessment,version):
+        with self.db:
+            a=self._actor(token,assessment,ROLES);v=self._version(assessment,version)
+            if v["status"]!="accepted" or (a["role"]=="contributor" and v["created_by"]!=a["id"]):raise Denied("Access denied")
+            raw=self._read_bytes(a,assessment,v)
+            self._audit(assessment,a["id"],"evidence downloaded",version)
+            return raw
+    def draft_finding(self,token,assessment,criterion,claim,evidence_class,strength,contradiction,links):
+        if criterion not in self.mappings or evidence_class not in {"E1","E2","E3","E4"} or strength not in {"Strong","Moderate","Weak","Not assessed"} or type(contradiction) is not bool:raise Invalid("Invalid finding metadata")
+        claim=required(claim,"claim")
+        if not isinstance(links,list) or (evidence_class in {"E1","E2","E3"} and not links):raise Invalid("Evidence links required")
+        with self.db:
+            a=self._actor(token,assessment,{"assessor"}); fid=ident()
+            self.db.execute("INSERT INTO findings VALUES (?,?,?,?,?,?,?,?,?)",(fid,assessment,criterion,a["id"],claim,evidence_class,strength,int(contradiction),self.clock()))
+            for link in links:
+                if link["requestId"] not in self.mappings[criterion]:raise Invalid("Unmapped request")
+                v=self._version(assessment,link["versionId"])
+                if v["status"]!="accepted" or not self._latest(v):raise Invalid("Only accepted current source versions")
+                self.db.execute("INSERT INTO links VALUES (?,?,?,?)",(fid,v["id"],link["requestId"],required(link["locator"],"precise locator")))
+            self._audit(assessment,a["id"],"finding drafted",fid)
+            return fid
+    def review(self,token,assessment,finding,decision,reason,confirmed=False):
+        if decision not in {"accept","return"}:raise Invalid("Invalid review decision")
+        reason=required(reason,"review rationale")
+        with self.db:
+            a=self._actor(token,assessment,{"reviewer"})
+            f=self.db.execute("SELECT * FROM findings WHERE id=? AND assessment_id=?",(finding,assessment)).fetchone()
+            if not f or f["author"]==a["id"]:raise Denied("Independent review required")
+            if self.db.execute("SELECT 1 FROM reviews WHERE finding_id=?",(finding,)).fetchone():raise Invalid("Already reviewed; draft new revision")
+            links=list(self.db.execute("SELECT * FROM links WHERE finding_id=?",(finding,)))
+            if decision=="accept":
+                if f["evidence_class"] not in {"E1","E2"} or f["strength"]=="Not assessed" or f["contradiction"] or confirmed is not True:raise Invalid("Sufficiency or review confirmation outstanding")
+                vs=[self._version(assessment,l["version_id"]) for l in links]
+                if not vs or any(v["status"]!="accepted" or not self._latest(v) for v in vs):raise Invalid("Evidence superseded or unavailable")
+                if f["evidence_class"]=="E2" and (len({v["digest"] for v in vs})<2 or len({v["created_by"] for v in vs})<2):raise Invalid("Distinct source bytes and contributors required; reviewer confirms actual independence")
+                r=self.rules[f["criterion"]]
+                if not any(l["request_id"] in r["primary"] for l in links):raise Invalid("Primary evidence required; alternate approval workflow not implemented")
+                if r["conditional"]:raise Invalid("Conditional applicability review workflow outstanding; return for follow-up")
+            rid=ident();self.db.execute("INSERT INTO reviews VALUES (?,?,?,?,?,?)",(rid,finding,a["id"],decision,reason,self.clock()))
+            self._audit(assessment,a["id"],"review "+decision,rid)
+            return rid
+    def review_state(self,token,assessment,finding):
+        a=self._actor(token,assessment,{"assessor","reviewer","owner"})
+        f=self.db.execute("SELECT id FROM findings WHERE id=? AND assessment_id=?",(finding,assessment)).fetchone()
+        if not f:raise Denied("Access denied")
+        if any(not self._latest(self._version(assessment,l["version_id"])) for l in self.db.execute("SELECT version_id FROM links WHERE finding_id=?",(finding,))):return "superseded"
+        r=self.db.execute("SELECT decision FROM reviews WHERE finding_id=?",(finding,)).fetchone()
+        return r["decision"] if r else "draft"
+    def release(self,token,assessment):
+        self._actor(token,assessment,{"owner"})
+        raise Denied("Scoring, executive release, real-client processing and deployment locked")
+    def close(self):self.db.close()

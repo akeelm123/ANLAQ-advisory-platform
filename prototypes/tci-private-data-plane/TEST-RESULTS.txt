@@ -1,0 +1,24 @@
+test01_tenant_permission_and_wrong_identity (test_data_plane.DataPlaneTest.test01_tenant_permission_and_wrong_identity) ... ok
+test02_quarantine_and_rejected_content_unavailable (test_data_plane.DataPlaneTest.test02_quarantine_and_rejected_content_unavailable) ... ok
+test03_text_limits_and_role (test_data_plane.DataPlaneTest.test03_text_limits_and_role) ... ok
+test04_encryption_digest_immutable_source (test_data_plane.DataPlaneTest.test04_encryption_digest_immutable_source) ... ok
+test05_own_contributor_and_version_access (test_data_plane.DataPlaneTest.test05_own_contributor_and_version_access) ... ok
+test06_screen_self_and_disposition_immutable (test_data_plane.DataPlaneTest.test06_screen_self_and_disposition_immutable) ... ok
+test07_independent_review_gate (test_data_plane.DataPlaneTest.test07_independent_review_gate) ... ok
+test08_class_strength_conflict_gates (test_data_plane.DataPlaneTest.test08_class_strength_conflict_gates) ... ok
+test09_two_independent_source_records (test_data_plane.DataPlaneTest.test09_two_independent_source_records) ... ok
+test10_approved_mapping_and_primary (test_data_plane.DataPlaneTest.test10_approved_mapping_and_primary) ... ok
+test11_scope_cross_assessment_link_denied (test_data_plane.DataPlaneTest.test11_scope_cross_assessment_link_denied) ... ok
+test12_superseded_versions_invalidate_readiness (test_data_plane.DataPlaneTest.test12_superseded_versions_invalidate_readiness) ... ok
+test13_conditional_workflow_remains_locked (test_data_plane.DataPlaneTest.test13_conditional_workflow_remains_locked) ... ok
+test14_access_revocation (test_data_plane.DataPlaneTest.test14_access_revocation) ... ok
+test15_session_logout_and_expiry (test_data_plane.DataPlaneTest.test15_session_logout_and_expiry) ... ok
+test16_audit_integrity_and_no_raw_content (test_data_plane.DataPlaneTest.test16_audit_integrity_and_no_raw_content) ... ok
+test17_release_gates_remain_closed (test_data_plane.DataPlaneTest.test17_release_gates_remain_closed) ... ok
+test18_persisted_database_reopen_integrity (test_data_plane.DataPlaneTest.test18_persisted_database_reopen_integrity) ... ok
+test19_hash_mismatch_rejected (test_data_plane.DataPlaneTest.test19_hash_mismatch_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.388s
+
+OK

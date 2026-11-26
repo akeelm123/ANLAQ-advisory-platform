@@ -1,0 +1,14 @@
+{
+  "recordId": "TCI-EVS-SEH-APR-001",
+  "status": "approved",
+  "approvedOn": "2026-11-26",
+  "approvedBy": "Project owner",
+  "decision": "User explicitly approved both specifications.",
+  "commit": "06fa1e005c1769e623ae809191222b98ff71354d",
+  "approvedArtifacts": [
+    {"name":"TCI_Evidence_Validation_Specification_v1.0-rc.1.xlsx","sha256":"e558d77e19ba582e0821886fc92ceb72a23f3c122a045abbe518aa4f8779fe25"},
+    {"name":"TCI_Evidence_Validation_Specification_v1.0-rc.1.json","sha256":"8d4e730b5ed3cf38fdb4dcd896fa21bc14bf38689babc24159a460980099b00c"},
+    {"name":"SECURE_EVIDENCE_HANDLING_DESIGN_v1.0-rc.1.md","sha256":"f391dd8e9a419d2bf70222486492477c717f1f8f8a00e0d55e25f2a99eb21b45"}
+  ],
+  "scope": "Approves the validation specification and secure evidence handling design as working baselines. Does not approve real-client processing, hosting provider or region, retention policy, final scoring calibration, operational security acceptance, formal release or public deployment."
+}
