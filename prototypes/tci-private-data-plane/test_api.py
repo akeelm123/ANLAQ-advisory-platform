@@ -73,6 +73,7 @@ class APITest(unittest.TestCase):
     self.post("inspect","assessor",{"versionId":vid});self.assertEqual(self.post("screen","assessor",{"versionId":vid,"decision":"accepted","reason":"Synthetic"})[0],200)
     self.assertEqual(self.post("extract","assessor",{"versionId":vid,"criterion":"Q10"})[0],400)
     self.assertEqual(self.post("extract","contributor",{"versionId":vid,"criterion":"Q01"})[0],403)
+    self.assertEqual(self.post("extract","assessor",{"versionId":vid,"criterion":"Q01","mode":"narrative"})[0],400)
     st,d=self.post("extract","assessor",{"versionId":vid,"criterion":"Q01"});self.assertEqual(st,201);rid=d["runId"]
     records=self.dashboard("reviewer")[1]["extractions"];r=next(x for x in records if x["id"]==rid);self.assertEqual(r["sourceSha256"],v["sha256"]);self.assertEqual(r["result"]["counts"]["present"],5);self.assertEqual(r["result"]["fields"][0]["citations"][0]["location"],"Text line 3")
     self.assertEqual(self.dashboard("contributor")[1]["extractions"],[])

@@ -1,0 +1,531 @@
+{
+  "scope": "Fictional local-model benchmark only; field attribution and completeness are not established by exact quotes",
+  "rows": [
+    {
+      "id": "INV-01",
+      "status": "executed",
+      "durationSeconds": 31.51,
+      "expectedFields": 7,
+      "matchedExpectedFields": 7,
+      "missedFields": [],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "original_and_current_approved_scope",
+            "label": "Original and current approved scope",
+            "status": "candidate",
+            "value": "The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows.",
+            "citations": [
+              {
+                "value": "The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows.",
+                "location": "Text line 1",
+                "startColumn": 39,
+                "endColumn": 168,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "investment_amount",
+            "label": "investment amount",
+            "status": "candidate",
+            "value": "The total authorised investment was SGD 120000.",
+            "citations": [
+              {
+                "value": "The total authorised investment was SGD 120000.",
+                "location": "Text line 1",
+                "startColumn": 170,
+                "endColumn": 216,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "cost_basis",
+            "label": "cost basis",
+            "status": "candidate",
+            "value": "Costs were stated on a nominal SGD basis for FY26.",
+            "citations": [
+              {
+                "value": "Costs were stated on a nominal SGD basis for FY26.",
+                "location": "Text line 1",
+                "startColumn": 218,
+                "endColumn": 267,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "dates",
+            "label": "dates",
+            "status": "candidate",
+            "value": "The original approval was dated 10 January 2026; the change approval was dated 4 April 2026.",
+            "citations": [
+              {
+                "value": "The original approval was dated 10 January 2026; the change approval was dated 4 April 2026.",
+                "location": "Text line 1",
+                "startColumn": 269,
+                "endColumn": 360,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "assumptions",
+            "label": "assumptions",
+            "status": "candidate",
+            "value": "Planning assumed twenty cases per month.",
+            "citations": [
+              {
+                "value": "Planning assumed twenty cases per month.",
+                "location": "Text line 1",
+                "startColumn": 362,
+                "endColumn": 401,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "change_approvals",
+            "label": "change approvals",
+            "status": "candidate",
+            "value": "Change approval CH-01 was recorded.",
+            "citations": [
+              {
+                "value": "Change approval CH-01 was recorded.",
+                "location": "Text line 1",
+                "startColumn": 403,
+                "endColumn": 437,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          },
+          {
+            "key": "revised_priorities",
+            "label": "revised priorities",
+            "status": "candidate",
+            "value": "Intake was prioritised before reporting.",
+            "citations": [
+              {
+                "value": "Intake was prioritised before reporting.",
+                "location": "Text line 1",
+                "startColumn": 439,
+                "endColumn": 478,
+                "excerpt": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 7,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "criterionId": "Q02",
+        "ruleId": "EVS-Q02",
+        "method": "0.2.0-alpha.3",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "GOV-01",
+      "status": "executed",
+      "durationSeconds": 18.46,
+      "expectedFields": 7,
+      "matchedExpectedFields": 6,
+      "missedFields": [
+        "materiality"
+      ],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "decision_id",
+            "label": "Decision ID",
+            "status": "candidate",
+            "value": "DEC-SYN-01",
+            "citations": [
+              {
+                "value": "DEC-SYN-01",
+                "location": "Text line 1",
+                "startColumn": 74,
+                "endColumn": 83,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          },
+          {
+            "key": "materiality",
+            "label": "materiality",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "raised_date",
+            "label": "raised date",
+            "status": "candidate",
+            "value": "1 March 2026",
+            "citations": [
+              {
+                "value": "1 March 2026",
+                "location": "Text line 1",
+                "startColumn": 155,
+                "endColumn": 166,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          },
+          {
+            "key": "required_by_date",
+            "label": "required-by date",
+            "status": "candidate",
+            "value": "10 March 2026",
+            "citations": [
+              {
+                "value": "10 March 2026",
+                "location": "Text line 1",
+                "startColumn": 184,
+                "endColumn": 196,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          },
+          {
+            "key": "actual_decision_date",
+            "label": "actual decision date",
+            "status": "candidate",
+            "value": "9 March 2026",
+            "citations": [
+              {
+                "value": "9 March 2026",
+                "location": "Text line 1",
+                "startColumn": 234,
+                "endColumn": 245,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          },
+          {
+            "key": "owner",
+            "label": "owner",
+            "status": "candidate",
+            "value": "synthetic sponsor",
+            "citations": [
+              {
+                "value": "synthetic sponsor",
+                "location": "Text line 1",
+                "startColumn": 252,
+                "endColumn": 268,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          },
+          {
+            "key": "decision_and_rationale",
+            "label": "decision and rationale",
+            "status": "candidate",
+            "value": "The committee approved the fictional scope because the resource plan was agreed.",
+            "citations": [
+              {
+                "value": "The committee approved the fictional scope because the resource plan was agreed.",
+                "location": "Text line 1",
+                "startColumn": 287,
+                "endColumn": 366,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 6,
+          "missing": 1,
+          "ambiguous": 0
+        },
+        "criterionId": "Q05",
+        "ruleId": "EVS-Q05",
+        "method": "0.2.0-alpha.3",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "BEN-01",
+      "status": "executed",
+      "durationSeconds": 25.2,
+      "expectedFields": 9,
+      "matchedExpectedFields": 8,
+      "missedFields": [
+        "currency_unit"
+      ],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "benefit_id",
+            "label": "Benefit ID",
+            "status": "candidate",
+            "value": "BEN-SYN-01",
+            "citations": [
+              {
+                "value": "BEN-SYN-01",
+                "location": "Text line 1",
+                "startColumn": 66,
+                "endColumn": 75,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "actual_realised_outcome",
+            "label": "actual realised outcome",
+            "status": "candidate",
+            "value": "SGD 4000",
+            "citations": [
+              {
+                "value": "SGD 4000",
+                "location": "Text line 1",
+                "startColumn": 113,
+                "endColumn": 120,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "original_target",
+            "label": "original target",
+            "status": "candidate",
+            "value": "SGD 5000",
+            "citations": [
+              {
+                "value": "SGD 5000",
+                "location": "Text line 1",
+                "startColumn": 147,
+                "endColumn": 154,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "period",
+            "label": "period",
+            "status": "candidate",
+            "value": "FY26 Q2",
+            "citations": [
+              {
+                "value": "FY26 Q2",
+                "location": "Text line 1",
+                "startColumn": 174,
+                "endColumn": 180,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "currency_unit",
+            "label": "currency/unit",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "benefit_basis",
+            "label": "benefit basis",
+            "status": "candidate",
+            "value": "realised cash basis",
+            "citations": [
+              {
+                "value": "realised cash basis",
+                "location": "Text line 1",
+                "startColumn": 237,
+                "endColumn": 255,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "source",
+            "label": "source",
+            "status": "candidate",
+            "value": "synthetic finance ledger FIN-01",
+            "citations": [
+              {
+                "value": "synthetic finance ledger FIN-01",
+                "location": "Text line 1",
+                "startColumn": 286,
+                "endColumn": 316,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "finance_validation",
+            "label": "Finance validation",
+            "status": "candidate",
+            "value": "Finance recorded a mock validation approval",
+            "citations": [
+              {
+                "value": "Finance recorded a mock validation approval",
+                "location": "Text line 1",
+                "startColumn": 319,
+                "endColumn": 361,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          },
+          {
+            "key": "forecast_separately",
+            "label": "forecast separately",
+            "status": "candidate",
+            "value": "A separate forecast of SGD 2000 is not realised value",
+            "citations": [
+              {
+                "value": "A separate forecast of SGD 2000 is not realised value",
+                "location": "Text line 1",
+                "startColumn": 364,
+                "endColumn": 416,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 1,
+        "counts": {
+          "candidate": 8,
+          "missing": 1,
+          "ambiguous": 0
+        },
+        "criterionId": "Q26",
+        "ruleId": "EVS-Q26",
+        "method": "0.2.0-alpha.3",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "BEN-02",
+      "status": "executed",
+      "durationSeconds": 10.72,
+      "expectedFields": 3,
+      "matchedExpectedFields": 2,
+      "missedFields": [
+        "forecast_separately"
+      ],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "benefit_id",
+            "label": "Benefit ID",
+            "status": "candidate",
+            "value": "BEN-SYN-02",
+            "citations": [
+              {
+                "value": "BEN-SYN-02",
+                "location": "Text line 1",
+                "startColumn": 59,
+                "endColumn": 68,
+                "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
+              }
+            ]
+          },
+          {
+            "key": "actual_realised_outcome",
+            "label": "actual realised outcome",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "original_target",
+            "label": "original target",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "period",
+            "label": "period",
+            "status": "candidate",
+            "value": "FY26 Q3",
+            "citations": [
+              {
+                "value": "FY26 Q3",
+                "location": "Text line 1",
+                "startColumn": 158,
+                "endColumn": 164,
+                "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
+              }
+            ]
+          },
+          {
+            "key": "currency_unit",
+            "label": "currency/unit",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "benefit_basis",
+            "label": "benefit basis",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "source",
+            "label": "source",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "finance_validation",
+            "label": "Finance validation",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          },
+          {
+            "key": "forecast_separately",
+            "label": "forecast separately",
+            "status": "missing",
+            "value": null,
+            "citations": []
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 2,
+          "missing": 7,
+          "ambiguous": 0
+        },
+        "criterionId": "Q26",
+        "ruleId": "EVS-Q26",
+        "method": "0.2.0-alpha.3",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    }
+  ]
+}

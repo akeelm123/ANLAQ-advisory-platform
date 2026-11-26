@@ -19,7 +19,7 @@ function showExtractionSources(){
 }
 function showExtractions(){
  $("extractions").replaceChildren();
- for(const r of view.extractions){const card=item($("extractions"),"article","","record");item(card,"strong",r.criterionId+" · "+r.sourceTitle+" · "+r.state);item(card,"p",r.result.counts.present+" present · "+r.result.counts.missing+" missing · "+r.result.counts.ambiguous+" ambiguous · scoring locked");item(card,"small","Source SHA-256 "+r.sourceSha256+" · method "+r.method);
+ for(const r of view.extractions){const card=item($("extractions"),"article","","record");item(card,"strong",r.criterionId+" · "+r.sourceTitle+" · "+r.state);item(card,"p",(r.result.semanticReviewRequired?r.result.counts.candidate+" candidate passages":r.result.counts.present+" present")+" · "+r.result.counts.missing+" missing · "+r.result.counts.ambiguous+" ambiguous · scoring locked");item(card,"small","Source SHA-256 "+r.sourceSha256+" · method "+r.method+(r.result.model?" · local model "+r.result.model:""));if(r.result.semanticReviewRequired)item(card,"p","Source-verified quotes only — field attribution and completeness require human review; rejected proposals: "+r.result.rejectedProposals);
  const details=document.createElement("details");card.append(details);item(details,"summary","Review field values and source citations");for(const f of r.result.fields){const block=item(details,"div","","record");item(block,"strong",f.label+" · "+f.status);if(f.value!==null)item(block,"p",f.value);for(const c of f.citations)item(block,"p",(c.location||"Line "+c.line)+(c.startColumn?", columns "+c.startColumn+"–"+c.endColumn:"")+": "+c.excerpt);}
  }
  fill($("extraction-run"),[["","Choose draft extraction"],...view.extractions.filter(r=>r.state==="draft").map(r=>[r.id,r.criterionId+" · "+r.sourceTitle])]);
@@ -39,7 +39,7 @@ function render(){
  fill($("request-id"),view.catalogue.requests.map(r=>[r.id,r.id+" · "+r.title]),$("request-id").value);
  const cs=view.catalogue.criteria.map(c=>[c.id,c.id+" · "+c.dimension+" / "+c.criterion]);
  fill($("upload-criterion"),cs,$("upload-criterion").value);showUploadRequests();
- fill($("finding-criterion"),cs,$("finding-criterion").value);showFindingLinks();fill($("extraction-criterion"),cs,$("extraction-criterion").value);showExtractionSources();showExtractions();
+ fill($("finding-criterion"),cs,$("finding-criterion").value);showFindingLinks();fill($("extraction-criterion"),cs,$("extraction-criterion").value);showExtractionSources();fill($("extraction-mode"),[["labelled","Labelled fields (deterministic)"],...(view.narrativeEnabled?[["narrative","Narrative passages (local model, synthetic only)"]]:[])]);showExtractions();
  fill($("replacement"),[["","Create new document"],...latestVersions().filter(v=>role!=="contributor"||v.own).map(v=>[v.documentId,v.title])]);
  fill($("quarantine"),[["","Choose quarantined source"],...view.versions.filter(v=>v.status==="quarantined"&&!v.own).map(v=>[v.versionId,v.title+" · v"+v.version])]);inspected=null;$("quarantine-text").textContent="";
  fill($("preview-id"),[["","Choose accepted source"],...view.versions.filter(v=>v.status==="accepted").map(v=>[v.versionId,v.title+" · v"+v.version])]);$("accepted-text").textContent="";
@@ -61,7 +61,7 @@ $("quarantine").addEventListener("change",()=>{inspected=null;$("quarantine-text
 $("inspect").addEventListener("click",()=>run(async()=>{const id=$("quarantine").value;if(!id)throw Error("Choose a quarantined source");const r=await api(path("inspect"),"POST",{versionId:id});inspected=id;$("quarantine-text").textContent=r.text;status("Synthetic quarantine content inspected.");}));
 bind("screen",async(o,f)=>{const id=$("quarantine").value;if(!id||inspected!==id)throw Error("Inspect the selected source first");await api(path("screen"),"POST",{...o,versionId:id});f.reset();await refresh();status("Disposition recorded.");});
 $("preview").addEventListener("click",()=>run(async()=>{const id=$("preview-id").value;if(!id)throw Error("Choose accepted source");const r=await api(path("preview"),"POST",{versionId:id});$("accepted-text").textContent=r.text;status("Accepted source previewed.");}));
-bind("extract",async(o,f)=>{await api(path("extract"),"POST",o);f.reset();await refresh();status("Draft extraction recorded.");});
+bind("extract",async(o,f)=>{if(o.mode==="narrative")status("Local model proposing source passages; this can take a minute.");await api(path("extract"),"POST",o);f.reset();await refresh();status("Draft extraction recorded.");});
 bind("extraction-review",async(o,f)=>{await api(path("extraction-review"),"POST",{...o,confirmed:f.elements.confirmed.checked});f.reset();await refresh();status("Independent extraction review recorded.");});
 bind("finding",async(o,f)=>{const links=[...$("finding-links").querySelectorAll("input:checked")].map(input=>{const v=view.versions.find(v=>v.versionId===input.value);return{versionId:v.versionId,requestId:v.requestId,locator:v.locator};});await api(path("finding"),"POST",{criterion:o.criterion,claim:o.claim,evidenceClass:o.evidenceClass,strength:o.strength,contradiction:f.elements.contradiction.checked,links});f.reset();await refresh();status("Draft finding recorded.");});
 bind("review",async(o,f)=>{await api(path("review"),"POST",{...o,confirmed:f.elements.confirmed.checked});f.reset();await refresh();status("Independent review recorded.");});

@@ -67,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -88,7 +88,7 @@ class Handler(BaseHTTPRequestHandler):
             elif action=="review":
                 self.dp.review(token,aid,data["findingId"],data["decision"],data["reason"],data.get("confirmed",False))
             elif action=="extract":
-                return self.payload(201,{"runId":self.dp.run_extraction(token,aid,data["versionId"],data["criterion"])})
+                return self.payload(201,{"runId":self.dp.run_extraction(token,aid,data["versionId"],data["criterion"],data.get("mode","labelled"))})
             elif action=="extraction-review":
                 self.dp.review_extraction(token,aid,data["runId"],data["decision"],data["reason"],data.get("confirmed",False))
             elif action=="release":self.dp.release(token,aid)
@@ -104,9 +104,9 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     def stop(_signum,_frame):raise KeyboardInterrupt
     signal.signal(signal.SIGTERM,stop)
-    p=argparse.ArgumentParser(description="Synthetic-only loopback demo");p.add_argument("--port",type=int,default=8765);args=p.parse_args()
+    p=argparse.ArgumentParser(description="Synthetic-only loopback demo");p.add_argument("--port",type=int,default=8765);p.add_argument("--enable-local-model",action="store_true",help="Synthetic narrative local model opt-in");args=p.parse_args()
     with tempfile.TemporaryDirectory(prefix="tci-synthetic-") as tmp:
-        dp=DataPlane(Path(tmp)/"synthetic.sqlite",secrets.token_bytes(32),secrets.token_bytes(32),REGISTER,SPEC)
+        dp=DataPlane(Path(tmp)/"synthetic.sqlite",secrets.token_bytes(32),secrets.token_bytes(32),REGISTER,SPEC,enable_narrative=args.enable_local_model)
         try:
             aid=dp.bootstrap_assessment("Synthetic tenant","Synthetic transformation","Synthetic investment decision only; no real client data.")
             passwords={}

@@ -149,4 +149,27 @@ class DataPlaneTest(unittest.TestCase):
             with self.dp.db:self.dp.db.execute("UPDATE extraction_runs SET method='otherwise' WHERE id=?",(run,))
         self.assertEqual(self.dp.list_extractions(self.t("reviewer"),self.a)[0]["result"]["counts"]["present"],5)
         self.assertTrue(self.dp.verify_audit())
+    def test21_narrative_disabled_by_default(self):
+        with self.assertRaises(Invalid):self.dp.run_extraction(self.t("assessor"),self.a,"missing","Q02","narrative")
+    def test22_narrative_benchmark_replay_encrypted_review(self):
+        import json
+        from unittest.mock import patch
+        fixture=json.loads((HERE/"narrative-fixtures.json").read_text())["fixtures"][0]
+        bench=json.loads((HERE/"NARRATIVE-BENCHMARK.json").read_text())["rows"][0]["result"]
+        raw=fixture["text"].encode();v=self.dp.upload(self.t("contributor"),self.a,"Synthetic narrative","investment.txt",raw,intake={"criterion":"Q02","requestId":"SA-02","sourceOwner":"Synthetic","period":"FY26","sourceVersion":"1","locator":"line 1"})
+        self.dp.inspect_quarantine(self.t("assessor"),self.a,v["versionId"]);self.dp.screen(self.t("assessor"),self.a,v["versionId"],"accepted","Synthetic")
+        # Replay actual saved local model proposal through service; no network in this test.
+        self.dp.enable_narrative=True
+        try:
+            with patch("data_plane.extract_narrative",return_value=bench) as model:
+                run=self.dp.run_extraction(self.t("assessor"),self.a,v["versionId"],"Q02","narrative")
+                model.assert_called_once()
+            record=next(r for r in self.dp.list_extractions(self.t("reviewer"),self.a) if r["id"]==run)
+            self.assertEqual(record["result"]["model"],"gpt-oss:20b");self.assertTrue(record["result"]["semanticReviewRequired"]);self.assertEqual(record["sourceSha256"],v["sha256"]);self.assertFalse(record["result"]["scoringEligible"])
+            with self.assertRaises(Invalid):self.dp.review_extraction(self.t("reviewer"),self.a,run,"accept","Synthetic",True)
+            self.dp.download(self.t("reviewer"),self.a,v["versionId"])
+            self.dp.review_extraction(self.t("reviewer"),self.a,run,"accept","Synthetic reviewer confirms values and context",True)
+            self.assertEqual(next(r for r in self.dp.list_extractions(self.t("owner"),self.a) if r["id"]==run)["state"],"accept")
+            with self.assertRaises(Denied):self.dp.release(self.t("owner"),self.a)
+        finally:self.dp.enable_narrative=False
 if __name__=="__main__":unittest.main(verbosity=2)

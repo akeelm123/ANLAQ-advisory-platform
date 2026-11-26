@@ -5,6 +5,7 @@ from pathlib import Path
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from extraction import load_schema
 from document_parser import parse_document,extract_document,UnsupportedDocument,METHOD as EXTRACTION_VERSION
+from narrative import extract_narrative,NarrativeUnavailable
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -21,7 +22,8 @@ def password_hash(password,salt):
     return hashlib.scrypt(password.encode(),salt=salt,n=2**14,r=8,p=1,dklen=32)
 
 class DataPlane:
-    def __init__(self,path,key,audit_key,register_path,spec_path,clock=time.time):
+    def __init__(self,path,key,audit_key,register_path,spec_path,clock=time.time,enable_narrative=False):
+        self.enable_narrative=enable_narrative is True
         if len(key)!=32 or len(audit_key)!=32 or key==audit_key:raise Invalid("Independent 32-byte encryption and audit keys required")
         self.key=key; self.audit_key=audit_key; self.clock=clock; self.db=sqlite3.connect(path); self.db.row_factory=sqlite3.Row
         self.db.execute("PRAGMA foreign_keys=ON")
@@ -266,7 +268,9 @@ class DataPlane:
         if any(not self._latest(self._version(assessment,l["version_id"])) for l in self.db.execute("SELECT version_id FROM links WHERE finding_id=?",(finding,))):return "superseded"
         r=self.db.execute("SELECT decision FROM reviews WHERE finding_id=?",(finding,)).fetchone()
         return r["decision"] if r else "draft"
-    def run_extraction(self,token,assessment,version,criterion):
+    def run_extraction(self,token,assessment,version,criterion,mode="labelled"):
+        if mode not in {"labelled","narrative"}:raise Invalid("Unknown extraction mode")
+        if mode=="narrative" and not self.enable_narrative:raise Invalid("Local model disabled; synthetic opt-in required")
         if criterion not in self.extraction_rules:raise Invalid("Unknown extraction criterion")
         with self.db:
             a=self._actor(token,assessment,{"assessor"})
@@ -275,12 +279,14 @@ class DataPlane:
             intake=self.db.execute("SELECT request_id FROM intake WHERE version_id=?",(version,)).fetchone()
             if not intake or intake["request_id"] not in self.mappings[criterion]:raise Invalid("Source request must be mapped to selected criterion")
             raw=self._read_bytes(a,assessment,v)
-            try:result=extract_document(v["filename"],raw,self.extraction_rules[criterion])
-            except UnsupportedDocument as e:raise Invalid(str(e)) from e
+            try:
+                result=extract_narrative(v["filename"],raw,self.extraction_rules[criterion]) if mode=="narrative" else extract_document(v["filename"],raw,self.extraction_rules[criterion])
+            except (UnsupportedDocument,NarrativeUnavailable) as e:raise Invalid(str(e)) from e
+            method=result["method"]
             rid=ident();nonce=secrets.token_bytes(12)
-            aad=canonical([assessment,rid,version,criterion,self.extraction_schema_hash,EXTRACTION_VERSION]).encode()
+            aad=canonical([assessment,rid,version,criterion,self.extraction_schema_hash,method]).encode()
             encrypted=AESGCM(self.key).encrypt(nonce,canonical(result).encode(),aad)
-            self.db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?,?,?)",(rid,assessment,version,criterion,a["id"],self.extraction_schema_hash,EXTRACTION_VERSION,nonce,encrypted,self.clock()))
+            self.db.execute("INSERT INTO extraction_runs VALUES (?,?,?,?,?,?,?,?,?,?)",(rid,assessment,version,criterion,a["id"],self.extraction_schema_hash,method,nonce,encrypted,self.clock()))
             self._audit(assessment,a["id"],"draft extraction created",rid)
             return rid
     def _extraction_payload(self,row):
@@ -307,7 +313,7 @@ class DataPlane:
             if decision=="accept":
                 if not self._latest(v) or v["status"]!="accepted":raise Invalid("Source superseded or unavailable")
                 result=self._extraction_payload(r)
-                if result["counts"]["missing"] or result["counts"]["ambiguous"]:raise Invalid("Missing or ambiguous fields; return for follow-up")
+                if result["counts"]["missing"] or result["counts"]["ambiguous"] or result.get("rejectedProposals",0):raise Invalid("Missing, ambiguous or rejected proposals; return for follow-up")
                 if confirmed is not True or not self.db.execute("SELECT 1 FROM audit WHERE assessment_id=? AND actor=? AND action='evidence downloaded' AND record_id=?",(assessment,a["id"],v["id"])).fetchone():raise Invalid("Independent source preview and confirmation required")
             rid=ident()
             self.db.execute("INSERT INTO extraction_reviews VALUES (?,?,?,?,?,?)",(rid,run,a["id"],decision,reason,self.clock()))

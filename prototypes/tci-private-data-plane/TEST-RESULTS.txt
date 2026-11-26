@@ -18,13 +18,8 @@ test17_release_gates_remain_closed (test_data_plane.DataPlaneTest.test17_release
 test18_persisted_database_reopen_integrity (test_data_plane.DataPlaneTest.test18_persisted_database_reopen_integrity) ... ok
 test19_hash_mismatch_rejected (test_data_plane.DataPlaneTest.test19_hash_mismatch_rejected) ... ok
 test20_extraction_encrypted_immutable_and_scoped (test_data_plane.DataPlaneTest.test20_extraction_encrypted_immutable_and_scoped) ... ok
-test01_auth_and_assessment_isolation (test_api.APITest.test01_auth_and_assessment_isolation) ... ok
-test02_origin_and_role_gates (test_api.APITest.test02_origin_and_role_gates) ... ok
-test03_full_workflow (test_api.APITest.test03_full_workflow) ... ok
-test04_logout_revokes_token (test_api.APITest.test04_logout_revokes_token) ... ok
-test05_extraction_review_and_provenance (test_api.APITest.test05_extraction_review_and_provenance) ... ok
-test06_missing_fields_return_not_accept (test_api.APITest.test06_missing_fields_return_not_accept) ... ok
-test07_supported_document_formats_end_to_end (test_api.APITest.test07_supported_document_formats_end_to_end) ... ok
+test21_narrative_disabled_by_default (test_data_plane.DataPlaneTest.test21_narrative_disabled_by_default) ... ok
+test22_narrative_benchmark_replay_encrypted_review (test_data_plane.DataPlaneTest.test22_narrative_benchmark_replay_encrypted_review) ... ok
 test_Q01_ambiguous (test_extraction.GoldenExtractionTests.test_Q01_ambiguous) ... ok
 test_Q01_golden (test_extraction.GoldenExtractionTests.test_Q01_golden) ... ok
 test_Q01_missing (test_extraction.GoldenExtractionTests.test_Q01_missing) ... ok
@@ -166,8 +161,16 @@ test_literal_numeric_cell_and_formula_non_evaluation (test_document_parser.Docum
 test_manifest (test_document_parser.DocumentFixtureTest.test_manifest) ... ok
 test_no_inference_for_unstructured_text (test_document_parser.DocumentFixtureTest.test_no_inference_for_unstructured_text) ... ok
 test_unsupported_formats_and_malformed_documents (test_document_parser.DocumentFixtureTest.test_unsupported_formats_and_malformed_documents) ... ok
+test_conflicting_candidate_stays_unresolved (test_narrative.NarrativeTests.test_conflicting_candidate_stays_unresolved) ... ok
+test_invalid_schema_fails_closed (test_narrative.NarrativeTests.test_invalid_schema_fails_closed) ... ok
+test_model_unavailable_no_fallback (test_narrative.NarrativeTests.test_model_unavailable_no_fallback) ... ok
+test_reject_fabricated_wrong_segment_unknown_field (test_narrative.NarrativeTests.test_reject_fabricated_wrong_segment_unknown_field) ... ok
+test_repeated_quote_unlocatable (test_narrative.NarrativeTests.test_repeated_quote_unlocatable) ... ok
+test_valid_exact_spans (test_narrative.NarrativeTests.test_valid_exact_spans) ... ok
+test_verified_span_does_not_prove_semantic_correctness (test_narrative.NarrativeTests.test_verified_span_does_not_prove_semantic_correctness) ... ok
+test_window_bound (test_narrative.NarrativeTests.test_window_bound) ... ok
 
 ----------------------------------------------------------------------
-Ran 168 tests in 1.077s
+Ran 171 tests in 0.661s
 
 OK
