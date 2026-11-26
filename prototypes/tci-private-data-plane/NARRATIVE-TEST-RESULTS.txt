@@ -1,16 +1,24 @@
 test_conflicting_candidate_stays_unresolved (test_narrative.NarrativeTests.test_conflicting_candidate_stays_unresolved) ... ok
+test_decision_record_reference_not_decision_content (test_narrative.NarrativeTests.test_decision_record_reference_not_decision_content) ... ok
+test_decision_reference_only_remains_missing (test_narrative.NarrativeTests.test_decision_reference_only_remains_missing) ... ok
+test_decision_sentence_boundary_excludes_next_sentence (test_narrative.NarrativeTests.test_decision_sentence_boundary_excludes_next_sentence) ... ok
+test_dependency_impact_preserves_context (test_narrative.NarrativeTests.test_dependency_impact_preserves_context) ... ok
+test_explicit_absence_is_not_a_candidate_value (test_narrative.NarrativeTests.test_explicit_absence_is_not_a_candidate_value) ... ok
 test_explicit_materiality_fallback_and_conflict (test_narrative.NarrativeTests.test_explicit_materiality_fallback_and_conflict) ... ok
 test_forecast_not_promoted_to_actual (test_narrative.NarrativeTests.test_forecast_not_promoted_to_actual) ... ok
 test_invalid_schema_fails_closed (test_narrative.NarrativeTests.test_invalid_schema_fails_closed) ... ok
 test_model_unavailable_no_fallback (test_narrative.NarrativeTests.test_model_unavailable_no_fallback) ... ok
+test_no_evidence_supplied_is_not_a_value (test_narrative.NarrativeTests.test_no_evidence_supplied_is_not_a_value) ... ok
+test_ownership_acceptance_not_data_scope (test_narrative.NarrativeTests.test_ownership_acceptance_not_data_scope) ... ok
 test_reject_fabricated_wrong_segment_unknown_field (test_narrative.NarrativeTests.test_reject_fabricated_wrong_segment_unknown_field) ... ok
 test_repeated_quote_unlocatable (test_narrative.NarrativeTests.test_repeated_quote_unlocatable) ... ok
 test_short_materiality_quote_expanded_to_context (test_narrative.NarrativeTests.test_short_materiality_quote_expanded_to_context) ... ok
 test_valid_exact_spans (test_narrative.NarrativeTests.test_valid_exact_spans) ... ok
 test_verified_span_does_not_prove_semantic_correctness (test_narrative.NarrativeTests.test_verified_span_does_not_prove_semantic_correctness) ... ok
 test_window_bound (test_narrative.NarrativeTests.test_window_bound) ... ok
+test_zero_change_failures_not_evidence_absence (test_narrative.NarrativeTests.test_zero_change_failures_not_evidence_absence) ... ok
 
 ----------------------------------------------------------------------
-Ran 11 tests in 0.001s
+Ran 19 tests in 0.003s
 
 OK

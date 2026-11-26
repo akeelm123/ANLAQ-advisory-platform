@@ -1,5 +1,5 @@
 {
-  "scope": "Eight independently defined fictional reports across all seven TCI dimensions; no actual clients or financial claims.",
+  "scope": "Fictional narrative expansion covering all 28 criteria and three additional explicit-absence/forecast challenge fixtures. No real client data.",
   "fixtures": [
     {
       "id": "INV-01",
@@ -253,6 +253,694 @@
           "mock integration dependency"
         ]
       }
+    },
+    {
+      "id": "SA-01",
+      "filename": "fictional-strategy-paper.txt",
+      "criterionId": "Q01",
+      "requestId": "SA-01",
+      "text": "The fictional investment supports the approved objective of reducing intake turnaround. The original problem was a manual queue causing delays. The approved business case covered two intake workflows. Funding was authorised on 12 January 2026. The current mandate is to reduce turnaround to five days and improve control visibility.",
+      "expected": {
+        "approved_strategy_objective": [
+          "reducing intake turnaround"
+        ],
+        "original_problem": [
+          "manual queue causing delays"
+        ],
+        "business_case_scope": [
+          "two intake workflows"
+        ],
+        "funding_decision_date": [
+          "12 January 2026"
+        ],
+        "current_mandate_and_outcomes": [
+          "reduce turnaround to five days",
+          "improve control visibility"
+        ]
+      }
+    },
+    {
+      "id": "SA-03",
+      "filename": "fictional-outcome-review.txt",
+      "criterionId": "Q03",
+      "requestId": "SA-04",
+      "text": "The outcome record OUT-SYN-03 measures processing time. The baseline was ten calendar days and the target was five calendar days. The observed result was six calendar days. The unit is calendar days per case. Results cover FY26 Q3. The synthetic data steward is responsible for the data and the fictional service owner is accountable for the outcome.",
+      "expected": {
+        "outcome_identifier": [
+          "OUT-SYN-03"
+        ],
+        "baseline": [
+          "ten calendar days"
+        ],
+        "target": [
+          "five calendar days"
+        ],
+        "actual_measure": [
+          "six calendar days"
+        ],
+        "unit": [
+          "calendar days per case"
+        ],
+        "period": [
+          "FY26 Q3"
+        ],
+        "data_owner_and_accountable_outcome_owner": [
+          "synthetic data steward",
+          "fictional service owner"
+        ]
+      }
+    },
+    {
+      "id": "SA-04",
+      "filename": "fictional-benefit-accountability.txt",
+      "criterionId": "Q04",
+      "requestId": "BV-01",
+      "text": "The benefit is recorded as BEN-SYN-04. The fictional operations lead is the accountable business owner and signed the mock responsibility acceptance on 6 May. The agreed target is 50 fewer fictional hours per month. Escalate if the agreed target cannot be substantiated, and reconsider funding if the investment case no longer holds. After delivery, the synthetic service director takes ownership.",
+      "expected": {
+        "benefit_id": [
+          "BEN-SYN-04"
+        ],
+        "accountable_business_owner": [
+          "fictional operations lead"
+        ],
+        "acceptance": [
+          "signed the mock responsibility acceptance"
+        ],
+        "benefit_target": [
+          "50 fewer fictional hours per month"
+        ],
+        "escalation_stop_conditions": [
+          "Escalate if the agreed target cannot be substantiated",
+          "reconsider funding"
+        ],
+        "post_delivery_owner": [
+          "synthetic service director"
+        ]
+      }
+    },
+    {
+      "id": "LC-06",
+      "filename": "fictional-escalation-record.txt",
+      "criterionId": "Q06",
+      "requestId": "DE-02",
+      "text": "The fictional escalation ESC-SYN-06 concerns a synthetic resource shortfall. It threatens the July milestone. The accountable executive is the mock delivery sponsor. The issue was raised on 2 June 2026. The decision was to allocate a fictional specialist. Closure is supported by mock allocation record AL-06. The recorded resource commitment is three synthetic workdays.",
+      "expected": {
+        "escalation_id": [
+          "ESC-SYN-06"
+        ],
+        "blocker": [
+          "synthetic resource shortfall"
+        ],
+        "impact": [
+          "threatens the July milestone"
+        ],
+        "accountable_leader": [
+          "mock delivery sponsor"
+        ],
+        "date_raised": [
+          "2 June 2026"
+        ],
+        "action": [
+          "allocate a fictional specialist"
+        ],
+        "closure_evidence": [
+          "mock allocation record AL-06"
+        ],
+        "resource_commitment": [
+          "three synthetic workdays"
+        ]
+      }
+    },
+    {
+      "id": "LC-07",
+      "filename": "fictional-accountability-charter.txt",
+      "criterionId": "Q07",
+      "requestId": "LC-04",
+      "text": "The synthetic executive sponsor is the fictional CIO. The service director and finance lead own the mock outcomes. Business owns benefit delivery while technology owns platform operations. The named owners signed mock delegation D-SYN-07. The handover is scheduled for 30 June. One fictional ownership exception remains unresolved.",
+      "expected": {
+        "sponsor": [
+          "fictional CIO"
+        ],
+        "outcome_owners": [
+          "service director",
+          "finance lead"
+        ],
+        "business_technology_responsibilities": [
+          "Business owns benefit delivery",
+          "technology owns platform operations"
+        ],
+        "signed_delegations": [
+          "mock delegation D-SYN-07"
+        ],
+        "handover": [
+          "30 June"
+        ],
+        "exceptions": [
+          "One fictional ownership exception remains unresolved"
+        ]
+      }
+    },
+    {
+      "id": "LC-08",
+      "filename": "fictional-steering-minutes.txt",
+      "criterionId": "Q08",
+      "requestId": "LC-02",
+      "text": "The fictional governance meeting took place on 15 May 2026. A simulated adoption warning was raised. The committee agreed to revise the rollout. The synthetic action owner is the service lead. The action is due on 30 May. The action was closed with a mock revised plan and observed workflow change. A fictional steering note records the decision.",
+      "expected": {
+        "governance_meeting_date": [
+          "15 May 2026"
+        ],
+        "warning_indicator": [
+          "simulated adoption warning"
+        ],
+        "decision": [
+          "revise the rollout"
+        ],
+        "action_owner": [
+          "synthetic action owner is the service lead"
+        ],
+        "due_date": [
+          "30 May"
+        ],
+        "closure_outcome": [
+          "mock revised plan",
+          "observed workflow change"
+        ],
+        "communication": [
+          "fictional steering note"
+        ]
+      }
+    },
+    {
+      "id": "TR-10",
+      "filename": "fictional-resilience-review.txt",
+      "criterionId": "Q10",
+      "requestId": "TR-03",
+      "text": "Mock monitoring reported 99.5 percent availability and two synthetic incidents in FY26 Q3. Both incidents were classified as minor. The recovery objective was 60 minutes and the synthetic recovery result was 45 minutes. The fictional control review documents security assurance. One access exception remains open.",
+      "expected": {
+        "reliability_and_incident_metrics": [
+          "99.5 percent availability",
+          "two synthetic incidents"
+        ],
+        "period": [
+          "FY26 Q3"
+        ],
+        "severity": [
+          "minor"
+        ],
+        "recovery_objectives_results": [
+          "objective was 60 minutes",
+          "result was 45 minutes"
+        ],
+        "security_assurance": [
+          "fictional control review"
+        ],
+        "exceptions": [
+          "One access exception remains open"
+        ]
+      }
+    },
+    {
+      "id": "TR-11",
+      "filename": "fictional-engineering-report.txt",
+      "criterionId": "Q11",
+      "requestId": "TR-05",
+      "text": "The fictional team deployed twice per week. The measured lead time was three synthetic days. Mock automation coverage was 80 percent. One manual deployment intervention occurred. Two fictional releases completed successfully. The internal platform had ten synthetic users. Cost was recorded in nominal SGD per month.",
+      "expected": {
+        "deployment_cadence": [
+          "twice per week"
+        ],
+        "lead_time": [
+          "three synthetic days"
+        ],
+        "automation_coverage": [
+          "80 percent"
+        ],
+        "manual_interventions": [
+          "One manual deployment intervention"
+        ],
+        "release_outcomes": [
+          "Two fictional releases completed successfully"
+        ],
+        "platform_adoption": [
+          "ten synthetic users"
+        ],
+        "cost_basis": [
+          "nominal SGD per month"
+        ]
+      }
+    },
+    {
+      "id": "TR-12",
+      "filename": "fictional-debt-review.txt",
+      "criterionId": "Q12",
+      "requestId": "TR-02",
+      "text": "The mock technical debt item DEBT-SYN-12 concerns a legacy interface dependency. The synthetic architecture owner is accountable. It creates a fictional cost exposure. The approved remediation is to replace the mock adapter. Operating cost was SGD 1000 at baseline and SGD 1200 actual, on a nominal monthly SGD basis. The comparison covers FY26 Q3.",
+      "expected": {
+        "technical_debt_item": [
+          "DEBT-SYN-12"
+        ],
+        "dependency": [
+          "legacy interface dependency"
+        ],
+        "accountable_owner": [
+          "synthetic architecture owner"
+        ],
+        "risk": [
+          "fictional cost exposure"
+        ],
+        "remediation": [
+          "replace the mock adapter"
+        ],
+        "operating_cost_baseline_actual": [
+          "SGD 1000 at baseline",
+          "SGD 1200 actual"
+        ],
+        "basis": [
+          "nominal monthly SGD basis"
+        ],
+        "period": [
+          "FY26 Q3"
+        ]
+      }
+    },
+    {
+      "id": "PC-14",
+      "filename": "fictional-capability-plan.txt",
+      "criterionId": "Q14",
+      "requestId": "PC-02",
+      "text": "Four synthetic analyst roles are required. Current capacity is three trained analysts, leaving one role unfilled. The mock plan is to train and recruit against the gap. The plan has SGD 600 fictional funding. A simulated capability assessment observed the required skills in three roles. The synthetic HR lead owns the plan.",
+      "expected": {
+        "required_roles_and_skill_demand": [
+          "Four synthetic analyst roles"
+        ],
+        "capacity_baseline": [
+          "three trained analysts"
+        ],
+        "current_gap": [
+          "one role unfilled"
+        ],
+        "plan": [
+          "train and recruit"
+        ],
+        "funding": [
+          "SGD 600 fictional funding"
+        ],
+        "effectiveness_evidence": [
+          "simulated capability assessment"
+        ],
+        "owner": [
+          "synthetic HR lead"
+        ]
+      }
+    },
+    {
+      "id": "PC-15",
+      "filename": "fictional-operating-model.txt",
+      "criterionId": "Q15",
+      "requestId": "PC-05",
+      "text": "Before the fictional change, a coordinator handled approvals; after it, a named service owner does so. The service owner now has the mock approval right. The accountable owner is the synthetic operating lead. The change took effect on 1 July 2026. The fictional target operating model was approved in mock decision OM-15. Sampled fictional workflows show the owner making the decision.",
+      "expected": {
+        "before_after_roles": [
+          "a coordinator handled approvals",
+          "a named service owner does so"
+        ],
+        "decision_right": [
+          "mock approval right"
+        ],
+        "accountable_owner": [
+          "synthetic operating lead"
+        ],
+        "effective_date": [
+          "1 July 2026"
+        ],
+        "approved_operating_model": [
+          "mock decision OM-15"
+        ],
+        "observed_workflow": [
+          "owner making the decision"
+        ]
+      }
+    },
+    {
+      "id": "PC-16",
+      "filename": "fictional-adoption-sustainability.txt",
+      "criterionId": "Q16",
+      "requestId": "PC-04",
+      "text": "Fictional usage rose from 60 to 75 active users in the mock intake workflow over FY26 Q2 to Q3. The synthetic BAU service owner maintains the operating model. A handover checkpoint is planned for 1 October. The feedback was drawn from a small fictional sample, so representativeness is limited.",
+      "expected": {
+        "behaviour_usage_trend": [
+          "rose from 60 to 75 active users"
+        ],
+        "target_workflow": [
+          "mock intake workflow"
+        ],
+        "reporting_period": [
+          "FY26 Q2 to Q3"
+        ],
+        "operating_model_owner": [
+          "synthetic BAU service owner"
+        ],
+        "handover_plan": [
+          "handover checkpoint is planned for 1 October"
+        ],
+        "feedback_limitations": [
+          "small fictional sample"
+        ]
+      }
+    },
+    {
+      "id": "DC-17",
+      "filename": "fictional-data-ownership.txt",
+      "criterionId": "Q17",
+      "requestId": "DC-01",
+      "text": "The critical element CDE-SYN-17 is the fictional intake identifier. The named data owner is the synthetic stewardship lead, accountable within the intake workflow. The mock ownership record confirms accepted responsibility. Quality is measured using identifier completeness. Missing identifiers obstruct the fictional outcome decision.",
+      "expected": {
+        "critical_data_element": [
+          "CDE-SYN-17"
+        ],
+        "named_accountable_data_owner": [
+          "synthetic stewardship lead"
+        ],
+        "scope": [
+          "intake workflow"
+        ],
+        "agreed_responsibility": [
+          "mock ownership record confirms accepted responsibility"
+        ],
+        "quality_measures": [
+          "identifier completeness"
+        ],
+        "decision_impact": [
+          "obstruct the fictional outcome decision"
+        ]
+      }
+    },
+    {
+      "id": "DC-19",
+      "filename": "fictional-lineage-review.txt",
+      "criterionId": "Q19",
+      "requestId": "DC-03",
+      "text": "The material measure KPI-SYN-19 originates in mock source table CASES. The metric means completed fictional cases. A mock aggregation totals completed records. Lineage traces CASES through a staging table to the report. The report version is v3. The reporting period is FY26 Q3. The reconciliation matched 125 fictional source records to the reported total.",
+      "expected": {
+        "material_measure_id": [
+          "KPI-SYN-19"
+        ],
+        "source_record": [
+          "mock source table CASES"
+        ],
+        "metric_definition": [
+          "completed fictional cases"
+        ],
+        "transformations": [
+          "mock aggregation totals completed records"
+        ],
+        "lineage": [
+          "CASES through a staging table to the report"
+        ],
+        "version": [
+          "v3"
+        ],
+        "reporting_period": [
+          "FY26 Q3"
+        ],
+        "reconciliation": [
+          "125 fictional source records"
+        ]
+      }
+    },
+    {
+      "id": "DC-20",
+      "filename": "fictional-governance-control-review.txt",
+      "criterionId": "Q20",
+      "requestId": "DC-01",
+      "text": "The intended use is fictional intake case reporting. Access is granted by the mock role-based model. The synthetic data risk owner governs the controls. A mock access review confirmed the specified test evidence. One fictional access exception remains open. The review covers the intake reporting workflow. AI is not in this fictional scope; no AI evaluation was performed.",
+      "expected": {
+        "intended_use": [
+          "fictional intake case reporting"
+        ],
+        "data_access_model": [
+          "mock role-based model"
+        ],
+        "governance_control_owner": [
+          "synthetic data risk owner"
+        ],
+        "control_test_evidence": [
+          "mock access review"
+        ],
+        "exceptions": [
+          "One fictional access exception remains open"
+        ],
+        "scope": [
+          "intake reporting workflow"
+        ],
+        "ai_use_and_evaluation_if_applicable": [
+          "AI is not in this fictional scope",
+          "no AI evaluation was performed"
+        ]
+      }
+    },
+    {
+      "id": "DE-22",
+      "filename": "fictional-release-quality-review.txt",
+      "criterionId": "Q22",
+      "requestId": "DE-03",
+      "text": "Release REL-SYN-22 had one mock minor defect and two fictional hours of rework during FY26 Q3. Acceptance required the mock regression suite to pass. No simulated change failures were recorded. The agreed remediation was a fictional test improvement.",
+      "expected": {
+        "release_id": [
+          "REL-SYN-22"
+        ],
+        "defect_incident_severity": [
+          "mock minor defect"
+        ],
+        "rework": [
+          "two fictional hours of rework"
+        ],
+        "period": [
+          "FY26 Q3"
+        ],
+        "quality_criteria": [
+          "mock regression suite to pass"
+        ],
+        "change_failures": [
+          "No simulated change failures were recorded"
+        ],
+        "remediation": [
+          "fictional test improvement"
+        ]
+      }
+    },
+    {
+      "id": "DE-23",
+      "filename": "fictional-dependency-review.txt",
+      "criterionId": "Q23",
+      "requestId": "DE-02",
+      "text": "Dependency DEP-SYN-23 is decision-critical for the fictional release. It affects one milestone. The synthetic integration lead is accountable and the due date is 5 August 2026. The mock mitigation is an alternative test environment. The fictional record shows the affected milestone was delayed by two days.",
+      "expected": {
+        "dependency_risk_id": [
+          "DEP-SYN-23"
+        ],
+        "criticality": [
+          "decision-critical"
+        ],
+        "impact": [
+          "affects one milestone"
+        ],
+        "accountable_owner": [
+          "synthetic integration lead"
+        ],
+        "due_date": [
+          "5 August 2026"
+        ],
+        "mitigation": [
+          "alternative test environment"
+        ],
+        "outcomes": [
+          "delayed by two days"
+        ]
+      }
+    },
+    {
+      "id": "DE-24",
+      "filename": "fictional-retrospective.txt",
+      "criterionId": "Q24",
+      "requestId": "DE-04",
+      "text": "The failed assumption was that 90 fictional users would adopt the workflow immediately. The lesson was that onboarding required accessible instructions. The corrective action was to revise the mock onboarding flow. The synthetic delivery lead owns the action. It was implemented on 12 August 2026. Usage moved from 40 to 55 fictional users after the revision. This shows a fictional increase in workflow adoption.",
+      "expected": {
+        "failed_assumption": [
+          "90 fictional users would adopt the workflow immediately"
+        ],
+        "lesson": [
+          "onboarding required accessible instructions"
+        ],
+        "corrective_action": [
+          "revise the mock onboarding flow"
+        ],
+        "owner": [
+          "synthetic delivery lead"
+        ],
+        "time": [
+          "12 August 2026"
+        ],
+        "baseline_post_change_measures": [
+          "40 to 55 fictional users"
+        ],
+        "outcomes": [
+          "fictional increase in workflow adoption"
+        ]
+      }
+    },
+    {
+      "id": "BV-25",
+      "filename": "fictional-benefits-baseline.txt",
+      "criterionId": "Q25",
+      "requestId": "BV-01",
+      "text": "The original approved benefit BEN-SYN-25 had a baseline of ten fictional days. The approved target was five days, measured as calendar days per fictional case, for FY26 Q3. The synthetic business owner is accountable. Mock approved change CH-25 revised the target to six days. The current expectation is seven fictional days.",
+      "expected": {
+        "original_approved_benefit_id_baseline": [
+          "BEN-SYN-25",
+          "baseline of ten fictional days"
+        ],
+        "target": [
+          "approved target was five days"
+        ],
+        "measure_basis": [
+          "calendar days per fictional case"
+        ],
+        "period": [
+          "FY26 Q3"
+        ],
+        "owner": [
+          "synthetic business owner"
+        ],
+        "approved_changes": [
+          "CH-25 revised the target to six days"
+        ],
+        "current_expectation": [
+          "seven fictional days"
+        ]
+      }
+    },
+    {
+      "id": "BV-27",
+      "filename": "fictional-attribution-review.txt",
+      "criterionId": "Q27",
+      "requestId": "BV-04",
+      "text": "The benefit identifier is BEN-SYN-27. The mock operating change reduced handoffs. Fictional cases averaged ten days before the change and six days after it. Attribution assumes comparable case types and staffing. A simulated seasonal variation is an alternative influence. The fictional finance reviewer recorded an independent mock validation note.",
+      "expected": {
+        "benefit_id": [
+          "BEN-SYN-27"
+        ],
+        "operating_change": [
+          "reduced handoffs"
+        ],
+        "baseline_control_or_comparison": [
+          "ten days before the change",
+          "six days after it"
+        ],
+        "attribution_assumptions": [
+          "comparable case types",
+          "staffing"
+        ],
+        "external_influences": [
+          "simulated seasonal variation"
+        ],
+        "finance_reviewer_validation": [
+          "independent mock validation note"
+        ]
+      }
+    },
+    {
+      "id": "BV-28",
+      "filename": "fictional-benefits-handover.txt",
+      "criterionId": "Q28",
+      "requestId": "BV-05",
+      "text": "The synthetic service owner is accountable for the fictional benefits. The mock BAU owner formally accepted continuing responsibility. The measure is reviewed monthly. The ongoing fictional operating budget is SGD 500 per month. Handover was recorded on 1 September 2026. The post-close outcome is measured through the mock service turnaround report.",
+      "expected": {
+        "benefit_owner": [
+          "synthetic service owner"
+        ],
+        "accepted_bau_responsibility": [
+          "formally accepted continuing responsibility"
+        ],
+        "measurement_frequency": [
+          "reviewed monthly"
+        ],
+        "ongoing_funding_support": [
+          "SGD 500 per month"
+        ],
+        "handover_date": [
+          "1 September 2026"
+        ],
+        "post_close_outcomes": [
+          "mock service turnaround report"
+        ]
+      }
+    },
+    {
+      "id": "CH-ADOPT-MISSING",
+      "filename": "fictional-incomplete-adoption.txt",
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "text": "Fictional adoption commentary. The review period was FY26 Q4. Seventy synthetic users completed the workflow. The eligible denominator was not provided. The adoption target was not supplied. No operational process evidence was supplied.",
+      "expected": {
+        "active_users": [
+          "Seventy synthetic users"
+        ],
+        "period": [
+          "FY26 Q4"
+        ]
+      },
+      "expectedMissing": [
+        "eligible_denominator",
+        "adoption_target",
+        "process_evidence"
+      ]
+    },
+    {
+      "id": "CH-BEN-FORECAST",
+      "filename": "fictional-forecast-only.txt",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "text": "Fictional forecast commentary for FY26 Q4. The benefit is BEN-SYN-CH. The programme forecast SGD 18000 but states it is not realised value. The actual realised outcome was not provided. No underlying source record or original target was supplied.",
+      "expected": {
+        "benefit_id": [
+          "BEN-SYN-CH"
+        ],
+        "period": [
+          "FY26 Q4"
+        ],
+        "forecast_separately": [
+          "SGD 18000"
+        ]
+      },
+      "expectedMissing": [
+        "actual_realised_outcome",
+        "source",
+        "original_target"
+      ]
+    },
+    {
+      "id": "CH-DEC-ABSENCE",
+      "filename": "fictional-incomplete-decision.txt",
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "text": "Fictional steering note. Decision DEC-SYN-CH was raised on 2 October 2026. The decision remains critical to the fictional rollout. The accountable owner was not provided. The actual decision date is not recorded.",
+      "expected": {
+        "decision_id": [
+          "DEC-SYN-CH"
+        ],
+        "raised_date": [
+          "2 October 2026"
+        ],
+        "materiality": [
+          "critical to the fictional rollout"
+        ]
+      },
+      "expectedMissing": [
+        "owner",
+        "actual_decision_date"
+      ]
     }
   ]
 }

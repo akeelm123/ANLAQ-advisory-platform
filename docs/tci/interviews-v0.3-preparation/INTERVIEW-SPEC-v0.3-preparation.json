@@ -1,0 +1,818 @@
+{
+  "version": "0.3.0-preparation-rc.1",
+  "status": "Preparatory specification; implementation not authorised by this artifact",
+  "registerSha256": "f402011665fa4abd6405cc6c67384b4182564cc5e974761079c1588488420559",
+  "validationSpecSha256": "8d4e730b5ed3cf38fdb4dcd896fa21bc14bf38689babc24159a460980099b00c",
+  "cards": [
+    {
+      "questionId": "Q01",
+      "criterionId": "Q01",
+      "dimension": "Strategic Alignment",
+      "criterion": "Strategy linkage",
+      "suggestedStakeholder": "Executive sponsor",
+      "question": "Which original business problem and strategic outcome justified the investment, and do they still hold?",
+      "source": "S06 / Response bank / row 5",
+      "criterionSource": "S07 / Dimension scoring / row 5",
+      "validationRuleId": "EVS-Q01",
+      "purpose": "Transformation is demonstrably linked to enterprise strategy and the original business problem.",
+      "primaryRequests": [
+        "SA-01"
+      ],
+      "supplementaryRequests": [
+        "SA-02",
+        "SA-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask sponsor for original mandate, investment decision and approved changes.",
+      "contradictionCheck": "Current strategy claim conflicts with original funded problem or scope expansion lacks approval.",
+      "insufficiency": "Cannot locate original investment rationale or current strategic mandate.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q02",
+      "criterionId": "Q02",
+      "dimension": "Strategic Alignment",
+      "criterion": "Investment thesis",
+      "suggestedStakeholder": "Strategy / finance lead",
+      "question": "How have scope, spend or priorities changed since approval, and were those changes re-approved against the investment thesis?",
+      "source": "S06 / Response bank / row 10",
+      "criterionSource": "S07 / Dimension scoring / row 7",
+      "validationRuleId": "EVS-Q02",
+      "purpose": "Current scope, spend and priorities remain consistent with the approved investment thesis.",
+      "primaryRequests": [
+        "SA-02"
+      ],
+      "supplementaryRequests": [
+        "SA-03",
+        "SA-01",
+        "SA-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask strategy/finance lead for dated approval and itemised baseline-to-current bridge.",
+      "contradictionCheck": "Reported spend/scope differs from approved baseline; an unapproved change is called approved.",
+      "insufficiency": "Missing original case, current scope/spend or comparable approval trail.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q03",
+      "criterionId": "Q03",
+      "dimension": "Strategic Alignment",
+      "criterion": "Outcome clarity",
+      "suggestedStakeholder": "Business outcome owner",
+      "question": "Which measurable outcomes define success today, and who owns each one?",
+      "source": "S06 / Response bank / row 15",
+      "criterionSource": "S07 / Dimension scoring / row 6",
+      "validationRuleId": "EVS-Q03",
+      "purpose": "Measurable business outcomes and success measures are explicit.",
+      "primaryRequests": [
+        "SA-04"
+      ],
+      "supplementaryRequests": [
+        "SA-02",
+        "BV-01"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask owner for versioned outcome scorecard, measure dictionary and signed target baseline.",
+      "contradictionCheck": "KPI definitions or target figures differ between leadership and source records.",
+      "insufficiency": "No reliable baseline/target or metric definitions.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q04",
+      "criterionId": "Q04",
+      "dimension": "Strategic Alignment",
+      "criterion": "Benefits ownership",
+      "suggestedStakeholder": "Executive sponsor",
+      "question": "What evidence would cause you to reduce, redirect or stop investment?",
+      "source": "S06 / Response bank / row 20",
+      "criterionSource": "S07 / Dimension scoring / row 8",
+      "validationRuleId": "EVS-Q04",
+      "purpose": "Named business owners are accountable for intended outcomes and benefits.",
+      "primaryRequests": [
+        "BV-01"
+      ],
+      "supplementaryRequests": [
+        "BV-05",
+        "LC-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask sponsor for owner acceptance, decision rights and benefit review arrangements.",
+      "contradictionCheck": "Programme names sponsor as owner but business owner denies accountability.",
+      "insufficiency": "Ownership is only verbally asserted or responsibility records unavailable.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q05",
+      "criterionId": "Q05",
+      "dimension": "Leadership Commitment",
+      "criterion": "Decision effectiveness",
+      "suggestedStakeholder": "Executive sponsor",
+      "question": "Which material decisions have been delayed in the last two review cycles, and why?",
+      "source": "S06 / Response bank / row 25",
+      "criterionSource": "S07 / Dimension scoring / row 10",
+      "validationRuleId": "EVS-Q05",
+      "purpose": "Material decisions and trade-offs are made in a timely manner.",
+      "primaryRequests": [
+        "LC-01"
+      ],
+      "supplementaryRequests": [
+        "LC-02",
+        "DE-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask sponsor for specific delayed decisions and resolution evidence.",
+      "contradictionCheck": "Reported timely decisions conflict with dated overdue items.",
+      "insufficiency": "Decision log missing dates, required deadlines or materiality.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q06",
+      "criterionId": "Q06",
+      "dimension": "Leadership Commitment",
+      "criterion": "Constraint removal",
+      "suggestedStakeholder": "Governance lead",
+      "question": "Which unresolved escalations or constraints remain open, and who owns resolution?",
+      "source": "S06 / Response bank / row 30",
+      "criterionSource": "S07 / Dimension scoring / row 11",
+      "validationRuleId": "EVS-Q06",
+      "purpose": "Leaders actively resolve blockers, escalations and resource constraints.",
+      "primaryRequests": [
+        "DE-02"
+      ],
+      "supplementaryRequests": [
+        "LC-01",
+        "LC-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask governance lead for closure evidence, resource decisions, owner and residual risk.",
+      "contradictionCheck": "Minutes claim resolution but delivery risk remains open or recurrence is evidenced.",
+      "insufficiency": "Cannot establish impact, owner, closure or decision chronology.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q07",
+      "criterionId": "Q07",
+      "dimension": "Leadership Commitment",
+      "criterion": "Executive ownership",
+      "suggestedStakeholder": "Business / technology leaders",
+      "question": "Where is accountability shared, and where does it still fall between functions?",
+      "source": "S06 / Response bank / row 35",
+      "criterionSource": "S07 / Dimension scoring / row 9",
+      "validationRuleId": "EVS-Q07",
+      "purpose": "Named leaders are accountable for decisions, outcomes and value.",
+      "primaryRequests": [
+        "LC-04"
+      ],
+      "supplementaryRequests": [
+        "LC-02",
+        "BV-05"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask business and technology leaders to reconcile ownership and delegated authority.",
+      "contradictionCheck": "RACI names a role that lacks delegated authority or the owner disputes responsibility.",
+      "insufficiency": "No reliable accountability or delegation records.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q08",
+      "criterionId": "Q08",
+      "dimension": "Leadership Commitment",
+      "criterion": "Governance behaviour",
+      "suggestedStakeholder": "Executive sponsor",
+      "question": "What action followed the last material warning that confidence was weakening?",
+      "source": "S06 / Response bank / row 40",
+      "criterionSource": "S07 / Dimension scoring / row 12",
+      "validationRuleId": "EVS-Q08",
+      "purpose": "Governance reinforces accountability and acts when confidence weakens.",
+      "primaryRequests": [
+        "LC-02"
+      ],
+      "supplementaryRequests": [
+        "LC-01",
+        "LC-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask sponsor for warning-to-decision-to-action trail and outcome.",
+      "contradictionCheck": "Governance claims action was taken but the decision log or follow-up shows no action.",
+      "insufficiency": "No warning/action records or unable to verify follow-through.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q09",
+      "criterionId": "Q09",
+      "dimension": "Technology Readiness",
+      "criterion": "Architecture & scale",
+      "suggestedStakeholder": "CTO / architect",
+      "question": "Can the current architecture support required scale, resilience, security and change velocity?",
+      "source": "S06 / Response bank / row 45",
+      "criterionSource": "S07 / Dimension scoring / row 13",
+      "validationRuleId": "EVS-Q09",
+      "purpose": "Architecture can support the intended outcome at the required scale.",
+      "primaryRequests": [
+        "TR-04"
+      ],
+      "supplementaryRequests": [
+        "TR-01",
+        "TR-03",
+        "TR-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask CTO for approved requirements, representative test evidence and exception decisions.",
+      "contradictionCheck": "Design claims scale readiness while representative tests show unresolved material failure.",
+      "insufficiency": "Design-only claim, no representative test or missing agreed requirement.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q10",
+      "criterionId": "Q10",
+      "dimension": "Technology Readiness",
+      "criterion": "Resilience & security",
+      "suggestedStakeholder": "Operations lead",
+      "question": "Which incidents, manual interventions or recovery weaknesses contradict the target-state claim?",
+      "source": "S06 / Response bank / row 50",
+      "criterionSource": "S07 / Dimension scoring / row 14",
+      "validationRuleId": "EVS-Q10",
+      "purpose": "Reliability, recovery, security and operational controls are adequate.",
+      "primaryRequests": [
+        "TR-03"
+      ],
+      "supplementaryRequests": [
+        "TR-04",
+        "DE-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask operations lead for service measures, test reports and remediation status.",
+      "contradictionCheck": "Reported stability conflicts with incidents, recovery gaps or material open exceptions.",
+      "insufficiency": "No current operating data or control assurance; thresholds unknown.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q11",
+      "criterionId": "Q11",
+      "dimension": "Technology Readiness",
+      "criterion": "Engineering capability",
+      "suggestedStakeholder": "Engineering lead",
+      "question": "What evidence shows deployment, automation and engineering practices are sustainable?",
+      "source": "S06 / Response bank / row 55",
+      "criterionSource": "S07 / Dimension scoring / row 15",
+      "validationRuleId": "EVS-Q11",
+      "purpose": "Deployment, automation and engineering practices support sustainable change.",
+      "primaryRequests": [
+        "TR-05"
+      ],
+      "supplementaryRequests": [
+        "DE-03",
+        "DE-01"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask engineering lead for deployment records, quality outcomes and intervention logs.",
+      "contradictionCheck": "Automation claims conflict with repeated manual releases or unstable outcomes.",
+      "insufficiency": "No verifiable deployment/automation outcomes.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q12",
+      "criterionId": "Q12",
+      "dimension": "Technology Readiness",
+      "criterion": "Cost & technical debt",
+      "suggestedStakeholder": "CTO / finance",
+      "question": "How are technical debt, dependencies and operating cost affecting the investment case?",
+      "source": "S06 / Response bank / row 60",
+      "criterionSource": "S07 / Dimension scoring / row 16",
+      "validationRuleId": "EVS-Q12",
+      "purpose": "Operating cost, dependencies and technical debt are understood and managed.",
+      "primaryRequests": [
+        "TR-02"
+      ],
+      "supplementaryRequests": [
+        "TR-05",
+        "SA-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask CTO/Finance for operating cost bridge, material debt and mitigation.",
+      "contradictionCheck": "Debt risks/costs omitted from case or reported cost conflicts with Finance records.",
+      "insufficiency": "Missing cost basis, debt catalogue or validated exposure.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q13",
+      "criterionId": "Q13",
+      "dimension": "People & Culture",
+      "criterion": "Adoption",
+      "suggestedStakeholder": "Business owner",
+      "question": "What proportion of target users have adopted the new capability in day-to-day work?",
+      "source": "S06 / Response bank / row 65",
+      "criterionSource": "S07 / Dimension scoring / row 17",
+      "validationRuleId": "EVS-Q13",
+      "purpose": "New capabilities are used in day-to-day work and adoption is measurable.",
+      "primaryRequests": [
+        "PC-04"
+      ],
+      "supplementaryRequests": [
+        "PC-01",
+        "BV-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask business owner for eligible population, usage definition and operational evidence.",
+      "contradictionCheck": "Programme reports adoption using training completion or incompatible denominator.",
+      "insufficiency": "Missing denominator, usage definition or operational evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q14",
+      "criterionId": "Q14",
+      "dimension": "People & Culture",
+      "criterion": "Skills & capacity",
+      "suggestedStakeholder": "Change / HR lead",
+      "question": "Which skills, capacity or incentives are still missing?",
+      "source": "S06 / Response bank / row 70",
+      "criterionSource": "S07 / Dimension scoring / row 18",
+      "validationRuleId": "EVS-Q14",
+      "purpose": "Required skills, capacity and capability exist or have credible plans.",
+      "primaryRequests": [
+        "PC-02"
+      ],
+      "supplementaryRequests": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask change/HR lead for skill requirements, resourcing plan and evidence of capability.",
+      "contradictionCheck": "Reported readiness conflicts with vacancies, insufficient capacity or observed skill gaps.",
+      "insufficiency": "No role requirements, current capacity or credible skill assessment.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q15",
+      "criterionId": "Q15",
+      "dimension": "People & Culture",
+      "criterion": "Roles & decision rights",
+      "suggestedStakeholder": "Operating model owner",
+      "question": "Which roles, accountabilities or decision rights changed because of the transformation?",
+      "source": "S06 / Response bank / row 75",
+      "criterionSource": "S07 / Dimension scoring / row 19",
+      "validationRuleId": "EVS-Q15",
+      "purpose": "Roles, accountability and decision rights support the target operating model.",
+      "primaryRequests": [
+        "PC-05"
+      ],
+      "supplementaryRequests": [
+        "LC-04",
+        "PC-01"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask operating model owner for signed role decisions and workflow examples.",
+      "contradictionCheck": "Documented new roles conflict with observed decision-making or unchanged practice.",
+      "insufficiency": "No approved target operating model or observed workflow evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q16",
+      "criterionId": "Q16",
+      "dimension": "People & Culture",
+      "criterion": "Behaviour & sustainability",
+      "suggestedStakeholder": "Users / business owner",
+      "question": "Would the new way of working continue if the programme closed tomorrow?",
+      "source": "S06 / Response bank / row 80",
+      "criterionSource": "S07 / Dimension scoring / row 20",
+      "validationRuleId": "EVS-Q16",
+      "purpose": "Behaviours and ways of working are changing and can persist after programme closure.",
+      "primaryRequests": [
+        "PC-04"
+      ],
+      "supplementaryRequests": [
+        "PC-05",
+        "PC-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask business owner for longitudinal usage, handover and representative feedback.",
+      "contradictionCheck": "Programme claims sustained change but usage falls or BAU owners cannot maintain capability.",
+      "insufficiency": "Only point-in-time claim or no ongoing operating evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q17",
+      "criterionId": "Q17",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Ownership",
+      "suggestedStakeholder": "Data owner",
+      "question": "Who owns the critical data and which quality measures demonstrate trust?",
+      "source": "S06 / Response bank / row 85",
+      "criterionSource": "S07 / Dimension scoring / row 21",
+      "validationRuleId": "EVS-Q17",
+      "purpose": "Critical data has clear ownership and accountability.",
+      "primaryRequests": [
+        "DC-01"
+      ],
+      "supplementaryRequests": [
+        "DC-02",
+        "DC-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask data owner for signed responsibilities and issue resolution evidence.",
+      "contradictionCheck": "Governance lists a nominal owner but issue records show no accepted accountability.",
+      "insufficiency": "Critical data scope or owner acceptance unavailable.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q18",
+      "criterionId": "Q18",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Quality",
+      "suggestedStakeholder": "Data governance",
+      "question": "Which material data issues remain unresolved and how do they affect the decision?",
+      "source": "S06 / Response bank / row 90",
+      "criterionSource": "S07 / Dimension scoring / row 22",
+      "validationRuleId": "EVS-Q18",
+      "purpose": "Material data quality is measured, visible and actively managed.",
+      "primaryRequests": [
+        "DC-04"
+      ],
+      "supplementaryRequests": [
+        "DC-02",
+        "DE-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask governance lead for metric definitions, issue evidence, agreed limits and impact.",
+      "contradictionCheck": "Reported data readiness conflicts with unresolved material quality exceptions.",
+      "insufficiency": "No quality rules, denominator, recent measures or impact evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q19",
+      "criterionId": "Q19",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Lineage & definitions",
+      "suggestedStakeholder": "Analytics / architecture",
+      "question": "Can a material executive measure be traced through definitions, lineage and source?",
+      "source": "S06 / Response bank / row 95",
+      "criterionSource": "S07 / Dimension scoring / row 23",
+      "validationRuleId": "EVS-Q19",
+      "purpose": "Definitions, metadata and lineage support traceability and trust.",
+      "primaryRequests": [
+        "DC-03"
+      ],
+      "supplementaryRequests": [
+        "DC-02",
+        "SA-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask analytics lead for lineage, source reconciliation and authoritative measure definitions.",
+      "contradictionCheck": "Two dashboards disagree due to changed definitions, lineage gaps or incompatible periods.",
+      "insufficiency": "Missing source provenance or reproducible lineage.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q20",
+      "criterionId": "Q20",
+      "dimension": "Data & AI Confidence",
+      "criterion": "Governance & access",
+      "suggestedStakeholder": "Risk / data owner",
+      "question": "Are access, governance and controls appropriate for the intended use?",
+      "source": "S06 / Response bank / row 100",
+      "criterionSource": "S07 / Dimension scoring / row 24",
+      "validationRuleId": "EVS-Q20",
+      "purpose": "Access, governance and controls are appropriate for intended use.",
+      "primaryRequests": [
+        "DC-01"
+      ],
+      "supplementaryRequests": [
+        "DC-03",
+        "TR-04"
+      ],
+      "conditionalRequests": [
+        "DC-05"
+      ],
+      "targetedFollowUp": "Ask risk/data owner for relevant control evidence, exception approvals and AI applicability decision.",
+      "contradictionCheck": "Policy claims control but actual access/control test exceptions conflict, or AI evaluation omitted for in-scope use.",
+      "insufficiency": "Missing control evidence or AI applicability unresolved.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q21",
+      "criterionId": "Q21",
+      "dimension": "Delivery Excellence",
+      "criterion": "Predictability & flow",
+      "suggestedStakeholder": "Delivery lead",
+      "question": "How predictable are flow, cycle time and release outcomes across recent review periods?",
+      "source": "S06 / Response bank / row 105",
+      "criterionSource": "S07 / Dimension scoring / row 25",
+      "validationRuleId": "EVS-Q21",
+      "purpose": "Delivery flow and cycle time demonstrate sufficient predictability.",
+      "primaryRequests": [
+        "DE-01"
+      ],
+      "supplementaryRequests": [
+        "DE-02",
+        "SA-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask delivery lead for baseline, recent trend, actual outcome and variance records.",
+      "contradictionCheck": "Reported predictability conflicts with repeated rescheduling or changed metric baselines.",
+      "insufficiency": "Missing commitments, actuals or consistent metric definitions.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q22",
+      "criterionId": "Q22",
+      "dimension": "Delivery Excellence",
+      "criterion": "Quality",
+      "suggestedStakeholder": "Engineering / operations",
+      "question": "Do defect, incident and rework trends support claims of improving quality?",
+      "source": "S06 / Response bank / row 110",
+      "criterionSource": "S07 / Dimension scoring / row 26",
+      "validationRuleId": "EVS-Q22",
+      "purpose": "Release quality, defects and incidents show sustainable engineering discipline.",
+      "primaryRequests": [
+        "DE-03"
+      ],
+      "supplementaryRequests": [
+        "TR-03",
+        "TR-05"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask engineering/operations for consistent release, defect and incident data.",
+      "contradictionCheck": "Reported improvement conflicts with severe incidents or excluded defects.",
+      "insufficiency": "No comparable quality trend, criteria or release/incident records.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q23",
+      "criterionId": "Q23",
+      "dimension": "Delivery Excellence",
+      "criterion": "Dependencies & risk",
+      "suggestedStakeholder": "Dependency owners",
+      "question": "Which dependencies repeatedly change delivery outcomes or create delay?",
+      "source": "S06 / Response bank / row 115",
+      "criterionSource": "S07 / Dimension scoring / row 27",
+      "validationRuleId": "EVS-Q23",
+      "purpose": "Dependencies, rework and delivery risks are visible and actively managed.",
+      "primaryRequests": [
+        "DE-02"
+      ],
+      "supplementaryRequests": [
+        "DE-01",
+        "TR-02"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask dependency owners for impacted milestones, mitigations and closure evidence.",
+      "contradictionCheck": "Reported mitigation conflicts with recurring delay or unresolved risk.",
+      "insufficiency": "No current dependency ownership, impact or mitigation evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q24",
+      "criterionId": "Q24",
+      "dimension": "Delivery Excellence",
+      "criterion": "Learning & improvement",
+      "suggestedStakeholder": "Delivery lead",
+      "question": "What changed after recent assumptions proved wrong, and what evidence shows learning?",
+      "source": "S06 / Response bank / row 120",
+      "criterionSource": "S07 / Dimension scoring / row 28",
+      "validationRuleId": "EVS-Q24",
+      "purpose": "Teams adapt when assumptions fail and improve delivery over time.",
+      "primaryRequests": [
+        "DE-04"
+      ],
+      "supplementaryRequests": [
+        "DE-01",
+        "DE-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask delivery lead for action closure, before/after measures and exceptions.",
+      "contradictionCheck": "Retrospective claims improvement without changed metrics or repeat issue remains.",
+      "insufficiency": "No retrospective/action trail or comparable outcomes.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q25",
+      "criterionId": "Q25",
+      "dimension": "Business Value Realisation",
+      "criterion": "Benefits baseline",
+      "suggestedStakeholder": "Finance",
+      "question": "Which benefits are validated, which remain forecast or asserted, and against what baseline?",
+      "source": "S06 / Response bank / row 125",
+      "criterionSource": "S07 / Dimension scoring / row 29",
+      "validationRuleId": "EVS-Q25",
+      "purpose": "Approved benefits case and baseline are clear and current.",
+      "primaryRequests": [
+        "BV-01"
+      ],
+      "supplementaryRequests": [
+        "SA-02",
+        "BV-04",
+        "SA-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask Finance for original baseline, approved change and current comparable benefit schedule.",
+      "contradictionCheck": "Current benefits are compared to revised forecast instead of original approved target without explanation.",
+      "insufficiency": "Original case/benefit baseline or comparability missing.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q26",
+      "criterionId": "Q26",
+      "dimension": "Business Value Realisation",
+      "criterion": "Value evidence",
+      "suggestedStakeholder": "Business benefit owner",
+      "question": "What measurable value exists today and what portion is attributable to this investment?",
+      "source": "S06 / Response bank / row 130",
+      "criterionSource": "S07 / Dimension scoring / row 30",
+      "validationRuleId": "EVS-Q26",
+      "purpose": "Realised financial, customer, productivity, revenue, cost or risk outcomes are evidenced.",
+      "primaryRequests": [
+        "BV-02"
+      ],
+      "supplementaryRequests": [
+        "BV-03",
+        "BV-04"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask benefit owner and Finance for itemised realised/forecast/asserted benefit bridge.",
+      "contradictionCheck": "Programme reported realised value exceeds Finance evidence or combines forecasts with actuals.",
+      "insufficiency": "No reliable actual, approved basis, period or validation; distinguish unknown from weak.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q27",
+      "criterionId": "Q27",
+      "dimension": "Business Value Realisation",
+      "criterion": "Attribution & validation",
+      "suggestedStakeholder": "Operations / business",
+      "question": "Where is the organisation operating differently because of the delivered capability?",
+      "source": "S06 / Response bank / row 135",
+      "criterionSource": "S07 / Dimension scoring / row 31",
+      "validationRuleId": "EVS-Q27",
+      "purpose": "Material benefits are attributable to the investment and validated where relevant.",
+      "primaryRequests": [
+        "BV-04"
+      ],
+      "supplementaryRequests": [
+        "BV-02",
+        "PC-04",
+        "BV-03"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask operations/business owner for attributable change evidence, assumptions and Finance reconciliation.",
+      "contradictionCheck": "Measured benefit occurs but cannot be attributed to programme rather than external factors or double-counting.",
+      "insufficiency": "No attribution basis, comparable baseline or corroborating operating evidence.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    },
+    {
+      "questionId": "Q28",
+      "criterionId": "Q28",
+      "dimension": "Business Value Realisation",
+      "criterion": "Sustained ownership",
+      "suggestedStakeholder": "Business benefit owner",
+      "question": "Who owns benefits after the programme ends, and how will value continue to be measured?",
+      "source": "S06 / Response bank / row 140",
+      "criterionSource": "S07 / Dimension scoring / row 32",
+      "validationRuleId": "EVS-Q28",
+      "purpose": "Named business owners remain accountable for benefits after programme delivery.",
+      "primaryRequests": [
+        "BV-05"
+      ],
+      "supplementaryRequests": [
+        "BV-01",
+        "PC-05"
+      ],
+      "conditionalRequests": [],
+      "targetedFollowUp": "Ask benefit owner for signed handover, funding and continuing metric plan.",
+      "contradictionCheck": "Programme claims ongoing ownership but no accepted BAU handover or reporting arrangements.",
+      "insufficiency": "No reliable handover, owner acceptance or measurement arrangements.",
+      "responseAnchorPolicy": "Reference five approved illustrative anchors for interviewer preparation only; do not assign a response or criterion score."
+    }
+  ],
+  "followUpTriggers": [
+    {
+      "id": "FUP-01",
+      "trigger": "Material claim has no cited source or only stakeholder assertion",
+      "action": "Ask for a precise document, version, owner, reporting period and locator; retain E3 asserted, no final finding."
+    },
+    {
+      "id": "FUP-02",
+      "trigger": "Primary source or reviewer-accepted mapped equivalent missing",
+      "action": "Ask for the primary source or document an alternative for independent reviewer acceptance."
+    },
+    {
+      "id": "FUP-03",
+      "trigger": "Source periods, units, denominators or definitions conflict",
+      "action": "Seek a comparable baseline and measurement definition; do not calculate on incompatible bases."
+    },
+    {
+      "id": "FUP-04",
+      "trigger": "Material contradiction between personas or source records",
+      "action": "Retain both statements with speaker, time and source; ask a neutral reconciliation question and independent corroboration."
+    },
+    {
+      "id": "FUP-05",
+      "trigger": "Claim confuses forecast/commitment with actual realised value",
+      "action": "Ask for original approved target, actual, period, basis, Finance validation and forecast separately."
+    },
+    {
+      "id": "FUP-06",
+      "trigger": "Conditional evidence applicability unclear",
+      "action": "Ask whether condition applies, why and who can verify; do not silently mark not applicable."
+    },
+    {
+      "id": "FUP-07",
+      "trigger": "Claim is vague, lacks owner or decision impact",
+      "action": "Ask for named owner, action, decision impact and measurable evidence."
+    },
+    {
+      "id": "FUP-08",
+      "trigger": "Stakeholder declines, does not know, or evidence unavailable",
+      "action": "Record explicit missing/declined state, reason and authorised follow-up; no invented answer."
+    },
+    {
+      "id": "FUP-09",
+      "trigger": "Reviewer returns a draft finding",
+      "action": "Record reviewer rationale; ask a scoped follow-up linked to the original finding and evidence without altering history."
+    },
+    {
+      "id": "FUP-10",
+      "trigger": "Question is answered with adequate evidence and no open material conflict",
+      "action": "Summarise draft interpretation for confirmation; leave validation and executive judgement to separate assessor/reviewer gates."
+    }
+  ],
+  "acceptanceScenarios": [
+    {
+      "id": "INT-01",
+      "case": "28 approved source questions loaded without ID, dimension or wording drift.",
+      "expected": "Exact question bank, role suggestion and approved mappings."
+    },
+    {
+      "id": "INT-02",
+      "case": "Two personas answer same criterion with conflicting claims.",
+      "expected": "Separate visible responses and neutral follow-up; do not average or overwrite."
+    },
+    {
+      "id": "INT-03",
+      "case": "Only an unsupported executive assertion.",
+      "expected": "E3 draft claim and targeted corroboration request."
+    },
+    {
+      "id": "INT-04",
+      "case": "Missing primary evidence.",
+      "expected": "Primary/approved alternative request; no final judgement."
+    },
+    {
+      "id": "INT-05",
+      "case": "Stakeholder reports forecast as realised benefit.",
+      "expected": "Ask Finance to separate original target, actual, forecast and basis; no score."
+    },
+    {
+      "id": "INT-06",
+      "case": "Different reporting units and periods.",
+      "expected": "Record incompatibility; seek comparable source; no automatic variance."
+    },
+    {
+      "id": "INT-07",
+      "case": "AI applicability unclear, Q20 conditional mapping.",
+      "expected": "Ask applicability question and preserve unresolved condition."
+    },
+    {
+      "id": "INT-08",
+      "case": "Stakeholder refuses/does not know.",
+      "expected": "Record declined/unknown, preserve claim state; no invented response."
+    },
+    {
+      "id": "INT-09",
+      "case": "Untrusted interview text contains instruction unrelated to approved task.",
+      "expected": "Treat as content, no tool or approval action; retain only relevant claim for human review."
+    },
+    {
+      "id": "INT-10",
+      "case": "Assessor attempts to approve their own interview finding.",
+      "expected": "Independent immutable identity review gate denies."
+    },
+    {
+      "id": "INT-11",
+      "case": "Evidence file superseded after response linked.",
+      "expected": "Original response remains; linked evidence/review is flagged stale."
+    },
+    {
+      "id": "INT-12",
+      "case": "Owner attempts to issue final score from interview alone.",
+      "expected": "Scoring and release denied."
+    },
+    {
+      "id": "INT-13",
+      "case": "One follow-up answered, another still unresolved.",
+      "expected": "Retain separate outstanding claim-level gaps; do not mark complete."
+    },
+    {
+      "id": "INT-14",
+      "case": "Interview notes include confidential information.",
+      "expected": "No public repository/logging or unapproved external processor; private scoped handling."
+    }
+  ],
+  "controls": {
+    "persona": "Preserve independent responses per stakeholder and persona; canonical score not affected.",
+    "provenance": "Immutable session, question ID, respondent pseudonymous ID, role, timestamp, verbatim response, interviewer interpretation separately, evidence IDs, locators and version.",
+    "review": "Assessor drafts; independent reviewer evaluates materially supported findings and contradictions.",
+    "privacy": "Synthetic only until private pilot approved; no recording/transcription or external AI processing without explicit consent and provider approval.",
+    "scoring": "Interview response is an evidence claim, never an automatic score. No final scoring or executive release.",
+    "readiness": "v0.2 owner sign-off and separate design review required before v0.3 implementation."
+  }
+}

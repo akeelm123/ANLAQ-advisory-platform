@@ -1,5 +1,5 @@
-# Release note — v0.2.0-rc.1
+# Release note — v0.2.0-rc.2
 
-Synthetic engineering acceptance candidate. Context-preserving narrative proposals, targeted missing-field retry, explicit governance materiality capture and conservative forecast-versus-actual guard. Eight actual local-model reports across seven dimensions: 53/53 expected fields, 4/4 expected missing controls and 54 verified source citations. 181 automated tests and both browser journeys passed.
+Synthetic extraction quality expansion across 32 narrative reports and all 28 criteria. First pass 196/201 expected phrases; targeted remediation 198/201; final affected-criterion retests and quote revalidation 201/201, 12/12 expected missing controls, 208 valid source citations. 189 regression tests and both browser journeys passed.
 
-Owner formal synthetic acceptance pending; v0.3 not started. Real-world semantic accuracy, private pilot security, real-client handling, scoring and public deployment remain separately gated.
+v0.3 preparation package is ready for design review; implementation and formal v0.2 owner acceptance remain pending. No general semantic accuracy, production readiness, scoring or deployment approval.

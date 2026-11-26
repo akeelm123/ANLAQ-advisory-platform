@@ -1,0 +1,258 @@
+{
+  "scope": "Eight independently defined fictional reports across all seven TCI dimensions; no actual clients or financial claims.",
+  "fixtures": [
+    {
+      "id": "INV-01",
+      "filename": "investment-paper.txt",
+      "criterionId": "Q02",
+      "requestId": "SA-02",
+      "text": "Fictional investment committee paper. The originally approved scope covered two workflows. The committee subsequently approved a revised scope covering three workflows. The total authorised investment was SGD 120000. Costs were stated on a nominal SGD basis for FY26. The original approval was dated 10 January 2026; the change approval was dated 4 April 2026. Planning assumed twenty cases per month. Change approval CH-01 was recorded. Intake was prioritised before reporting. No performance outcome is implied by this paper.",
+      "expected": {
+        "original_and_current_approved_scope": [
+          "two workflows",
+          "three workflows"
+        ],
+        "investment_amount": [
+          "SGD 120000"
+        ],
+        "cost_basis": [
+          "nominal SGD basis for FY26"
+        ],
+        "dates": [
+          "10 January 2026",
+          "4 April 2026"
+        ],
+        "assumptions": [
+          "twenty cases per month"
+        ],
+        "change_approvals": [
+          "CH-01"
+        ],
+        "revised_priorities": [
+          "Intake was prioritised before reporting"
+        ]
+      }
+    },
+    {
+      "id": "GOV-01",
+      "filename": "governance-minutes.txt",
+      "criterionId": "Q05",
+      "requestId": "LC-01",
+      "text": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed.",
+      "expected": {
+        "decision_id": [
+          "DEC-SYN-01"
+        ],
+        "materiality": [
+          "critical to the fictional rollout"
+        ],
+        "raised_date": [
+          "1 March 2026"
+        ],
+        "required_by_date": [
+          "10 March 2026"
+        ],
+        "actual_decision_date": [
+          "9 March 2026"
+        ],
+        "owner": [
+          "synthetic sponsor"
+        ],
+        "decision_and_rationale": [
+          "approved the fictional scope",
+          "resource plan was agreed"
+        ]
+      }
+    },
+    {
+      "id": "BEN-01",
+      "filename": "benefits-report.txt",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "text": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value.",
+      "expected": {
+        "benefit_id": [
+          "BEN-SYN-01"
+        ],
+        "actual_realised_outcome": [
+          "SGD 4000"
+        ],
+        "original_target": [
+          "SGD 5000"
+        ],
+        "period": [
+          "FY26 Q2"
+        ],
+        "currency_unit": [
+          "SGD"
+        ],
+        "benefit_basis": [
+          "realised cash basis"
+        ],
+        "source": [
+          "FIN-01"
+        ],
+        "finance_validation": [
+          "mock validation approval"
+        ],
+        "forecast_separately": [
+          "SGD 2000"
+        ]
+      }
+    },
+    {
+      "id": "BEN-02",
+      "filename": "incomplete-benefits-report.txt",
+      "criterionId": "Q26",
+      "requestId": "BV-02",
+      "text": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated.",
+      "expected": {
+        "benefit_id": [
+          "BEN-SYN-02"
+        ],
+        "period": [
+          "FY26 Q3"
+        ],
+        "forecast_separately": [
+          "SGD 9000"
+        ]
+      },
+      "mustNotTreatAsActual": [
+        "SGD 9000"
+      ],
+      "expectedMissing": [
+        "actual_realised_outcome",
+        "original_target",
+        "source",
+        "benefit_basis"
+      ]
+    },
+    {
+      "id": "TECH-01",
+      "filename": "technical-readiness.txt",
+      "criterionId": "Q09",
+      "requestId": "TR-04",
+      "text": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration.",
+      "expected": {
+        "intended_workload_scale": [
+          "100 synthetic requests per minute"
+        ],
+        "architecture_version": [
+          "version 2"
+        ],
+        "required_performance_security_recovery_conditions": [
+          "100 requests per minute",
+          "recovery within 60 minutes",
+          "approval of access controls"
+        ],
+        "test_results": [
+          "104 requests per minute",
+          "recovery in 45 minutes"
+        ],
+        "exceptions": [
+          "One fictional access exception remains open"
+        ],
+        "dependencies": [
+          "mock external integration"
+        ]
+      }
+    },
+    {
+      "id": "PEOPLE-01",
+      "filename": "adoption-summary.txt",
+      "criterionId": "Q13",
+      "requestId": "PC-04",
+      "text": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded.",
+      "expected": {
+        "target_user_process_population": [
+          "operations staff",
+          "mock intake workflow"
+        ],
+        "eligible_denominator": [
+          "100 eligible synthetic users"
+        ],
+        "active_users": [
+          "70 are active"
+        ],
+        "usage_definition": [
+          "completing the target workflow at least once"
+        ],
+        "period": [
+          "FY26 Q2"
+        ],
+        "adoption_target": [
+          "80 users"
+        ],
+        "process_evidence": [
+          "fictional completed workflow logs"
+        ]
+      }
+    },
+    {
+      "id": "DATA-01",
+      "filename": "data-quality-review.txt",
+      "criterionId": "Q18",
+      "requestId": "DC-04",
+      "text": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample.",
+      "expected": {
+        "quality_rule": [
+          "non-blank outcome identifier"
+        ],
+        "population_denominator": [
+          "100 fictional records"
+        ],
+        "period": [
+          "FY26 Q2"
+        ],
+        "exception_count": [
+          "Four records fail the rule"
+        ],
+        "trend": [
+          "five in the prior period to four"
+        ],
+        "issue_owner_age": [
+          "mock data owner",
+          "two days"
+        ],
+        "decision_impact": [
+          "prevents attribution of fictional outcomes"
+        ],
+        "remediation": [
+          "correct the missing identifiers",
+          "recheck the sample"
+        ]
+      }
+    },
+    {
+      "id": "DELIVERY-01",
+      "filename": "delivery-review.txt",
+      "criterionId": "Q21",
+      "requestId": "DE-01",
+      "text": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted.",
+      "expected": {
+        "delivery_period": [
+          "FY26 Q2"
+        ],
+        "flow_metric_definitions": [
+          "elapsed days from accepted work to release"
+        ],
+        "commitments": [
+          "Four synthetic releases were committed"
+        ],
+        "actual_release_dates": [
+          "1 April",
+          "15 April",
+          "1 May",
+          "15 May 2026"
+        ],
+        "throughput_cycle_time": [
+          "four releases",
+          "three fictional days"
+        ],
+        "dependencies": [
+          "mock integration dependency"
+        ]
+      }
+    }
+  ]
+}

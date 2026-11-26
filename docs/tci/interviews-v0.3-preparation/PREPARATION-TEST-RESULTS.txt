@@ -1,0 +1,11 @@
+test_exact_baseline_hashes (test_interview_preparation.PreparationTests.test_exact_baseline_hashes) ... ok
+test_exact_mappings_and_followups (test_interview_preparation.PreparationTests.test_exact_mappings_and_followups) ... ok
+test_exact_question_wording_and_role (test_interview_preparation.PreparationTests.test_exact_question_wording_and_role) ... ok
+test_no_implementation_or_scoring_claim (test_interview_preparation.PreparationTests.test_no_implementation_or_scoring_claim) ... ok
+test_seven_planned_golden_cases_cover_dimensions_without_scoring (test_interview_preparation.PreparationTests.test_seven_planned_golden_cases_cover_dimensions_without_scoring) ... ok
+test_unique_planned_acceptance_ids (test_interview_preparation.PreparationTests.test_unique_planned_acceptance_ids) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.001s
+
+OK

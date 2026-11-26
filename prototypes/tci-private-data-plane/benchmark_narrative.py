@@ -19,4 +19,4 @@ for f in fixtures:
   row={"id":f["id"],"status":"executed","durationSeconds":round(time.monotonic()-start,2),"expectedFields":len(f["expected"]),"matchedExpectedFields":len(matches),"missedFields":misses,"unexpectedNonMissing":unexpected,"result":r}
  except NarrativeUnavailable as e:row={"id":f["id"],"status":"blocked","reason":str(e)}
  rows.append(row);print(f"{f['id']} {row['status']} {row.get('matchedExpectedFields','-')}/{row.get('expectedFields','-')} expected fields; {row.get('durationSeconds','-')}s",flush=True)
- (HERE/"NARRATIVE-BENCHMARK.json").write_text(json.dumps({"scope":"Fictional local-model benchmark only; field attribution and completeness are not established by exact quotes","rows":rows},ensure_ascii=False,indent=2)+"\n")
+ (HERE/"NARRATIVE-BENCHMARK-expanded.json").write_text(json.dumps({"scope":"Fictional local-model benchmark only; field attribution and completeness are not established by exact quotes","rows":rows},ensure_ascii=False,indent=2)+"\n")

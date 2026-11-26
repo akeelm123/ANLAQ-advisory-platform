@@ -1,0 +1,238 @@
+{
+  "scope": "Seven fictional planned interview cases, not executed v0.3 tests",
+  "fixtures": [
+    {
+      "id": "SYN-INT-01",
+      "criterionId": "Q02",
+      "dimension": "Strategic Alignment",
+      "question": "How have scope, spend or priorities changed since approval, and were those changes re-approved against the investment thesis?",
+      "title": "Investment scope",
+      "responses": [
+        {
+          "persona": "Synthetic strategy lead",
+          "verbatimSyntheticResponse": "We believe the revised scope was approved.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic Finance lead",
+          "verbatimSyntheticResponse": "The approved change record has not been supplied.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-01",
+        "FUP-02",
+        "FUP-04"
+      ],
+      "expectedFollowUp": "Request original approval and dated scope/spend change; preserve disagreement.",
+      "requestIds": [
+        "SA-02",
+        "SA-03",
+        "SA-01",
+        "SA-04"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-02",
+      "criterionId": "Q05",
+      "dimension": "Leadership Commitment",
+      "question": "Which material decisions have been delayed in the last two review cycles, and why?",
+      "title": "Decision timing",
+      "responses": [
+        {
+          "persona": "Synthetic sponsor",
+          "verbatimSyntheticResponse": "The decision was made within the required period.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic governance lead",
+          "verbatimSyntheticResponse": "The log records an overdue decision; the actual decision date is missing.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-03",
+        "FUP-04",
+        "FUP-08"
+      ],
+      "expectedFollowUp": "Ask for decision ID, required-by date, actual date, owner and decision rationale.",
+      "requestIds": [
+        "LC-01",
+        "LC-02",
+        "DE-02"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-03",
+      "criterionId": "Q09",
+      "dimension": "Technology Readiness",
+      "question": "Can the current architecture support required scale, resilience, security and change velocity?",
+      "title": "Scale assurance",
+      "responses": [
+        {
+          "persona": "Synthetic architect",
+          "verbatimSyntheticResponse": "The design can support the agreed demand.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic operations lead",
+          "verbatimSyntheticResponse": "The representative scale test has not been completed.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-01",
+        "FUP-02",
+        "FUP-04"
+      ],
+      "expectedFollowUp": "Request agreed operating requirement and actual test evidence; design intent is not operating evidence.",
+      "requestIds": [
+        "TR-04",
+        "TR-01",
+        "TR-03",
+        "TR-02"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-04",
+      "criterionId": "Q13",
+      "dimension": "People & Culture",
+      "question": "What proportion of target users have adopted the new capability in day-to-day work?",
+      "title": "Observed adoption",
+      "responses": [
+        {
+          "persona": "Synthetic programme lead",
+          "verbatimSyntheticResponse": "70 users have completed training.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic business owner",
+          "verbatimSyntheticResponse": "We do not know how many eligible users performed the target workflow.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-01",
+        "FUP-03",
+        "FUP-08"
+      ],
+      "expectedFollowUp": "Ask for eligible denominator, observed usage definition, period and workflow outcome.",
+      "requestIds": [
+        "PC-04",
+        "PC-01",
+        "BV-03"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-05",
+      "criterionId": "Q18",
+      "dimension": "Data & AI Confidence",
+      "question": "Which material data issues remain unresolved and how do they affect the decision?",
+      "title": "Quality exception",
+      "responses": [
+        {
+          "persona": "Synthetic data lead",
+          "verbatimSyntheticResponse": "Data quality is good enough.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic governance reviewer",
+          "verbatimSyntheticResponse": "Four critical exceptions remain open; the quality rule and denominator have not been supplied.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-01",
+        "FUP-02",
+        "FUP-04"
+      ],
+      "expectedFollowUp": "Request rule, denominator, period, issue owner, remediation and decision impact.",
+      "requestIds": [
+        "DC-04",
+        "DC-02",
+        "DE-02"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-06",
+      "criterionId": "Q21",
+      "dimension": "Delivery Excellence",
+      "question": "How predictable are flow, cycle time and release outcomes across recent review periods?",
+      "title": "Predictability",
+      "responses": [
+        {
+          "persona": "Synthetic delivery lead",
+          "verbatimSyntheticResponse": "All four releases met plan.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic dependency owner",
+          "verbatimSyntheticResponse": "Two releases were rescheduled; original commitment dates are missing.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-03",
+        "FUP-04",
+        "FUP-08"
+      ],
+      "expectedFollowUp": "Reconcile original commitments, actual release dates and impact using comparable periods.",
+      "requestIds": [
+        "DE-01",
+        "DE-02",
+        "SA-03"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    },
+    {
+      "id": "SYN-INT-07",
+      "criterionId": "Q26",
+      "dimension": "Business Value Realisation",
+      "question": "What measurable value exists today and what portion is attributable to this investment?",
+      "title": "Realised versus forecast",
+      "responses": [
+        {
+          "persona": "Synthetic programme lead",
+          "verbatimSyntheticResponse": "We expect SGD 9000 of benefit.",
+          "claimStatus": "unverified assertion"
+        },
+        {
+          "persona": "Synthetic finance lead",
+          "verbatimSyntheticResponse": "That is a forecast, not a validated actual result.",
+          "claimStatus": "unverified assertion"
+        }
+      ],
+      "expectedFollowUpTriggers": [
+        "FUP-01",
+        "FUP-04",
+        "FUP-05"
+      ],
+      "expectedFollowUp": "Request original target, actual, basis, period, Finance validation and separate forecast.",
+      "requestIds": [
+        "BV-02",
+        "BV-03",
+        "BV-04"
+      ],
+      "expectedNoScore": true,
+      "expectedSeparatePersonaRecords": true,
+      "status": "Planned golden case; no interview workflow executed"
+    }
+  ]
+}
