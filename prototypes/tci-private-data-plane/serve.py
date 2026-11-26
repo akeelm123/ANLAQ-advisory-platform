@@ -67,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -91,6 +91,20 @@ class Handler(BaseHTTPRequestHandler):
                 return self.payload(201,{"runId":self.dp.run_extraction(token,aid,data["versionId"],data["criterion"],data.get("mode","labelled"))})
             elif action=="extraction-review":
                 self.dp.review_extraction(token,aid,data["runId"],data["decision"],data["reason"],data.get("confirmed",False))
+            elif action=="interview-start":
+                return self.payload(201,{"sessionId":self.dp.interviews.start(token,aid,data["persona"],data["stakeholderRef"],data["role"],data["scope"])})
+            elif action=="interview-response":
+                return self.payload(201,{"claimId":self.dp.interviews.record(token,aid,data["sessionId"],data["questionId"],data["status"],data.get("verbatim",""),data["interpretation"],data.get("flags",[]),data.get("links",[]))})
+            elif action=="interview-conflict":
+                return self.payload(201,{"conflictId":self.dp.interviews.conflict(token,aid,data["claimA"],data["claimB"],data["topic"],data["material"])})
+            elif action=="interview-model-wording":
+                return self.payload(201,self.dp.interviews.draft_model_wording(token,aid,data["claimId"]))
+            elif action=="interview-followup":
+                return self.payload(201,{"followUpId":self.dp.interviews.record_followup(token,aid,data["claimId"],data["triggerId"],data["question"],data.get("proposalId"))})
+            elif action=="interview-answer":
+                self.dp.interviews.answer(token,aid,data["followUpId"],data["status"],data.get("verbatim",""))
+            elif action=="interview-review":
+                self.dp.interviews.review_capture(token,aid,data["claimId"],data["decision"],data["reason"],data.get("confirmed",False))
             elif action=="release":self.dp.release(token,aid)
             else:return self.payload(404,{"error":"Unknown route"})
             return self.payload(200,{"ok":True})

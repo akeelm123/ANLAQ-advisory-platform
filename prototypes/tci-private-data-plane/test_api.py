@@ -104,4 +104,21 @@ class APITest(unittest.TestCase):
         self.assertEqual(ex["result"]["format"],ext);self.assertEqual(ex["result"]["counts"]["present"],5)
         self.assertEqual(self.post("preview","reviewer",{"versionId":vid})[0],200)
         self.assertEqual(self.post("extraction-review","reviewer",{"runId":r["runId"],"decision":"accept","reason":"Synthetic precise location review","confirmed":True})[0],200)
+ def test08_interview_api_role_isolation_and_followups(self):
+    st,d=self.post("interview-start","assessor",{"persona":"Synthetic sponsor","stakeholderRef":"SYN-P1","role":"Sponsor","scope":"Synthetic interview"});self.assertEqual(st,201);one=d["sessionId"]
+    st,d=self.post("interview-start","assessor",{"persona":"Synthetic finance lead","stakeholderRef":"SYN-P2","role":"Finance","scope":"Synthetic interview"});self.assertEqual(st,201);two=d["sessionId"]
+    self.assertEqual(self.post("interview-start","reviewer",{"persona":"Synthetic","stakeholderRef":"x","role":"Reviewer","scope":"Synthetic"})[0],403)
+    body={"sessionId":one,"questionId":"Q26","status":"answered","verbatim":"Forecast SGD 9000","interpretation":"Forecast not an actual","flags":["forecast_vs_actual"],"links":[]}
+    st,d=self.post("interview-response","assessor",body);self.assertEqual(st,201);a=d["claimId"]
+    st,d=self.post("interview-response","assessor",{**body,"sessionId":two,"verbatim":"No validated actual outcome"});self.assertEqual(st,201);b=d["claimId"]
+    self.assertEqual(self.post("interview-conflict","assessor",{"claimA":a,"claimB":b,"topic":"Forecast vs actual","material":True})[0],201)
+    view=self.dashboard("assessor")[1]["interviews"];self.assertEqual(len(view["questions"]),28);self.assertEqual(len(view["claims"]),2)
+    claim=next(c for c in view["claims"] if c["id"]==a);self.assertEqual(claim["suggestion"]["triggerId"],"FUP-04");self.assertFalse(claim["scoringEligible"])
+    st,d=self.post("interview-followup","assessor",{"claimId":a,"triggerId":"FUP-04","question":claim["suggestion"]["question"]});self.assertEqual(st,201);f=d["followUpId"]
+    self.assertEqual(self.post("interview-followup","assessor",{"claimId":a,"triggerId":"FUP-04","question":"Second"} )[0],400)
+    self.assertEqual(self.post("interview-answer","assessor",{"followUpId":f,"status":"answered","verbatim":"Actual evidence remains missing"})[0],200)
+    self.assertEqual(self.post("interview-review","assessor",{"claimId":a,"decision":"confirm_capture","reason":"Synthetic","confirmed":True})[0],403)
+    self.assertEqual(self.post("interview-review","reviewer",{"claimId":a,"decision":"confirm_capture","reason":"Capture only","confirmed":True})[0],200)
+    owner=next(c for c in self.dashboard("owner")[1]["interviews"]["claims"] if c["id"]==a);self.assertEqual(owner["captureReview"]["decision"],"confirm_capture");self.assertEqual(owner["validationStatus"],"unverified interview claim")
+    self.assertIsNone(self.dashboard("contributor")[1]["interviews"]);self.assertEqual(self.dashboard("other")[0],403);self.assertEqual(self.post("release","owner",{})[0],403)
 if __name__=="__main__":unittest.main(verbosity=2)

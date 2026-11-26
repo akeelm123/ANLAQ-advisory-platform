@@ -1,0 +1,124 @@
+{
+  "scope": "Seven fictional local model wording proposals; exact quote verification only, human quality review required",
+  "rows": [
+    {
+      "id": "SYN-INT-01",
+      "criterionId": "Q02",
+      "status": "executed",
+      "triggerId": "FUP-04",
+      "durationSeconds": 8.71,
+      "result": {
+        "quote": "We believe the revised scope was approved.",
+        "startColumn": 1,
+        "endColumn": 42,
+        "question": "Could you provide the dated approval documentation and an itemised baseline‑to‑current bridge for the revised scope?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-04",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    },
+    {
+      "id": "SYN-INT-02",
+      "criterionId": "Q05",
+      "status": "executed",
+      "triggerId": "FUP-04",
+      "durationSeconds": 2.43,
+      "result": {
+        "quote": "The decision was made within the required period.",
+        "startColumn": 1,
+        "endColumn": 49,
+        "question": "Could you provide specific evidence or documentation that shows the decision was indeed made within the required period, including any dates and the parties involved?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-04",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    },
+    {
+      "id": "SYN-INT-03",
+      "criterionId": "Q09",
+      "status": "executed",
+      "triggerId": "FUP-04",
+      "durationSeconds": 2.68,
+      "result": {
+        "quote": "The design can support the agreed demand.",
+        "startColumn": 1,
+        "endColumn": 41,
+        "question": "Could you provide the approved requirements, representative test evidence, and any exception decisions that support this statement?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-04",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    },
+    {
+      "id": "SYN-INT-04",
+      "criterionId": "Q13",
+      "status": "executed",
+      "triggerId": "FUP-01",
+      "durationSeconds": 2.26,
+      "result": {
+        "quote": "70 users have completed training.",
+        "startColumn": 1,
+        "endColumn": 33,
+        "question": "Could you provide evidence of the eligible population, the definition of usage, and any operational data that supports the claim that 70 users have completed training?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-01",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    },
+    {
+      "id": "SYN-INT-05",
+      "criterionId": "Q18",
+      "status": "executed",
+      "triggerId": "FUP-04",
+      "durationSeconds": 2.41,
+      "result": {
+        "quote": "Data quality is good enough.",
+        "startColumn": 1,
+        "endColumn": 28,
+        "question": "Could you provide the specific metric definitions, evidence, and agreed limits that support the claim that data quality is good enough, and explain how these metrics impact our governance objectives?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-04",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    },
+    {
+      "id": "SYN-INT-06",
+      "status": "blocked",
+      "reason": "Invalid follow-up proposal schema"
+    },
+    {
+      "id": "SYN-INT-07",
+      "criterionId": "Q26",
+      "status": "executed",
+      "triggerId": "FUP-05",
+      "durationSeconds": 3.11,
+      "result": {
+        "quote": "We expect SGD 9000 of benefit.",
+        "startColumn": 1,
+        "endColumn": 30,
+        "question": "Could you provide an itemised breakdown of the realised versus forecasted benefit amounts, including any assumptions or adjustments that led to the SGD 9000 figure?",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "triggerId": "FUP-05",
+        "draftOnly": true,
+        "scoringEligible": false
+      },
+      "humanSemanticReview": "pending; no automatic follow-up recorded"
+    }
+  ]
+}

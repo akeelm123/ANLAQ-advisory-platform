@@ -27,6 +27,7 @@ test04_logout_revokes_token (test_api.APITest.test04_logout_revokes_token) ... o
 test05_extraction_review_and_provenance (test_api.APITest.test05_extraction_review_and_provenance) ... ok
 test06_missing_fields_return_not_accept (test_api.APITest.test06_missing_fields_return_not_accept) ... ok
 test07_supported_document_formats_end_to_end (test_api.APITest.test07_supported_document_formats_end_to_end) ... ok
+test08_interview_api_role_isolation_and_followups (test_api.APITest.test08_interview_api_role_isolation_and_followups) ... ok
 test_Q01_ambiguous (test_extraction.GoldenExtractionTests.test_Q01_ambiguous) ... ok
 test_Q01_golden (test_extraction.GoldenExtractionTests.test_Q01_golden) ... ok
 test_Q01_missing (test_extraction.GoldenExtractionTests.test_Q01_missing) ... ok
@@ -187,8 +188,24 @@ test_valid_exact_spans (test_narrative.NarrativeTests.test_valid_exact_spans) ..
 test_verified_span_does_not_prove_semantic_correctness (test_narrative.NarrativeTests.test_verified_span_does_not_prove_semantic_correctness) ... ok
 test_window_bound (test_narrative.NarrativeTests.test_window_bound) ... ok
 test_zero_change_failures_not_evidence_absence (test_narrative.NarrativeTests.test_zero_change_failures_not_evidence_absence) ... ok
+test01_question_bank_and_locked_score (test_interviews.InterviewTests.test01_question_bank_and_locked_score) ... ok
+test02_separate_personas_and_conflicts (test_interviews.InterviewTests.test02_separate_personas_and_conflicts) ... ok
+test03_unsupported_assertion_and_primary_gap (test_interviews.InterviewTests.test03_unsupported_assertion_and_primary_gap) ... ok
+test04_forecast_and_comparability (test_interviews.InterviewTests.test04_forecast_and_comparability) ... ok
+test05_conditional_applicability (test_interviews.InterviewTests.test05_conditional_applicability) ... ok
+test06_declined_and_unknown_not_invented (test_interviews.InterviewTests.test06_declined_and_unknown_not_invented) ... ok
+test07_single_followup_and_answer_not_resolution (test_interviews.InterviewTests.test07_single_followup_and_answer_not_resolution) ... ok
+test08_review_capture_not_validation (test_interviews.InterviewTests.test08_review_capture_not_validation) ... ok
+test09_return_and_followup (test_interviews.InterviewTests.test09_return_and_followup) ... ok
+test10_linked_version_scope_and_stale (test_interviews.InterviewTests.test10_linked_version_scope_and_stale) ... ok
+test11_role_assessment_isolation (test_interviews.InterviewTests.test11_role_assessment_isolation) ... ok
+test12_immutable_encrypted_verbatim_and_no_raw_audit (test_interviews.InterviewTests.test12_immutable_encrypted_verbatim_and_no_raw_audit) ... ok
+test13_untrusted_text_cannot_change_control_or_score (test_interviews.InterviewTests.test13_untrusted_text_cannot_change_control_or_score) ... ok
+test14_all_seven_planned_two_persona_goldens (test_interviews.InterviewTests.test14_all_seven_planned_two_persona_goldens) ... ok
+test15_optional_model_proposal_no_automatic_followup (test_interviews.InterviewTests.test15_optional_model_proposal_no_automatic_followup) ... ok
+test16_model_schema_retry_is_bounded_and_verified (test_interviews.InterviewTests.test16_model_schema_retry_is_bounded_and_verified) ... ok
 
 ----------------------------------------------------------------------
-Ran 189 tests in 1.192s
+Ran 206 tests in 1.513s
 
 OK

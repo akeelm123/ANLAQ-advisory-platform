@@ -6,6 +6,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from extraction import load_schema
 from document_parser import parse_document,extract_document,UnsupportedDocument,METHOD as EXTRACTION_VERSION
 from narrative import extract_narrative,NarrativeUnavailable
+from interviews import InterviewWorkflow
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -74,6 +75,7 @@ class DataPlane:
         self.rules={r["criterionId"]:r for r in spec["rules"]}
         self.mappings={c:set(r["primary"]+r["supplementary"]+r["conditional"]) for c,r in self.rules.items()}
         self.extraction_rules,self.extraction_schema_hash=load_schema(Path(__file__).with_name("extraction-schema.json"),sb)
+        self.interviews=InterviewWorkflow(self,Invalid,Denied,required)
     # Trusted local bootstrap only. No exposed self-service administrator endpoint.
     def bootstrap_user(self,username,password):
         username=required(username,"username")

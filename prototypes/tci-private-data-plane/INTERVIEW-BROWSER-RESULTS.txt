@@ -1,0 +1,1 @@
+PASS: synthetic two-persona stakeholder interview browser workflow; 28 questions, immutable responses, contradiction, local AI wording proposal, human-confirmed one-at-a-time follow-up, independent capture review, no score/release, contributor isolation and mobile width.

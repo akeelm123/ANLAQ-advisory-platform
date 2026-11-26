@@ -1,0 +1,11 @@
+{
+  "recordId":"TCI-V02-APR-001",
+  "approvedOn":"2026-11-26",
+  "approvedBy":"Project owner",
+  "status":"approved",
+  "candidate":"0.2.0-rc.2",
+  "commit":"31210461bd3fc5f973512871f0d1989a2c1b24d2",
+  "qualityResultSha256":"fbbbc6d06850b6f5a73bfbd8b28b1cc6b6e504584e42a9e2acb497965563aeec",
+  "interviewPreparationSha256":"0c021f60d9e44beeaa19331abf02a2b080175aa07b4c6e68a45138640efbc9e9",
+  "scope":"Owner accepted the synthetic v0.2 evidence-intelligence candidate and authorised v0.3 stakeholder interview prototyping. No real-client interviews, recording, scoring, production infrastructure, hosting region, operational security acceptance or public deployment authorised."
+}
