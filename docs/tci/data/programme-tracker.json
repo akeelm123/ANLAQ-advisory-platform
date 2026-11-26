@@ -1,0 +1,686 @@
+{
+  "schema_version": "1.0",
+  "programme": "ANLAQ TCI™",
+  "baseline_date": "2026-11-26",
+  "source_of_truth": "This committed tracker reflects verified repository artefacts and expressly identified prior conversation approvals. It is not a live work session feed.",
+  "phases": [
+    {
+      "id": "phase-1",
+      "title": "Methodology & IP"
+    },
+    {
+      "id": "phase-2",
+      "title": "Platform architecture"
+    },
+    {
+      "id": "phase-3",
+      "title": "Prototype development"
+    },
+    {
+      "id": "phase-4",
+      "title": "Testing & assurance"
+    },
+    {
+      "id": "phase-5",
+      "title": "Release & deployment"
+    }
+  ],
+  "work_items": [
+    {
+      "id": "1.1",
+      "title": "Authoritative IP collection",
+      "phase": "phase-1",
+      "status": "complete",
+      "deliverable": "D01",
+      "owner": "ANLAQ project",
+      "evidence": "Source documents supplied and previously examined; source documents not committed to this repository",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.2",
+      "title": "Methodology reconciliation",
+      "phase": "phase-1",
+      "status": "approved",
+      "deliverable": "D02",
+      "owner": "ANLAQ project",
+      "evidence": "Approved in ANLAQ project discussion; decision records not yet committed",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.3",
+      "title": "Seven methodology decisions MD-001–007",
+      "phase": "phase-1",
+      "status": "approved",
+      "deliverable": "D02",
+      "owner": "ANLAQ project",
+      "evidence": "Approved in ANLAQ project discussion",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.4",
+      "title": "Master Evidence Register v1.0",
+      "phase": "phase-1",
+      "status": "approved",
+      "deliverable": "D03",
+      "owner": "ANLAQ project",
+      "evidence": "User reviewed and approved in conversation; binary file not committed",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.5",
+      "title": "Evidence Validation Specification v1.0",
+      "phase": "phase-1",
+      "status": "outstanding",
+      "deliverable": "D04",
+      "owner": "Implementation team",
+      "evidence": "Not verified as created",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.6",
+      "title": "Scoring and decision specification",
+      "phase": "phase-1",
+      "status": "planned",
+      "deliverable": "D05",
+      "owner": "Implementation team",
+      "evidence": "Scoring remains pilot pending calibration",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "1.7",
+      "title": "Pilot calibration",
+      "phase": "phase-1",
+      "status": "planned",
+      "deliverable": "D13",
+      "owner": "Implementation team",
+      "evidence": "Requires documented test evidence",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.1",
+      "title": "Functional requirements",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D06",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.2",
+      "title": "Agentic architecture",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D07",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.3",
+      "title": "Data and evidence model",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D08",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.4",
+      "title": "Agent roles and responsibilities",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D09",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.5",
+      "title": "Security and IP protection",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D07",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "2.6",
+      "title": "Human oversight and approval controls",
+      "phase": "phase-2",
+      "status": "planned",
+      "deliverable": "D07",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.1",
+      "title": "Assessment workspace and scope definition",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.1",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.2",
+      "title": "Evidence collection and upload",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.1",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.3",
+      "title": "Document extraction and classification",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.2",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.4",
+      "title": "Evidence-to-criteria mapping",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.2",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.5",
+      "title": "Intelligent stakeholder interviews",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.3",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.6",
+      "title": "Evidence validation and triangulation",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.4",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.7",
+      "title": "Contradiction and evidence gap detection",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.4",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.8",
+      "title": "TCI scoring engine",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.5",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.9",
+      "title": "Executive dashboard and radar",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.5",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.10",
+      "title": "Business value realisation assessment",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.5",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.11",
+      "title": "Recommendations and decision engine",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.6",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.12",
+      "title": "Executive assessment report",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.6",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "3.13",
+      "title": "Reassessment and historical comparison",
+      "phase": "phase-3",
+      "status": "planned",
+      "deliverable": "v0.7",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.1",
+      "title": "Functional testing",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D12",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.2",
+      "title": "AI extraction accuracy testing",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D12",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.3",
+      "title": "Scoring and calibration testing",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D12",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.4",
+      "title": "Project Aurora end-to-end pilot",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D13",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.5",
+      "title": "Security and privacy testing",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D12",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "4.6",
+      "title": "User acceptance testing",
+      "phase": "phase-4",
+      "status": "planned",
+      "deliverable": "D13",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.1",
+      "title": "Development environment",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "D11",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.2",
+      "title": "Private preview environment",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "D11",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.3",
+      "title": "Pilot release",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "v0.9",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.4",
+      "title": "Production readiness review",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "D14",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.5",
+      "title": "Production deployment",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "v1.0",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    },
+    {
+      "id": "5.6",
+      "title": "Post-release monitoring",
+      "phase": "phase-5",
+      "status": "planned",
+      "deliverable": "v1.0",
+      "owner": "Implementation team",
+      "evidence": "",
+      "github_issue": null,
+      "updated_at": "2026-11-26"
+    }
+  ],
+  "deliverables": [
+    {
+      "id": "D01",
+      "title": "Core methodology IP",
+      "version": "Original",
+      "status": "collected",
+      "notes": "Not checked into this repository"
+    },
+    {
+      "id": "D02",
+      "title": "Methodology decisions",
+      "version": "v1.0",
+      "status": "approved",
+      "notes": "Approved in project conversation; formal record to be added"
+    },
+    {
+      "id": "D03",
+      "title": "Master Evidence Register",
+      "version": "v1.0",
+      "status": "approved",
+      "notes": "Approved in project conversation; file to be added after controlled IP decision"
+    },
+    {
+      "id": "D04",
+      "title": "Evidence Validation Specification",
+      "version": "v1.0",
+      "status": "outstanding",
+      "notes": ""
+    },
+    {
+      "id": "D05",
+      "title": "Scoring and Decision Specification",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D06",
+      "title": "Functional Requirements",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D07",
+      "title": "Solution Architecture",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D08",
+      "title": "Data Model",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D09",
+      "title": "Agent Specification",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D10",
+      "title": "UX and Design Specification",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D11",
+      "title": "Working Prototype",
+      "version": "v0.1",
+      "status": "not_verified",
+      "notes": ""
+    },
+    {
+      "id": "D12",
+      "title": "Integrated Test Pack",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D13",
+      "title": "Pilot Assessment Report",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    },
+    {
+      "id": "D14",
+      "title": "Production Readiness Report",
+      "version": "v1.0",
+      "status": "planned",
+      "notes": ""
+    }
+  ],
+  "releases": [
+    {
+      "version": "v0.1",
+      "title": "Evidence collection",
+      "status": "proposed",
+      "features": [
+        "Assessment creation",
+        "Transformation scope definition",
+        "Original business case upload",
+        "Evidence collection checklist",
+        "Document management"
+      ],
+      "approval_gate": "Evidence coverage and usability"
+    },
+    {
+      "version": "v0.2",
+      "title": "Evidence intelligence",
+      "status": "proposed",
+      "features": [
+        "Document extraction",
+        "Evidence class E1–E4 and separate strength",
+        "Mapping against 28 criteria",
+        "Source traceability"
+      ],
+      "approval_gate": "Extraction accuracy"
+    },
+    {
+      "version": "v0.3",
+      "title": "Intelligent interviews",
+      "status": "proposed",
+      "features": [
+        "Stakeholder selection",
+        "Persona-based questions",
+        "Adaptive follow-ups",
+        "Interview response capture"
+      ],
+      "approval_gate": "Interview quality"
+    },
+    {
+      "version": "v0.4",
+      "title": "Validation engine",
+      "status": "proposed",
+      "features": [
+        "Criterion validation",
+        "Triangulation",
+        "Contradiction handling",
+        "Evidence sufficiency and scoring eligibility"
+      ],
+      "approval_gate": "Validation accuracy"
+    },
+    {
+      "version": "v0.5",
+      "title": "Assessment and scoring",
+      "status": "proposed",
+      "features": [
+        "Seven-dimension weighted score",
+        "Radar and confidence gap",
+        "Critical-risk warnings",
+        "Benefits validation"
+      ],
+      "approval_gate": "Scoring calibration"
+    },
+    {
+      "version": "v0.6",
+      "title": "Executive decision support",
+      "status": "proposed",
+      "features": [
+        "Findings",
+        "Recommendations",
+        "Five TCI decision paths",
+        "Executive report"
+      ],
+      "approval_gate": "Executive usefulness"
+    },
+    {
+      "version": "v0.7",
+      "title": "Longitudinal assessment",
+      "status": "proposed",
+      "features": [
+        "Assessment history",
+        "Reassessment",
+        "Progress and evidence changes"
+      ],
+      "approval_gate": "Reassessment accuracy"
+    },
+    {
+      "version": "v0.9",
+      "title": "Integrated pilot",
+      "status": "proposed",
+      "features": [
+        "Complete lifecycle",
+        "Project Aurora pilot",
+        "Scenario and UAT testing"
+      ],
+      "approval_gate": "Pilot acceptance"
+    },
+    {
+      "version": "v1.0",
+      "title": "Production release",
+      "status": "proposed",
+      "features": [
+        "Authentication/authorisation",
+        "Audit and IP protection",
+        "Operational monitoring",
+        "Release readiness"
+      ],
+      "approval_gate": "Go-live approval"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "APR-001",
+      "item": "Master Evidence Register v1.0",
+      "status": "approved",
+      "date": "2026-11-26",
+      "basis": "User approval in conversation"
+    },
+    {
+      "id": "APR-002",
+      "item": "Evidence Validation Specification v1.0",
+      "status": "not_ready",
+      "date": null,
+      "basis": "No deliverable verified"
+    },
+    {
+      "id": "APR-003",
+      "item": "Prototype architecture and first release",
+      "status": "not_ready",
+      "date": null,
+      "basis": "No code or deployed build verified"
+    }
+  ],
+  "warnings": [
+    "Repo main initially contained README.md only, so no prototype progress is independently verified here.",
+    "This GitHub repository is public. Do not commit confidential assessment inputs, client evidence or proprietary source IP without an explicit publication decision.",
+    "Proposed releases and approval gates are not yet user-approved delivery commitments.",
+    "Pilot scoring is not a production-calibrated confidence assessment."
+  ]
+}

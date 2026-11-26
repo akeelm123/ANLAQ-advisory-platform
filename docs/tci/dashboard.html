@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANLAQ TCI™ programme dashboard</title>
+<style>:root{color-scheme:light;font-family:Inter,system-ui,-apple-system,Segoe UI,sans-serif;background:#f4f5f7;color:#172936}*{box-sizing:border-box}body{margin:0}header{background:#123248;color:#fff;padding:30px max(24px,calc((100vw - 1120px)/2))}header h1{margin:0;font-size:27px}header p{opacity:.8}main{max-width:1120px;margin:auto;padding:24px}h2{font-size:20px}a{color:#146c74}button,select{font:inherit;padding:9px 11px;border:1px solid #c9d2d7;border-radius:8px;background:white;color:#173244}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px}.card,section{background:white;border:1px solid #e2e7ea;border-radius:12px;padding:18px}.card strong{font-size:29px;display:block}.muted{color:#556671;font-size:13px}.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}.phase{margin:14px 0}details{border:1px solid #dce2e6;border-radius:9px;margin:10px 0;overflow:hidden}summary{cursor:pointer;padding:13px 16px;font-weight:650;background:#eef3f4}table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:10px;border-bottom:1px solid #e8edef;vertical-align:top}th{color:#52626e}.status{display:inline-block;padding:3px 8px;border-radius:99px;background:#e8edf0;font-size:12px}.approved,.complete{background:#d8f1e6;color:#15583d}.outstanding,.blocked{background:#fff0ce;color:#79540e}.in_progress{background:#dceaff;color:#174d85}.bar{height:9px;background:#e8edf0;border-radius:12px;overflow:hidden}.bar span{display:block;height:100%;background:#25856d}footer{padding:22px;color:#667984}ul{padding-left:21px}li{margin:6px 0}.warning{border-left:4px solid #bc861f}</style></head>
+<body><header><h1>ANLAQ TCI™ · Programme Dashboard</h1><p>Evidence-first assessment platform · version-controlled release plan</p></header>
+<main><p class="muted" id="source">Loading version-controlled baseline…</p><div id="warning"></div>
+<div class="cards" id="summary"></div>
+<h2>Workstream tracker</h2><div class="toolbar"><label>Status <select id="filter"><option value="all">All</option><option value="open">Open only</option><option value="closed">Approved / complete</option></select></label></div><div id="phases"></div>
+<h2>Release plan</h2><div id="releases" class="cards"></div>
+<h2>Deliverable register</h2><section><div style="overflow:auto"><table><thead><tr><th>ID</th><th>Deliverable</th><th>Version</th><th>Status</th><th>Notes</th></tr></thead><tbody id="deliverables"></tbody></table></div></section>
+<h2>Approval queue</h2><section id="approvals"></section>
+<h2>Governance notes</h2><section class="warning" id="notes"></section>
+<footer>Repository version controls the data. Statuses are not auto-updated by external development sessions. No deployment or approval is inferred.</footer></main>
+<script>
+const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const badge=s=>'<span class="status '+safe(s)+'">'+safe(s.replaceAll('_',' '))+'</span>';
+const closed=s=>['approved','complete'].includes(s);
+async function start(){
+ let data;
+ try{const r=await fetch('./data/programme-tracker.json',{cache:'no-store'});if(!r.ok)throw Error('HTTP '+r.status);data=await r.json()}catch(e){document.getElementById('source').textContent='Unable to load the tracker JSON. View this page from a local web server or through GitHub Pages (if enabled).';return}
+ document.getElementById('source').textContent='Baseline '+data.baseline_date+' · Source: data/programme-tracker.json · status changes require a commit';
+ const n=data.work_items.length,c=data.work_items.filter(i=>closed(i.status)).length;
+ document.getElementById('summary').innerHTML=[['Work items',n],['Approved / complete',c],['Open / not verified',n-c],['Task closure',Math.round(100*c/n)+'%']].map(([t,v])=>'<div class="card"><span class="muted">'+safe(t)+'</span><strong>'+safe(v)+'</strong></div>').join('');
+ document.getElementById('warning').innerHTML='<p class="muted">This is a baselined tracker. Prior conversation approvals are identified separately from repository-verified implementation. The percentages count tasks, not effort.</p>';
+ const render=()=>{let f=document.getElementById('filter').value;document.getElementById('phases').innerHTML=data.phases.map(p=>{const all=data.work_items.filter(i=>i.phase===p.id),list=all.filter(i=>f==='all'||(f==='closed'?closed(i.status):!closed(i.status))),done=all.filter(i=>closed(i.status)).length;return '<details class="phase" open><summary>'+safe(p.title)+' · '+done+'/'+all.length+' completed <div class="bar"><span style="width:'+Math.round(done/all.length*100)+'%"></span></div></summary><div style="overflow:auto"><table><thead><tr><th>ID</th><th>Work item</th><th>Status</th><th>Evidence / notes</th></tr></thead><tbody>'+list.map(i=>'<tr><td>'+safe(i.id)+'</td><td>'+safe(i.title)+'</td><td>'+badge(i.status)+'</td><td>'+safe(i.evidence)+'</td></tr>').join('')+'</tbody></table></div></details>'}).join('')};
+ document.getElementById('filter').addEventListener('change',render);render();
+ document.getElementById('releases').innerHTML=data.releases.map(r=>'<article class="card"><strong style="font-size:20px">'+safe(r.version)+' · '+safe(r.title)+'</strong><p>'+badge(r.status)+'</p><ul>'+r.features.map(x=>'<li>'+safe(x)+'</li>').join('')+'</ul><p class="muted">Approval gate: '+safe(r.approval_gate)+'</p></article>').join('');
+ document.getElementById('deliverables').innerHTML=data.deliverables.map(d=>'<tr><td>'+safe(d.id)+'</td><td>'+safe(d.title)+'</td><td>'+safe(d.version)+'</td><td>'+badge(d.status)+'</td><td>'+safe(d.notes)+'</td></tr>').join('');
+ document.getElementById('approvals').innerHTML=data.approvals.map(a=>'<p><b>'+safe(a.id)+' · '+safe(a.item)+'</b> '+badge(a.status)+'<br><span class="muted">'+safe(a.basis)+'</span></p>').join('');
+ document.getElementById('notes').innerHTML='<ul>'+data.warnings.map(w=>'<li>'+safe(w)+'</li>').join('')+'</ul>';
+}start();
+</script></body></html>
