@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "environment": "private-pilot",
+  "deploymentAuthorised": false,
+  "realClientDataAuthorised": false,
+  "hosting": {"provider": null, "region": null, "subprocessorsApproved": false, "decisionRef": null},
+  "network": {"privateIngress": null, "tls": null, "egressAllowlist": null, "publicEvidenceUrls": false},
+  "identity": {"provider": null, "mfa": null, "tenantIsolation": null, "immutableHumanIdentity": null},
+  "storage": {"databaseService": null, "privateObjectStore": null, "managedKeyService": null, "metadataEncryption": null, "backupRestorePolicy": null},
+  "processing": {"screeningService": null, "parserIsolation": null, "approvedModelProcessor": null, "modelEgressPolicy": null},
+  "governance": {"retentionPolicy": null, "legalHoldPolicy": null, "deletionVerification": null, "incidentOwner": null, "clientConsentAndContractRef": null},
+  "acceptanceEvidence": {},
+  "ownerApproval": null
+}

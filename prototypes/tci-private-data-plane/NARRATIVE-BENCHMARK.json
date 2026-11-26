@@ -4,7 +4,7 @@
     {
       "id": "INV-01",
       "status": "executed",
-      "durationSeconds": 31.51,
+      "durationSeconds": 7.3,
       "expectedFields": 7,
       "matchedExpectedFields": 7,
       "missedFields": [],
@@ -123,9 +123,12 @@
           "missing": 0,
           "ambiguous": 0
         },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
         "criterionId": "Q02",
         "ruleId": "EVS-Q02",
-        "method": "0.2.0-alpha.3",
+        "method": "0.2.0-rc.1",
         "format": "txt",
         "model": "gpt-oss:20b",
         "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
@@ -137,12 +140,10 @@
     {
       "id": "GOV-01",
       "status": "executed",
-      "durationSeconds": 18.46,
+      "durationSeconds": 5.53,
       "expectedFields": 7,
-      "matchedExpectedFields": 6,
-      "missedFields": [
-        "materiality"
-      ],
+      "matchedExpectedFields": 7,
+      "missedFields": [],
       "unexpectedNonMissing": [],
       "result": {
         "fields": [
@@ -164,9 +165,17 @@
           {
             "key": "materiality",
             "label": "materiality",
-            "status": "missing",
-            "value": null,
-            "citations": []
+            "status": "candidate",
+            "value": "The decision was critical to the fictional rollout.",
+            "citations": [
+              {
+                "value": "The decision was critical to the fictional rollout.",
+                "location": "Text line 1",
+                "startColumn": 86,
+                "endColumn": 136,
+                "excerpt": "Fictional steering committee minutes. The reference for the decision was DEC-SYN-01. The decision was critical to the fictional rollout. It was raised on 1 March 2026 and required by 10 March 2026. The committee made the decision on 9 March 2026. The synthetic sponsor was accountable. The committee approved the fictional scope because the resource plan was agreed."
+              }
+            ]
           },
           {
             "key": "raised_date",
@@ -246,13 +255,16 @@
         ],
         "rejectedProposals": 0,
         "counts": {
-          "candidate": 6,
-          "missing": 1,
+          "candidate": 7,
+          "missing": 0,
           "ambiguous": 0
         },
+        "explicitMaterialityFallbackUsed": true,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
         "criterionId": "Q05",
         "ruleId": "EVS-Q05",
-        "method": "0.2.0-alpha.3",
+        "method": "0.2.0-rc.1",
         "format": "txt",
         "model": "gpt-oss:20b",
         "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
@@ -264,12 +276,10 @@
     {
       "id": "BEN-01",
       "status": "executed",
-      "durationSeconds": 25.2,
+      "durationSeconds": 8.85,
       "expectedFields": 9,
-      "matchedExpectedFields": 8,
-      "missedFields": [
-        "currency_unit"
-      ],
+      "matchedExpectedFields": 9,
+      "missedFields": [],
       "unexpectedNonMissing": [],
       "result": {
         "fields": [
@@ -336,9 +346,17 @@
           {
             "key": "currency_unit",
             "label": "currency/unit",
-            "status": "missing",
-            "value": null,
-            "citations": []
+            "status": "candidate",
+            "value": "denominated in SGD",
+            "citations": [
+              {
+                "value": "denominated in SGD",
+                "location": "Text line 1",
+                "startColumn": 198,
+                "endColumn": 215,
+                "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
+              }
+            ]
           },
           {
             "key": "benefit_basis",
@@ -389,13 +407,13 @@
             "key": "forecast_separately",
             "label": "forecast separately",
             "status": "candidate",
-            "value": "A separate forecast of SGD 2000 is not realised value",
+            "value": "SGD 2000",
             "citations": [
               {
-                "value": "A separate forecast of SGD 2000 is not realised value",
+                "value": "SGD 2000",
                 "location": "Text line 1",
-                "startColumn": 364,
-                "endColumn": 416,
+                "startColumn": 387,
+                "endColumn": 394,
                 "excerpt": "Fictional benefits realisation report. The benefit identifier is BEN-SYN-01. Realised value for the quarter was SGD 4000. The original target was SGD 5000. Reporting covers FY26 Q2 and amounts are denominated in SGD. The measure uses a realised cash basis. The underlying reference is synthetic finance ledger FIN-01. Finance recorded a mock validation approval. A separate forecast of SGD 2000 is not realised value."
               }
             ]
@@ -403,13 +421,16 @@
         ],
         "rejectedProposals": 1,
         "counts": {
-          "candidate": 8,
-          "missing": 1,
+          "candidate": 9,
+          "missing": 0,
           "ambiguous": 0
         },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": true,
         "criterionId": "Q26",
         "ruleId": "EVS-Q26",
-        "method": "0.2.0-alpha.3",
+        "method": "0.2.0-rc.1",
         "format": "txt",
         "model": "gpt-oss:20b",
         "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
@@ -421,12 +442,10 @@
     {
       "id": "BEN-02",
       "status": "executed",
-      "durationSeconds": 10.72,
+      "durationSeconds": 8.06,
       "expectedFields": 3,
-      "matchedExpectedFields": 2,
-      "missedFields": [
-        "forecast_separately"
-      ],
+      "matchedExpectedFields": 3,
+      "missedFields": [],
       "unexpectedNonMissing": [],
       "result": {
         "fields": [
@@ -434,12 +453,12 @@
             "key": "benefit_id",
             "label": "Benefit ID",
             "status": "candidate",
-            "value": "BEN-SYN-02",
+            "value": "The benefit identifier is BEN-SYN-02",
             "citations": [
               {
-                "value": "BEN-SYN-02",
+                "value": "The benefit identifier is BEN-SYN-02",
                 "location": "Text line 1",
-                "startColumn": 59,
+                "startColumn": 33,
                 "endColumn": 68,
                 "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
               }
@@ -463,13 +482,13 @@
             "key": "period",
             "label": "period",
             "status": "candidate",
-            "value": "FY26 Q3",
+            "value": "Reporting covers FY26 Q3.",
             "citations": [
               {
-                "value": "FY26 Q3",
+                "value": "Reporting covers FY26 Q3.",
                 "location": "Text line 1",
-                "startColumn": 158,
-                "endColumn": 164,
+                "startColumn": 141,
+                "endColumn": 165,
                 "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
               }
             ]
@@ -498,27 +517,575 @@
           {
             "key": "finance_validation",
             "label": "Finance validation",
-            "status": "missing",
-            "value": null,
-            "citations": []
+            "status": "candidate",
+            "value": "Finance validation has not occurred.",
+            "citations": [
+              {
+                "value": "Finance validation has not occurred.",
+                "location": "Text line 1",
+                "startColumn": 225,
+                "endColumn": 260,
+                "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
+              }
+            ]
           },
           {
             "key": "forecast_separately",
             "label": "forecast separately",
-            "status": "missing",
-            "value": null,
-            "citations": []
+            "status": "candidate",
+            "value": "A hoped-for forecast of SGD 9000 is explicitly not a realised result.",
+            "citations": [
+              {
+                "value": "A hoped-for forecast of SGD 9000 is explicitly not a realised result.",
+                "location": "Text line 1",
+                "startColumn": 71,
+                "endColumn": 139,
+                "excerpt": "Fictional programme commentary. The benefit identifier is BEN-SYN-02. A hoped-for forecast of SGD 9000 is explicitly not a realised result. Reporting covers FY26 Q3. No actual realised amount or original target is provided. Finance validation has not occurred. The record contains no source ledger, and no basis for a realised value is stated."
+              }
+            ]
           }
         ],
         "rejectedProposals": 0,
         "counts": {
-          "candidate": 2,
-          "missing": 7,
+          "candidate": 4,
+          "missing": 5,
           "ambiguous": 0
         },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": true,
         "criterionId": "Q26",
         "ruleId": "EVS-Q26",
-        "method": "0.2.0-alpha.3",
+        "method": "0.2.0-rc.1",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "TECH-01",
+      "status": "executed",
+      "durationSeconds": 6.17,
+      "expectedFields": 6,
+      "matchedExpectedFields": 6,
+      "missedFields": [],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "intended_workload_scale",
+            "label": "Intended workload/scale",
+            "status": "candidate",
+            "value": "The intended workload is 100 synthetic requests per minute.",
+            "citations": [
+              {
+                "value": "The intended workload is 100 synthetic requests per minute.",
+                "location": "Text line 1",
+                "startColumn": 40,
+                "endColumn": 98,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          },
+          {
+            "key": "architecture_version",
+            "label": "architecture version",
+            "status": "candidate",
+            "value": "Architecture version 2 was reviewed.",
+            "citations": [
+              {
+                "value": "Architecture version 2 was reviewed.",
+                "location": "Text line 1",
+                "startColumn": 100,
+                "endColumn": 135,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          },
+          {
+            "key": "required_performance_security_recovery_conditions",
+            "label": "required performance/security/recovery conditions",
+            "status": "candidate",
+            "value": "The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls.",
+            "citations": [
+              {
+                "value": "The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls.",
+                "location": "Text line 1",
+                "startColumn": 137,
+                "endColumn": 249,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          },
+          {
+            "key": "test_results",
+            "label": "test results",
+            "status": "candidate",
+            "value": "The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes.",
+            "citations": [
+              {
+                "value": "The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes.",
+                "location": "Text line 1",
+                "startColumn": 251,
+                "endColumn": 335,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          },
+          {
+            "key": "exceptions",
+            "label": "exceptions",
+            "status": "candidate",
+            "value": "One fictional access exception remains open.",
+            "citations": [
+              {
+                "value": "One fictional access exception remains open.",
+                "location": "Text line 1",
+                "startColumn": 337,
+                "endColumn": 380,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          },
+          {
+            "key": "dependencies",
+            "label": "dependencies",
+            "status": "candidate",
+            "value": "The test depended on a mock external integration.",
+            "citations": [
+              {
+                "value": "The test depended on a mock external integration.",
+                "location": "Text line 1",
+                "startColumn": 382,
+                "endColumn": 430,
+                "excerpt": "Fictional technical readiness summary. The intended workload is 100 synthetic requests per minute. Architecture version 2 was reviewed. The agreed requirements were 100 requests per minute, recovery within 60 minutes and approval of access controls. The synthetic load trial recorded 104 requests per minute and recovery in 45 minutes. One fictional access exception remains open. The test depended on a mock external integration."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 6,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
+        "criterionId": "Q09",
+        "ruleId": "EVS-Q09",
+        "method": "0.2.0-rc.1",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "PEOPLE-01",
+      "status": "executed",
+      "durationSeconds": 6.16,
+      "expectedFields": 7,
+      "matchedExpectedFields": 7,
+      "missedFields": [],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "target_user_process_population",
+            "label": "Target user/process population",
+            "status": "candidate",
+            "value": "operations staff using the mock intake workflow",
+            "citations": [
+              {
+                "value": "operations staff using the mock intake workflow",
+                "location": "Text line 1",
+                "startColumn": 60,
+                "endColumn": 106,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "eligible_denominator",
+            "label": "eligible denominator",
+            "status": "candidate",
+            "value": "100 eligible synthetic users",
+            "citations": [
+              {
+                "value": "100 eligible synthetic users",
+                "location": "Text line 1",
+                "startColumn": 119,
+                "endColumn": 146,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "active_users",
+            "label": "active users",
+            "status": "candidate",
+            "value": "70 are active",
+            "citations": [
+              {
+                "value": "70 are active",
+                "location": "Text line 1",
+                "startColumn": 157,
+                "endColumn": 169,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "usage_definition",
+            "label": "usage definition",
+            "status": "candidate",
+            "value": "Active use means completing the target workflow at least once in the review period",
+            "citations": [
+              {
+                "value": "Active use means completing the target workflow at least once in the review period",
+                "location": "Text line 1",
+                "startColumn": 172,
+                "endColumn": 253,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "period",
+            "label": "period",
+            "status": "candidate",
+            "value": "FY26 Q2",
+            "citations": [
+              {
+                "value": "FY26 Q2",
+                "location": "Text line 1",
+                "startColumn": 271,
+                "endColumn": 277,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "adoption_target",
+            "label": "adoption target",
+            "status": "candidate",
+            "value": "approved adoption target was 80 users",
+            "citations": [
+              {
+                "value": "approved adoption target was 80 users",
+                "location": "Text line 1",
+                "startColumn": 284,
+                "endColumn": 320,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          },
+          {
+            "key": "process_evidence",
+            "label": "process evidence",
+            "status": "candidate",
+            "value": "A review of fictional completed workflow logs was used as process evidence; training attendance is excluded",
+            "citations": [
+              {
+                "value": "A review of fictional completed workflow logs was used as process evidence; training attendance is excluded",
+                "location": "Text line 1",
+                "startColumn": 323,
+                "endColumn": 429,
+                "excerpt": "Fictional adoption report. The target population comprises operations staff using the mock intake workflow. There are 100 eligible synthetic users, of whom 70 are active. Active use means completing the target workflow at least once in the review period. The period was FY26 Q2. The approved adoption target was 80 users. A review of fictional completed workflow logs was used as process evidence; training attendance is excluded."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 7,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
+        "criterionId": "Q13",
+        "ruleId": "EVS-Q13",
+        "method": "0.2.0-rc.1",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "DATA-01",
+      "status": "executed",
+      "durationSeconds": 7.4,
+      "expectedFields": 8,
+      "matchedExpectedFields": 8,
+      "missedFields": [],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "quality_rule",
+            "label": "Quality rule",
+            "status": "candidate",
+            "value": "The quality rule requires a non-blank outcome identifier.",
+            "citations": [
+              {
+                "value": "The quality rule requires a non-blank outcome identifier.",
+                "location": "Text line 1",
+                "startColumn": 32,
+                "endColumn": 88,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "population_denominator",
+            "label": "population/denominator",
+            "status": "candidate",
+            "value": "The sample contains 100 fictional records for FY26 Q2.",
+            "citations": [
+              {
+                "value": "The sample contains 100 fictional records for FY26 Q2.",
+                "location": "Text line 1",
+                "startColumn": 90,
+                "endColumn": 143,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "period",
+            "label": "period",
+            "status": "candidate",
+            "value": "FY26 Q2",
+            "citations": [
+              {
+                "value": "FY26 Q2",
+                "location": "Text line 1",
+                "startColumn": 136,
+                "endColumn": 142,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "exception_count",
+            "label": "exception count",
+            "status": "candidate",
+            "value": "Four records fail the rule.",
+            "citations": [
+              {
+                "value": "Four records fail the rule.",
+                "location": "Text line 1",
+                "startColumn": 145,
+                "endColumn": 171,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "trend",
+            "label": "trend",
+            "status": "candidate",
+            "value": "Failures fell from five in the prior period to four.",
+            "citations": [
+              {
+                "value": "Failures fell from five in the prior period to four.",
+                "location": "Text line 1",
+                "startColumn": 173,
+                "endColumn": 224,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "issue_owner_age",
+            "label": "issue owner/age",
+            "status": "candidate",
+            "value": "The mock data owner owns the issue, which has been open for two days.",
+            "citations": [
+              {
+                "value": "The mock data owner owns the issue, which has been open for two days.",
+                "location": "Text line 1",
+                "startColumn": 226,
+                "endColumn": 294,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "decision_impact",
+            "label": "decision impact",
+            "status": "candidate",
+            "value": "The missing identifier prevents attribution of fictional outcomes.",
+            "citations": [
+              {
+                "value": "The missing identifier prevents attribution of fictional outcomes.",
+                "location": "Text line 1",
+                "startColumn": 296,
+                "endColumn": 361,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          },
+          {
+            "key": "remediation",
+            "label": "remediation",
+            "status": "candidate",
+            "value": "The agreed remediation is to correct the missing identifiers and recheck the sample.",
+            "citations": [
+              {
+                "value": "The agreed remediation is to correct the missing identifiers and recheck the sample.",
+                "location": "Text line 1",
+                "startColumn": 363,
+                "endColumn": 446,
+                "excerpt": "Fictional data quality review. The quality rule requires a non-blank outcome identifier. The sample contains 100 fictional records for FY26 Q2. Four records fail the rule. Failures fell from five in the prior period to four. The mock data owner owns the issue, which has been open for two days. The missing identifier prevents attribution of fictional outcomes. The agreed remediation is to correct the missing identifiers and recheck the sample."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 8,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
+        "criterionId": "Q18",
+        "ruleId": "EVS-Q18",
+        "method": "0.2.0-rc.1",
+        "format": "txt",
+        "model": "gpt-oss:20b",
+        "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+        "status": "draft",
+        "semanticReviewRequired": true,
+        "scoringEligible": false
+      }
+    },
+    {
+      "id": "DELIVERY-01",
+      "status": "executed",
+      "durationSeconds": 6.32,
+      "expectedFields": 6,
+      "matchedExpectedFields": 6,
+      "missedFields": [],
+      "unexpectedNonMissing": [],
+      "result": {
+        "fields": [
+          {
+            "key": "delivery_period",
+            "label": "Delivery period",
+            "status": "candidate",
+            "value": "Fictional delivery review for FY26 Q2.",
+            "citations": [
+              {
+                "value": "Fictional delivery review for FY26 Q2.",
+                "location": "Text line 1",
+                "startColumn": 1,
+                "endColumn": 38,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          },
+          {
+            "key": "flow_metric_definitions",
+            "label": "flow metric definitions",
+            "status": "candidate",
+            "value": "Cycle time is defined as elapsed days from accepted work to release.",
+            "citations": [
+              {
+                "value": "Cycle time is defined as elapsed days from accepted work to release.",
+                "location": "Text line 1",
+                "startColumn": 40,
+                "endColumn": 107,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          },
+          {
+            "key": "commitments",
+            "label": "commitments",
+            "status": "candidate",
+            "value": "Four synthetic releases were committed.",
+            "citations": [
+              {
+                "value": "Four synthetic releases were committed.",
+                "location": "Text line 1",
+                "startColumn": 109,
+                "endColumn": 147,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          },
+          {
+            "key": "actual_release_dates",
+            "label": "actual release dates",
+            "status": "candidate",
+            "value": "Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026.",
+            "citations": [
+              {
+                "value": "Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026.",
+                "location": "Text line 1",
+                "startColumn": 149,
+                "endColumn": 217,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          },
+          {
+            "key": "throughput_cycle_time",
+            "label": "throughput/cycle time",
+            "status": "candidate",
+            "value": "Throughput was four releases, with a median cycle time of three fictional days.",
+            "citations": [
+              {
+                "value": "Throughput was four releases, with a median cycle time of three fictional days.",
+                "location": "Text line 1",
+                "startColumn": 219,
+                "endColumn": 297,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          },
+          {
+            "key": "dependencies",
+            "label": "dependencies",
+            "status": "candidate",
+            "value": "A mock integration dependency was noted.",
+            "citations": [
+              {
+                "value": "A mock integration dependency was noted.",
+                "location": "Text line 1",
+                "startColumn": 299,
+                "endColumn": 338,
+                "excerpt": "Fictional delivery review for FY26 Q2. Cycle time is defined as elapsed days from accepted work to release. Four synthetic releases were committed. Actual releases occurred on 1 April, 15 April, 1 May and 15 May 2026. Throughput was four releases, with a median cycle time of three fictional days. A mock integration dependency was noted."
+              }
+            ]
+          }
+        ],
+        "rejectedProposals": 0,
+        "counts": {
+          "candidate": 6,
+          "missing": 0,
+          "ambiguous": 0
+        },
+        "explicitMaterialityFallbackUsed": false,
+        "unresolvedRejectedProposals": 0,
+        "retryAttempted": false,
+        "criterionId": "Q21",
+        "ruleId": "EVS-Q21",
+        "method": "0.2.0-rc.1",
         "format": "txt",
         "model": "gpt-oss:20b",
         "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",

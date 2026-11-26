@@ -20,7 +20,7 @@ class NarrativeTests(unittest.TestCase):
     q=verify_proposals(r,s,{"proposals":[{"fieldKey":"actual_realised_outcome","segmentId":"S001","quote":"SGD 4000"}]})
     self.assertEqual(q["rejectedProposals"],1)
  def test_conflicting_candidate_stays_unresolved(self):
-    r=rules["Q26"];_,s=prepare("synthetic.txt",b"Ledger says SGD 4000.\nReport says SGD 7000.")
+    r=rules["Q26"];_,s=prepare("synthetic.txt",b"Ledger says realised value SGD 4000.\nReport says realised value SGD 7000.")
     q=verify_proposals(r,s,{"proposals":[{"fieldKey":"actual_realised_outcome","segmentId":"S001","quote":"SGD 4000"},{"fieldKey":"actual_realised_outcome","segmentId":"S002","quote":"SGD 7000"}]})
     f=next(x for x in q["fields"] if x["key"]=="actual_realised_outcome");self.assertEqual(f["status"],"ambiguous");self.assertIsNone(f["value"])
  def test_invalid_schema_fails_closed(self):
@@ -39,4 +39,22 @@ class NarrativeTests(unittest.TestCase):
     self.assertTrue(result["semanticReviewRequired"]);self.assertFalse(result["scoringEligible"]);self.assertEqual(result["status"],"draft")
  def test_window_bound(self):
     with self.assertRaises(NarrativeUnavailable):prepare("synthetic.txt",b"x\n"*81)
+ def test_forecast_not_promoted_to_actual(self):
+    r,raw,_=self.base()
+    def fake(rule,s):return {"proposals":[{"fieldKey":"actual_realised_outcome","segmentId":"S002","quote":"SGD 2000"}]},"synthetic-model"
+    result=extract_narrative("synthetic.txt",raw,r,fake)
+    field=next(f for f in result["fields"] if f["key"]=="actual_realised_outcome")
+    self.assertEqual(field["status"],"missing");self.assertEqual(result["rejectedProposals"],1)
+ def test_explicit_materiality_fallback_and_conflict(self):
+    r=rules["Q05"]
+    def omitted(*args):return {"proposals":[]},"synthetic-model"
+    q=extract_narrative("synthetic.txt",b"The decision was critical to the fictional rollout.",r,omitted)
+    f=next(x for x in q["fields"] if x["key"]=="materiality");self.assertEqual(f["status"],"candidate");self.assertIn("critical to the fictional rollout",f["value"]);self.assertTrue(q["explicitMaterialityFallbackUsed"])
+    q=extract_narrative("synthetic.txt",b"The decision was critical to the fictional rollout. The decision was not material to the rollout.",r,omitted)
+    self.assertEqual(next(x for x in q["fields"] if x["key"]=="materiality")["status"],"ambiguous")
+ def test_short_materiality_quote_expanded_to_context(self):
+    r=rules["Q05"]
+    def short(rule,segments):return {"proposals":[{"fieldKey":"materiality","segmentId":"S001","quote":"critical"}]},"synthetic-model"
+    q=extract_narrative("synthetic.txt",b"The decision was critical to the fictional rollout.",r,short)
+    f=next(x for x in q["fields"] if x["key"]=="materiality");self.assertEqual(f["status"],"candidate");self.assertIn("critical to the fictional rollout",f["value"])
 if __name__=="__main__":unittest.main(verbosity=2)

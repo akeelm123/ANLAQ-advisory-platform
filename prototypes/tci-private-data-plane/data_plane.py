@@ -313,7 +313,7 @@ class DataPlane:
             if decision=="accept":
                 if not self._latest(v) or v["status"]!="accepted":raise Invalid("Source superseded or unavailable")
                 result=self._extraction_payload(r)
-                if result["counts"]["missing"] or result["counts"]["ambiguous"] or result.get("rejectedProposals",0):raise Invalid("Missing, ambiguous or rejected proposals; return for follow-up")
+                if result["counts"]["missing"] or result["counts"]["ambiguous"] or result.get("unresolvedRejectedProposals",result.get("rejectedProposals",0)):raise Invalid("Missing, ambiguous or rejected proposals; return for follow-up")
                 if confirmed is not True or not self.db.execute("SELECT 1 FROM audit WHERE assessment_id=? AND actor=? AND action='evidence downloaded' AND record_id=?",(assessment,a["id"],v["id"])).fetchone():raise Invalid("Independent source preview and confirmation required")
             rid=ident()
             self.db.execute("INSERT INTO extraction_reviews VALUES (?,?,?,?,?,?)",(rid,run,a["id"],decision,reason,self.clock()))

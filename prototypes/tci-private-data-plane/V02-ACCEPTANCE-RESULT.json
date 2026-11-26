@@ -1,0 +1,150 @@
+{
+  "version": "0.2.0-rc.1",
+  "gate": "engineering_acceptance_ready_for_owner_review",
+  "benchmark": {
+    "expected": 53,
+    "matched": 53,
+    "expectedMissing": 4,
+    "missingConfirmed": 4,
+    "sourceCitationsVerified": 54,
+    "coverage": [
+      {
+        "fixture": "INV-01",
+        "criterion": "Q02",
+        "expected": 7,
+        "matched": 7,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "GOV-01",
+        "criterion": "Q05",
+        "expected": 7,
+        "matched": 7,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "BEN-01",
+        "criterion": "Q26",
+        "expected": 9,
+        "matched": 9,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "BEN-02",
+        "criterion": "Q26",
+        "expected": 3,
+        "matched": 3,
+        "expectedMissing": 4,
+        "missingConfirmed": 4
+      },
+      {
+        "fixture": "TECH-01",
+        "criterion": "Q09",
+        "expected": 6,
+        "matched": 6,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "PEOPLE-01",
+        "criterion": "Q13",
+        "expected": 7,
+        "matched": 7,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "DATA-01",
+        "criterion": "Q18",
+        "expected": 8,
+        "matched": 8,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      },
+      {
+        "fixture": "DELIVERY-01",
+        "criterion": "Q21",
+        "expected": 6,
+        "matched": 6,
+        "expectedMissing": 0,
+        "missingConfirmed": 0
+      }
+    ]
+  },
+  "checks": [
+    {
+      "id": "INV-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "GOV-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "BEN-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "BEN-02",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "TECH-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "PEOPLE-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "DATA-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "DELIVERY-01",
+      "pass": true,
+      "detail": "Expected field phrases, expected absence, exact source citations, draft gate"
+    },
+    {
+      "id": "coverage",
+      "pass": true,
+      "detail": "8 fictional reports, 7 dimension-representative criteria"
+    },
+    {
+      "id": "model_provenance",
+      "pass": true,
+      "detail": "Consistent model digest"
+    },
+    {
+      "id": "regression",
+      "pass": true,
+      "detail": "181 tests"
+    },
+    {
+      "id": "BROWSER-RESULTS.txt",
+      "pass": true,
+      "detail": "Fresh synthetic browser workflow"
+    },
+    {
+      "id": "NARRATIVE-BROWSER-RESULTS.txt",
+      "pass": true,
+      "detail": "Fresh synthetic browser workflow"
+    }
+  ],
+  "ownerReleaseApproved": false,
+  "productionSecurityApproved": false,
+  "realClientDataEnabled": false,
+  "deploymentEnabled": false,
+  "scoringEnabled": false,
+  "note": "Synthetic curated acceptance evidence only, not general semantic accuracy or real-client release approval."
+}

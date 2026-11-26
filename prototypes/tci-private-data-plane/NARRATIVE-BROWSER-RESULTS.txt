@@ -1,0 +1,1 @@
+PASS: live local-model synthetic narrative browser journey; seven candidate fields, exact source excerpts, independent review and locked release.

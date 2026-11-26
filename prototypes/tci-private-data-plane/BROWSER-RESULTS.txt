@@ -1,1 +1,1 @@
-NOT EXECUTED for v0.2.0-alpha.3. Local API/browser permission review timed out; no current browser pass claimed. Previous alpha.2 browser smoke test passed at commit 2120b7a62294956cceb13272fc03332ff6102d20. Current JavaScript syntax and in-process service regression passed.
+PASS: synthetic contributor, assessor, reviewer and owner browser journey; catalogue, request, source upload, quarantine, evidence linkage, XLSX exact-cell draft extraction, independent extraction and finding review, locked release, logout, mobile width; no page errors.

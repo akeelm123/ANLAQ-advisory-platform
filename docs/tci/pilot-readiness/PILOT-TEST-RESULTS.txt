@@ -1,0 +1,11 @@
+test_cannot_turn_on_deployment_or_client_data (test_pilot_preflight.PilotReadiness.test_cannot_turn_on_deployment_or_client_data) ... ok
+test_complete_synthetic_manifest_only_ready_for_review (test_pilot_preflight.PilotReadiness.test_complete_synthetic_manifest_only_ready_for_review) ... ok
+test_empty_manifest_fails_closed (test_pilot_preflight.PilotReadiness.test_empty_manifest_fails_closed) ... ok
+test_incomplete_evidence_blocked (test_pilot_preflight.PilotReadiness.test_incomplete_evidence_blocked) ... ok
+test_malformed_manifest_fails_closed (test_pilot_preflight.PilotReadiness.test_malformed_manifest_fails_closed) ... ok
+test_no_public_evidence_url (test_pilot_preflight.PilotReadiness.test_no_public_evidence_url) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.000s
+
+OK

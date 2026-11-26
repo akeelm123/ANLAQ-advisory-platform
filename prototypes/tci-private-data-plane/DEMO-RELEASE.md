@@ -1,5 +1,5 @@
-# Release note — v0.2.0-alpha.3
+# Release note — v0.2.0-rc.1
 
-Optional installed local-model narrative passage proposals with exact source-span verifier and independent semantic review. Four fictional narrative reports were executed on gpt-oss:20b, matching 23 of 26 expected fields; three omissions are recorded. 171 in-process tests pass, including encrypted service replay. A fresh API and browser retest was not executed because the local permission review timed out.
+Synthetic engineering acceptance candidate. Context-preserving narrative proposals, targeted missing-field retry, explicit governance materiality capture and conservative forecast-versus-actual guard. Eight actual local-model reports across seven dimensions: 53/53 expected fields, 4/4 expected missing controls and 54 verified source citations. 181 automated tests and both browser journeys passed.
 
-Synthetic review only. Formal extraction accuracy, hosted security, real-client use, scoring and public deployment are still gated.
+Owner formal synthetic acceptance pending; v0.3 not started. Real-world semantic accuracy, private pilot security, real-client handling, scoring and public deployment remain separately gated.

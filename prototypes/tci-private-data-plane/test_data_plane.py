@@ -155,7 +155,7 @@ class DataPlaneTest(unittest.TestCase):
         import json
         from unittest.mock import patch
         fixture=json.loads((HERE/"narrative-fixtures.json").read_text())["fixtures"][0]
-        bench=json.loads((HERE/"NARRATIVE-BENCHMARK.json").read_text())["rows"][0]["result"]
+        bench=json.loads((HERE/"NARRATIVE-BENCHMARK-alpha3.json").read_text())["rows"][0]["result"]
         raw=fixture["text"].encode();v=self.dp.upload(self.t("contributor"),self.a,"Synthetic narrative","investment.txt",raw,intake={"criterion":"Q02","requestId":"SA-02","sourceOwner":"Synthetic","period":"FY26","sourceVersion":"1","locator":"line 1"})
         self.dp.inspect_quarantine(self.t("assessor"),self.a,v["versionId"]);self.dp.screen(self.t("assessor"),self.a,v["versionId"],"accepted","Synthetic")
         # Replay actual saved local model proposal through service; no network in this test.
