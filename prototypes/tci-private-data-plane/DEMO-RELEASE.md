@@ -1,5 +1,3 @@
-# Release note — v0.3.0-alpha.1
+# Release note — v0.4.0-alpha.1 (candidate)
 
-Owner-approved synthetic v0.2 RC.2 foundation. Adds 28-question stakeholder interview capture, separate personas, encrypted immutable response/interpretation, evidence-linked claims, explicit contradiction record, ten rule-driven adaptive follow-up types, optional local-model wording with exact quote verification, human-confirmed one-at-a-time follow-up and independent capture review. 206 tests, seven structurally verified model wording proposals and three browser workflows pass.
-
-Formal v0.3 acceptance, semantic follow-up usefulness, private pilot operational security, scoring and deployment remain separate gates.
+Owner-approved v0.3 foundation plus human-led evidence validation and triangulation across 28 criteria. Exact source citations, explicit structured assessor observations, independent preview and review, condition support versus insufficient/contradictory/exception/superseded states, and source-backed contradiction reconciliation. 217 automated tests and two browser workflows passed. 112 structural scenario checks embedded in the test suite. See VALIDATION-ACCEPTANCE.md for limitations and verification scope. Candidate owner acceptance pending. No scoring or deployment.

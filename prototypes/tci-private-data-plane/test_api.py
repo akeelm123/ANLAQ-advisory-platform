@@ -121,4 +121,22 @@ class APITest(unittest.TestCase):
     self.assertEqual(self.post("interview-review","reviewer",{"claimId":a,"decision":"confirm_capture","reason":"Capture only","confirmed":True})[0],200)
     owner=next(c for c in self.dashboard("owner")[1]["interviews"]["claims"] if c["id"]==a);self.assertEqual(owner["captureReview"]["decision"],"confirm_capture");self.assertEqual(owner["validationStatus"],"unverified interview claim")
     self.assertIsNone(self.dashboard("contributor")[1]["interviews"]);self.assertEqual(self.dashboard("other")[0],403);self.assertEqual(self.post("release","owner",{})[0],403)
+ def test09_validation_integration(self):
+    # Q02 avoids the material Q01 contradiction recorded in the interview regression.
+    rule=next(x for x in self.dashboard("owner")[1]["validation"]["rules"] if x["criterionId"]=="Q02")
+    st,r=self.upload(rule["primary"][0],"Q02",raw=b"Fictional second criterion source")
+    self.assertEqual(st,201);vid=r["record"]["versionId"]
+    self.assertEqual(self.post("inspect","assessor",{"versionId":vid})[0],200)
+    self.assertEqual(self.post("screen","assessor",{"versionId":vid,"decision":"accepted","reason":"Synthetic"})[0],200)
+    v=next(x for x in self.dashboard("assessor")[1]["versions"] if x["versionId"]==vid)
+    body=dict(criterion="Q02",applicability="applicable",condition="met",evidenceClass="E1",strength="Strong",fieldsVerified=True,comparable=True,materialityReviewed=True,requiresCorroboration=False,documentaryConflict=False,claim="Synthetic condition",rationale="Synthetic rationale",owner="Fictional owner",conditionalApplies=None,refs=[dict(versionId=vid,requestId=v["requestId"],locator="Text line 1",quote="Fictional second criterion source")],claimIds=[])
+    self.assertEqual(self.post("validation-draft","contributor",body)[0],403)
+    st,r=self.post("validation-draft","assessor",body);self.assertEqual(st,201);did=r["draftId"]
+    review=dict(draftId=did,decision="accept",reason="Synthetic independent review",controls={"confirmed":True})
+    self.assertEqual(self.post("validation-review","reviewer",review)[0],400)
+    self.assertEqual(self.post("preview","reviewer",{"versionId":vid})[0],200)
+    self.assertEqual(self.post("validation-review","reviewer",review)[0],201)
+    result=next(x for x in self.dashboard("owner")[1]["validation"]["drafts"] if x["id"]==did)
+    self.assertEqual(result["state"]["state"],"supported_met");self.assertFalse(result["scoringEligible"])
+    self.assertIsNone(self.dashboard("contributor")[1]["validation"])
 if __name__=="__main__":unittest.main(verbosity=2)

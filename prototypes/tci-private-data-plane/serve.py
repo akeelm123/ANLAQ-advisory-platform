@@ -67,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"validation":None if role=="contributor" else self.dp.validation.view(token,aid),"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -105,6 +105,12 @@ class Handler(BaseHTTPRequestHandler):
                 self.dp.interviews.answer(token,aid,data["followUpId"],data["status"],data.get("verbatim",""))
             elif action=="interview-review":
                 self.dp.interviews.review_capture(token,aid,data["claimId"],data["decision"],data["reason"],data.get("confirmed",False))
+            elif action=="validation-draft":
+                return self.payload(201,{"draftId":self.dp.validation.draft(token,aid,data["criterion"],data)})
+            elif action=="validation-review":
+                return self.payload(201,{"reviewId":self.dp.validation.review(token,aid,data["draftId"],data["decision"],data["reason"],data["controls"])})
+            elif action=="validation-conflict-resolution":
+                return self.payload(201,{"resolutionId":self.dp.validation.conflict_resolution(token,aid,data["conflictId"],data["reason"],data["refs"],data.get("confirmed",False))})
             elif action=="release":self.dp.release(token,aid)
             else:return self.payload(404,{"error":"Unknown route"})
             return self.payload(200,{"ok":True})

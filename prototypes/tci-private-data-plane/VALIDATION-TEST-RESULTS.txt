@@ -1,0 +1,15 @@
+test_all_28_criteria_112_structural_scenarios (test_validation_workflow.ValidationTests.test_all_28_criteria_112_structural_scenarios) ... ok
+test_conditional (test_validation_workflow.ValidationTests.test_conditional) ... ok
+test_conflict_reconciliation_and_stale (test_validation_workflow.ValidationTests.test_conflict_reconciliation_and_stale) ... ok
+test_corroboration_distinct (test_validation_workflow.ValidationTests.test_corroboration_distinct) ... ok
+test_exact_quote_and_intake (test_validation_workflow.ValidationTests.test_exact_quote_and_intake) ... ok
+test_insufficient_weak_and_asserted (test_validation_workflow.ValidationTests.test_insufficient_weak_and_asserted) ... ok
+test_mapped_alternative (test_validation_workflow.ValidationTests.test_mapped_alternative) ... ok
+test_record_isolation_and_immutability (test_validation_workflow.ValidationTests.test_record_isolation_and_immutability) ... ok
+test_review_preview_and_independence (test_validation_workflow.ValidationTests.test_review_preview_and_independence) ... ok
+test_superseded (test_validation_workflow.ValidationTests.test_superseded) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.494s
+
+OK
