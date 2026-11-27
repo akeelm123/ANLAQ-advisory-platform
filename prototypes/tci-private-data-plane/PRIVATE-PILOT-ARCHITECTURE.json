@@ -1,0 +1,181 @@
+{
+  "version": "0.9.1-readiness.2",
+  "status": "proposed_not_provisioned",
+  "authority": {
+    "deploymentAuthorised": false,
+    "realClientAuthorised": false,
+    "productionAuthorised": false,
+    "budgetApproved": false,
+    "participantsApproved": false,
+    "identityTenantConfirmed": false
+  },
+  "scope": {
+    "environment": "isolated-synthetic-pilot",
+    "provider": "AWS",
+    "region": "ap-southeast-1",
+    "dataRegion": "ap-southeast-1",
+    "cohortLimit": 10,
+    "inputClass": "fictional-only",
+    "independentReview": true
+  },
+  "network": {
+    "availabilityZones": 2,
+    "applicationPublicIngress": false,
+    "applicationPublicIp": false,
+    "databasePublicAccess": false,
+    "internalLoadBalancer": true,
+    "clientVPN": true,
+    "vpnFederatedMfa": true,
+    "privateStorageConnectivity": true,
+    "controlledIdentityEgress": true,
+    "externalModelEgress": false,
+    "denyPublicObjectAccess": true
+  },
+  "identity": {
+    "provider": "Microsoft Entra ID (proposed; tenant/licence unconfirmed)",
+    "networkFederation": "SAML",
+    "appFederation": "OIDC authorization code + PKCE",
+    "mfaRequired": true,
+    "selfRegistration": false,
+    "serverSideMembership": true,
+    "distinctReviewer": true,
+    "sessionRevocation": true,
+    "browserTokenPersistence": false,
+    "localPasswordFallback": false
+  },
+  "compute": {
+    "service": "ECS Fargate",
+    "privateTasks": true,
+    "desiredTasks": 1,
+    "vCpuPerTask": 0.5,
+    "memoryGiBPerTask": 1,
+    "syntheticOnly": true,
+    "externalModelsEnabled": false,
+    "pilotScoringEnabled": false
+  },
+  "data": {
+    "database": "RDS PostgreSQL (private, encrypted)",
+    "databaseMultiAZ": false,
+    "databaseStorageGiB": 20,
+    "objects": "S3 (quarantine and accepted evidence buckets)",
+    "customerManagedKeys": true,
+    "separateKeyPurposes": true,
+    "managedSecretStore": true,
+    "plaintextPersistentEvidence": false,
+    "scannerIsolation": true,
+    "failClosedIntake": true,
+    "externalAudit": true,
+    "exportDisabled": true,
+    "retentionPolicyApproved": false,
+    "backupRestoreDrillRequired": true
+  },
+  "costPlanning": {
+    "currency": "USD",
+    "basis": "Illustrative monthly planning allocations, not verified Singapore price quote; 730 hours and 10 named synthetic users, 160 total VPN connection-hours, low document/storage traffic, two AZ VPN association, one application task and single-AZ pilot DB",
+    "items": [
+      {
+        "name": "VPN associations, connections, IPv4",
+        "low": 160,
+        "high": 260
+      },
+      {
+        "name": "Internal ALB and DNS",
+        "low": 25,
+        "high": 50
+      },
+      {
+        "name": "Fargate compute and image registry",
+        "low": 30,
+        "high": 65
+      },
+      {
+        "name": "RDS compute, 20 GiB and backup",
+        "low": 45,
+        "high": 100
+      },
+      {
+        "name": "Service endpoints and controlled identity egress",
+        "low": 100,
+        "high": 220
+      },
+      {
+        "name": "Object storage, keys, secrets, audit and monitoring",
+        "low": 35,
+        "high": 100
+      },
+      {
+        "name": "Contingency",
+        "low": 55,
+        "high": 105
+      }
+    ],
+    "identityLicencesExcluded": true,
+    "taxesExcluded": true,
+    "oneTimeEngineeringExcluded": true,
+    "providerQuoteVerified": false
+  },
+  "acceptance": {
+    "designOwnerApproved": false,
+    "independentDesignReviewComplete": false,
+    "providerAccountConfirmed": false,
+    "operationalGatesAccepted": 0
+  },
+  "localOption": {
+    "status": "proposed_not_provisioned",
+    "environment": "local-machine-synthetic-pilot",
+    "provider": "owner-managed macOS workstation",
+    "dataRegion": "local workstation only; physical location/backup destination owner-confirmed",
+    "cohortLimit": 4,
+    "inputClass": "fictional-only",
+    "network": {
+      "bindAddress": "127.0.0.1",
+      "lanAccess": false,
+      "publicIngress": false,
+      "remoteAccess": false,
+      "externalModelEgress": false,
+      "cloudSync": false
+    },
+    "identity": {
+      "osScreenLock": true,
+      "fileVaultRequired": true,
+      "separateNamedOsAccounts": true,
+      "separateNamedAppAccounts": true,
+      "sharedCredentials": false,
+      "independentReviewer": true,
+      "sessionRevocation": true,
+      "browserTokenPersistence": false,
+      "productionIdentityImplemented": false
+    },
+    "compute": {
+      "service": "local application process; packaged launcher proposed",
+      "syntheticOnly": true,
+      "pilotScoringEnabled": false,
+      "externalModelsEnabled": false
+    },
+    "data": {
+      "storage": "owner-only local application data directory on encrypted volume; hosted persistence integration not yet implemented",
+      "encryptedVolumeRequired": true,
+      "separateArchiveKeysRequired": true,
+      "plaintextPersistentEvidence": false,
+      "encryptedOfflineBackup": true,
+      "backupDestinationCloudSync": false,
+      "scannerIsolationRequired": true,
+      "retentionPolicyApproved": false,
+      "auditExportRequired": true,
+      "backupRestoreDrillRequired": true
+    },
+    "costPlanning": {
+      "currency": "USD",
+      "monthlyIncrementalLow": 0,
+      "monthlyIncrementalHigh": 40,
+      "basis": "Illustrative incremental allowance for an existing compatible workstation, excluding owner time, hardware acquisition, external backup device and power variability; not a provider quote",
+      "providerQuoteVerified": false
+    },
+    "acceptance": {
+      "designOwnerApproved": false,
+      "independentDesignReviewComplete": false,
+      "machineSecurityConfirmed": false,
+      "operationalGatesAccepted": 0
+    }
+  }
+}

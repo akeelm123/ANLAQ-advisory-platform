@@ -1,0 +1,19 @@
+{
+  "localOption": {
+    "designContract": "local checks pass",
+    "deployment": "blocked",
+    "monthlyIncrementalPlanningUsd": {
+      "low": 0,
+      "high": 40
+    }
+  },
+  "version": "0.9.1-readiness.2",
+  "designContract": "local checks pass",
+  "deployment": "blocked",
+  "operationalGatesAccepted": 0,
+  "monthlyPlanningUsd": {
+    "low": 450,
+    "high": 900
+  },
+  "providerQuoteVerified": false
+}

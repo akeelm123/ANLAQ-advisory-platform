@@ -1,0 +1,13 @@
+test_local_architecture_encrypted_storage_and_roles (test_pilot_architecture.ArchitectureTests.test_local_architecture_encrypted_storage_and_roles) ... ok
+test_local_architecture_loopback_only (test_pilot_architecture.ArchitectureTests.test_local_architecture_loopback_only) ... ok
+test_locked_proposed_design_and_budget (test_pilot_architecture.ArchitectureTests.test_locked_proposed_design_and_budget) ... ok
+test_no_inferred_authority (test_pilot_architecture.ArchitectureTests.test_no_inferred_authority) ... ok
+test_public_network_and_external_model_disallowed (test_pilot_architecture.ArchitectureTests.test_public_network_and_external_model_disallowed) ... ok
+test_region_and_cohort_limits (test_pilot_architecture.ArchitectureTests.test_region_and_cohort_limits) ... ok
+test_required_identity_controls (test_pilot_architecture.ArchitectureTests.test_required_identity_controls) ... ok
+test_required_storage_and_intake_controls (test_pilot_architecture.ArchitectureTests.test_required_storage_and_intake_controls) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.001s
+
+OK

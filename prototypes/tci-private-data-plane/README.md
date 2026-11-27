@@ -45,3 +45,6 @@ Set `TCI_AURORA_WORKBOOK` to the local, fingerprinted TCI_End_to_End_Interview_P
 
 ## Private pilot readiness (0.9.1-readiness.1)
 The integrated app remains v0.9 synthetic loopback only. The offline storage reference `pilot_storage.py` supports explicit synthetic archive and in-memory restore; it is not a hosted persistence integration. Run `python -m unittest -v test_pilot_storage.py test_pilot_readiness.py` with the existing pinned methodology variables and optional Aurora workbook path. Run `python pilot_readiness.py` for the structured local gate report. See PRIVATE-PILOT-IMPLEMENTATION-PLAN.md and READINESS-ACCEPTANCE.md. No deployment or data-handling approval is inferred from local tests.
+
+## Architecture choices (0.9.1-readiness.2)
+See PRIVATE-PILOT-ARCHITECTURE.md for local workstation and AWS Singapore reference options. Run python pilot_architecture.py and python -m unittest -v test_pilot_architecture.py for offline design contract checks. No deployment or operational gate accepted; choose an option and obtain independent design review before implementation.
