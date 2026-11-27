@@ -1,0 +1,10 @@
+{
+  "recordId": "TCI-V07-APR-001",
+  "approvedOn": "2026-11-27",
+  "approvedBy": "Project owner",
+  "status": "approved",
+  "candidate": "0.7.0-alpha.1",
+  "commit": "f7c08efbd59c31056fd5400b795e9c1b6f9b8fed",
+  "acceptanceSha256": "39f1dba29623599a8fb15ed06974ff1845a2a32950512f4e89bbe5debf8b8cf7",
+  "scope": "Owner accepted the synthetic reassessment and comparative analysis candidate. Integrated synthetic Aurora pilot preparation may proceed. Real-world scoring calibration, private pilot operational security, real-client processing and public release remain separate gates."
+}
