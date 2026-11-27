@@ -1,0 +1,14 @@
+test_all_seven_dimension_narrative_benchmark (test_evidence_matching.MatchingTests.test_all_seven_dimension_narrative_benchmark) ... ok
+test_confirmed_match_integrates_but_not_validation (test_evidence_matching.MatchingTests.test_confirmed_match_integrates_but_not_validation) ... ok
+test_local_label_schema_and_fallback (test_evidence_matching.MatchingTests.test_local_label_schema_and_fallback) ... ok
+test_model_omission_retries_only_missing_candidate (test_evidence_matching.MatchingTests.test_model_omission_retries_only_missing_candidate) ... ok
+test_no_source_and_no_relevant_passage (test_evidence_matching.MatchingTests.test_no_source_and_no_relevant_passage) ... ok
+test_numeric_difference_is_only_hint (test_evidence_matching.MatchingTests.test_numeric_difference_is_only_hint) ... ok
+test_roles_and_local_model_disabled (test_evidence_matching.MatchingTests.test_roles_and_local_model_disabled) ... ok
+test_seed_matching_preview_has_no_automatic_validation (test_evidence_matching.MatchingTests.test_seed_matching_preview_has_no_automatic_validation) ... ok
+test_unmapped_candidate_and_supersession (test_evidence_matching.MatchingTests.test_unmapped_candidate_and_supersession) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.347s
+
+OK

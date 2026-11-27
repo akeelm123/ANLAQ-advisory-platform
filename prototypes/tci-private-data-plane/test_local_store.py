@@ -82,4 +82,16 @@ class LocalStoreTests(unittest.TestCase):
       with self.assertRaises(Invalid):s.recover_backup(path,self.path/"salt.bin",self.passphrase)
     with LocalStore(recovered,base.REGISTER,base.SPEC,clock=self.clock) as s:
       dp=s.unlock(self.passphrase);self.assertTrue(dp.verify_audit())
+ def test_upgrade_v092_checkpoint_preserves_source_and_adds_matching_schema(self):
+    with self.store() as s:
+      aid=s.initialize(self.passphrase,self.accounts);v=self.upload(s.dp,aid)
+      # Simulate a synthetic snapshot from before the matching tables existed.
+      s.dp.db.executescript("DROP TABLE matching_reviews; DROP TABLE matching_runs;")
+      s.checkpoint()
+    with self.store() as s:
+      dp=s.unlock(self.passphrase);self.assertEqual(dp.list_versions(self.login(dp,"owner"),aid)[0]["versionId"],v["versionId"])
+      self.assertEqual(dp.matching.view(self.login(dp,"owner"),aid)["runs"],[])
+      run=dp.matching.propose(self.login(dp,"assessor"),aid,"Q01");s.checkpoint()
+    with self.store() as s:
+      dp=s.unlock(self.passphrase);self.assertEqual(dp.matching.view(self.login(dp,"owner"),aid)["runs"][0]["id"],run);self.assertTrue(dp.verify_audit())
 if __name__=="__main__":unittest.main()

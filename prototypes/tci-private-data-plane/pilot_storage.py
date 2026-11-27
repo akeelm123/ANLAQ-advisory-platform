@@ -65,6 +65,11 @@ def restore_synthetic(archive,vault_key,evidence_key,audit_key,register,spec,*,c
         dp.db.execute("PRAGMA foreign_keys=ON")
         if dp.db.execute("SELECT count(*) FROM sessions").fetchone()[0]:raise Invalid("Session restoration prohibited")
         _verify_db(dp)
+        # v0.9.2 archives predate the append-only matching tables. Restore the original
+        # image first, verify it, then add only the new schema; existing records untouched.
+        from evidence_matching import MatchingWorkflow
+        from data_plane import Denied,required
+        dp.matching=MatchingWorkflow(dp,Invalid,Denied,required)
         return dp
     except Exception:
         dp.close();raise

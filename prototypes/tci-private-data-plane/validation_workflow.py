@@ -80,6 +80,9 @@ class ValidationWorkflow:
         with self.db:
             a=self._actor(token,assessment,{"assessor"})
             checked=[self._ref(a,assessment,criterion,r) for r in refs]
+            match_ids=body.get("matchIds",[])
+            checked.extend(self.dp.matching.linked_refs(token,assessment,criterion,match_ids,claims))
+            if len(checked)>20:raise self.Invalid("At most 20 exact evidence references per draft")
             for cid in claims:
                 c=self.dp.interviews._claim(assessment,cid)
                 if c["question_id"]!=criterion:raise self.Invalid("Interview claim must match criterion")
@@ -88,7 +91,7 @@ class ValidationWorkflow:
                 if not isinstance(x,str) or len(x)>4000:raise self.Invalid(k+" invalid")
                 return x.strip()
             payload={k:body[k] for k in ["applicability","condition","evidenceClass","strength",*required_bools]}
-            payload.update({"claim":self.required(body.get("claim"),"draft finding"),"rationale":self.required(body.get("rationale"),"assessment rationale / limitations"),"owner":self.required(body.get("owner"),"finding / follow-up owner"),"followUp":optional("followUp"),"refs":checked,"claimIds":claims,"conditionalApplies":body.get("conditionalApplies"),"conditionalRationale":optional("conditionalRationale"),"alternativeRationale":optional("alternativeRationale"),"exceptionRationale":optional("exceptionRationale")})
+            payload.update({"claim":self.required(body.get("claim"),"draft finding"),"rationale":self.required(body.get("rationale"),"assessment rationale / limitations"),"owner":self.required(body.get("owner"),"finding / follow-up owner"),"followUp":optional("followUp"),"refs":checked,"claimIds":claims,"matchingCandidateIds":match_ids,"conditionalApplies":body.get("conditionalApplies"),"conditionalRationale":optional("conditionalRationale"),"alternativeRationale":optional("alternativeRationale"),"exceptionRationale":optional("exceptionRationale")})
             rid=newid();self.db.execute("INSERT INTO validation_drafts VALUES (?,?,?,?,?,?,?)",(rid,assessment,criterion,a["id"],self.dp.spec_hash,self._seal(rid,payload),self.dp.clock()))
             self.dp._audit(assessment,a["id"],"criterion validation draft created",rid);return rid
     def _draft_row(self,assessment,id):

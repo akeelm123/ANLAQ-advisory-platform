@@ -1,0 +1,14 @@
+test_atomic_failure_preserves_prior_checkpoint (test_local_store.LocalStoreTests.test_atomic_failure_preserves_prior_checkpoint) ... ok
+test_directory_and_file_modes (test_local_store.LocalStoreTests.test_directory_and_file_modes) ... ok
+test_expired_checkpoint_stays_locked (test_local_store.LocalStoreTests.test_expired_checkpoint_stays_locked) ... ok
+test_no_overwrite_and_duplicate_roles (test_local_store.LocalStoreTests.test_no_overwrite_and_duplicate_roles) ... ok
+test_restart_recovery_named_accounts_and_no_session_restore (test_local_store.LocalStoreTests.test_restart_recovery_named_accounts_and_no_session_restore) ... ok
+test_restore_backup_into_new_vault (test_local_store.LocalStoreTests.test_restore_backup_into_new_vault) ... ok
+test_revoke_persists_and_backup_no_overwrite (test_local_store.LocalStoreTests.test_revoke_persists_and_backup_no_overwrite) ... ok
+test_second_instance_and_wrong_passphrase (test_local_store.LocalStoreTests.test_second_instance_and_wrong_passphrase) ... ok
+test_upgrade_v092_checkpoint_preserves_source_and_adds_matching_schema (test_local_store.LocalStoreTests.test_upgrade_v092_checkpoint_preserves_source_and_adds_matching_schema) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 1.879s
+
+OK

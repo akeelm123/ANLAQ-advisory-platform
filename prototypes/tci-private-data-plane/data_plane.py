@@ -11,6 +11,7 @@ from validation_workflow import ValidationWorkflow
 from scoring import ScoringWorkflow
 from executive import ExecutiveWorkflow
 from reassessment import ReassessmentWorkflow
+from evidence_matching import MatchingWorkflow
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -81,6 +82,7 @@ class DataPlane:
         self.extraction_rules,self.extraction_schema_hash=load_schema(Path(__file__).with_name("extraction-schema.json"),sb)
         self.interviews=InterviewWorkflow(self,Invalid,Denied,required)
         self.validation=ValidationWorkflow(self,Invalid,Denied,required)
+        self.matching=MatchingWorkflow(self,Invalid,Denied,required)
         self.scoring=ScoringWorkflow(self,reg,Invalid,Denied,required,enable_pilot_scoring)
         self.executive=ExecutiveWorkflow(self,Invalid,Denied,required)
         self.reassessment=ReassessmentWorkflow(self,Invalid,Denied,required)

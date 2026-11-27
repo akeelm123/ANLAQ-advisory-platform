@@ -32,14 +32,25 @@ def seed_validation_demo(dp,aid,t):
     f=fixtures["Q03"];source("Q03",f["requestId"],f["text"],"contributor","Mock primary source owner")
     dp.validation.draft(t["assessor"],aid,"Q03",{"applicability":"applicable","condition":"unknown","evidenceClass":"E4","strength":"Not assessed","fieldsVerified":False,"comparable":False,"materialityReviewed":False,"requiresCorroboration":False,"documentaryConflict":False,"claim":"MOCK receipt alone — evidence not yet linked or reviewed","rationale":"Accepted source exists but precision and support not yet reviewed","owner":"Fictional assessment owner","followUp":"Link exact source citations and review","conditionalApplies":None,"refs":[],"claimIds":[]})
 
+def seed_matching_preview(dp,aid,t):
+    q="Q13";i=dp.interviews
+    sid=i.start(t["assessor"],aid,"Mock stakeholder","MATCH-MOCK-01","Mock business owner","Fictional matching demonstration only")
+    cid=i.record(t["assessor"],aid,sid,q,"answered","Weekly active usage was 80% of the same eligible population in Q2.","Unverified mock claim; compare period, population and measured actual",[],[])
+    items=[("PC-04","Mock actual usage report","Q2 weekly active usage: 70% of the same eligible population.\nEligible population: 100 mock users.","contributor","Mock usage owner"),("PC-01","Mock target and plan","Q3 adoption target: 90%.\nTraining is planned for Q3.","contributor2","Mock plan owner"),("PC-04","Mock separate operations report","Q2 weekly active usage: 70% of the same eligible population.\nOperational measurement is based on completed workflow.","contributor2","Mock operations owner")]
+    for request,title,text,role,owner in items:
+        v=dp.upload(t[role],aid,title,title+".txt",text.encode(),intake={"criterion":q,"requestId":request,"sourceOwner":owner,"period":"Mock Q2/Q3 comparison","sourceVersion":"1","locator":"Text line 1"})
+        dp.inspect_quarantine(t["assessor"],aid,v["versionId"]);dp.screen(t["assessor"],aid,v["versionId"],"accepted","Scripted mock format screening")
+    return dp.matching.propose(t["assessor"],aid,q,cid,"","ranked")
+
 def main():
-    p=argparse.ArgumentParser(description="Fictional document-backed validation demonstration only");p.add_argument("--port",type=int,default=8767);args=p.parse_args()
-    with DataPlaneContext() as dp:
-      aid=dp.bootstrap_assessment("Mock demonstration tenant","MOCK document-backed validation — NOT Aurora","Scripted structural example only; no actual client records")
+    p=argparse.ArgumentParser(description="Fictional document-backed validation demonstration only");p.add_argument("--port",type=int,default=8767);p.add_argument("--matching-preview",action="store_true");p.add_argument("--enable-local-model",action="store_true");args=p.parse_args()
+    with DataPlaneContext(args.enable_local_model) as dp:
+      aid=dp.bootstrap_assessment("Mock demonstration tenant","MOCK intelligent evidence matching — NOT Aurora" if args.matching_preview else "MOCK document-backed validation — NOT Aurora","Scripted structural example only; no actual client records")
       passwords={};tokens={}
       for name,role in [("contributor","contributor"),("contributor2","contributor"),("assessor","assessor"),("reviewer","reviewer"),("owner","owner")]:
         pw=secrets.token_urlsafe(24);uid=dp.bootstrap_user(name,pw);dp.bootstrap_membership(aid,uid,role);passwords[name]=pw;tokens[name]=dp.login(name,pw)
-      seed_validation_demo(dp,aid,tokens)
+      if args.matching_preview:seed_matching_preview(dp,aid,tokens)
+      else:seed_validation_demo(dp,aid,tokens)
       for t in tokens.values():dp.logout(t)
       def stop(*_):raise KeyboardInterrupt
       signal.signal(signal.SIGTERM,stop)
@@ -50,7 +61,8 @@ def main():
         except KeyboardInterrupt:pass
 
 class DataPlaneContext:
+    def __init__(self,model=False):self.model=model
     def __enter__(self):
-        self.dp=DataPlane(":memory:",secrets.token_bytes(32),secrets.token_bytes(32),REGISTER,SPEC);return self.dp
+        self.dp=DataPlane(":memory:",secrets.token_bytes(32),secrets.token_bytes(32),REGISTER,SPEC,enable_narrative=self.model);return self.dp
     def __exit__(self,*_):self.dp.close()
 if __name__=="__main__":main()

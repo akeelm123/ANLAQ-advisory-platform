@@ -181,4 +181,21 @@ class APITest(unittest.TestCase):
     c=self.dashboard("owner")[1]["reassessment"]["comparisons"][0]
     self.assertEqual(c["status"],"accept");self.assertEqual(len(c["payload"]["result"]["dimensions"]),7);self.assertIsNone(c["payload"]["result"]["pilot"])
     self.assertIsNone(self.dashboard("contributor")[1]["reassessment"]);self.assertEqual(self.post("release","owner",{})[0],403)
+ def test13_evidence_matching_human_link(self):
+    st,r=self.upload("PC-04","Q13",raw=b"Weekly active users: 70% adoption.");self.assertEqual(st,201);vid=r["record"]["versionId"]
+    self.assertEqual(self.post("inspect","assessor",{"versionId":vid})[0],200)
+    self.assertEqual(self.post("screen","assessor",{"versionId":vid,"decision":"accepted","reason":"Synthetic"})[0],200)
+    body={"criterion":"Q13","query":"Weekly active users: 80% adoption","mode":"ranked"}
+    self.assertEqual(self.post("matching-propose","contributor",body)[0],403)
+    st,r=self.post("matching-propose","assessor",body);self.assertEqual(st,201);rid=r["runId"]
+    result=next(x for x in self.dashboard("owner")[1]["matching"]["runs"] if x["id"]==rid)
+    c=next(c for c in result["candidates"] if c["versionId"]==vid);self.assertIn("possible_numeric_difference_check_basis",c["hints"])
+    review={"runId":rid,"candidateId":c["id"],"decision":"link","reason":"Synthetic relevance review","confirmed":True}
+    self.assertEqual(self.post("matching-review","assessor",review)[0],400)
+    self.assertEqual(self.post("preview","assessor",{"versionId":vid})[0],200)
+    self.assertEqual(self.post("matching-review","assessor",review)[0],201)
+    d=dict(criterion="Q13",applicability="applicable",condition="not_met",evidenceClass="E1",strength="Strong",fieldsVerified=True,comparable=True,materialityReviewed=True,requiresCorroboration=False,documentaryConflict=False,claim="Synthetic adverse condition",rationale="Synthetic rationale",owner="Fictional owner",conditionalApplies=None,refs=[],claimIds=[],matchIds=[c["id"]])
+    st,r=self.post("validation-draft","assessor",d);self.assertEqual(st,201);did=r["draftId"]
+    finding=next(x for x in self.dashboard("owner")[1]["validation"]["drafts"] if x["id"]==did);self.assertEqual(finding["state"]["state"],"review_pending");self.assertEqual(finding["payload"]["refs"][0]["quote"],c["quote"])
+    self.assertIsNone(self.dashboard("contributor")[1]["matching"])
 if __name__=="__main__":unittest.main(verbosity=2)

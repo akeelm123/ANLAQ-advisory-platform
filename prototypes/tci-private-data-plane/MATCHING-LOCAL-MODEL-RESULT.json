@@ -1,0 +1,41 @@
+{
+  "scope": "Synthetic only; human interpretation required",
+  "modelDigest": "17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7",
+  "query": "Weekly active usage was 80% of the same eligible population in Q2.",
+  "candidates": [
+    {
+      "id": "A",
+      "quote": "Q2 weekly active usage: 80% of the eligible population.",
+      "context": "Q2 weekly active usage: 80% of the eligible population."
+    },
+    {
+      "id": "B",
+      "quote": "Q2 weekly active usage: 70% of the same eligible population.",
+      "context": "Q2 weekly active usage: 70% of the same eligible population."
+    },
+    {
+      "id": "C",
+      "quote": "Q3 adoption target: 90%.",
+      "context": "Q3 adoption target: 90%."
+    }
+  ],
+  "labels": {
+    "A": "potential_support",
+    "B": "potential_conflict",
+    "C": "context_only"
+  },
+  "expected": {
+    "A": "potential_support",
+    "B": "potential_conflict",
+    "C": "context_only"
+  },
+  "complete": true,
+  "matchesExpected": 3,
+  "initialAttemptBeforeCoverageImprovement": {
+    "labels": {
+      "A": "potential_support",
+      "B": "potential_conflict"
+    },
+    "complete": false
+  }
+}

@@ -1,0 +1,1 @@
+PASS: synthetic discovery, verified exact quote, relevance refused before source preview, human-confirmed matching citation imported to draft, independent validation, owner supported condition, scoring locked, contributor isolation and mobile width.
