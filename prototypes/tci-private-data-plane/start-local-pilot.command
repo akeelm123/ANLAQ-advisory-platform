@@ -15,6 +15,6 @@ echo "Store: $DATA"
 if [[ ! -e "$DATA/current.tci" && ! -e "$DATA/salt.bin" ]]; then
   read "ANSWER?Create a new encrypted synthetic local vault and four named accounts? (yes/no): "
   [[ "$ANSWER" == "yes" ]] || exit 0
-  exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --initialize --open-browser
+  exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --initialize --auto-port --open-browser
 fi
-exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --open-browser
+exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --auto-port --open-browser

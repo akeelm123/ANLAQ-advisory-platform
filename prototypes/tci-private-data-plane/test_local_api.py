@@ -46,4 +46,16 @@ class LocalAPITests(unittest.TestCase):
     self.start(True);self.start(fail=True)
     self.assertEqual(self.upload()[0],503);self.assertEqual(self.dash("owner")[0],503)
     self.start();self.assertEqual(self.dash("owner")[1]["versions"],[])
+ def test_port_collision_uses_free_loopback_port(self):
+    from http.server import HTTPServer,BaseHTTPRequestHandler
+    from local_store import LocalStore
+    from local_pilot import make_server
+    from serve import REGISTER,SPEC
+    with HTTPServer(("127.0.0.1",0),BaseHTTPRequestHandler) as occupied:
+      with LocalStore(self.cfg["directory"],REGISTER,SPEC) as s:
+        s.initialize(self.cfg["passphrase"],self.cfg["accounts"])
+        with self.assertRaises(OSError):make_server(s,occupied.server_port)
+        with make_server(s,occupied.server_port,auto_port=True) as server:
+          self.assertNotEqual(server.server_port,occupied.server_port)
+          self.assertEqual(server.server_address[0],"127.0.0.1")
 if __name__=="__main__":unittest.main()
