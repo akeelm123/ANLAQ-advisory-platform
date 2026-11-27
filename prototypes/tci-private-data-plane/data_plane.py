@@ -10,6 +10,7 @@ from interviews import InterviewWorkflow
 from validation_workflow import ValidationWorkflow
 from scoring import ScoringWorkflow
 from executive import ExecutiveWorkflow
+from reassessment import ReassessmentWorkflow
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -82,6 +83,7 @@ class DataPlane:
         self.validation=ValidationWorkflow(self,Invalid,Denied,required)
         self.scoring=ScoringWorkflow(self,reg,Invalid,Denied,required,enable_pilot_scoring)
         self.executive=ExecutiveWorkflow(self,Invalid,Denied,required)
+        self.reassessment=ReassessmentWorkflow(self,Invalid,Denied,required)
     # Trusted local bootstrap only. No exposed self-service administrator endpoint.
     def bootstrap_user(self,username,password):
         username=required(username,"username")

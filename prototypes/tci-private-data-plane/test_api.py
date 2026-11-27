@@ -165,4 +165,20 @@ class APITest(unittest.TestCase):
     b=next(b for b in self.dashboard("owner")[1]["executive"]["briefs"] if b["id"]==bid)
     self.assertEqual(b["state"],"reviewed_with_gaps");self.assertTrue(b["directionCurrent"])
     self.assertIsNone(self.dashboard("contributor")[1]["executive"]);self.assertEqual(self.post("release","owner",{})[0],403)
+ def test12_reassessment_workflow(self):
+    ids=[]
+    for title,start,end in [("Baseline","2026-01-01","2026-03-31"),("Follow-up","2026-04-01","2026-06-30")]:
+      body={"label":title,"periodStart":start,"periodEnd":end,"basis":"Synthetic consistent population"}
+      self.assertEqual(self.post("reassessment-capture","contributor",body)[0],403)
+      st,r=self.post("reassessment-capture","assessor",body);self.assertEqual(st,201);sid=r["snapshotId"];ids.append(sid)
+      self.assertEqual(self.post("reassessment-snapshot-review","reviewer",{"snapshotId":sid,"decision":"accept","reason":"Synthetic","confirmed":True})[0],201)
+    snap=self.dashboard("owner")[1]["reassessment"]["snapshots"][0]
+    actions=[{"actionId":a["id"],"status":"open","rationale":"Still open","findingIds":[]} for a in (snap["payload"]["state"]["executive"] or {}).get("actions",[])]
+    body={"baselineId":ids[0],"followUpId":ids[1],"rationale":"Synthetic comparison","confirmed":True,"actions":actions}
+    st,r=self.post("reassessment-compare","assessor",body);self.assertEqual(st,201);cid=r["comparisonId"]
+    self.assertEqual(self.post("reassessment-comparison-review","owner",{"comparisonId":cid,"decision":"accept","reason":"Synthetic","confirmed":True})[0],403)
+    self.assertEqual(self.post("reassessment-comparison-review","reviewer",{"comparisonId":cid,"decision":"accept","reason":"Synthetic","confirmed":True})[0],201)
+    c=self.dashboard("owner")[1]["reassessment"]["comparisons"][0]
+    self.assertEqual(c["status"],"accept");self.assertEqual(len(c["payload"]["result"]["dimensions"]),7);self.assertIsNone(c["payload"]["result"]["pilot"])
+    self.assertIsNone(self.dashboard("contributor")[1]["reassessment"]);self.assertEqual(self.post("release","owner",{})[0],403)
 if __name__=="__main__":unittest.main(verbosity=2)

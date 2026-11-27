@@ -1,0 +1,1 @@
+PASS: Aurora synthetic accepted baseline and follow-up, superseded source support lost (not deterioration), independent snapshot and comparative review, withheld pilot score delta, locked production, contributor isolation and mobile width.

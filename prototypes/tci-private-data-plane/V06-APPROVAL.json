@@ -1,0 +1,10 @@
+{
+  "recordId": "TCI-V06-APR-001",
+  "approvedOn": "2026-11-27",
+  "approvedBy": "Project owner",
+  "status": "approved",
+  "candidate": "0.6.0-alpha.1",
+  "commit": "0d6682922132f4cc34d02035ae5f0a44c501c351",
+  "acceptanceSha256": "32d5e4fb13add012e330daa591de0ed711c44d63be6ab607698d9cb96da338d8",
+  "scope": "Owner accepted synthetic executive decision support and progression to reassessment. Incomplete evidence permits only reviewed Reassess in the synthetic candidate; production scoring, real-client processing, calibration and deployment remain gated."
+}

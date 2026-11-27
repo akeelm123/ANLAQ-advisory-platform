@@ -1,0 +1,11 @@
+test_action_closure_requires_supported_followup (test_reassessment.ReassessmentTests.test_action_closure_requires_supported_followup) ... ok
+test_complete_pilot_deltas (test_reassessment.ReassessmentTests.test_complete_pilot_deltas) ... ok
+test_condition_vs_support_and_historical_trace (test_reassessment.ReassessmentTests.test_condition_vs_support_and_historical_trace) ... ok
+test_period_order_basis_and_draft_staleness (test_reassessment.ReassessmentTests.test_period_order_basis_and_draft_staleness) ... ok
+test_role_isolation_and_immutable_snapshot (test_reassessment.ReassessmentTests.test_role_isolation_and_immutable_snapshot) ... ok
+test_snapshot_preview_and_independent_comparison (test_reassessment.ReassessmentTests.test_snapshot_preview_and_independent_comparison) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.611s
+
+OK

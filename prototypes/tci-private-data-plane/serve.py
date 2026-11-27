@@ -67,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"validation":None if role=="contributor" else self.dp.validation.view(token,aid),"pilotScoring":None if role=="contributor" else self.dp.scoring.view(token,aid),"executive":None if role=="contributor" else self.dp.executive.view(token,aid),"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"validation":None if role=="contributor" else self.dp.validation.view(token,aid),"pilotScoring":None if role=="contributor" else self.dp.scoring.view(token,aid),"executive":None if role=="contributor" else self.dp.executive.view(token,aid),"reassessment":None if role=="contributor" else self.dp.reassessment.view(token,aid),"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -121,6 +121,14 @@ class Handler(BaseHTTPRequestHandler):
                 return self.payload(201,{"reviewId":self.dp.executive.review(token,aid,data["briefId"],data["decision"],data["reason"],data["confirmed"])})
             elif action=="executive-direction":
                 return self.payload(201,{"directionId":self.dp.executive.direction(token,aid,data["briefId"],data["direction"],data["reason"],data["conditions"],data["confirmed"])})
+            elif action=="reassessment-capture":
+                return self.payload(201,{"snapshotId":self.dp.reassessment.capture(token,aid,data["periodStart"],data["periodEnd"],data["label"],data["basis"])})
+            elif action=="reassessment-snapshot-review":
+                return self.payload(201,{"reviewId":self.dp.reassessment.review_snapshot(token,aid,data["snapshotId"],data["decision"],data["reason"],data["confirmed"])})
+            elif action=="reassessment-compare":
+                return self.payload(201,{"comparisonId":self.dp.reassessment.compare(token,aid,data["baselineId"],data["followUpId"],data["rationale"],data["confirmed"],data["actions"])})
+            elif action=="reassessment-comparison-review":
+                return self.payload(201,{"reviewId":self.dp.reassessment.review_comparison(token,aid,data["comparisonId"],data["decision"],data["reason"],data["confirmed"])})
             elif action=="release":self.dp.release(token,aid)
             else:return self.payload(404,{"error":"Unknown route"})
             return self.payload(200,{"ok":True})
