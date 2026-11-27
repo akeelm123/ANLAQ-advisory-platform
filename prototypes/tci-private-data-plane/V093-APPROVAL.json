@@ -1,0 +1,11 @@
+{
+  "recordId":"TCI-V093-APR-001",
+  "approvedOn":"2026-11-27",
+  "approvedBy":"Project owner",
+  "status":"approved",
+  "candidate":"0.9.3-alpha.1",
+  "commit":"fc6cd23ab9c1959e3b8b58857588bde1d6f39c62",
+  "acceptanceSha256":"4e6478c8afff60cf3df7b05e68109e035abbec18500b5bfe6734f4ce16347a87",
+  "localModelResultSha256":"f7483c8d77242af769e5d3ec70b0ba4702ffb924a380add8222dc46ec3bda910",
+  "scope":"Owner accepted intelligent evidence matching candidate for synthetic local pilot. Human relevance confirmation and independent evidence review remain mandatory; no real-client processing, production scoring, external model access or deployment authorised."
+}

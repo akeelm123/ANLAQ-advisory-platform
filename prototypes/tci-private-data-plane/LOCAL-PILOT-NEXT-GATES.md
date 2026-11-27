@@ -1,0 +1,3 @@
+# Local pilot next acceptance gates
+2026-11-27 · v0.9.3 approved as a functional synthetic candidate
+Persistent local pilot architecture selected; matching accepted. Next: machine assurance and hands-on synthetic cohort UAT, including evidence upload, extraction, claim capture, matching, confirmation, independent validation, role rotation and encrypted restart/backup recovery. Verify FileVault/approved encrypted volume, screen lock, named human roles, data directory and custody, scanner isolation, retention/deletion, audit and anti-rollback design. Obtain assessor calibration agreement and separate owner go/no-go. No operational gate is inferred from functional acceptance. No real client records or production release.
