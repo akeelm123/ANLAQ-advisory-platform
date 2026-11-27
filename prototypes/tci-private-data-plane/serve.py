@@ -67,7 +67,7 @@ class Handler(BaseHTTPRequestHandler):
             # All operations, including viewing metadata, must first check assessment membership.
             role=self.dp._actor(token,aid,{"contributor","assessor","reviewer","owner"})["role"]
             if method=="GET" and action=="dashboard":
-                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"validation":None if role=="contributor" else self.dp.validation.view(token,aid),"pilotScoring":None if role=="contributor" else self.dp.scoring.view(token,aid),"executive":None if role=="contributor" else self.dp.executive.view(token,aid),"reassessment":None if role=="contributor" else self.dp.reassessment.view(token,aid),"releaseLocked":True})
+                return self.payload(200,{"role":role,"catalogue":self.dp.catalogue_view(token,aid),"versions":self.dp.list_versions(token,aid),"findings":[] if role=="contributor" else self.dp.list_findings(token,aid),"extractions":[] if role=="contributor" else self.dp.list_extractions(token,aid),"narrativeEnabled":self.dp.enable_narrative,"interviews":None if role=="contributor" else self.dp.interviews.view(token,aid),"validation":None if role=="contributor" else self.dp.validation.view(token,aid),"pilotScoring":None if role=="contributor" else self.dp.scoring.view(token,aid),"executive":None if role=="contributor" else self.dp.executive.view(token,aid),"reassessment":None if role=="contributor" else self.dp.reassessment.view(token,aid),"auroraPilot":self.server.aurora_summary if role!="contributor" and aid==self.server.aurora_assessment else None,"releaseLocked":True})
             if method!="POST":return self.payload(404,{"error":"Unknown route"})
             if action=="upload":
                 try:raw=base64.b64decode(data["contentBase64"],validate=True)
@@ -142,18 +142,24 @@ class Handler(BaseHTTPRequestHandler):
 def main():
     def stop(_signum,_frame):raise KeyboardInterrupt
     signal.signal(signal.SIGTERM,stop)
-    p=argparse.ArgumentParser(description="Synthetic-only loopback demo");p.add_argument("--port",type=int,default=8765);p.add_argument("--enable-local-model",action="store_true",help="Synthetic narrative local model opt-in");p.add_argument("--enable-pilot-scoring",action="store_true",help="Synthetic calibration only; never production scoring");args=p.parse_args()
+    p=argparse.ArgumentParser(description="Synthetic-only loopback demo");p.add_argument("--port",type=int,default=8765);p.add_argument("--enable-local-model",action="store_true",help="Synthetic narrative local model opt-in");p.add_argument("--enable-pilot-scoring",action="store_true",help="Synthetic calibration only; never production scoring");p.add_argument("--aurora-pilot-workbook",help="Opt-in hash-pinned fictional workbook test; scripted synthetic review actions");args=p.parse_args()
     with tempfile.TemporaryDirectory(prefix="tci-synthetic-") as tmp:
         dp=DataPlane(Path(tmp)/"synthetic.sqlite",secrets.token_bytes(32),secrets.token_bytes(32),REGISTER,SPEC,enable_narrative=args.enable_local_model,enable_pilot_scoring=args.enable_pilot_scoring)
         try:
-            aid=dp.bootstrap_assessment("Synthetic tenant","Synthetic transformation","Synthetic investment decision only; no real client data.")
+            aid=dp.bootstrap_assessment("Synthetic tenant","Aurora fictional workbook dry run" if args.aurora_pilot_workbook else "Synthetic transformation","Synthetic investment decision only; no real client data.")
             passwords={}
             for name,role in [("contributor","contributor"),("assessor","assessor"),("reviewer","reviewer"),("owner","owner")]:
                 pw=secrets.token_urlsafe(24);uid=dp.bootstrap_user(name,pw);dp.bootstrap_membership(aid,uid,role);passwords[name]=pw
             other=dp.bootstrap_assessment("Separate synthetic tenant","Separate assessment","Isolated synthetic assessment.")
             pw=secrets.token_urlsafe(24);uid=dp.bootstrap_user("other",pw);dp.bootstrap_membership(other,uid,"assessor");passwords["other"]=pw
+            aurora_summary=None
+            if args.aurora_pilot_workbook:
+                from aurora_pilot import source_case
+                tokens={role:dp.login(role,passwords[role]) for role in ("contributor","assessor","reviewer","owner")}
+                aurora_summary=source_case(dp,aid,tokens,args.aurora_pilot_workbook)
+                for token in tokens.values():dp.logout(token)
             with HTTPServer(("127.0.0.1",args.port),Handler) as server:
-                server.dp=dp
+                server.dp=dp;server.aurora_summary=aurora_summary;server.aurora_assessment=aid
                 # One-time local console credentials, randomly generated for this ephemeral session.
                 print(json.dumps({"url":f"http://127.0.0.1:{server.server_port}","users":passwords,"assessment":aid,"otherAssessment":other}),flush=True)
                 try:server.serve_forever()

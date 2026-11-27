@@ -1,0 +1,8 @@
+{
+  "version":"0.9.0-alpha.1",
+  "interviewSource":{"filename":"TCI_End_to_End_Interview_Pilot_Project_Aurora.xlsx","sha256":"d54159fa29a76c70d70a476d16533db961537e1c18dc6fdf5a1d2a40aa3fa1b5","sheet":"Interview test","rows":"8–36","scope":"Simulated interview responses and evidence pointers only; no referenced underlying source documents supplied"},
+  "calibrationSource":{"filename":"TCI_Calibration_Test_Cases.xlsx","sha256":"59ab7952d807898dca253b5fd196cb8d16a10d9b5238881f71e52c95f5480d15","scope":"Fictional dimension arithmetic; no assessment score"},
+  "mapping":{"IQ01":"Q01","IQ02":"Q02","IQ03":"Q03","IQ04":"Q04","IQ05":"Q07","IQ06":"Q05","IQ07":"Q06","IQ08":"Q08","IQ09":"Q09","IQ10":"Q10","IQ11":"Q11","IQ12":"Q12","IQ13":"Q13","IQ14":"Q15","IQ15":"Q14","IQ16":"Q16","IQ17":"Q17","IQ18":"Q19","IQ19":"Q18","IQ20":"Q19","IQ21":"Q21","IQ22":"Q22","IQ23":"Q23","IQ24":"Q24","IQ25":"Q25","IQ26":"Q26","IQ27":"Q27","IQ28":"Q28","IQ29":"Q02"},
+  "mappingNotes":["Match question meaning, not row position; IQ18 is supplemental common-measure evidence for Q19; IQ29 is supplemental investment-thesis context for Q02.","Q20 has no direct access/governance control response; conditional applicability unresolved.","IQ26 is additionally cross-referenced to Q25 as the programme explanation of the discrepant benefit figure, not a second independently verified factual source.","Source-reported contradiction flags identify unresolved issues, not verified documentary contradictions."],
+  "structuralFixture":"golden-fixtures.json: 28 labelled mock documents; never merged with Aurora source assessment."
+}
