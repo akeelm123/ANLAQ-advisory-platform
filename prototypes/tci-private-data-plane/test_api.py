@@ -145,4 +145,24 @@ class APITest(unittest.TestCase):
     body={"criterion":"Q01","validationId":"synthetic","score":3,"rationale":"Synthetic","operating":False,"redFlag":""}
     self.assertEqual(self.post("pilot-score-draft","assessor",body)[0],403)
     self.assertEqual(self.post("release","owner",{})[0],403)
+ def test11_executive_decision_workflow(self):
+    st,d=self.dashboard("owner");self.assertEqual(st,200)
+    snap=d["executive"]["snapshot"];self.assertEqual(len(snap["criteria"]),28)
+    ids=[c["validationId"] for c in snap["criteria"] if c["state"] in ("supported_met","supported_not_met")]
+    body={"title":"Synthetic executive brief","summary":"Fictional synthesis","limitations":"Incomplete fictional coverage","findingIds":ids,"options":[{"direction":"Correct","rationale":"Synthetic","consequences":"Synthetic"},{"direction":"Reassess","rationale":"Synthetic","consequences":"Synthetic"}],"actions":[{"condition":"Synthetic gap","owner":"Fictional sponsor","followUp":"Gather synthetic evidence"}]}
+    self.assertEqual(self.post("executive-draft","contributor",body)[0],403)
+    st,r=self.post("executive-draft","assessor",body);self.assertEqual(st,201);bid=r["briefId"]
+    direction={"briefId":bid,"direction":"Reassess","reason":"Fictional owner rationale","conditions":"Synthetic open gaps","confirmed":True}
+    self.assertEqual(self.post("executive-direction","owner",direction)[0],400)
+    review={"briefId":bid,"decision":"accept","reason":"Synthetic review","confirmed":True}
+    self.assertEqual(self.post("executive-review","assessor",review)[0],403)
+    for c in snap["criteria"]:
+      if c["state"] in ("supported_met","supported_not_met"):
+        for ref in c["refs"]:self.assertEqual(self.post("preview","reviewer",{"versionId":ref["versionId"]})[0],200)
+    self.assertEqual(self.post("executive-review","reviewer",review)[0],201)
+    self.assertEqual(self.post("executive-direction","owner",dict(direction,direction="Correct"))[0],400)
+    self.assertEqual(self.post("executive-direction","owner",direction)[0],201)
+    b=next(b for b in self.dashboard("owner")[1]["executive"]["briefs"] if b["id"]==bid)
+    self.assertEqual(b["state"],"reviewed_with_gaps");self.assertTrue(b["directionCurrent"])
+    self.assertIsNone(self.dashboard("contributor")[1]["executive"]);self.assertEqual(self.post("release","owner",{})[0],403)
 if __name__=="__main__":unittest.main(verbosity=2)

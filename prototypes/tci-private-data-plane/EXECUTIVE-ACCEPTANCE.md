@@ -1,0 +1,18 @@
+# v0.6.0-alpha.1 — executive decision support candidate
+
+## Authority and limits
+Owner accepted v0.5 on 2026-11-27 (V05-APPROVAL.json); V06-RELEASE-PLAN.md defines the scope. Synthetic only. No real-client decision, public deployment or production scoring. Pilot score values do not drive decision direction, bands or risk caps.
+
+## Delivered controls
+- Current summary of all 28 validation criteria, explicitly separating supported met, supported adverse and insufficient/contradictory/superseded states. Source IDs, quotes, locators, digests, rationale, owners, follow-up, request status/last update and competing stakeholder accounts plus reconciliation records are traceable.
+- Human-authored brief with explicit linked independently supported findings, residual uncertainty, distinct considered options with rationale/consequences, and accountable conditions/actions.
+- Encrypted immutable evidence snapshot, methodology hashes and SHA-256 fingerprint. Any changed current evidence state, source version or request update, contradiction/reconciliation, validation or newer brief supersedes the original. Historical records, review and direction retained.
+- Independent reviewer confirms conclusions, options, current findings and residual gaps, and must have previewed all current supported and reconciliation sources. Review of an incomplete brief is explicitly not substantive decision readiness.
+- Explicit owner-selected direction from reviewed options. Conservative synthetic gate: incomplete 28-criterion coverage or an unresolved material conflict permits only Reassess; no default direction. Complete structural coverage permits a considered option only after review, with owner rationale and residual conditions. This restriction is a candidate control, not a new authorised production methodology rule.
+- Contributor is excluded; all records are scoped, encrypted, immutable and audited. Production release remains denied.
+
+## Verification (2026-11-27)
+224 in-process tests passed including nine new executive tests: gap-only brief; adverse vs unknown; exact evidence trace and independent preview; complete 28-criterion structural workflow; explicit owner choice; invalidation on source changes, request updates, validation, interview contradiction and reconciliation; returns and newer briefs; role isolation; immutable encrypted records; option and action validation. 11 API tests passed including the complete executive route and the default-off scoring gate. The new synthetic Aurora browser workflow passed: one independently validated criterion, two human considered options, accountable action, independent review with gaps and explicit Reassess; production locked, contributor isolation, logout and mobile width. Prior v0.5 scoring browser regression passed. See V06-SERVICE-TEST-RESULTS.txt, V06-API-TEST-RESULTS.txt, EXECUTIVE-TEST-RESULTS.txt, EXECUTIVE-BROWSER-RESULTS.txt and V06-SCORING-BROWSER-RESULTS.txt.
+
+## Remaining gates
+The complete-coverage test is structural synthetic evidence, not a semantically calibrated consulting engagement. Aurora browser demonstration is intentionally incomplete; no final assessment or investment recommendation is made. The browser draft form currently supports two options and one action per brief, while the service supports two to five options and up to 28 actions. This workbench does not generate a client-ready PDF, connect to real stakeholders or automatically author executive conclusions. Prior optional model-specific browser workflows have not been rerun; v0.5 calibration, Atlas rounding, risk thresholds, N/A treatment, operational security, real-client authorisation, formal v0.6 acceptance and public release all remain separately gated.

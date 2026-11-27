@@ -1,0 +1,1 @@
+PASS: Aurora synthetic evidence validation, explicit score anchor proposal, independent score review, owner 1/28 coverage, canonical withheld, production locked, contributor isolation and mobile width.

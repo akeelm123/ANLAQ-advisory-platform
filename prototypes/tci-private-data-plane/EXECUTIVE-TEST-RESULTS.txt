@@ -1,0 +1,14 @@
+test_adverse_vs_unknown_and_exact_trace (test_executive.ExecutiveTests.test_adverse_vs_unknown_and_exact_trace) ... ok
+test_complete_28_supported_and_explicit_human_direction (test_executive.ExecutiveTests.test_complete_28_supported_and_explicit_human_direction) ... ok
+test_distinct_options_and_action_fields (test_executive.ExecutiveTests.test_distinct_options_and_action_fields) ... ok
+test_gap_only_review_is_not_substantive_direction (test_executive.ExecutiveTests.test_gap_only_review_is_not_substantive_direction) ... ok
+test_material_conflict_reconciliation_invalidates_brief (test_executive.ExecutiveTests.test_material_conflict_reconciliation_invalidates_brief) ... ok
+test_new_brief_and_return (test_executive.ExecutiveTests.test_new_brief_and_return) ... ok
+test_request_update_and_latest_validation_invalidate (test_executive.ExecutiveTests.test_request_update_and_latest_validation_invalidate) ... ok
+test_role_isolation_and_immutability (test_executive.ExecutiveTests.test_role_isolation_and_immutability) ... ok
+test_source_supersession_and_historical_direction (test_executive.ExecutiveTests.test_source_supersession_and_historical_direction) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.418s
+
+OK
