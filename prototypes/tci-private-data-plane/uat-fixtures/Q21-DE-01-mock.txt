@@ -1,0 +1,9 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q21
+Delivery period: FY26 Q2
+flow metric definitions: Mock cycle-time definition
+commitments: Four fictional committed releases
+actual release dates: 2026-04-01; 2026-05-01
+throughput/cycle time: 4 fictional releases; 3 fictional days
+dependencies: Mock integration dependency
+Unrecognised note: Synthetic noise; no inferred values.

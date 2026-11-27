@@ -54,3 +54,6 @@ Approved Option A. On the owner's Mac double-click start-local-pilot.command, co
 
 ## Intelligent evidence matching (v0.9.3-alpha.1)
 Section 08a searches accepted current sources for a criterion/optional interview claim, shows exact citations and potential discrepancies. Preview original document, explicitly confirm mapped relevance or reject, select confirmed citations in the validation draft and separately obtain independent validation review. Unmapped discovery candidates cannot be imported. Ranked local discovery works without model. For optional fixed-loopback model labels only in an explicitly enabled synthetic demo, use validation_demo.py --matching-preview --enable-local-model --port 8768. See MATCHING-ACCEPTANCE.md. No actual client inputs or automatic scores.
+
+## Local pilot user acceptance (0.9.3-uat.1)
+Run the synthetic complete persistent API rehearsal with pinned paths: python -m unittest -v test_local_full_uat.py. See LOCAL-HUMAN-UAT.md and uat-fixtures/UAT-FIXTURE-MANIFEST.json for independent human testing. Run local_machine_check.py for private read-only machine checks; do not publish its device-specific output. No operational gate is automatically accepted. See LOCAL-UAT-ACCEPTANCE.md.

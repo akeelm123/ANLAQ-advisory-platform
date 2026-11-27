@@ -1,0 +1,7 @@
+test_complete_persistent_lifecycle_and_recovery (test_local_full_uat.LocalLifecycleUAT.test_complete_persistent_lifecycle_and_recovery) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 1.750s
+
+OK
+PASS: 28 criteria and exact source extraction, seven claim-linked matches, material conflict reconciliation, 28 reviewed findings, two accepted periods, source supersession, reviewed action closure, restart, new-vault encrypted recovery; persistent scoring disabled.

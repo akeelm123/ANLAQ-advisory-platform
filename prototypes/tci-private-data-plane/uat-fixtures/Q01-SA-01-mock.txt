@@ -1,0 +1,8 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q01
+Approved strategy objective: Reduce fictional processing delay
+original problem: Manual fictional approval queues
+business case scope: Synthetic intake workflow
+funding decision date: 2026-01-10
+current mandate and outcomes: Synthetic mandate: shorten processing time
+Unrecognised note: Synthetic noise; no inferred values.

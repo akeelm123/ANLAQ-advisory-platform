@@ -1,0 +1,10 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q05
+Decision ID: DEC-SYN-01
+materiality: Decision-critical to fictional scope
+raised date: 2026-03-01
+required-by date: 2026-03-10
+actual decision date: 2026-03-09
+owner: Synthetic sponsor
+decision and rationale: Approve fictional scope with documented rationale
+Unrecognised note: Synthetic noise; no inferred values.

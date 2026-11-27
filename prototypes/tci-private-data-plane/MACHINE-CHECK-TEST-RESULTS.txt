@@ -1,0 +1,7 @@
+test_filevault_states_fail_closed (test_local_machine_check.MachineCheckTests.test_filevault_states_fail_closed) ... ok
+test_never_infers_operational_approval (test_local_machine_check.MachineCheckTests.test_never_infers_operational_approval) ... ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+
+OK

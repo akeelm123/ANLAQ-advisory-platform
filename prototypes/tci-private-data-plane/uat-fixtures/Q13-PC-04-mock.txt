@@ -1,0 +1,10 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q13
+Target user/process population: Fictional operations workflow population
+eligible denominator: 100 fictional eligible users
+active users: 70 fictional active users
+usage definition: Mock completed target workflow within period
+period: FY26 Q2
+adoption target: 80 fictional users
+process evidence: Synthetic sampled workflow evidence
+Unrecognised note: Synthetic noise; no inferred values.

@@ -1,7 +1,7 @@
 {
-  "version": "0.9.1-readiness.1",
+  "version": "0.9.3-uat.1",
   "requiredGates": 13,
-  "localVerified": 4,
+  "localVerified": 8,
   "operationalAccepted": 0,
   "pilotDeployment": "blocked",
   "production": "locked",
@@ -17,22 +17,22 @@
       "id": "P02",
       "name": "Private hosting and access boundary",
       "owner": "Infrastructure owner",
-      "status": "open",
-      "evidence": "Approved environment architecture, private ingress and independent isolation assurance"
+      "status": "local_verified",
+      "evidence": "Selected local architecture; loopback-only application and alternate-port behavior verified; machine assurance and independent operational review open"
     },
     {
       "id": "P03",
       "name": "Production identity and role lifecycle",
       "owner": "Identity owner",
-      "status": "open",
-      "evidence": "Identity-provider configuration, MFA, membership lifecycle, session policy and role separation acceptance"
+      "status": "local_verified",
+      "evidence": "Named local accounts, separate role permissions, fresh login and persistent revocation verified using generated synthetic users; human identity/OS account lifecycle not accepted"
     },
     {
       "id": "P04",
       "name": "Tenant isolation and authorisation",
       "owner": "Independent assurance reviewer",
       "status": "local_verified",
-      "evidence": "Synthetic role tests and revoked membership recovery; hosted controls not validated"
+      "evidence": "Synthetic role/assessment boundaries, contributor exclusion and independent review guards verified; independent operational assurance open"
     },
     {
       "id": "P05",
@@ -46,21 +46,21 @@
       "name": "Encrypted storage and recovery",
       "owner": "Data platform owner",
       "status": "local_verified",
-      "evidence": "Offline encrypted synthetic archive and in-memory recovery tests; hosted durable storage and managed keys open"
+      "evidence": "Persistent encrypted checkpoint, atomic failure refusal, full 28-criterion restart and new-vault archive recovery verified on mock inputs; machine encryption/custody open"
     },
     {
       "id": "P07",
       "name": "Retention and lifecycle",
       "owner": "Data protection owner",
       "status": "local_verified",
-      "evidence": "Synthetic expiry check only; approved retention and deletion of hosted data/backups open"
+      "evidence": "Synthetic maximum archive expiry verified; approved retention, deletion and backup lifecycle open"
     },
     {
       "id": "P08",
       "name": "Audit and operational response",
       "owner": "Operations owner",
       "status": "local_verified",
-      "evidence": "Audit chain verified on synthetic recovery; durable external audit and incident response open"
+      "evidence": "Audit verification on full lifecycle and recovery; external audit/anti-rollback/incident assurance open"
     },
     {
       "id": "P09",
@@ -87,15 +87,15 @@
       "id": "P12",
       "name": "Operational reliability and support",
       "owner": "Operations owner",
-      "status": "open",
-      "evidence": "Hosted backup/restore, monitoring, performance, rollback and recovery exercise"
+      "status": "local_verified",
+      "evidence": "Complete persistent mock lifecycle, restart/backup recovery and failure handling verified; independent local operations/availability acceptance open"
     },
     {
       "id": "P13",
       "name": "Pilot UAT and go/no-go",
       "owner": "Project owner",
-      "status": "open",
-      "evidence": "Authorised cohort, scenario acceptance, defect closure and separate signed go/no-go"
+      "status": "local_verified",
+      "evidence": "Scripted complete local synthetic lifecycle test passed; actual independent human UAT, named cohort, defect closure and go/no-go remain open"
     }
   ]
 }

@@ -1,0 +1,9 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q17
+Critical data element: CDE-SYN-01
+named accountable data owner: Synthetic data owner
+scope: Mock intake data
+agreed responsibility: Mock accepted responsibility
+quality measures: Fictional completeness metric
+decision impact: Synthetic decision dependency
+Unrecognised note: Synthetic noise; no inferred values.

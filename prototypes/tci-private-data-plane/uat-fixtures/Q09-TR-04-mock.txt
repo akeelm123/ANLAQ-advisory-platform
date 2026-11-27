@@ -1,0 +1,9 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q09
+Intended workload/scale: 100 fictional requests/minute
+architecture version: Synthetic architecture v2
+required performance/security/recovery conditions: Mock agreed performance/security/recovery requirements
+test results: Synthetic test report: 100 fictional requests/minute
+exceptions: One fictional exception recorded
+dependencies: Mock external integration
+Unrecognised note: Synthetic noise; no inferred values.

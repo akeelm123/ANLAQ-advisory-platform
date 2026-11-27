@@ -1,0 +1,10 @@
+SYNTHETIC TEST DATA — not an assessment
+Criterion: Q25
+Original approved benefit ID/baseline: BEN-SYN-01; 10 fictional days
+target: 5 fictional days
+measure basis: Calendar days per fictional case
+period: FY26 Q2
+owner: Synthetic benefit owner
+approved changes: Mock approved revision CH-01
+current expectation: 6 fictional days
+Unrecognised note: Synthetic noise; no inferred values.

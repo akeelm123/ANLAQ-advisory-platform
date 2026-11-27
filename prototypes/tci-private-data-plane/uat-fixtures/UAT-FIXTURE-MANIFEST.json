@@ -1,0 +1,89 @@
+{
+  "scope": "Fictional existing mock fixtures only; not Aurora records or semantic assessment",
+  "sources": [
+    {
+      "criterion": "Q01",
+      "requestId": "SA-01",
+      "filename": "Q01-SA-01-mock.txt",
+      "sha256": "e502fd1cc0e6898c9800b714645173788ece0876bfca8163310a70b314662c7f",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Approved strategy objective: Reduce fictional processing delay",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q05",
+      "requestId": "LC-01",
+      "filename": "Q05-LC-01-mock.txt",
+      "sha256": "644122dc7bd285c44879240c54dea94ce5638f62185b5eb03e11801ec078ac11",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Decision ID: DEC-SYN-01",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q09",
+      "requestId": "TR-04",
+      "filename": "Q09-TR-04-mock.txt",
+      "sha256": "3075448d2061bf9fb2554fc7a6d0c79686f4ab20bef49056c2cd4ea3f89867b9",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Intended workload/scale: 100 fictional requests/minute",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q13",
+      "requestId": "PC-04",
+      "filename": "Q13-PC-04-mock.txt",
+      "sha256": "4a01fbc1d174cb57a20b06b842b20333414c72c9bca241c52d5e360545474ff9",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Target user/process population: Fictional operations workflow population",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q17",
+      "requestId": "DC-01",
+      "filename": "Q17-DC-01-mock.txt",
+      "sha256": "320373e179f25765a36a369e373a548aeb2e28a1b681c9ef15b4fbbdb58d6eca",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Critical data element: CDE-SYN-01",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q21",
+      "requestId": "DE-01",
+      "filename": "Q21-DE-01-mock.txt",
+      "sha256": "1c0944acf231e9bd2d65605478e31c2afe9082a485c5b54e8f45a5370bb1547a",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Delivery period: FY26 Q2",
+      "expectedLocator": "Text line 3"
+    },
+    {
+      "criterion": "Q25",
+      "requestId": "BV-01",
+      "filename": "Q25-BV-01-mock.txt",
+      "sha256": "67085106abb62edee91dffc2a05b179c81a19d4bb5db9e0287b8fa674184a9b3",
+      "sourceOwner": "Fictional UAT owner",
+      "period": "Mock FY26",
+      "sourceVersion": "1",
+      "intakeLocator": "Text fixture",
+      "expectedFirstQuote": "Original approved benefit ID/baseline: BEN-SYN-01; 10 fictional days",
+      "expectedLocator": "Text line 3"
+    }
+  ]
+}
