@@ -1,0 +1,11 @@
+test_archive_authentication_and_keys (test_pilot_storage.PilotStorageTests.test_archive_authentication_and_keys) ... ok
+test_expiry_and_confirmation (test_pilot_storage.PilotStorageTests.test_expiry_and_confirmation) ... ok
+test_integrated_aurora_recovery (test_pilot_storage.PilotStorageTests.test_integrated_aurora_recovery) ... ok
+test_methodology_and_independent_keys (test_pilot_storage.PilotStorageTests.test_methodology_and_independent_keys) ... ok
+test_no_overwrite_and_revoked_membership_preserved (test_pilot_storage.PilotStorageTests.test_no_overwrite_and_revoked_membership_preserved) ... ok
+test_recovery_round_trip_and_sessions_stripped (test_pilot_storage.PilotStorageTests.test_recovery_round_trip_and_sessions_stripped) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.038s
+
+OK

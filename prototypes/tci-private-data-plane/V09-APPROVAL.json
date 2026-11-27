@@ -1,0 +1,10 @@
+{
+  "recordId": "TCI-V09-APR-001",
+  "approvedOn": "2026-11-27",
+  "approvedBy": "Project owner",
+  "status": "approved",
+  "candidate": "0.9.0-alpha.1",
+  "commit": "3b005e3aba0f294e4214995e0109ca094020b057",
+  "acceptanceSha256": "7cd40fc0b655a735b0612056d5f9ee3475f8d5b4a2a9d511a35e00dd174f6c69",
+  "scope": "Owner accepted integrated synthetic Aurora prototype and authorised private pilot readiness preparation. No real-client processing, production scoring, hosting deployment, external access or production release authorised."
+}

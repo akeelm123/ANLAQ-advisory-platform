@@ -1,0 +1,21 @@
+{
+  "version":"0.9.1-readiness.1",
+  "mode":"synthetic-local-only",
+  "deploymentAuthorised":false,
+  "realClientAuthorised":false,
+  "gates":[
+    {"id":"P01","name":"Pilot charter and participants","owner":"Project owner","status":"open","evidence":"Signed scope, named pilot users, authorised input classes and explicit pilot approval"},
+    {"id":"P02","name":"Private hosting and access boundary","owner":"Infrastructure owner","status":"open","evidence":"Approved environment architecture, private ingress and independent isolation assurance"},
+    {"id":"P03","name":"Production identity and role lifecycle","owner":"Identity owner","status":"open","evidence":"Identity-provider configuration, MFA, membership lifecycle, session policy and role separation acceptance"},
+    {"id":"P04","name":"Tenant isolation and authorisation","owner":"Independent assurance reviewer","status":"local_verified","evidence":"Synthetic role tests and revoked membership recovery; hosted controls not validated"},
+    {"id":"P05","name":"Evidence intake and parser assurance","owner":"Security owner","status":"open","evidence":"Approved isolated parser and scanning/quarantine process; operational assurance"},
+    {"id":"P06","name":"Encrypted storage and recovery","owner":"Data platform owner","status":"local_verified","evidence":"Offline encrypted synthetic archive and in-memory recovery tests; hosted durable storage and managed keys open"},
+    {"id":"P07","name":"Retention and lifecycle","owner":"Data protection owner","status":"local_verified","evidence":"Synthetic expiry check only; approved retention and deletion of hosted data/backups open"},
+    {"id":"P08","name":"Audit and operational response","owner":"Operations owner","status":"local_verified","evidence":"Audit chain verified on synthetic recovery; durable external audit and incident response open"},
+    {"id":"P09","name":"Privacy and stakeholder authority","owner":"Data protection owner","status":"open","evidence":"Approved privacy notices, consent/authority, minimisation, handling and deletion process"},
+    {"id":"P10","name":"Model governance","owner":"Methodology owner","status":"open","evidence":"Approved processing locality, model scope, reproducibility and human review assurance"},
+    {"id":"P11","name":"Scoring and assessor calibration","owner":"Methodology owner","status":"open","evidence":"Independent assessors, labelled cases, threshold/rounding/N/A decisions and acceptance"},
+    {"id":"P12","name":"Operational reliability and support","owner":"Operations owner","status":"open","evidence":"Hosted backup/restore, monitoring, performance, rollback and recovery exercise"},
+    {"id":"P13","name":"Pilot UAT and go/no-go","owner":"Project owner","status":"open","evidence":"Authorised cohort, scenario acceptance, defect closure and separate signed go/no-go"}
+  ]
+}
