@@ -1,0 +1,11 @@
+{
+  "recordId": "TCI-V05-APR-001",
+  "approvedOn": "2026-11-27",
+  "approvedBy": "Project owner",
+  "status": "approved",
+  "candidate": "0.5.0-alpha.1",
+  "commit": "3f54b0d863a39b3e1ca3589c93ea94b033a55990",
+  "acceptanceSha256": "7d4602cf1151b12241113aeeec7b3e8e993d01afdf7aca1cf7da4973cf8dcfad",
+  "calibrationFixturesSha256": "5932246a1b249f1fe1c7f0c4f7def09d3d22cbf23d19294582204b2973305d0b",
+  "scope": "Owner accepted the restricted synthetic scoring candidate for progression to executive decision support. Cross-assessor and real-world calibration, rounding and risk thresholds, production scoring, real-client processing and public deployment remain separately gated."
+}
