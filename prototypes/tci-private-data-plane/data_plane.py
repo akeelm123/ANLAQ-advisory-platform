@@ -8,6 +8,7 @@ from document_parser import parse_document,extract_document,UnsupportedDocument,
 from narrative import extract_narrative,NarrativeUnavailable
 from interviews import InterviewWorkflow
 from validation_workflow import ValidationWorkflow
+from scoring import ScoringWorkflow
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -24,7 +25,7 @@ def password_hash(password,salt):
     return hashlib.scrypt(password.encode(),salt=salt,n=2**14,r=8,p=1,dklen=32)
 
 class DataPlane:
-    def __init__(self,path,key,audit_key,register_path,spec_path,clock=time.time,enable_narrative=False):
+    def __init__(self,path,key,audit_key,register_path,spec_path,clock=time.time,enable_narrative=False,enable_pilot_scoring=False):
         self.enable_narrative=enable_narrative is True
         if len(key)!=32 or len(audit_key)!=32 or key==audit_key:raise Invalid("Independent 32-byte encryption and audit keys required")
         self.key=key; self.audit_key=audit_key; self.clock=clock; self.db=sqlite3.connect(path); self.db.row_factory=sqlite3.Row
@@ -78,6 +79,7 @@ class DataPlane:
         self.extraction_rules,self.extraction_schema_hash=load_schema(Path(__file__).with_name("extraction-schema.json"),sb)
         self.interviews=InterviewWorkflow(self,Invalid,Denied,required)
         self.validation=ValidationWorkflow(self,Invalid,Denied,required)
+        self.scoring=ScoringWorkflow(self,reg,Invalid,Denied,required,enable_pilot_scoring)
     # Trusted local bootstrap only. No exposed self-service administrator endpoint.
     def bootstrap_user(self,username,password):
         username=required(username,"username")

@@ -139,4 +139,10 @@ class APITest(unittest.TestCase):
     result=next(x for x in self.dashboard("owner")[1]["validation"]["drafts"] if x["id"]==did)
     self.assertEqual(result["state"]["state"],"supported_met");self.assertFalse(result["scoringEligible"])
     self.assertIsNone(self.dashboard("contributor")[1]["validation"])
+ def test10_pilot_scoring_disabled_by_default(self):
+    self.assertEqual(self.dashboard("owner")[1]["pilotScoring"],{"enabled":False,"finalScoringLocked":True})
+    self.assertIsNone(self.dashboard("contributor")[1]["pilotScoring"])
+    body={"criterion":"Q01","validationId":"synthetic","score":3,"rationale":"Synthetic","operating":False,"redFlag":""}
+    self.assertEqual(self.post("pilot-score-draft","assessor",body)[0],403)
+    self.assertEqual(self.post("release","owner",{})[0],403)
 if __name__=="__main__":unittest.main(verbosity=2)

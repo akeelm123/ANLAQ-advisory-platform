@@ -1,0 +1,52 @@
+{
+  "source": "TCI_Calibration_Test_Cases.xlsx",
+  "sha256": "59ab7952d807898dca253b5fd196cb8d16a10d9b5238881f71e52c95f5480d15",
+  "scope": "Fictional dimension-level arithmetic only; not validation or approved thresholds",
+  "cases": [
+    {
+      "case": "Case 1 - Northstar",
+      "sourceRows": "5\u201311",
+      "scores": {
+        "Strategic Alignment": "4.4",
+        "Leadership Commitment": "4.2",
+        "Technology Readiness": "4.1",
+        "People & Culture": "4",
+        "Data & AI Confidence": "3.7",
+        "Delivery Excellence": "4",
+        "Business Value Realisation": "4.3"
+      },
+      "workbookSummary": "4.11",
+      "exact": "4.110"
+    },
+    {
+      "case": "Case 2 - Aurora",
+      "sourceRows": "5\u201311",
+      "scores": {
+        "Strategic Alignment": "3.3",
+        "Leadership Commitment": "3",
+        "Technology Readiness": "4",
+        "People & Culture": "2.4",
+        "Data & AI Confidence": "3.1",
+        "Delivery Excellence": "3.8",
+        "Business Value Realisation": "2.1"
+      },
+      "workbookSummary": "3.09",
+      "exact": "3.090"
+    },
+    {
+      "case": "Case 3 - Atlas",
+      "sourceRows": "5\u201311",
+      "scores": {
+        "Strategic Alignment": "2",
+        "Leadership Commitment": "1.9",
+        "Technology Readiness": "2.2",
+        "People & Culture": "1.8",
+        "Data & AI Confidence": "1.7",
+        "Delivery Excellence": "2",
+        "Business Value Realisation": "1.5"
+      },
+      "workbookSummary": "1.85",
+      "exact": "1.855"
+    }
+  ]
+}

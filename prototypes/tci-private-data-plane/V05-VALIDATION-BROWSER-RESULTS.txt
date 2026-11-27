@@ -1,0 +1,1 @@
+PASS: Aurora synthetic upload, screening, exact citation, assessor draft, review blocked before preview, independent acceptance, owner supported condition, locked scoring/release, contributor isolation, logout and mobile width.

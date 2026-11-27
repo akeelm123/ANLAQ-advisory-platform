@@ -1,0 +1,10 @@
+{
+  "recordId": "TCI-V04-APR-001",
+  "approvedOn": "2026-11-27",
+  "approvedBy": "Project owner",
+  "status": "approved",
+  "candidate": "0.4.0-alpha.1",
+  "commit": "cc1bcd0a93b43f95d67dbfc03941c15beeca652d",
+  "acceptanceSha256": "37f668d6c66ecab6f06e3b12e9098066fe9060febb907e648ba1f6ed17256466",
+  "scope": "Synthetic v0.4 acceptance and progression to restricted scoring development. Calibration, real-client use, production scoring and public deployment remain separately gated."
+}

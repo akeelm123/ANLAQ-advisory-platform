@@ -1,0 +1,12 @@
+test_calibration_workbook_three_cases (test_scoring.ScoringTests.test_calibration_workbook_three_cases) ... ok
+test_full_28_reviewed_anchors_and_personas (test_scoring.ScoringTests.test_full_28_reviewed_anchors_and_personas) ... ok
+test_missing_not_default_and_adverse (test_scoring.ScoringTests.test_missing_not_default_and_adverse) ... ok
+test_new_unreviewed_proposal_withholds_old (test_scoring.ScoringTests.test_new_unreviewed_proposal_withholds_old) ... ok
+test_review_and_sustained_evidence (test_scoring.ScoringTests.test_review_and_sustained_evidence) ... ok
+test_roles_and_default_disabled (test_scoring.ScoringTests.test_roles_and_default_disabled) ... ok
+test_supersession_and_new_validation (test_scoring.ScoringTests.test_supersession_and_new_validation) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.354s
+
+OK
