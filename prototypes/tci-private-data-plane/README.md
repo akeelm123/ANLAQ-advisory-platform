@@ -48,3 +48,6 @@ The integrated app remains v0.9 synthetic loopback only. The offline storage ref
 
 ## Architecture choices (0.9.1-readiness.2)
 See PRIVATE-PILOT-ARCHITECTURE.md for local workstation and AWS Singapore reference options. Run python pilot_architecture.py and python -m unittest -v test_pilot_architecture.py for offline design contract checks. No deployment or operational gate accepted; choose an option and obtain independent design review before implementation.
+
+## Persistent local pilot (v0.9.2-alpha.1)
+Approved Option A. On the owner's Mac double-click start-local-pilot.command, confirm fictional-only use and create/unlock the named-account encrypted vault. See LOCAL-PILOT-START.md for exact startup, backup and recovery procedures and LOCAL-PILOT-ACCEPTANCE.md for tests and limitations. The existing serve.py launcher remains ephemeral synthetic mode. Run the additional test_local_store.py and test_local_api.py suites and browser-local-pilot-smoke.cjs with pinned methodology paths. No actual user vault, cloud deployment, production scoring or real-client processing authorised.

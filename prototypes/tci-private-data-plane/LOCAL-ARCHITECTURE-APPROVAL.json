@@ -1,0 +1,9 @@
+{
+  "recordId":"TCI-LOCAL-ARCH-APR-001",
+  "approvedOn":"2026-11-27",
+  "approvedBy":"Project owner",
+  "selectedOption":"A — Local workstation",
+  "architectureCommit":"600ccab0077ec13ce63bc80897076053d2611b7b",
+  "architectureSha256":"43932f05d3e934a7bbd3635a1720f4e7d5feb261355a2f2e6ba12a3bef6e1f5b",
+  "scope":"Owner selected Option A and approved persistent local pilot implementation. Synthetic-only loopback, no cloud deployment, real-client use, production scoring or operational security acceptance. Machine security and named cohort remain separate gates."
+}
