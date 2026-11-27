@@ -1,0 +1,6 @@
+test_mock_evidence_matches_and_distinguishes_receipt (test_validation_demo.ValidationDemoTests.test_mock_evidence_matches_and_distinguishes_receipt) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.239s
+
+OK
