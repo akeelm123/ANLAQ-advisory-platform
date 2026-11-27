@@ -1,0 +1,11 @@
+{
+  "recordId":"TCI-V03-APR-001",
+  "approvedOn":"2026-11-27",
+  "approvedBy":"Project owner",
+  "status":"approved",
+  "candidate":"0.3.0-alpha.1",
+  "commit":"5219769b218db8dcea52943e9a54d836513a6c6b",
+  "acceptanceSha256":"0e3891e9bc88c0ca2bd9082221b600d9a5dc9676e86ccf80b3a79a9a2ca2ee4d",
+  "benchmarkSha256":"7e3ce4c21b324d946160b4422a56a3baf689d9db51fd66ce03b11b79d6b90c66",
+  "scope":"Owner approved the synthetic stakeholder interview candidate for progression to evidence validation and triangulation. No real-client processing, recording, automated interviews or decisions, scoring, infrastructure deployment or public release authorised."
+}
