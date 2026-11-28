@@ -1,0 +1,3 @@
+# v0.9.8 clean checkout reproduction — 2026-11-28
+
+Fresh single-branch GitHub checkout at `26b34b4741f41994c3a69790b0dba7fdcf8c9052`. No local methodology or source workbook overrides. All 21 focused service checks passed (including dashboard-only larger file handling, category suggestions, documentary discrepancy and operating-context guards, weighted action priority, source references, encrypted larger-file restart, previous simple scoring). Checkout remained clean. This verifies the committed candidate on the tested installed runtime, not independent semantic calibration or operational acceptance.
