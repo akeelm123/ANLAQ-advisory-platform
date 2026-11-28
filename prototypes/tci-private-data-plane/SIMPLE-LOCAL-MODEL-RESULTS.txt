@@ -1,0 +1,1 @@
+PASS: actual installed local model generated a structured provisional anchor for one fictional strategy criterion, score 3, one valid source reference. Not validation, calibration or approval.
