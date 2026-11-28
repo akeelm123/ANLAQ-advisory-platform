@@ -4,7 +4,7 @@ import hashlib, hmac, json, os, secrets, sqlite3, time, uuid
 from pathlib import Path
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from extraction import load_schema
-from document_parser import parse_document,extract_document,UnsupportedDocument,METHOD as EXTRACTION_VERSION
+from document_parser import parse_document,extract_document,UnsupportedDocument,parser_mode,METHOD as EXTRACTION_VERSION
 from narrative import extract_narrative,NarrativeUnavailable
 from interviews import InterviewWorkflow
 from validation_workflow import ValidationWorkflow
@@ -12,6 +12,7 @@ from scoring import ScoringWorkflow
 from executive import ExecutiveWorkflow
 from reassessment import ReassessmentWorkflow
 from evidence_matching import MatchingWorkflow
+from intake_assurance import IntakeAssurance
 
 class Denied(Exception): pass
 class Invalid(Exception): pass
@@ -83,6 +84,7 @@ class DataPlane:
         self.interviews=InterviewWorkflow(self,Invalid,Denied,required)
         self.validation=ValidationWorkflow(self,Invalid,Denied,required)
         self.matching=MatchingWorkflow(self,Invalid,Denied,required)
+        self.intake_assurance=IntakeAssurance(self,Invalid)
         self.scoring=ScoringWorkflow(self,reg,Invalid,Denied,required,enable_pilot_scoring)
         self.executive=ExecutiveWorkflow(self,Invalid,Denied,required)
         self.reassessment=ReassessmentWorkflow(self,Invalid,Denied,required)
@@ -159,8 +161,15 @@ class DataPlane:
         if not isinstance(data,bytes) or not 0<len(data)<=MAX_FILE:raise Invalid("Synthetic file size")
         filename=required(filename,"filename");title=required(title,"title")
         if Path(filename).name!=filename or "/" in filename or "\\" in filename:raise Invalid("Invalid filename")
+        a=self._actor(token,assessment,{"contributor","assessor"})
+        scan=self.intake_assurance.check(data)
+        if (self.intake_assurance.require_scan and scan["status"]!="clean") or scan["status"] not in ("not_scanned","clean"):
+            with self.db:self.intake_assurance.record(assessment,a["id"],data,scan,parser_mode(),"refused")
+            raise Invalid("Required scanner refused or unavailable; no source stored")
         try:parse_document(filename,data)
-        except UnsupportedDocument as e:raise Invalid(str(e)) from e
+        except UnsupportedDocument as e:
+            with self.db:self.intake_assurance.record(assessment,a["id"],data,scan,parser_mode(),"refused")
+            raise Invalid(str(e)) from e
         if intake is not None:
             if not isinstance(intake,dict) or intake.get("criterion") not in self.mappings or intake.get("requestId") not in self.mappings[intake["criterion"]]:raise Invalid("Approved criterion/request mapping required")
             intake={**intake,**{k:required(intake.get(k),k) for k in ["sourceOwner","period","sourceVersion","locator"]}}
@@ -177,6 +186,7 @@ class DataPlane:
             ciphertext=AESGCM(self.key).encrypt(nonce,data,aad)
             self.db.execute("INSERT INTO versions VALUES (?,?,?,?,?,?,?,?,?)",(vid,document,v,filename,dhash,nonce,ciphertext,a["id"],self.clock()))
             if intake is not None:self.db.execute("INSERT INTO intake VALUES (?,?,?,?,?,?,?)",(vid,intake["criterion"],intake["requestId"],intake["sourceOwner"],intake["period"],intake["sourceVersion"],intake["locator"]))
+            self.intake_assurance.record(assessment,a["id"],data,scan,parser_mode(),"quarantined",vid)
             self._audit(assessment,a["id"],"source quarantined",vid)
             return {"documentId":document,"versionId":vid,"version":v,"sha256":dhash,"status":"quarantined"}
     def _read_bytes(self,a,assessment,v):
@@ -197,6 +207,7 @@ class DataPlane:
         with self.db:
             a=self._actor(token,assessment,{"assessor"});v=self._version(assessment,version)
             if v["status"]!="quarantined":raise Invalid("Disposition immutable")
+            if decision=="accepted":self.intake_assurance.require_clean(assessment,version,v["digest"])
             if v["created_by"]==a["id"]:raise Denied("Independent screening required")
             if not self.db.execute("SELECT 1 FROM audit WHERE assessment_id=? AND actor=? AND action='quarantine inspected' AND record_id=?",(assessment,a["id"],version)).fetchone():raise Invalid("Inspect quarantined synthetic content first")
             self.db.execute("INSERT INTO disposition VALUES (?,?,?,?,?)",(version,decision,a["id"],reason,self.clock()))

@@ -1,0 +1,64 @@
+{
+  "case": "SEVEN-DIMENSION-FICTIONAL-UAT",
+  "manifestSha256": "3180f115f4a2fb6309afd547de2b318cd310a6844e13b05cd0284012bd070300",
+  "assessorRef": "",
+  "scope": "Fictional independent calibration, not an approved assessment score",
+  "judgements": [
+    {
+      "criterion": "Q01",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q05",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q09",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q13",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q17",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q21",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    },
+    {
+      "criterion": "Q25",
+      "condition": "",
+      "evidenceClass": "",
+      "strength": "",
+      "citationRefs": [],
+      "rationale": ""
+    }
+  ]
+}

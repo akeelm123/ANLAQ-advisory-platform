@@ -58,4 +58,10 @@ class LocalAPITests(unittest.TestCase):
         with make_server(s,occupied.server_port,auto_port=True) as server:
           self.assertNotEqual(server.server_port,occupied.server_port)
           self.assertEqual(server.server_address[0],"127.0.0.1")
+ def test_strict_intake_refusal_persists_without_document(self):
+    self.cfg["requireScan"]=True;self.cfg["mockScannerStatus"]="unavailable"
+    self.start(True);self.assertEqual(self.upload()[0],400)
+    d=self.dash("owner")[1];self.assertEqual(d["versions"],[]);self.assertEqual(d["intakeAssurance"]["policy"],"require_clean_scan");self.assertEqual(d["intakeAssurance"]["records"][0]["scanStatus"],"unavailable")
+    self.start();d=self.dash("owner")[1];self.assertEqual(d["versions"],[]);self.assertEqual(d["intakeAssurance"]["records"][0]["outcome"],"refused")
+    self.assertIsNone(self.dash("contributor")[1]["intakeAssurance"])
 if __name__=="__main__":unittest.main()

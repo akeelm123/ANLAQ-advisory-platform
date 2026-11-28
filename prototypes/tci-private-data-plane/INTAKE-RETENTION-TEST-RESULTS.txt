@@ -1,0 +1,13 @@
+test_child_parser_four_formats_preserves_exact_locations (test_intake_assurance.IntakeTests.test_child_parser_four_formats_preserves_exact_locations) ... ok
+test_child_timeout_fail_closed (test_intake_assurance.IntakeTests.test_child_timeout_fail_closed) ... ok
+test_default_not_scanned_never_clean (test_intake_assurance.IntakeTests.test_default_not_scanned_never_clean) ... ok
+test_parser_refusal_records_digest_only (test_intake_assurance.IntakeTests.test_parser_refusal_records_digest_only) ... ok
+test_scanner_adapter_not_installed (test_intake_assurance.IntakeTests.test_scanner_adapter_not_installed) ... ok
+test_strict_cannot_accept_old_unscanned_quarantine (test_intake_assurance.IntakeTests.test_strict_cannot_accept_old_unscanned_quarantine) ... ok
+test_strict_scan_mock_outcomes_fail_closed (test_intake_assurance.IntakeTests.test_strict_scan_mock_outcomes_fail_closed) ... ok
+test_expired_inventory_read_only_and_no_restore (test_retention_review.RetentionReviewTests.test_expired_inventory_read_only_and_no_restore) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.013s
+
+OK

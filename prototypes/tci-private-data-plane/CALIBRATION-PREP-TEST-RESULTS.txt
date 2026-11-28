@@ -1,0 +1,8 @@
+test_agreement_and_disagreement_are_not_consensus (test_calibration_review.CalibrationTests.test_agreement_and_disagreement_are_not_consensus) ... ok
+test_blank_or_same_assessor_rejected (test_calibration_review.CalibrationTests.test_blank_or_same_assessor_rejected) ... ok
+test_no_supported_claim_without_citations (test_calibration_review.CalibrationTests.test_no_supported_claim_without_citations) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.001s
+
+OK

@@ -57,3 +57,6 @@ Section 08a searches accepted current sources for a criterion/optional interview
 
 ## Local pilot user acceptance (0.9.3-uat.1)
 Run the synthetic complete persistent API rehearsal with pinned paths: python -m unittest -v test_local_full_uat.py. See LOCAL-HUMAN-UAT.md and uat-fixtures/UAT-FIXTURE-MANIFEST.json for independent human testing. Run local_machine_check.py for private read-only machine checks; do not publish its device-specific output. No operational gate is automatically accepted. See LOCAL-UAT-ACCEPTANCE.md.
+
+## Local intake assurance and calibration (v0.9.4-alpha.1)
+Section 04a reports format-only vs clean scan. Persistent local mode uses bounded child parsing (not an OS sandbox). Optional --require-malware-scan requires installed ClamAV and refuses unavailable/detected scans. Offline retention_review.py authenticates selected archive expiry without deleting or restoring. Blank blind calibration template and comparator require independent human records. See INTAKE-RETENTION-CALIBRATION.md and V094-ACCEPTANCE.md.

@@ -1,7 +1,7 @@
 {
-  "version": "0.9.3-uat.1",
+  "version": "0.9.4-alpha.1",
   "requiredGates": 13,
-  "localVerified": 8,
+  "localVerified": 9,
   "operationalAccepted": 0,
   "pilotDeployment": "blocked",
   "production": "locked",
@@ -38,8 +38,8 @@
       "id": "P05",
       "name": "Evidence intake and parser assurance",
       "owner": "Security owner",
-      "status": "open",
-      "evidence": "Approved isolated parser and scanning/quarantine process; operational assurance"
+      "status": "local_verified",
+      "evidence": "Bounded parser child process verified across four formats, strict scanner adapter fail-closed outcomes simulated, persisted digest-only intake records; installed active scanner, signature freshness, OS isolation and independent security assurance still open."
     },
     {
       "id": "P06",
@@ -53,7 +53,7 @@
       "name": "Retention and lifecycle",
       "owner": "Data protection owner",
       "status": "local_verified",
-      "evidence": "Synthetic maximum archive expiry verified; approved retention, deletion and backup lifecycle open"
+      "evidence": "Authenticated read-only archive expiry inventory and restore denial verified. Approved retention, deletion, legal/evidence holds and backup lifecycle remain open."
     },
     {
       "id": "P08",
@@ -81,7 +81,7 @@
       "name": "Scoring and assessor calibration",
       "owner": "Methodology owner",
       "status": "open",
-      "evidence": "Independent assessors, labelled cases, threshold/rounding/N/A decisions and acceptance"
+      "evidence": "Blind seven-dimension template and agreement comparator tested; independently completed human assessments and methodology adjudication remain outstanding, no calibration acceptance."
     },
     {
       "id": "P12",

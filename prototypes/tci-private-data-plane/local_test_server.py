@@ -14,7 +14,10 @@ def main():
         if cfg.get("simulateCheckpointFailure"):
             def fail():raise OSError("Synthetic checkpoint test failure")
             s.checkpoint=fail
-        with make_server(s,0) as server:
+        if cfg.get("mockScannerStatus"):
+            import intake_assurance
+            intake_assurance.scan_installed=lambda raw:{"status":cfg["mockScannerStatus"],"method":"Scripted scanner adapter test only"}
+        with make_server(s,0,require_scan=cfg.get("requireScan",False)) as server:
             aid=s.dp.db.execute("SELECT id FROM assessments").fetchone()[0]
             print(json.dumps({"url":"http://127.0.0.1:"+str(server.server_port),"assessment":aid}),flush=True)
             try:server.serve_forever()

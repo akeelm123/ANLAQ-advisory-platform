@@ -1,0 +1,6 @@
+test_strict_intake_refusal_persists_without_document (test_local_api.LocalAPITests.test_strict_intake_refusal_persists_without_document) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.559s
+
+OK

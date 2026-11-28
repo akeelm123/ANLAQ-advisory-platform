@@ -1,6 +1,6 @@
 """Bounded synthetic-format parsers, not production malware screening."""
 from __future__ import annotations
-import io,zipfile,xml.etree.ElementTree as ET,math
+import io,zipfile,xml.etree.ElementTree as ET,math,base64,json,subprocess,sys
 from datetime import date,datetime,time
 from pathlib import Path
 from pypdf import PdfReader
@@ -106,7 +106,7 @@ def _pdf(raw):
         for line,s in enumerate(text.splitlines(),1):_segments_add(out,s,f"PDF page {num}, extracted line {line}")
     if not out:raise UnsupportedDocument("No supported PDF text layer")
     return out
-def parse_document(filename,raw):
+def _parse_document(filename,raw):
     suffix=Path(filename).suffix.lower()
     if suffix not in FORMATS or not isinstance(raw,bytes) or not 0<len(raw)<=MAX_FILE:raise UnsupportedDocument("Supported synthetic formats: TXT, PDF, DOCX and XLSX, up to 256 KiB")
     try:
@@ -118,6 +118,23 @@ def parse_document(filename,raw):
     except Exception as e:raise UnsupportedDocument("Unsupported or malformed synthetic document") from e
     if sum(len(i["text"]) for i in out)>MAX_TEXT:raise UnsupportedDocument("Extracted text limit")
     return {"format":suffix[1:],"segments":out}
+_CHILD_MODE=False
+def enable_child_parser(enabled=True):
+    global _CHILD_MODE
+    _CHILD_MODE=enabled is True
+def parser_mode():return "bounded_child_process" if _CHILD_MODE else "bounded_in_process"
+def parse_document(filename,raw):
+    if not _CHILD_MODE:return _parse_document(filename,raw)
+    if not isinstance(filename,str) or len(filename)>4000 or not isinstance(raw,bytes) or not 0<len(raw)<=MAX_FILE:raise UnsupportedDocument("Synthetic parser input limit")
+    payload=json.dumps({"filename":filename,"data":base64.b64encode(raw).decode()}).encode()
+    try:
+        r=subprocess.run([sys.executable,"-I",str(Path(__file__).with_name("parser_worker.py"))],input=payload,capture_output=True,timeout=15,check=False)
+        if r.returncode!=0 or len(r.stdout)>2*1024*1024:raise UnsupportedDocument("Child parser failed or exceeded output limit")
+        result=json.loads(r.stdout)
+        if "error" in result:raise UnsupportedDocument(str(result["error"])[:200])
+        return result["result"]
+    except UnsupportedDocument:raise
+    except (OSError,ValueError,KeyError,subprocess.SubprocessError) as e:raise UnsupportedDocument("Child parser unavailable or timed out") from e
 def preview_document(filename,raw):
     parsed=parse_document(filename,raw)
     return "\n".join(f"[{s['location']}] {s['text']}" for s in parsed["segments"])

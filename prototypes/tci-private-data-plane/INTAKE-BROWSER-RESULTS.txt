@@ -1,0 +1,1 @@
+PASS: persistent synthetic intake records distinguish not-scanned from clean, bounded child parser, independent screening, restart and role revocation, locked release, mobile width.

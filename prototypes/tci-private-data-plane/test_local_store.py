@@ -94,4 +94,13 @@ class LocalStoreTests(unittest.TestCase):
       run=dp.matching.propose(self.login(dp,"assessor"),aid,"Q01");s.checkpoint()
     with self.store() as s:
       dp=s.unlock(self.passphrase);self.assertEqual(dp.matching.view(self.login(dp,"owner"),aid)["runs"][0]["id"],run);self.assertTrue(dp.verify_audit())
+ def test_upgrade_v093_checkpoint_adds_intake_ledger_without_inventing_scan(self):
+    with self.store() as s:
+      aid=s.initialize(self.passphrase,self.accounts);v=self.upload(s.dp,aid);s.dp.db.executescript("DROP TABLE intake_assurance;");s.checkpoint()
+    with self.store() as s:
+      dp=s.unlock(self.passphrase);self.assertEqual(dp.list_versions(self.login(dp,"owner"),aid)[0]["versionId"],v["versionId"])
+      self.assertEqual(dp.intake_assurance.view(self.login(dp,"owner"),aid)["records"],[])
+      dp.intake_assurance.require_scan=True
+      assessor=self.login(dp,"assessor");dp.inspect_quarantine(assessor,aid,v["versionId"])
+      with self.assertRaises(Invalid):dp.screen(assessor,aid,v["versionId"],"accepted","Synthetic strict screen")
 if __name__=="__main__":unittest.main()

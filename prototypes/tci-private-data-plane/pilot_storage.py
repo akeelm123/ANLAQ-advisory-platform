@@ -43,8 +43,8 @@ def seal_synthetic(dp,vault_key,retention_seconds,*,confirmed_synthetic=False,cl
     payload=struct.pack(">I",len(meta))+meta+image
     return MAGIC+nonce+AESGCM(vault_key).encrypt(nonce,payload,MAGIC)
 
-def restore_synthetic(archive,vault_key,evidence_key,audit_key,register,spec,*,confirmed_synthetic=False,clock):
-    """Restore exclusively to memory; fail closed before returning an authenticated data plane."""
+def _decode_archive(archive,vault_key,evidence_key,audit_key,register,spec,*,confirmed_synthetic=False,clock,require_unexpired=True):
+    """Authenticate archive metadata and image; no persistent plaintext."""
     if confirmed_synthetic is not True:raise Invalid("Explicit synthetic-only restore confirmation required")
     _keys(vault_key,evidence_key,audit_key)
     if not isinstance(archive,bytes) or not archive.startswith(MAGIC) or len(archive)>LIMIT+65536:raise Invalid("Invalid synthetic archive")
@@ -54,11 +54,19 @@ def restore_synthetic(archive,vault_key,evidence_key,audit_key,register,spec,*,c
         size=struct.unpack(">I",plain[:4])[0]
         if not 1<=size<=8192:raise ValueError
         meta=json.loads(plain[4:4+size]);image=plain[4+size:]
-        if meta["format"]!=1 or meta["scope"]!="synthetic-only" or not meta["createdAt"]<=int(clock())<meta["expiresAt"] or meta["expiresAt"]-meta["createdAt"]>MAX_TEST_RETENTION:raise ValueError
+        if meta["format"]!=1 or meta["scope"]!="synthetic-only" or not meta["createdAt"]<=int(clock()) or (require_unexpired and int(clock())>=meta["expiresAt"]) or not 1<=meta["expiresAt"]-meta["createdAt"]<=MAX_TEST_RETENTION:raise ValueError
         if hashlib.sha256(image).hexdigest()!=meta["databaseSha256"]:raise ValueError
         if not hmac.compare_digest(meta["evidenceKeyCheck"],_check(evidence_key,meta["archiveId"],"evidence")) or not hmac.compare_digest(meta["auditKeyCheck"],_check(audit_key,meta["archiveId"],"audit")):raise ValueError
         if hashlib.sha256(Path(register).read_bytes()).hexdigest()!=meta["registerHash"] or hashlib.sha256(Path(spec).read_bytes()).hexdigest()!=meta["specHash"]:raise ValueError
     except (InvalidTag,ValueError,KeyError,TypeError,struct.error) as e:raise Invalid("Archive authentication, key, methodology or retention check failed") from e
+    return meta,image
+
+def inspect_synthetic_archive(archive,vault_key,evidence_key,audit_key,register,spec,*,confirmed_synthetic=False,clock):
+    meta,_=_decode_archive(archive,vault_key,evidence_key,audit_key,register,spec,confirmed_synthetic=confirmed_synthetic,clock=clock,require_unexpired=False)
+    return {"scope":"synthetic-only","createdAt":meta["createdAt"],"expiresAt":meta["expiresAt"],"status":"expired_restore_blocked" if int(clock())>=meta["expiresAt"] else "within_test_retention","deletionAuthorised":False}
+
+def restore_synthetic(archive,vault_key,evidence_key,audit_key,register,spec,*,confirmed_synthetic=False,clock):
+    _,image=_decode_archive(archive,vault_key,evidence_key,audit_key,register,spec,confirmed_synthetic=confirmed_synthetic,clock=clock)
     dp=DataPlane(":memory:",evidence_key,audit_key,register,spec,clock=clock)
     try:
         dp.db.deserialize(image)
@@ -70,6 +78,8 @@ def restore_synthetic(archive,vault_key,evidence_key,audit_key,register,spec,*,c
         from evidence_matching import MatchingWorkflow
         from data_plane import Denied,required
         dp.matching=MatchingWorkflow(dp,Invalid,Denied,required)
+        from intake_assurance import IntakeAssurance
+        dp.intake_assurance=IntakeAssurance(dp,Invalid)
         return dp
     except Exception:
         dp.close();raise
