@@ -11,7 +11,7 @@ class DashboardPersistenceTests(unittest.TestCase):
                 aid=store.initialize(passphrase,accounts,title="Fictional dashboard UAT")
                 w=DashboardWorkspaceStore(store,aid,initialize=True)
                 token=store.dp.login(*accounts["assessor"]);actor=store.dp._actor(token,aid,{"assessor"})["id"]
-                f=w.assessment.add("mock.txt",b"Fictional strategy objectives and original business problem.","SA-01")
+                f=w.assessment.add("mock.txt",b"Fictional strategy objectives and original business problem."+b" "*300000,"SA-01")
                 data={"answers":{"Q01":"Fictional interview response"},"reviews":{},"edits":{},"title":"Fictional snapshot","persona":"Board","target":4}
                 w.assessment.save_workspace(data);w.assessment.snapshot();w.checkpoint(actor)
                 self.assertNotIn(b"Fictional interview response",store.current.read_bytes())

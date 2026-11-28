@@ -1,0 +1,633 @@
+{
+  "scope": "Fictional labelled source category benchmark; development narrative and labelled golden fixtures, not real-world classification accuracy or validation.",
+  "reports": [
+    {
+      "fixture": "narrative-fixtures.json",
+      "count": 28,
+      "top1": 21,
+      "top3": 28,
+      "rows": [
+        {
+          "criterion": "Q02",
+          "expected": "SA-02",
+          "suggestions": [
+            "SA-02",
+            "SA-03",
+            "BV-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q05",
+          "expected": "LC-01",
+          "suggestions": [
+            "LC-02",
+            "LC-01",
+            "LC-04"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q26",
+          "expected": "BV-02",
+          "suggestions": [
+            "BV-04",
+            "BV-01",
+            "BV-02"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q09",
+          "expected": "TR-04",
+          "suggestions": [
+            "TR-04",
+            "TR-03",
+            "TR-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q13",
+          "expected": "PC-04",
+          "suggestions": [
+            "PC-04",
+            "PC-01",
+            "BV-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q18",
+          "expected": "DC-04",
+          "suggestions": [
+            "DC-04",
+            "DC-02",
+            "DE-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q21",
+          "expected": "DE-01",
+          "suggestions": [
+            "DE-01",
+            "LC-01",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q01",
+          "expected": "SA-01",
+          "suggestions": [
+            "SA-01",
+            "SA-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q03",
+          "expected": "SA-04",
+          "suggestions": [
+            "SA-04",
+            "PC-04",
+            "BV-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q04",
+          "expected": "BV-01",
+          "suggestions": [
+            "SA-02",
+            "BV-01",
+            "BV-05"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q06",
+          "expected": "DE-02",
+          "suggestions": [
+            "LC-01",
+            "LC-04",
+            "DE-02"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q07",
+          "expected": "LC-04",
+          "suggestions": [
+            "LC-04",
+            "BV-05",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q08",
+          "expected": "LC-02",
+          "suggestions": [
+            "LC-02",
+            "PC-01",
+            "PC-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q10",
+          "expected": "TR-03",
+          "suggestions": [
+            "TR-03",
+            "TR-04",
+            "DC-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q11",
+          "expected": "TR-05",
+          "suggestions": [
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q12",
+          "expected": "TR-02",
+          "suggestions": [
+            "TR-02",
+            "TR-01",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q14",
+          "expected": "PC-02",
+          "suggestions": [
+            "PC-02",
+            "TR-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q15",
+          "expected": "PC-05",
+          "suggestions": [
+            "PC-05",
+            "LC-04",
+            "BV-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q16",
+          "expected": "PC-04",
+          "suggestions": [
+            "PC-04",
+            "PC-03",
+            "PC-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q17",
+          "expected": "DC-01",
+          "suggestions": [
+            "DC-02",
+            "DC-01",
+            "DC-04"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q19",
+          "expected": "DC-03",
+          "suggestions": [
+            "DC-03",
+            "BV-04",
+            "SA-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q20",
+          "expected": "DC-01",
+          "suggestions": [
+            "DC-05",
+            "DC-01",
+            "DC-04"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q22",
+          "expected": "DE-03",
+          "suggestions": [
+            "DE-03",
+            "DE-04",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q23",
+          "expected": "DE-02",
+          "suggestions": [
+            "DE-02",
+            "SA-03",
+            "LC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q24",
+          "expected": "DE-04",
+          "suggestions": [
+            "PC-04",
+            "DE-04",
+            "DE-01"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q25",
+          "expected": "BV-01",
+          "suggestions": [
+            "BV-01",
+            "SA-02",
+            "BV-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q27",
+          "expected": "BV-04",
+          "suggestions": [
+            "BV-04",
+            "PC-05",
+            "BV-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q28",
+          "expected": "BV-05",
+          "suggestions": [
+            "BV-05",
+            "BV-01",
+            "BV-03"
+          ],
+          "top1": true,
+          "top3": true
+        }
+      ]
+    },
+    {
+      "fixture": "golden-fixtures.json",
+      "count": 28,
+      "top1": 26,
+      "top3": 28,
+      "rows": [
+        {
+          "criterion": "Q01",
+          "expected": "SA-01",
+          "suggestions": [
+            "SA-01",
+            "SA-02",
+            "BV-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q02",
+          "expected": "SA-02",
+          "suggestions": [
+            "SA-02",
+            "BV-01",
+            "SA-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q03",
+          "expected": "SA-04",
+          "suggestions": [
+            "SA-04",
+            "BV-01",
+            "DC-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q04",
+          "expected": "BV-01",
+          "suggestions": [
+            "BV-01",
+            "BV-05",
+            "SA-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q05",
+          "expected": "LC-01",
+          "suggestions": [
+            "LC-01",
+            "LC-04",
+            "DC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q06",
+          "expected": "DE-02",
+          "suggestions": [
+            "DE-02",
+            "LC-02",
+            "LC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q07",
+          "expected": "LC-04",
+          "suggestions": [
+            "LC-04",
+            "BV-05",
+            "DC-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q08",
+          "expected": "LC-02",
+          "suggestions": [
+            "LC-02",
+            "PC-01",
+            "LC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q09",
+          "expected": "TR-04",
+          "suggestions": [
+            "TR-04",
+            "TR-03",
+            "TR-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q10",
+          "expected": "TR-03",
+          "suggestions": [
+            "TR-03",
+            "TR-04",
+            "DE-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q11",
+          "expected": "TR-05",
+          "suggestions": [
+            "TR-05",
+            "PC-04",
+            "DE-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q12",
+          "expected": "TR-02",
+          "suggestions": [
+            "TR-02",
+            "BV-01",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q13",
+          "expected": "PC-04",
+          "suggestions": [
+            "PC-04",
+            "BV-03",
+            "PC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q14",
+          "expected": "PC-02",
+          "suggestions": [
+            "PC-02",
+            "BV-01",
+            "TR-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q15",
+          "expected": "PC-05",
+          "suggestions": [
+            "PC-05",
+            "LC-04",
+            "DC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q16",
+          "expected": "PC-04",
+          "suggestions": [
+            "PC-04",
+            "PC-03",
+            "PC-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q17",
+          "expected": "DC-01",
+          "suggestions": [
+            "DC-02",
+            "DC-01",
+            "DC-04"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q18",
+          "expected": "DC-04",
+          "suggestions": [
+            "DC-04",
+            "DC-02",
+            "TR-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q19",
+          "expected": "DC-03",
+          "suggestions": [
+            "DC-03",
+            "DC-04",
+            "PC-04"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q20",
+          "expected": "DC-01",
+          "suggestions": [
+            "DC-01",
+            "DC-05",
+            "PC-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q21",
+          "expected": "DE-01",
+          "suggestions": [
+            "DE-01",
+            "BV-03",
+            "TR-05"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q22",
+          "expected": "DE-03",
+          "suggestions": [
+            "DE-03",
+            "DC-04",
+            "DC-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q23",
+          "expected": "DE-02",
+          "suggestions": [
+            "DE-02",
+            "TR-02",
+            "LC-01"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q24",
+          "expected": "DE-04",
+          "suggestions": [
+            "DE-04",
+            "PC-04",
+            "BV-03"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q25",
+          "expected": "BV-01",
+          "suggestions": [
+            "BV-01",
+            "BV-04",
+            "SA-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q26",
+          "expected": "BV-02",
+          "suggestions": [
+            "BV-04",
+            "BV-02",
+            "BV-01"
+          ],
+          "top1": false,
+          "top3": true
+        },
+        {
+          "criterion": "Q27",
+          "expected": "BV-04",
+          "suggestions": [
+            "BV-04",
+            "PC-05",
+            "BV-02"
+          ],
+          "top1": true,
+          "top3": true
+        },
+        {
+          "criterion": "Q28",
+          "expected": "BV-05",
+          "suggestions": [
+            "BV-05",
+            "BV-01",
+            "PC-05"
+          ],
+          "top1": true,
+          "top3": true
+        }
+      ]
+    }
+  ]
+}

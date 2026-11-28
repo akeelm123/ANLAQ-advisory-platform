@@ -11,4 +11,4 @@ if [[ -z "${TCI_SPEC:-}" && -f "$BASE/validation-specification/outputs/validatio
 if [[ -z "${TCI_INTERVIEW_SPEC:-}" && -f "INTERVIEW-SPEC-v0.3-preparation.json" ]]; then export TCI_INTERVIEW_SPEC="$PWD/INTERVIEW-SPEC-v0.3-preparation.json"; fi
 if [[ -z "${TCI_INTERVIEW_FIXTURES:-}" && -f "INTERVIEW-GOLDEN-FIXTURES.json" ]]; then export TCI_INTERVIEW_FIXTURES="$PWD/INTERVIEW-GOLDEN-FIXTURES.json"; fi
 echo "ANLAQ TCI™ — temporary fictional UAT. The browser will open automatically. Sign in using the generated username and password below."
-exec "$PYTHON" simple_preview.py --dashboard --enable-local-model --port 8776 --auto-port --open-browser
+exec "$PYTHON" simple_preview.py --dashboard --enable-local-model --port 8778 --auto-port --open-browser

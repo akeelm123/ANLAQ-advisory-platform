@@ -7,6 +7,7 @@ from document_parser import enable_child_parser
 from simple_scoring import SimpleAssessment
 from simple_ai import propose
 from dashboard_logic import DashboardAssessment
+from dashboard_parser import MAX_DASHBOARD_BODY
 
 STATIC={"/":("simple.html","text/html; charset=utf-8"),"/simple.js":("simple.js","text/javascript; charset=utf-8"),"/simple.css":("simple.css","text/css; charset=utf-8"),"/logo.svg":("logo.svg","image/svg+xml")}
 DASHBOARD_STATIC={"/":("dashboard.html","text/html; charset=utf-8"),"/dashboard.js":("dashboard.js","text/javascript; charset=utf-8"),"/dashboard.css":("dashboard.css","text/css; charset=utf-8"),"/logo.svg":("logo.svg","image/svg+xml")}
@@ -19,7 +20,7 @@ class SimpleHandler(Handler):
                 fname,ctype=static[self.path];data=(HERE/fname).read_bytes();self.headers_for(200,ctype,len(data));self.wfile.write(data);return
             if method=="POST":
                 if self.headers.get("Origin")!=self.origin:raise Denied("Origin denied")
-                data=self.body()
+                data=self.body(MAX_DASHBOARD_BODY) if self.server.dashboard and self.path=="/api/upload" else self.body()
             else:data={}
             if self.path=="/api/login" and method=="POST":
                 token=self.dp.login(data["username"],data["password"]);return self.payload(200,{"token":token})
@@ -38,6 +39,7 @@ class SimpleHandler(Handler):
             if self.server.dashboard and method=="POST" and self.path=="/api/example":
                 if data.get("synthetic") is not True:raise Invalid("Confirm fictional example")
                 return self.payload(201,assessment.load_example(json.loads((HERE/"narrative-fixtures.json").read_text())["fixtures"]))
+            if self.server.dashboard and method=="POST" and self.path=="/api/tag":return self.payload(200,assessment.tag(data["digest"],data["requestId"]))
             if self.server.dashboard and method=="POST" and self.path=="/api/source":return self.payload(200,assessment.source(data["digest"]))
             if method=="POST" and self.path=="/api/upload":
                 if data.get("synthetic") is not True:raise Invalid("Confirm fictional input")

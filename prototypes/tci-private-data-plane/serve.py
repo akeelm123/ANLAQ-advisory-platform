@@ -36,11 +36,11 @@ class Handler(BaseHTTPRequestHandler):
         auth=self.headers.get("Authorization","")
         if not auth.startswith("Bearer ") or not 10<len(auth)<200:raise Denied("Access denied")
         return auth[7:]
-    def body(self):
+    def body(self,max_body=MAX_BODY):
         if self.headers.get("Content-Type","").split(";")[0].strip()!="application/json":raise Invalid("JSON required")
         try:n=int(self.headers.get("Content-Length","-1"))
         except ValueError:raise Invalid("Invalid request length")
-        if not 0<n<=MAX_BODY:raise Invalid("Request too large or empty")
+        if not 0<n<=max_body:raise Invalid("Request too large or empty")
         data=json.loads(self.rfile.read(n))
         if not isinstance(data,dict):raise Invalid("JSON object required")
         return data

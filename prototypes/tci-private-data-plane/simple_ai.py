@@ -2,6 +2,7 @@
 import json
 from narrative import MODEL,model_digest,_json_request,NarrativeUnavailable
 from evidence_matching import ranked_relevance,hints
+from dashboard_quality import documentary_flags,operating_context
 def prepare(assessment,dimension,answers):
     if dimension not in assessment.weights or not isinstance(answers,dict):raise ValueError("Unknown dimension or interview answers")
     byid={r["id"]:r for r in assessment.analyze()["criteria"]};items=[]
@@ -10,7 +11,7 @@ def prepare(assessment,dimension,answers):
         q=c["id"];sources=byid[q]["sources"][:3];answer=answers.get(q,"")
         if not isinstance(answer,str) or len(answer)>4000:raise ValueError("Invalid interview answer")
         if not sources or not answer.strip():continue
-        flags=set()
+        flags=set(documentary_flags(sources))
         for source in sources:
             _,overlap=ranked_relevance(answer,source["quote"]);flags.update(h for h in hints(answer,source["quote"],overlap,True) if h in ("possible_numeric_difference_check_basis","forecast_actual_basis_check"))
         items.append({"id":q,"reviewFlags":sorted(flags),"criterion":c["criterion"],"minimum":c["minimum"],"question":c["question"],"interview":answer[:1500],"anchors":[{"score":a[1],"example":a[5],"description":a[3]} for a in assessment.anchors[q]],"sources":[{"id":str(i+1),"quote":s["quote"][:900],"locator":s["locator"],"file":s["file"],"declaredCategory":s.get("declaredCategory")} for i,s in enumerate(sources)]})
@@ -27,7 +28,9 @@ def verify(items,output):
         if not isinstance(reason,str) or not reason.strip() or len(reason)>1200 or score is not None and not refs:raise ValueError("Missing referenced rationale")
         flags=expected[x["id"]].get("reviewFlags",[])
         if flags:
-            out[x["id"]]={"score":None,"sourceIds":refs,"rationale":"Possible interview/document measurement or forecast discrepancy requires review of basis. "+reason[:1000],"status":"conflict_review_required"}
+            out[x["id"]]={"score":None,"sourceIds":refs,"rationale":"Possible documentary or interview measurement discrepancy requires review of basis. "+reason[:1000],"status":"conflict_review_required"}
+        elif score is not None and score>=4 and not operating_context([s for s in expected[x["id"]]["sources"] if s["id"] in refs]):
+            out[x["id"]]={"score":None,"sourceIds":refs,"rationale":"A 4–5 anchor requires sustained operating evidence across explicit periods. "+reason[:1000],"status":"operating_evidence_review_required"}
         else:out[x["id"]]={"score":score,"sourceIds":refs,"rationale":reason,"status":"model_candidate" if score is not None else "model_withheld"}
     return out
 def propose(assessment,dimension,answers):

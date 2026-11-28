@@ -1,0 +1,1 @@
+PASS: actual local model response subject to two-document same-period discrepancy guard; candidate withheld and first-priority reconciliation action generated.

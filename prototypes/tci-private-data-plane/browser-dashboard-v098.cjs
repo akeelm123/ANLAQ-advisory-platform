@@ -1,0 +1,16 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||"playwright");
+const {spawn}=require("child_process"),readline=require("readline"),assert=require("assert/strict"),path=require("path");
+(async()=>{let server,browser;try{
+ server=spawn(process.env.TCI_PYTHON||"python3",[path.join(__dirname,"simple_preview.py"),"--port","0","--dashboard"],{stdio:["ignore","pipe","pipe"],env:process.env});
+ const ready=await new Promise((resolve,reject)=>{readline.createInterface({input:server.stdout}).once("line",l=>resolve(JSON.parse(l)));server.once("exit",()=>reject(Error("Server exit")));});
+ browser=await chromium.launch({channel:"chrome",headless:true});const p=await browser.newPage({viewport:{width:1280,height:900}});const errors=[];p.on("pageerror",e=>errors.push(e.message));await p.goto(ready.url);
+ await p.locator("#loginform").getByLabel("Username").fill(ready.username);await p.locator("#loginform").getByLabel("Password").fill(ready.password);await p.locator("#loginform").getByRole("button",{name:"Sign in"}).click();await p.getByText("Production release locked").waitFor();
+ await p.locator("nav").getByRole("button",{name:"Evidence",exact:true}).click();await p.locator("#files").setInputFiles([
+ {name:"large-business-case.txt",mimeType:"text/plain",buffer:Buffer.concat([Buffer.from("Fictional approved business case. Investment scope, assumptions, approval date, benefits, cost, baseline and sign-off."),Buffer.alloc(300000,32)])},
+ {name:"invalid.bin",mimeType:"application/octet-stream",buffer:Buffer.from("Fictional unsupported format")},
+ {name:"mock-strategy.txt",mimeType:"text/plain",buffer:Buffer.from("Fictional transformation strategy mandate: original business problem and strategy objectives with funded outcomes, sponsor and mandate date.")}
+ ]);await p.locator("#fictional").check();await p.getByRole("button",{name:"Upload & analyse"}).click();await p.getByText("2 accepted · 1 refused").waitFor();assert.equal(await p.locator("#upload-meter").evaluate(e=>e.value),3);await p.getByText("2 files",{exact:true}).waitFor();await p.getByText("invalid.bin · refused:",{exact:false}).waitFor();await p.getByText("0 / 32 categories declared",{exact:true}).waitFor();
+ const file=p.locator("#filelist .file").filter({hasText:"large-business-case.txt"});await file.getByText("Suggested document categories",{exact:false}).click();const candidate=file.locator(".row").filter({hasText:"Approved business case"});await candidate.getByRole("button",{name:"Confirm category"}).click();await p.getByText("1 / 32 categories declared",{exact:true}).waitFor();
+ await p.locator("nav").getByRole("button",{name:"Action plan",exact:true}).click();await p.locator("#plan").getByText("of canonical criterion weight in scope",{exact:false}).first().waitFor();await p.locator("#plan").getByText("Dependency:",{exact:false}).first().waitFor();await p.setViewportSize({width:390,height:844});assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);assert.deepEqual(errors,[]);
+ console.log("PASS: >256 KiB upload, mixed batch partial success, progress meter, category suggestion and optional declaration, plan prioritisation and mobile.");
+ }finally{if(browser)await browser.close();if(server)server.kill();}})().catch(e=>{console.error(e);process.exit(1)});

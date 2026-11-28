@@ -1,0 +1,96 @@
+{
+  "scope": "Existing fictional narrative fixtures; structural local-model UAT only, not semantic accuracy or calibration",
+  "inputCriteria": 28,
+  "files": 28,
+  "dimensions": [
+    {
+      "dimension": "Strategic Alignment",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 3,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 1,
+      "durationSeconds": 44.53,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Leadership Commitment",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 0,
+      "durationSeconds": 34.39,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Technology Readiness",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 0,
+      "durationSeconds": 32.11,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "People & Culture",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 3,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 1,
+      "durationSeconds": 28.06,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Data & AI Confidence",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 3,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 1,
+      "durationSeconds": 29.12,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Delivery Excellence",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 0,
+      "durationSeconds": 30.52,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Business Value Realisation",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "conflictReview": 0,
+      "operatingReview": 0,
+      "durationSeconds": 32.34,
+      "status": "structured response validated"
+    }
+  ],
+  "candidateCriteria": 25,
+  "candidateScoreCalculated": false,
+  "reviewed": 0,
+  "productionLocked": true,
+  "actions": 21
+}

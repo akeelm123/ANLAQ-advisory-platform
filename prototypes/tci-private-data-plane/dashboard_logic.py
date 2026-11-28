@@ -3,28 +3,40 @@ from decimal import Decimal
 import base64,hashlib,json,time,uuid
 from simple_scoring import SimpleAssessment
 from scoring import weighted_dimensions
+from dashboard_parser import parse_dashboard_document,MAX_DASHBOARD_FILE
+from dashboard_classification import suggest_categories,build_index
 
 class DashboardAssessment(SimpleAssessment):
     MAX_FILES=64
+    MAX_FILE_BYTES=MAX_DASHBOARD_FILE
+    parser=staticmethod(parse_dashboard_document)
+    MAX_TOTAL_BYTES=8*1024*1024
     def __init__(self,reg,spec):
         super().__init__(reg,spec)
+        self.category_index=build_index(self.catalogue,self.rules)
         self.raw_files={};self.workspace={"answers":{},"reviews":{},"edits":{},"title":"Executive Confidence Snapshot","persona":"Canonical TCI","target":None};self.snapshots=[]
         self.lenses={name:{r[0]:float(Decimal(str(r[i]))*100) for r in reg["personaWeights"]} for i,name in enumerate(["Board","CIO","Chief Platform Officer","Transformation Office"],1)}
         if any(sum(v.values())!=100 for v in self.lenses.values()):raise ValueError("Invalid persona weights")
     def metadata(self):
         base=super().metadata()
-        return {**base,"documentGuide":list(self.catalogue.values()),"personaWeights":self.lenses,"maxFiles":self.MAX_FILES,"methodologyVersion":"v1.0-reconstructed-rc.1"}
+        return {**base,"documentGuide":list(self.catalogue.values()),"personaWeights":self.lenses,"maxFiles":self.MAX_FILES,"maxFileBytes":self.MAX_FILE_BYTES,"maxTotalBytes":self.MAX_TOTAL_BYTES,"methodologyVersion":"v1.0-reconstructed-rc.1"}
     def add(self,name,raw,request_id=None):
         if request_id not in (None,"") and request_id not in self.catalogue:raise ValueError("Unknown recommended document category")
         digest=hashlib.sha256(raw).hexdigest()
-        if digest not in self.raw_files and sum(len(v) for v in self.raw_files.values())+len(raw)>8*1024*1024:raise ValueError("Fictional workspace byte limit")
+        if digest not in self.raw_files and sum(len(v) for v in self.raw_files.values())+len(raw)>self.MAX_TOTAL_BYTES:raise ValueError("Fictional workspace aggregate limit is 8 MiB")
         new=digest not in self.raw_files
         meta=super().add(name,raw)
         self.raw_files[digest]=raw
-        if new:self.workspace["reviews"]={};self.workspace["edits"]={}
+        if new:
+            self.workspace["reviews"]={};self.workspace["edits"]={};meta["suggestedRequests"]=suggest_categories(self.catalogue,self.files[digest]["segments"],self.category_index)
         meta.setdefault("declaredRequests",[])
-        if request_id and request_id not in meta["declaredRequests"]:
-            meta["declaredRequests"].append(request_id);self.proposals.clear();self.workspace["reviews"]={};self.workspace["edits"]={}
+        if request_id:self.tag(digest,request_id)
+        return meta
+    def tag(self,digest,request_id):
+        if request_id not in self.catalogue or digest not in self.files:raise ValueError("Unknown document or recommended category")
+        meta=self.files[digest]["meta"];meta.setdefault("declaredRequests",[])
+        if request_id not in meta["declaredRequests"]:
+            meta["declaredRequests"].append(request_id);self._analysis_cache=None;self.proposals.clear();self.workspace["reviews"]={};self.workspace["edits"]={}
         return meta
     def analyze(self):
         r=super().analyze()
@@ -81,7 +93,7 @@ class DashboardAssessment(SimpleAssessment):
             if any(type(v.get(k,False)) is not bool for k in ("confirmed","conflict","operating")) or not isinstance(v.get("rationale",""),str) or len(v.get("rationale",""))>2000:raise ValueError("Invalid review draft")
             if "sourceIds" in v and (not isinstance(v["sourceIds"],list) or len(v["sourceIds"])>5 or any(x not in ("1","2","3","4","5") for x in v["sourceIds"])):raise ValueError("Invalid source references")
             if "model" in v and (not isinstance(v["model"],str) or len(v["model"])>100):raise ValueError("Invalid model label")
-            if "candidateStatus" in v and v["candidateStatus"] not in ("model_candidate","model_withheld","model_unavailable","conflict_review_required"):raise ValueError("Invalid candidate status")
+            if "candidateStatus" in v and v["candidateStatus"] not in ("model_candidate","model_withheld","model_unavailable","conflict_review_required","operating_evidence_review_required"):raise ValueError("Invalid candidate status")
         result=self.calculate(reviews,answers);valid={x["id"] for x in result["actionPlan"]}
         if not set(edits)<=valid:raise ValueError("Action edits are stale; regenerate from current assessment")
         for v in edits.values():
@@ -131,13 +143,15 @@ class DashboardAssessment(SimpleAssessment):
                     gaps.append(c)
                     if candidate is not None and candidate<=3:tentative.append((c,candidate))
             if gaps:
-                ids=[c["id"] for c in gaps]; requests=list(dict.fromkeys(k for c in gaps for k in self.rules[c["id"]]["primary"]))
+                gaps.sort(key=lambda c:(byid[c["id"]].get("proposalStatus")!="conflict_review_required",-c["criterionWeight"]));ids=[c["id"] for c in gaps]; requests=list(dict.fromkeys(k for c in gaps for k in self.rules[c["id"]]["primary"]))
                 titles=[self.catalogue[k]["title"] for k in requests if k in self.catalogue]
                 desc="Obtain or verify the primary documents and stakeholder responses for "+", ".join(c["criterion"] for c in gaps)+". Recommended sources: "+"; ".join(titles)+". Resolve material contradictions and review exact citations before confirming scores."
                 if tentative:desc+=" Investigate tentative lower anchors for "+", ".join(c["criterion"] for c,s in tentative)+"; these are not confirmed deficiencies."
                 discrepancies=[c["criterion"] for c in gaps if byid[c["id"]].get("proposalStatus")=="conflict_review_required"]
-                if discrepancies:desc+=" Check measurement basis and potential interview/document discrepancies for "+", ".join(discrepancies)+"."
-                actions.append({"id":d+"-30","horizon":30,"dimension":d,"type":"Evidence verification","priority":"Review first","owner":gaps[0]["stakeholder"],"criteria":ids,"requests":requests,"action":desc,"success":"Current evidence and interview context independently reviewed; gaps or contradictions recorded.","basis":"Unreviewed / incomplete criteria","status":"Proposed"})
+                if discrepancies:desc+=" Check measurement basis and potential interview/document discrepancies or documentary conflicts for "+", ".join(discrepancies)+"."
+                operating=[c["criterion"] for c in gaps if byid[c["id"]].get("proposalStatus")=="operating_evidence_review_required"]
+                if operating:desc+=" Obtain comparable operating evidence across periods for "+", ".join(operating)+"."
+                actions.append({"id":d+"-30","horizon":30,"dimension":d,"type":"Evidence verification","priority":"Review first","owner":gaps[0]["stakeholder"],"criteria":ids,"requests":requests,"action":desc,"success":f"{len(gaps)} of {len(gaps)} listed criteria have current evidence and interview context reviewed, with a documented disposition, owner and follow-up for each.","basis":"Unreviewed / incomplete criteria","status":"Proposed"})
             if weak or tentative:
                 weak.sort(key=lambda x:(x[1],-x[0]["criterionWeight"]));tentative.sort(key=lambda x:(x[1],-x[0]["criterionWeight"]))
                 combined=weak+tentative;ids=[c["id"] for c,s in combined];details=[]
@@ -149,9 +163,16 @@ class DashboardAssessment(SimpleAssessment):
                     details.append(c["criterion"]+" (unreviewed candidate "+str(s)+"/5): if independently verified, "+anchor[6]+" "+self.rules[c["id"]]["followUp"])
                 both=bool(weak and tentative)
                 basis="Reviewed fictional anchors plus conditional AI candidates" if both else "Reviewed fictional performance anchors; subject to independent acceptance" if weak else "Conditional unreviewed AI anchor; do not treat as confirmed deficiency"
-                actions.append({"id":d+"-90","horizon":90,"dimension":d,"type":"Remediation / improvement" if weak else "Conditional improvement","priority":"High" if weak and weak[0][1]<=2 else "Medium" if weak else "Review first","owner":combined[0][0]["stakeholder"],"criteria":ids,"requests":list(dict.fromkeys(k for c,s in combined for k in self.rules[c["id"]]["primary"])),"action":"; ".join(details),"success":"After independent confirmation, action owner records measurable improvement, updated evidence and residual gaps.","basis":basis,"status":"Proposed"})
+                actions.append({"id":d+"-90","horizon":90,"dimension":d,"type":"Remediation / improvement" if weak else "Conditional improvement","priority":"High" if weak and weak[0][1]<=2 else "Medium" if weak else "Review first","owner":combined[0][0]["stakeholder"],"criteria":ids,"requests":list(dict.fromkeys(k for c,s in combined for k in self.rules[c["id"]]["primary"])),"action":"; ".join(details),"success":f"For all {len(combined)} listed criteria, confirm the baseline, agree a measurable improvement outcome, attach updated evidence and record residual gaps; conditional actions start only after verification.","basis":basis,"status":"Proposed"})
             if weak or gaps or strong:
-                actions.append({"id":d+"-180","horizon":180,"dimension":d,"type":"Reassessment","priority":"Follow-up","owner":group[0]["stakeholder"],"criteria":[c["id"] for c in group],"requests":[],"action":"Reassess "+d+" against the same four criteria and comparable measurement basis; verify closure of agreed actions and sustained operating evidence. If no approved baseline exists, establish one first.","success":"Comparable independently reviewed follow-up evidence and documented action closure or escalation.","basis":"Proposed follow-up, not an approved commitment","status":"Proposed"})
-        weights=self.weights
-        return sorted(actions,key=lambda a:(a["horizon"],{"High":0,"Review first":1,"Medium":2,"Follow-up":3}[a["priority"]],-weights[a["dimension"]],a["dimension"]))
+                actions.append({"id":d+"-180","horizon":180,"dimension":d,"type":"Reassessment","priority":"Follow-up","owner":group[0]["stakeholder"],"criteria":[c["id"] for c in group],"requests":[],"action":"Reassess "+d+" against the same four criteria and comparable measurement basis; verify closure of agreed actions and sustained operating evidence. If no approved baseline exists, establish one first.","success":"Four of four dimension criteria reassessed on the same basis, with independently reviewed follow-up evidence and action closure or escalation.","basis":"Proposed follow-up, not an approved commitment","status":"Proposed"})
+        weights=self.weights;criteria={c["id"]:c for c in self.criteria}
+        for a in actions:
+            share=sum(Decimal(str(weights[criteria[q]["dimension"]]))*Decimal(str(criteria[q]["criterionWeight"]))/100 for q in a["criteria"])
+            a["weightedScope"]=float(share)
+            conflicts=sum(byid[q].get("proposalStatus")=="conflict_review_required" for q in a["criteria"])
+            a["priorityReason"]=f"{float(share):.2f}% of canonical criterion weight in scope"+(f"; {conflicts} possible evidence discrepancies to review first" if conflicts else "")
+            a["dependency"]="Resolve evidence and interview gaps first" if a["horizon"]==90 else "Establish reviewed baseline and agreed improvement actions" if a["horizon"]==180 else "Confirm source relevance and responsible role"
+            a["evidenceLinks"]=[{"criterion":q,**ref} for q in a["criteria"] for ref in byid[q].get("sourceRefs",[])][:20]
+        return sorted(actions,key=lambda a:(a["horizon"],0 if a["horizon"]==30 and any(byid[q].get("proposalStatus")=="conflict_review_required" for q in a["criteria"]) else 1,{"High":0,"Medium":1,"Review first":2,"Follow-up":3}[a["priority"]],-a["weightedScope"],a["dimension"]))
 

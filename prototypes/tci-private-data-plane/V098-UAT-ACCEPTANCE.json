@@ -1,0 +1,23 @@
+{
+  "recordId": "TCI-V098-UAT-ENG-001",
+  "date": "2026-11-28",
+  "release": "0.9.8",
+  "authority": "Agent acting under project owner's explicit delegated UAT implementation and approval rights",
+  "acceptanceType": "Engineering UAT candidate acceptance only",
+  "status": "accepted_for_fictional_local_UAT",
+  "productionLocked": true,
+  "independentHumanCalibrationAccepted": false,
+  "operationalAcceptance": false,
+  "realClientProcessingAuthorised": false,
+  "publicDeploymentAuthorised": false,
+  "evidence": {
+    "V098-UAT-RELEASE.md": "d0f938180d195a5eb135a43acd4285434dd9a64d2a8fa86fd28416e5c9559132",
+    "V098-SERVICE-RESULTS.txt": "bb147471086efd57ed4934271ac0cc23eebfac40cb7eb59e4dae8b2697f9b29e",
+    "V098-API-RESULTS.txt": "54c573113c5661d29ccd6438af4983a218fa72879e92e5884a7c6f9e688c06bb",
+    "V098-STRICT-REGRESSION-RESULTS.txt": "2f9730d2321eb70ca610c0f985d95cd86098fbfa343d26a71679770e1e5fe8e0",
+    "V098-CLASSIFICATION-UAT.json": "c6e19b050f3e307ac6215a0f4bf0636ffa0100286f9f1944440a22cd3f23e4ec",
+    "V098-MODEL-UAT.json": "85898514ef223310f9a1d72189149645bcf8cd6c862994f913d94420eb9156fb",
+    "V098-DOCUMENT-CONFLICT-MODEL-RESULTS.txt": "6ae442dcea5fc97c62360089d5addebc30ddfe0d3134dd09042fcffffcffd5e9"
+  },
+  "note": "No human reviewer identity or sign-off fabricated. Independent semantic and operational gates remain open."
+}

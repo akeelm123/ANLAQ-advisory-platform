@@ -41,7 +41,7 @@ class PersistentDashboardHandler(SimpleHandler):
         if self.server.failed:return super().payload(503,{"error":"Checkpoint failed; stop and restart from last durable archive"})
         return super().execute(method)
     def payload(self,status,data):
-        if self.command=="POST" and 200<=status<300 and self.path in ("/api/upload","/api/propose","/api/workspace","/api/snapshot","/api/example"):
+        if self.command=="POST" and 200<=status<300 and self.path in ("/api/upload","/api/propose","/api/workspace","/api/snapshot","/api/example","/api/tag"):
             try:
                 self.server.workspace_store.checkpoint(self.request_actor_id)
             except Exception:
