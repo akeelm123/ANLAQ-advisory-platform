@@ -1,0 +1,6 @@
+test_report_distinguishes_local_from_operational (test_pilot_readiness.ReadinessTests.test_report_distinguishes_local_from_operational) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK

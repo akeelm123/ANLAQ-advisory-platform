@@ -1,0 +1,9 @@
+# v0.9.5-alpha.1 operational readiness candidate
+Date: 2026-11-28. v0.9.4 candidate accepted by owner; this release remains fictional local engineering only.
+- 285 service regression tests passed. Strict complete persistent lifecycle passed: 28 criteria, seven claim-linked matches, 29 clean fictional source-version scans, material reconciliation, two periods, source supersession, reviewed action closure, restart and encrypted recovery. Persistent scoring stayed disabled.
+- Actual installed ClamAV harmless end-to-end intake/restart test passed. FreshClam completed database validation but emitted certificate-store warnings; independent updater trust, operating procedures and OS parser isolation still required.
+- Offline owner-authorised credential rotation, signed independent checkpoint receipts, exact archive hash/chain binding and private release-attestation verifier added and tested with fictional keys only. Independent custody of latest receipt remains required. No authentic operational signatures issued.
+- Tested dependency version inventory matches the local runtime; not a vulnerability audit or hash-locked distribution.
+- 10/13 gates have partial local engineering evidence; 0/13 independently accepted operationally. Production target not selected/provisioned, production release locked. No real records, production scoring or public deployment.
+See PRODUCTION-READINESS-RUNBOOK.md, PRODUCTION-READINESS-REPORT.json, SCANNER-OPERATIONAL-CHECK.md and the blank PRODUCTION-ATTESTATION-TEMPLATE.json. Independent reviewer evidence must be retained privately. Owner go/no-go is separate.
+- Final regression total: 304 automated checks (285 service, 17 API, one actual scanner integration, one strict full lifecycle). One browser workflow passed, including responsive mobile layout after scanner status card wrapping correction.

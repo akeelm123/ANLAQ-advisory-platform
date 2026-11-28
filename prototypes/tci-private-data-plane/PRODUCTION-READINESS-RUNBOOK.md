@@ -1,0 +1,39 @@
+# ANLAQ TCI operational production readiness runbook — candidate
+2026-11-28 · v0.9.5-readiness.1 · No production environment or real-client data authorised.
+
+## Readiness decision
+Engineering controls and scripted synthetic rehearsals are not a production go/no-go. The current local workstation was accepted for fictional pilot only; host-encryption assurance was deferred by the owner in that scope. If going to cloud, the proposed AWS private architecture requires managed encryption, separately approved account, region, identity, cost, data-handling and actual configuration evidence. Do not infer target selection, spend, deployment or real-client authority from the request to prepare readiness.
+
+## Operational workstreams and evidence
+| Gate | Evidence package required before independent operational acceptance |
+|---|---|
+| P01 Pilot charter | Named participants and role separation; authorised data categories; scope/decision/review dates; owner-signed pilot authority |
+| P02 Hosting | Specific approved production target; verified private access, encrypted storage and restricted ingress/egress; independent environment checks |
+| P03 Identity | Named human identity ownership; account lifecycle, session and access revocation; production identity integration and MFA appropriate to selected target |
+| P04 Authorisation | Independent isolation and least privilege review, role and assessment boundaries, service/storage access verification |
+| P05 Intake | Verified scanner toolchain, signatures and updater trust; approved isolated parser process boundary, format policy, quarantine and refusal procedure; independent assurance |
+| P06 Storage | Full-volume/storage encryption appropriate to target, managed keys and custody, backup/restore and disaster-recovery evidence; local host deferral applies only to fiction |
+| P07 Retention | Owner/data-protection-approved retention and deletion/hold policy including backups and logs, reviewed deletion verification; no automatic deletion currently |
+| P08 Audit | Independent checkpoint receipt custody or external immutable audit sink, monitoring, incident/reporting process and tested recovery |
+| P09 Privacy | Approved lawful input scope/authority, participant notices and consent as applicable, minimisation, handling, export/deletion and access review by responsible owner |
+| P10 Models | Model approval based on intended use/processing location, bounded prompts and model validation, data restrictions and human review; no external or real data at present |
+| P11 Calibration | Actual independent assessor records, reconciliation of disputed anchor judgements, rounding/threshold/exception rules, authorised validation on representative data before production scores |
+| P12 Operations | Operational owner, service monitoring, backup/restore rehearsal, recovery objectives, controlled release/rollback, incident response and support coverage |
+| P13 Pilot UAT | Named independent human cohort executes U01–U13, logs issues, reviews evidence; separate owner go/no-go on exact candidate and target |
+
+## Operational procedures (candidate)
+- Startup: verify approved version/hash, runtime lock, scanner presence and daily definition age, current trusted custody and available capacity. Start loopback synthetic launcher only. Use strict scanner option for fictional testing if definitions verified. Do not reuse old localhost port. If errors or integrity failure, stop and inspect last durable checkpoint; do not retry blindly.
+- Account maintenance: stop server; unlock vault locally; owner authenticates and explicitly confirms rotation of active named member. New password prompts; revoke old sessions; checkpoint. No shared credentials or automatic reactivation. Tool: local_account_admin.py; actual production identity remains separate.
+- Evidence intake: require clean scanner result for exact version in strict mode, distinguish not_scanned/unavailable/refused. Scanner update failure, stale daily definitions or refusal -> no source stored. Format preflight and manual review not malware certification. Treat unsafe or unsupported source as refused; do not bypass scanner or parser. Older unscanned accepted data is synthetic only and not retroactively clean.
+- Backup: stop server, create new encrypted archive with original salt custody, verify integrity on restore in a NEW vault. Do not overwrite existing data. Generate unsigned authenticated checkpoint receipt from exact archive, have independent witness inspect and sign with separately controlled key, retain latest signed receipt and pinned public key under independent custody. Verify the exact archive against that independently retained receipt before accepting restoration; a receipt supplied from the same potentially rolled-back vault cannot establish freshness. Local restore is not automatic anti-rollback enforcement.
+- Incident: stop accepting data, preserve encrypted checkpoint/audit and controlled logs, record scope/time and accountable responder privately, investigate via approved independent process, restore only verified archive and reverify roles. No evidence sharing externally or deletion without separate explicit approval.
+- Recovery objectives: propose RPO equal to last acknowledged checkpoint and RTO based on measured recovery rehearsal; no SLA committed. Single machine cannot guarantee high availability. Maintain approved backup custody and independent restore exercise.
+- Release: hold existing known-good code commit; run regression and documented synthetic UAT prior to promotion. Independent reviewers attest exact candidate and target; no operational readiness outcome accepted merely because local tests pass. No public deployment.
+
+## Data handling and retention proposals, pending owner/privacy approval
+Synthetic-only local records; prohibit real personal/client records, secrets, confidential production docs. For any future authorised real-data pilot, define source class, purpose, responsible owner, access recipients, approved processing location, notice/consent or other authority as applicable, retention and deletion scope before intake. Data minimisation, non-content diagnostic logs, controlled exports and evidence holds; do not claim regulatory compliance. Current archive expiry is a 30-day synthetic cap, not approved real retention or deletion.
+Proposed policy design for later approval: separate assessment record, original evidence, audit log and recovery archive retention schedules with owner-defined event and duration; documented holds override automatic deletion; authorised deletion applies across replicas/archives under independent evidence of closure. Do not implement deletion until policy and explicit authority are established.
+Model scope: ranked local discovery and human evidence confirmation; optional fixed-loopback synthetic model labels only in opted-in demo, no external provider, no production inference or automated scoring/direction. Maintain versioned model digest and case benchmarks; broader representative independent semantic validation open.
+
+## Signed evidence package
+Public PRODUCTION-ATTESTATION-TEMPLATE.json is intentionally blank. Completed gate reviews, reviewer keys, machine results, participants and actual evidence remain in approved private custody. Use production_gate.py for a status report. Future private validation accepts explicit target and exact candidate commit, verifies evidence digest and independently trusted Ed25519 reviewer signature in attestations. The trust registry must be created and verified outside the application by an authorised owner. Each reviewer record must identify required role, review date, rationale, approval reference and evidence files relative to a designated private root. The check never signs for reviewers or unlocks release; human factual review and separate go/no-go remain mandatory.

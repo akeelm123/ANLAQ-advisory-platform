@@ -1,21 +1,50 @@
 """Synthetic intake assurance records and optional installed malware-scanner adapter."""
-import hashlib,shutil,subprocess,uuid
+import hashlib,shutil,subprocess,uuid,os
+from datetime import datetime,date
+from pathlib import Path
 
 METHOD="0.9.4-alpha.1"
 class ScanUnavailable(ValueError):pass
 
+MAX_SIGNATURE_AGE_DAYS=7  # Synthetic readiness candidate; operational policy not approved.
+def scanner_command():
+    exe=shutil.which("clamscan")
+    if not exe and Path("/opt/homebrew/bin/clamscan").is_file():exe="/opt/homebrew/bin/clamscan"
+    if not exe:return None
+    default=Path.home()/"Documents/TCI/local-security-tools/clamav-db"
+    database=os.environ.get("TCI_CLAMAV_DATABASE")
+    if not database and default.is_dir():database=str(default)
+    return [exe]+(["--database="+database] if database else [])+["--official-db-only=yes"]
+
+def signature_age(version,now=None):
+    # Require a daily signature version and a parseable date, not a bare executable version.
+    try:
+        name,number,stamp=version.split("/",2)
+        if not name.startswith("ClamAV ") or not number.isdigit():return None
+        dt=datetime.strptime(stamp.strip(),"%a %b %d %H:%M:%S %Y").date()
+        days=((now or date.today())-dt).days
+        return days if 0<=days<=MAX_SIGNATURE_AGE_DAYS else None
+    except (ValueError,TypeError,AttributeError):return None
+
+def _version(command):
+    r=subprocess.run(command+["--version"],capture_output=True,timeout=5,check=False,env={**os.environ,"LC_ALL":"C"})
+    if r.returncode!=0:return None
+    lines=r.stdout.decode("utf-8","replace").strip().splitlines()
+    return lines[0][:160] if lines else None
+
 def scanner_status():
-    return "available" if shutil.which("clamscan") else "unavailable"
+    command=scanner_command()
+    if not command:return "unavailable"
+    try:return "ready_for_synthetic_scan" if signature_age(_version(command)) is not None else "definitions_unverified"
+    except (OSError,subprocess.SubprocessError):return "definitions_unverified"
 
 def scan_installed(raw):
-    exe=shutil.which("clamscan")
-    if not exe:return {"status":"unavailable","method":"ClamAV not installed"}
+    command=scanner_command()
+    if not command:return {"status":"unavailable","method":"ClamAV not installed"}
     try:
-        version=subprocess.run([exe,"--version"],capture_output=True,timeout=5,check=False)
-        if version.returncode!=0:return {"status":"unavailable","method":"ClamAV version unavailable"}
-        # Feed bytes on stdin; no document file, no external service, no raw scanner output retained.
-        r=subprocess.run([exe,"--no-summary","-"],input=raw,capture_output=True,timeout=30,check=False)
-        label=version.stdout.decode("utf-8","replace").strip().splitlines()[0][:160]
+        label=_version(command)
+        if signature_age(label) is None:return {"status":"unavailable","method":"ClamAV daily signature date missing, stale or unverified"}
+        r=subprocess.run(command+["--no-summary","-"],input=raw,capture_output=True,timeout=30,check=False,env={**os.environ,"LC_ALL":"C"})
         return {"status":"clean" if r.returncode==0 else "detected" if r.returncode==1 else "unavailable","method":label}
     except (OSError,subprocess.SubprocessError,IndexError):return {"status":"unavailable","method":"ClamAV execution unavailable"}
 

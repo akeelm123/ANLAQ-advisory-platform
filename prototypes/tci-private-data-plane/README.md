@@ -60,3 +60,6 @@ Run the synthetic complete persistent API rehearsal with pinned paths: python -m
 
 ## Local intake assurance and calibration (v0.9.4-alpha.1)
 Section 04a reports format-only vs clean scan. Persistent local mode uses bounded child parsing (not an OS sandbox). Optional --require-malware-scan requires installed ClamAV and refuses unavailable/detected scans. Offline retention_review.py authenticates selected archive expiry without deleting or restoring. Blank blind calibration template and comparator require independent human records. See INTAKE-RETENTION-CALIBRATION.md and V094-ACCEPTANCE.md.
+
+## Operational readiness candidate (v0.9.5-alpha.1)
+Owner accepted v0.9.4. Use start-local-pilot-strict.command for opt-in strict scanning of fictional inputs; the ordinary launcher remains format-only. Official scanner and recent definitions are required (candidate age limit seven days). See SCANNER-OPERATIONAL-CHECK.md for unresolved updater trust warning. Run checkpoint_receipt.py, local_account_admin.py and production_gate.py with --help for offline controlled workflows; production_gate.py reports readiness without unlocking release. See PRODUCTION-READINESS-RUNBOOK.md and V095-ACCEPTANCE.md. 10/13 gates have partial engineering evidence; 0/13 have independent operational acceptance. No real data, production scoring or public deployment.

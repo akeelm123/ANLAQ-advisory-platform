@@ -1,0 +1,26 @@
+{
+  "version": "0.9.5-readiness.1",
+  "engineeringEvidenceGates": 10,
+  "requiredOperationalGates": 13,
+  "operationalAccepted": 0,
+  "productionTarget": "not selected or provisioned",
+  "productionReady": false,
+  "releaseLocked": true,
+  "requiresPrivateIndependentEvidence": true,
+  "attestationTemplateSha256": "c60f9762bae4992e3598f0e935b02d4d5048521151708c02c6f372d8db86f9b4",
+  "unacceptedGateIds": [
+    "P01",
+    "P02",
+    "P03",
+    "P04",
+    "P05",
+    "P06",
+    "P07",
+    "P08",
+    "P09",
+    "P10",
+    "P11",
+    "P12",
+    "P13"
+  ]
+}

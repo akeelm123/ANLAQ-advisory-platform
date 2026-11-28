@@ -58,5 +58,13 @@ class IntakeTests(unittest.TestCase):
       with self.assertRaises(UnsupportedDocument):parse_document("test.txt",b"Fictional")
  def test_scanner_adapter_not_installed(self):
     from intake_assurance import scan_installed
-    with patch("intake_assurance.shutil.which",return_value=None):self.assertEqual(scan_installed(b"Fictional")["status"],"unavailable")
+    with patch("intake_assurance.scanner_command",return_value=None):self.assertEqual(scan_installed(b"Fictional")["status"],"unavailable")
+ def test_signature_freshness_candidate_policy(self):
+    from datetime import date
+    from intake_assurance import signature_age,scan_installed
+    self.assertEqual(signature_age("ClamAV 1.5.4/28194/Wed Nov 25 14:26:59 2026",date(2026,11,28)),3)
+    self.assertIsNone(signature_age("ClamAV 1.5.4/28194/Wed Nov 25 14:26:59 2026",date(2026,12,5)))
+    self.assertIsNone(signature_age("ClamAV 1.5.4"))
+    with patch("intake_assurance.scanner_command",return_value=["mock-scanner"]),patch("intake_assurance._version",return_value="ClamAV 1.5.4"),patch("intake_assurance.subprocess.run") as run:
+      self.assertEqual(scan_installed(b"Fictional")["status"],"unavailable");run.assert_not_called()
 if __name__=="__main__":unittest.main()

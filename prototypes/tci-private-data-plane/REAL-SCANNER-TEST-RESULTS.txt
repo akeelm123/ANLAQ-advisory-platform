@@ -1,0 +1,7 @@
+test_harmless_strict_scan_and_restart (test_real_scanner.RealScannerTests.test_harmless_strict_scan_and_restart) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 4.236s
+
+OK
+PASS: actual installed ClamAV scan of harmless fictional document; version-bound clean record survived restart; release locked.

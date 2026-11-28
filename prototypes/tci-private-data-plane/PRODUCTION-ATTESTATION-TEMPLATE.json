@@ -1,0 +1,139 @@
+{
+  "version": "0.9.5-readiness.1",
+  "scope": "draft_not_approved",
+  "productionTarget": "not_selected",
+  "note": "Blank template only; completed human attestations and machine/pilot details must stay in approved private custody, never public GitHub.",
+  "attestations": [
+    {
+      "gateId": "P01",
+      "requiredRole": "Project owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P02",
+      "requiredRole": "Infrastructure owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P03",
+      "requiredRole": "Identity owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P04",
+      "requiredRole": "Independent assurance reviewer",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P05",
+      "requiredRole": "Security owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P06",
+      "requiredRole": "Data platform owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P07",
+      "requiredRole": "Data protection owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P08",
+      "requiredRole": "Operations owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P09",
+      "requiredRole": "Data protection owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P10",
+      "requiredRole": "Methodology owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P11",
+      "requiredRole": "Methodology owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P12",
+      "requiredRole": "Operations owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    },
+    {
+      "gateId": "P13",
+      "requiredRole": "Project owner",
+      "status": "not_accepted",
+      "evidenceReferences": [],
+      "reviewerRef": "",
+      "reviewDate": "",
+      "dispositionRationale": "",
+      "approvalReference": ""
+    }
+  ],
+  "ownerGoNoGo": "not_requested"
+}

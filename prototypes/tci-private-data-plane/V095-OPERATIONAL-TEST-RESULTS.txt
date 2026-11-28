@@ -1,0 +1,9 @@
+test_offline_rotation_preserves_role_and_revokes_sessions (test_local_account_admin.AccountMaintenanceTests.test_offline_rotation_preserves_role_and_revokes_sessions) ... ok
+test_local_evidence_never_approves_production (test_production_gate.ProductionGateTests.test_local_evidence_never_approves_production) ... ok
+test_signed_private_attestation_evidence_binding (test_production_gate.ProductionGateTests.test_signed_private_attestation_evidence_binding) ... ok
+test_exact_checkpoint_and_rollback_guard (test_checkpoint_receipt.ReceiptTests.test_exact_checkpoint_and_rollback_guard) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.570s
+
+OK

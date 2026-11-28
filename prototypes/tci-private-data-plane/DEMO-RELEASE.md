@@ -1,2 +1,2 @@
-# Release note — v0.9.4-alpha.1 (candidate)
-Local synthetic intake assurance, bounded child parser, immutable scanner policy records and optional strict fail-closed scanner, read-only encrypted archive expiry review, independent calibration preparation. 298 automated tests and two browser checks passed; actual scanner, OS isolation, formal retention and human calibration remain pending. No real data or deployment.
+# Release note — v0.9.5-alpha.1 (candidate)
+Fictional local operational readiness engineering: actual strict scanner verification, signature freshness, signed checkpoint receipt, offline account rotation, tested dependency inventory, private operational attestation verifier, operational runbook and release lock. Full strict lifecycle and regression evidence recorded in V095-ACCEPTANCE.md. Updater trust warning and independent operational gates remain open. No real data or deployment.

@@ -1,0 +1,10 @@
+{
+  "recordId":"TCI-V094-APR-001",
+  "approvedOn":"2026-11-28",
+  "approvedBy":"Project owner",
+  "status":"approved",
+  "candidate":"0.9.4-alpha.1",
+  "commit":"8f8b46881d53fa8103b10bbda36874561921ca1c",
+  "acceptanceSha256":"7d28c08f3348b9299253c6a0ec4e5f72a96be6f37e6872c3a99f8494eb242eb3",
+  "scope":"Owner accepted synthetic intake, retention and calibration preparation and directed continuous operational production-readiness work. No actual production release, real-client processing or public deployment authorised. Local host encryption remains deferred for fictional-only scope."
+}

@@ -1,5 +1,5 @@
 """Scripted synthetic lifecycle rehearsal via persistent loopback API and new-vault recovery."""
-import base64,json,unittest
+import base64,json,unittest,os
 from pathlib import Path
 import test_local_api as api
 from local_store import LocalStore
@@ -47,6 +47,8 @@ class LocalLifecycleUAT(unittest.TestCase):
         sid=self.ok("reassessment-capture","assessor",{"label":label,"periodStart":start,"periodEnd":end,"basis":"Identical mock population and measurement basis"})["snapshotId"]
         self.ok("reassessment-snapshot-review","reviewer",{"snapshotId":sid,"decision":"accept","reason":"Scripted period review","confirmed":True});return sid
     def test_complete_persistent_lifecycle_and_recovery(self):
+        strict=os.getenv("TCI_TEST_STRICT_FULL_UAT")=="1"
+        if strict:self.cfg["requireScan"]=True
         self.start(True)
         fixtures=json.loads((Path(__file__).resolve().parent/"golden-fixtures.json").read_text())["fixtures"]
         docs={};refs={};validations=[];match_count=0
@@ -93,6 +95,7 @@ class LocalLifecycleUAT(unittest.TestCase):
         self.cfg["directory"]=str(newpath);self.start()
         d=self.dash("owner")[1];self.assertEqual(d["executive"]["snapshot"]["supportedCount"],28)
         self.assertEqual(len(d["versions"]),29);self.assertEqual(len(d["matching"]["runs"]),7)
+        if strict:self.assertEqual(sum(r["scanStatus"]=="clean" for r in d["intakeAssurance"]["records"]),29)
         c=next(c for c in d["reassessment"]["comparisons"] if c["id"]==comp);self.assertEqual(c["status"],"accept")
         self.assertEqual(next(x for x in c["payload"]["result"]["criteria"] if x["criterion"]=="Q25")["change"],"condition_improved")
         self.assertEqual(c["payload"]["actions"][0]["status"],"closed");self.assertIsNone(c["payload"]["result"]["pilot"])

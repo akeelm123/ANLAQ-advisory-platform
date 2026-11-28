@@ -12,9 +12,14 @@ if [[ -z "${TCI_INTERVIEW_SPEC:-}" && -f "INTERVIEW-SPEC-v0.3-preparation.json" 
 DATA="${TCI_LOCAL_DATA_DIR:-$HOME/Library/Application Support/ANLAQ-TCI-Synthetic}"
 echo "ANLAQ TCI — fictional local pilot only. No real-client records."
 echo "Store: $DATA"
+SCAN_FLAGS=()
+if [[ "${TCI_REQUIRE_MALWARE_SCAN:-0}" == "1" ]]; then
+  SCAN_FLAGS=(--require-malware-scan)
+  echo "Strict scanning: fresh official definitions required."
+fi
 if [[ ! -e "$DATA/current.tci" && ! -e "$DATA/salt.bin" ]]; then
   read "ANSWER?Create a new encrypted synthetic local vault and four named accounts? (yes/no): "
   [[ "$ANSWER" == "yes" ]] || exit 0
-  exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --initialize --auto-port --open-browser
+  exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --initialize --auto-port --open-browser "${SCAN_FLAGS[@]}"
 fi
-exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --auto-port --open-browser
+exec "$PYTHON" local_pilot.py --data-dir "$DATA" --confirm-synthetic --auto-port --open-browser "${SCAN_FLAGS[@]}"

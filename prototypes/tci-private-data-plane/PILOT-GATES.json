@@ -1,5 +1,5 @@
 {
-  "version": "0.9.4-alpha.1",
+  "version": "0.9.5-readiness.1",
   "mode": "synthetic-local-only",
   "deploymentAuthorised": false,
   "realClientAuthorised": false,
@@ -23,7 +23,7 @@
       "name": "Production identity and role lifecycle",
       "owner": "Identity owner",
       "status": "local_verified",
-      "evidence": "Named local accounts, separate role permissions, fresh login and persistent revocation verified using generated synthetic users; human identity/OS account lifecycle not accepted"
+      "evidence": "Named local account provisioning, separate role gates, offline owner-confirmed password rotation and session revocation, persisted revocation tested; operational identity and named human participants pending."
     },
     {
       "id": "P04",
@@ -37,7 +37,7 @@
       "name": "Evidence intake and parser assurance",
       "owner": "Security owner",
       "status": "local_verified",
-      "evidence": "Bounded parser child process verified across four formats, strict scanner adapter fail-closed outcomes simulated, persisted digest-only intake records; installed active scanner, signature freshness, OS isolation and independent security assurance still open."
+      "evidence": "Bounded child parser and strict scanner policy tested; installed scanner with official definitions scanned harmless mock input, exact-version digest persisted. Signature-age guard tested. Independent verification of updater warnings, OS isolation and operational security remains open."
     },
     {
       "id": "P06",
@@ -58,7 +58,7 @@
       "name": "Audit and operational response",
       "owner": "Operations owner",
       "status": "local_verified",
-      "evidence": "Audit verification on full lifecycle and recovery; external audit/anti-rollback/incident assurance open"
+      "evidence": "Synthetic audit recovery and independently signed exact-checkpoint receipt verification tested; older valid archive rejected against latest trusted receipt. Actual independent witness custody, external audit and incident assurance pending."
     },
     {
       "id": "P09",
@@ -71,8 +71,8 @@
       "id": "P10",
       "name": "Model governance",
       "owner": "Methodology owner",
-      "status": "open",
-      "evidence": "Approved processing locality, model scope, reproducibility and human review assurance"
+      "status": "local_verified",
+      "evidence": "Fixed-loopback optional local model proposal mode and synthetic label benchmark verified; persistent scoring/model disabled. Operational model approval, real-client handling, independent semantic calibration open."
     },
     {
       "id": "P11",

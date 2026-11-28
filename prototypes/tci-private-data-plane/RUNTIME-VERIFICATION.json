@@ -1,0 +1,43 @@
+{
+  "python": "3.12",
+  "packages": [
+    {
+      "package": "cryptography",
+      "expected": "50.0.2",
+      "actual": "50.0.2",
+      "matches": true
+    },
+    {
+      "package": "pypdf",
+      "expected": "6.21.4",
+      "actual": "6.21.4",
+      "matches": true
+    },
+    {
+      "package": "openpyxl",
+      "expected": "3.1.5",
+      "actual": "3.1.5",
+      "matches": true
+    },
+    {
+      "package": "cffi",
+      "expected": "2.1.1",
+      "actual": "2.1.1",
+      "matches": true
+    },
+    {
+      "package": "pycparser",
+      "expected": "3.12",
+      "actual": "3.12",
+      "matches": true
+    },
+    {
+      "package": "et-xmlfile",
+      "expected": "2.0.0",
+      "actual": "2.0.0",
+      "matches": true
+    }
+  ],
+  "matchesTestedRuntime": true,
+  "securityAssurance": false
+}
