@@ -1,0 +1,3 @@
+# Clean checkout reproduction — 2026-11-28
+
+Fresh single-branch checkout of `prototyping` at `8bfb97c7d7cfc2c7337db842f5f1e71d81407730`. No local methodology overrides or source workbook were supplied. The 285-test service suite completed with 283 passing and 2 intentional skips (fingerprinted fictional Aurora workbook dry run and integrated recovery, both passed in the full local regression). The checkout was clean after testing. This verifies repository-contained methodology resolution and service reproducibility on the tested runtime, not independent operational assurance or a fresh dependency installation.
