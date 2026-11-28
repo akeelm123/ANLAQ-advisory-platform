@@ -1,0 +1,1 @@
+PASS: actual local model response subject to deterministic possible measurement discrepancy guard; candidate withheld, 30-day evidence reconciliation action generated.

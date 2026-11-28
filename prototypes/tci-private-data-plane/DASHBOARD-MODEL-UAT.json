@@ -1,0 +1,82 @@
+{
+  "scope": "Existing fictional narrative fixtures; structural local-model UAT only, not semantic accuracy or calibration",
+  "inputCriteria": 28,
+  "files": 28,
+  "dimensions": [
+    {
+      "dimension": "Strategic Alignment",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 41.07,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Leadership Commitment",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 47.96,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Technology Readiness",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 46.54,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "People & Culture",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 52.45,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Data & AI Confidence",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 41.34,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Delivery Excellence",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 58.66,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Business Value Realisation",
+      "eligible": 4,
+      "returned": 4,
+      "unavailable": 0,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 68.39,
+      "status": "structured response validated"
+    }
+  ],
+  "candidateCriteria": 28,
+  "candidateScoreCalculated": true,
+  "reviewed": 0,
+  "productionLocked": true,
+  "actions": 20
+}

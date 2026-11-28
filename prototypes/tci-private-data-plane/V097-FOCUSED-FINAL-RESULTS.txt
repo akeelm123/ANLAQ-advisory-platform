@@ -1,0 +1,21 @@
+test_encrypted_checkpoint_and_restart (test_dashboard_persistent.DashboardPersistenceTests.test_encrypted_checkpoint_and_restart) ... ok
+test_refuses_old_workbench (test_dashboard_persistent.DashboardPersistenceTests.test_refuses_old_workbench) ... ok
+test_actual_interview_measurement_discrepancy_guard (test_dashboard_logic.DashboardTests.test_actual_interview_measurement_discrepancy_guard) ... ok
+test_complete_persona_calculation (test_dashboard_logic.DashboardTests.test_complete_persona_calculation) ... ok
+test_fictional_example_no_overwrite_and_snapshot_source_binding (test_dashboard_logic.DashboardTests.test_fictional_example_no_overwrite_and_snapshot_source_binding) ... ok
+test_guidance_is_optional_and_declaration_not_validation (test_dashboard_logic.DashboardTests.test_guidance_is_optional_and_declaration_not_validation) ... ok
+test_no_evidence_plan_not_failure (test_dashboard_logic.DashboardTests.test_no_evidence_plan_not_failure) ... ok
+test_reviewed_weak_plan_and_candidate_caution (test_dashboard_logic.DashboardTests.test_reviewed_weak_plan_and_candidate_caution) ... ok
+test_tag_hint_not_automatic_support_and_review_refs_required (test_dashboard_logic.DashboardTests.test_tag_hint_not_automatic_support_and_review_refs_required) ... ok
+test_missing_model_result_retried_without_forcing_score (test_simple_ai.ModelCandidateTests.test_missing_model_result_retried_without_forcing_score) ... ok
+test_possible_measurement_conflict_withholds_candidate (test_simple_ai.ModelCandidateTests.test_possible_measurement_conflict_withholds_candidate) ... ok
+test_reject_fabricated_reference_and_non_integer (test_simple_ai.ModelCandidateTests.test_reject_fabricated_reference_and_non_integer) ... ok
+test_valid_reference_and_unknown (test_simple_ai.ModelCandidateTests.test_valid_reference_and_unknown) ... ok
+test_complete_weighted_calculation_and_guards (test_simple_scoring.SimpleTests.test_complete_weighted_calculation_and_guards) ... ok
+test_exact_weights_and_no_default_score (test_simple_scoring.SimpleTests.test_exact_weights_and_no_default_score) ... ok
+test_upload_and_rank_citations (test_simple_scoring.SimpleTests.test_upload_and_rank_citations) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.524s
+
+OK

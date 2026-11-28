@@ -1,0 +1,39 @@
+# ANLAQ TCI™ v0.9.7 — dashboard UAT release candidate
+Date: 2026-11-28. Scope: fictional local user acceptance testing only. The owner directed continued implementation without intermediate approvals and explicitly limited release to UAT; no production deployment, real-client processing or operational acceptance inferred.
+
+## Product scope
+The supplied dashboard reference was inspected in the browser (Dashboard, Assessment, Evidence, Action Plan, Summary). The implementation retains that functional navigation and executive scorecard/history/persona/profile/action-roadmap concepts in an independently implemented ANLAQ-branded interface. The original manual dimension scoring is replaced by automated evidence retrieval, criterion-level AI candidate anchors and exact methodology-weighted arithmetic. No source code or sample numbers from the external dashboard were copied.
+
+- Evidence: optional guidance from the 32-item approved working register baseline by dimension, purpose, priority and suggested alternative. Upload PDF/DOCX/XLSX/TXT in any order. Optional category hints help ranking but cannot establish relevance or sufficient evidence. Content must be extracted. 64 documents maximum, 256 KiB each, 8 MiB aggregate; bounded child parser, format-only (not malware scanned in this dashboard).
+- Assessment: original 28 stakeholder questions, grouped by the seven canonical dimensions. Record responses or Unknown. Fixed-loopback local model receives only fictional passages/answers with approved response bank examples; source IDs are validated. Two-criterion batches and bounded per-criterion retry prevent silent omissions. Potential interview/document numerical or forecast/actual discrepancies withhold candidates pending basis review. Model availability, insufficiency and discrepancy outcomes remain visible.
+- Dashboard: canonical and four approved persona lenses (Board, CIO, Chief Platform Officer, Transformation Office), exact weights, coverage, candidate versus assessor-reviewed draft scores, risks/strengths, priorities, snapshots. No arbitrary default scores, reweighting, additional persona weights or confidence bands. Optional same-scale target and gap on summary; no target affects score.
+- Action plan: automatic 30-day evidence verification, 90-day remediation for reviewed anchors or conditional improvement for unreviewed lower AI candidates, and 180-day reassessment. Uses criterion links, recommended sources, methodology follow-up/anchor guidance, proposed accountable roles and success measures. Owners/actions/measures editable; edits are proposals, never independent sign-off. Export CSV and printable PDF summary, no external transmission.
+- Summary: all seven assessed dimensions displayed; radar when complete; candidate versus reviewed labels; printable report including priorities and action plan. Save immutable point-in-time snapshots with source digests, criteria results and editable proposal values; view history. No approved thresholds or automated investment direction.
+- State: direct temporary local preview keeps workspace in memory across sign-in; navigation saves and explicit Save progress available. Restart clears temporary state. Separate opt-in dedicated encrypted UAT vault uses existing authenticated checkpoint/restore controls, source bytes and digests, answers, reviews, model proposals and snapshots. Do not reuse the existing detailed-workbench vault. Four named role accounts provisioned in persistent option; dashboard access is assessor-only. Independent human review is not replaced by the simplified draft confirmation. No real data. Actual user vault untouched.
+
+## Test evidence
+- 301 service checks passed (including the working methodology, original workbench, new dashboard, model candidate validation, discrepancy guard and encrypted UAT state).
+- 18 API checks passed including persistent dashboard authentication, origin restrictions, checkpoint failure withholding and recovery.
+- Three browser workflows passed: dashboard guided upload/interview/export/history/mobile, complete fictional 28-criterion scripted weighted score and radar/target/PDF, previous simple workflow. Scripted 3.00/5 is UAT arithmetic, not a validated client or AI score.
+- Local-model structural benchmark on 28 existing fictional narrative documents and 28 neutral fictional interview answers: baseline 28 returned/22 anchors; retrieval iteration 23 returned/15 anchors; small batches and bounded retry 28 returned/28 anchors, 0 unavailable, full unreviewed weighted candidate calculated, 20 proposed action groups, elapsed 356.41 seconds. No independent calibration or semantic accuracy claim. Separate actual local-model discrepancy test (80% claim versus 70% actual with same stated basis) withheld anchor and generated reconciliation action. Reports retained in versioned JSON.
+- PDF report generated from scripted fictional inputs rendered five A4 pages; text verification includes title, 3.00/5, target, proposed plan and locked-use notice. CSV export verified edited owner and protective provisional labeling.
+
+## UAT reviewer checklist (not completed by automation)
+| ID | Scenario | Expected |
+|---|---|---|
+| DU01 | Navigate the five workspace areas | Simple navigation, actionable dashboard, no workbench complexity exposed by default |
+| DU02 | Review optional recommended documents | 32 categories, alternatives, never a mandatory upload check |
+| DU03 | Upload arbitrary fictional supported formats | Extracted sources/digests retained and candidate coverage recalculates; undeclared source accepted |
+| DU04 | Enter stakeholder Q&A including Unknown | Questions per dimension, no invented interview weight |
+| DU05 | Generate draft anchors | All eligible criteria attempted, uncertain/discrepant inputs withheld; clear candidate status and traceable source |
+| DU06 | Inspect and correct exceptions | Source citation selection, rationale, no material unresolved discrepancy, sustained evidence confirmed for 4–5 |
+| DU07 | Assess dashboard and summary | Exact 1–5 scores and weights, complete-only canonical and persona calculations, optional target, no confidence band invented |
+| DU08 | Review generated 30/90/180 day plan | Gap vs confirmed vs conditional distinctions; editable owner, action, success; download CSV and print PDF |
+| DU09 | Save and view snapshot | Source-bound history; original snapshot unchanged after edits; temporary state persists across login |
+| DU10 | Dedicated encrypted UAT recovery | New isolated vault, checkpoint failure denies acknowledgement, authenticated restore; no release unlock |
+| DU11 | Record UAT feedback | Named human reviewer notes defects and expected improvements; no automatic production approval |
+
+## Release boundary
+UAT candidate only. Human UAT and representative independent score-anchor calibration remain outstanding. The dashboard currently uses format-only intake (strict scanner tested in original workbench but not integrated here). Operational hosting, privacy, retention, independent audit custody, machine controls, scanner updater trust, process isolation and production release gates are unchanged. No deployment or real-data processing is authorised. The project repository is authoritative for code, tests, methodology and release records; keep local vaults, credentials and evidence outside GitHub.
+
+Final regression: 2 additional opt-in original-workbench strict scanner and full persistent lifecycle tests passed in 164.587 seconds; total 321 unique automated checks (301 service + 18 API + 2 strict). The previous scanner updater warning remains an operational assurance issue; this does not change the dashboard's format-only intake policy. Sixteen focused final checks rerun after the workspace target/snapshot enhancement also passed (subset, not added to total). The actual UAT dashboard was opened successfully on the owner's local machine; no vault or real records were accessed.

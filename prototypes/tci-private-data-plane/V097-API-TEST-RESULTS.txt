@@ -1,0 +1,23 @@
+test01_auth_and_assessment_isolation (test_api.APITest.test01_auth_and_assessment_isolation) ... ok
+test02_origin_and_role_gates (test_api.APITest.test02_origin_and_role_gates) ... ok
+test03_full_workflow (test_api.APITest.test03_full_workflow) ... ok
+test04_logout_revokes_token (test_api.APITest.test04_logout_revokes_token) ... ok
+test05_extraction_review_and_provenance (test_api.APITest.test05_extraction_review_and_provenance) ... ok
+test06_missing_fields_return_not_accept (test_api.APITest.test06_missing_fields_return_not_accept) ... ok
+test07_supported_document_formats_end_to_end (test_api.APITest.test07_supported_document_formats_end_to_end) ... ok
+test08_interview_api_role_isolation_and_followups (test_api.APITest.test08_interview_api_role_isolation_and_followups) ... ok
+test09_validation_integration (test_api.APITest.test09_validation_integration) ... ok
+test10_pilot_scoring_disabled_by_default (test_api.APITest.test10_pilot_scoring_disabled_by_default) ... ok
+test11_executive_decision_workflow (test_api.APITest.test11_executive_decision_workflow) ... ok
+test12_reassessment_workflow (test_api.APITest.test12_reassessment_workflow) ... ok
+test13_evidence_matching_human_link (test_api.APITest.test13_evidence_matching_human_link) ... ok
+test_checkpoint_failure_not_acknowledged (test_local_api.LocalAPITests.test_checkpoint_failure_not_acknowledged) ... ok
+test_port_collision_uses_free_loopback_port (test_local_api.LocalAPITests.test_port_collision_uses_free_loopback_port) ... ok
+test_restart_and_role_revocation (test_local_api.LocalAPITests.test_restart_and_role_revocation) ... ok
+test_strict_intake_refusal_persists_without_document (test_local_api.LocalAPITests.test_strict_intake_refusal_persists_without_document) ... ok
+test_persistent_routes_role_scope_and_checkpoint_failure (test_dashboard_api.DashboardAPITests.test_persistent_routes_role_scope_and_checkpoint_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 8.346s
+
+OK

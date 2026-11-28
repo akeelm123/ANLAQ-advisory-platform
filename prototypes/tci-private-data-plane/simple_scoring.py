@@ -6,6 +6,7 @@ from evidence_matching import terms,ranked_relevance
 from scoring import weighted_dimensions
 
 class SimpleAssessment:
+    MAX_FILES=20
     def __init__(self,reg,spec):
         self.weights=reg["weights"]
         self.criteria=reg["criteria"]
@@ -20,7 +21,7 @@ class SimpleAssessment:
     def metadata(self):
         return {"weights":self.weights,"criteria":[{**c,"anchors":[{"score":a[1],"label":a[2],"description":a[5]} for a in self.anchors[c["id"]]]} for c in self.criteria],"method":"approved register baseline; ranked lexical candidate only"}
     def add(self,name,raw):
-        if len(self.files)>=20:raise ValueError("Maximum 20 fictional files per preview")
+        if len(self.files)>=self.MAX_FILES:raise ValueError(f"Maximum {self.MAX_FILES} fictional files per preview")
         if not isinstance(name,str) or len(name)>250 or not 0<len(raw)<=MAX_FILE:raise ValueError("File exceeds preview limit")
         digest=hashlib.sha256(raw).hexdigest()
         if digest in self.files:return self.files[digest]["meta"]
@@ -33,15 +34,19 @@ class SimpleAssessment:
         for c in self.criteria:
             q=c["id"];rule=self.rules[q]
             primary=" ".join(self.catalogue[k]["title"]+" "+self.catalogue[k]["extract"] for k in rule["primary"] if k in self.catalogue)
-            query=" ".join([c["criterion"],c["question"],c["minimum"],primary])
+            query=" ".join([c["criterion"],c["question"],c["minimum"],primary,rule.get("test",""),rule.get("fields","")])
             candidates=[]
             for digest,record in self.files.items():
                 for s in record["segments"]:
                     value,overlap=ranked_relevance(query,s["text"])
-                    if value>=9 and len([w for w in overlap if not w.startswith("concept")])>=2:
-                        candidates.append({"digest":digest,"file":record["meta"]["name"],"locator":s["location"],"quote":s["text"][:1200],"relevance":value})
-            candidates.sort(key=lambda x:(-x["relevance"],x["digest"],x["locator"]))
-            candidates=candidates[:5]
+                    tags=set(record["meta"].get("declaredRequests",[]));primary_match=bool(tags&set(rule["primary"]));other_match=bool(tags&set(rule.get("supplementary",[])+rule.get("conditional",[])));ordinary=len([w for w in overlap if not w.startswith("concept")])
+                    if (value>=9 and ordinary>=2) or (primary_match and value>=6 and ordinary>=1):
+                        candidates.append({"digest":digest,"file":record["meta"]["name"],"locator":s["location"],"quote":s["text"][:1200],"relevance":value,"rank":value+(12 if primary_match else 4 if other_match else 0),"declaredCategory":"primary" if primary_match else "related" if other_match else None})
+            candidates.sort(key=lambda x:(-x["rank"],x["digest"],x["locator"]))
+            first=[];later=[];seen=set()
+            for x in candidates:
+                (first if x["digest"] not in seen else later).append(x);seen.add(x["digest"])
+            candidates=(first+later)[:5]
             # Compare discriminating anchor vocabulary, not evidence volume or evidence class.
             vocab={a[1]:terms(a[5]) for a in self.anchors[q]}
             ranked=[]
@@ -54,8 +59,11 @@ class SimpleAssessment:
             suggestion=ranked[0][1] if candidates and ranked[0][0]>=3 and ranked[0][0]-ranked[1][0]>=2 else None
             results.append({"id":q,"sources":candidates,"suggested":suggestion,"status":"candidate_only" if suggestion is not None else "review_needed" if candidates else "no_evidence"})
         return {"files":[f["meta"] for f in self.files.values()],"criteria":results}
-    def record_proposals(self,candidates,interviews):
-        for q,c in candidates.items():self.proposals[q]={"score":c["score"],"answer":interviews[q]}
+    def record_proposals(self,candidates,interviews,model=None,model_digest=None):
+        byid={r["id"]:r for r in self.analyze()["criteria"]}
+        for q,c in candidates.items():
+            refs=[byid[q]["sources"][int(i)-1] for i in c.get("sourceIds",[]) if isinstance(i,str) and i.isdigit() and 1<=int(i)<=len(byid[q]["sources"])]
+            self.proposals[q]={"score":c["score"],"answer":interviews[q],"status":c.get("status","test_fixture"),"rationale":c.get("rationale",""),"model":model,"modelDigest":model_digest,"sourceRefs":[{"digest":s["digest"],"locator":s["locator"],"quoteSha256":hashlib.sha256(s["quote"].encode()).hexdigest()} for s in refs]}
     def calculate(self,rows,interviews):
         if not isinstance(rows,dict) or not isinstance(interviews,dict):raise ValueError("Invalid review")
         expected={c["id"] for c in self.criteria}
@@ -79,4 +87,4 @@ class SimpleAssessment:
             dimensions[d]={"weight":self.weights[d],"reviewed":len(ids&accepted.keys()),"total":len(ids),"proposal":float(sum(Decimal(proposed[c["id"]])*Decimal(c["criterionWeight"])/100 for c in group)) if ids<=proposed.keys() else None,"score":float(sum(Decimal(accepted[c["id"]])*Decimal(c["criterionWeight"])/100 for c in group)) if ids<=accepted.keys() else None}
         total=weighted_dimensions({d:v["score"] for d,v in dimensions.items()},self.weights) if len(accepted)==28 else None
         suggestion=weighted_dimensions({d:v["proposal"] for d,v in dimensions.items()},self.weights) if len(proposed)==28 else None
-        return {"unreviewedModelScore":float(suggestion) if suggestion is not None else None,"proposedCriteria":len(proposed),"reviewed":len(accepted),"totalCriteria":28,"dimensions":dimensions,"draftScore":float(total) if total is not None else None,"productionLocked":True,"independentReviewRequired":True}
+        return {"criterionResults":[{"id":q,"reviewedScore":accepted.get(q),"candidateScore":proposed.get(q),"sourceCount":len(results[q]["sources"]),"interviewCaptured":isinstance(interviews.get(q),str) and bool(interviews[q].strip()),"materialConflict":isinstance(rows.get(q),dict) and rows[q].get("conflict") is True} for q in sorted(expected)],"unreviewedModelScore":float(suggestion) if suggestion is not None else None,"proposedCriteria":len(proposed),"reviewed":len(accepted),"totalCriteria":28,"dimensions":dimensions,"draftScore":float(total) if total is not None else None,"productionLocked":True,"independentReviewRequired":True}

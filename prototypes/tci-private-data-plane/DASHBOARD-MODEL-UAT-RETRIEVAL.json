@@ -1,0 +1,75 @@
+{
+  "scope": "Existing fictional narrative fixtures; structural local-model UAT only, not semantic accuracy or calibration",
+  "inputCriteria": 28,
+  "files": 28,
+  "dimensions": [
+    {
+      "dimension": "Strategic Alignment",
+      "eligible": 4,
+      "returned": 4,
+      "anchors": 3,
+      "withheld": 1,
+      "durationSeconds": 23.55,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Leadership Commitment",
+      "eligible": 4,
+      "returned": 2,
+      "anchors": 1,
+      "withheld": 1,
+      "durationSeconds": 12.39,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Technology Readiness",
+      "eligible": 4,
+      "returned": 1,
+      "anchors": 0,
+      "withheld": 1,
+      "durationSeconds": 10.95,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "People & Culture",
+      "eligible": 4,
+      "returned": 4,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 20.83,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Data & AI Confidence",
+      "eligible": 4,
+      "returned": 4,
+      "anchors": 4,
+      "withheld": 0,
+      "durationSeconds": 23.9,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Delivery Excellence",
+      "eligible": 4,
+      "returned": 4,
+      "anchors": 0,
+      "withheld": 4,
+      "durationSeconds": 30.1,
+      "status": "structured response validated"
+    },
+    {
+      "dimension": "Business Value Realisation",
+      "eligible": 4,
+      "returned": 4,
+      "anchors": 3,
+      "withheld": 1,
+      "durationSeconds": 39.52,
+      "status": "structured response validated"
+    }
+  ],
+  "candidateCriteria": 15,
+  "candidateScoreCalculated": false,
+  "reviewed": 0,
+  "productionLocked": true,
+  "actions": 18
+}

@@ -1,0 +1,6 @@
+test_persistent_routes_role_scope_and_checkpoint_failure (test_dashboard_api.DashboardAPITests.test_persistent_routes_role_scope_and_checkpoint_failure) ... ok
+
+----------------------------------------------------------------------
+Ran 1 test in 0.735s
+
+OK
