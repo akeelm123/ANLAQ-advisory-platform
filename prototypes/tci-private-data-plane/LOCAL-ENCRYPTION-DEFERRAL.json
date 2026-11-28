@@ -1,0 +1,13 @@
+{
+  "recordId": "TCI-LOCAL-ENC-DEF-001",
+  "decisionDate": "2026-11-28",
+  "decisionBy": "Project owner",
+  "decision": "Defer local host disk-encryption assurance for the synthetic-only pilot; require managed encryption in any future cloud architecture.",
+  "scope": "Fictional inputs, loopback only. Existing application-level encrypted vault, access controls and backup protections remain mandatory.",
+  "operationalEncryptionGate": "deferred_not_accepted",
+  "cloudRequirement": "Private encrypted database, evidence object storage, backups and audit storage; managed keys, lifecycle and independent verification before cloud pilot.",
+  "realClientAuthorised": false,
+  "productionAuthorised": false,
+  "deploymentAuthorised": false,
+  "nextWork": ["Synthetic human UAT", "Evidence intake assurance", "Retention and backup lifecycle design", "Independent assessor calibration"]
+}

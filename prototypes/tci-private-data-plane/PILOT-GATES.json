@@ -44,7 +44,7 @@
       "name": "Encrypted storage and recovery",
       "owner": "Data platform owner",
       "status": "local_verified",
-      "evidence": "Persistent encrypted checkpoint, atomic failure refusal, full 28-criterion restart and new-vault archive recovery verified on mock inputs; machine encryption/custody open"
+      "evidence": "Persistent encrypted checkpoint, atomic failure refusal, full mock restart and recovery verified. Owner deferred local host disk-encryption assurance for fictional-only UAT; not operational acceptance. Future cloud managed storage/key/backup encryption requires independent verification."
     },
     {
       "id": "P07",
