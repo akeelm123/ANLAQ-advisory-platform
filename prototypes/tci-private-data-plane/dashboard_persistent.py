@@ -43,8 +43,7 @@ class PersistentDashboardHandler(SimpleHandler):
     def payload(self,status,data):
         if self.command=="POST" and 200<=status<300 and self.path in ("/api/upload","/api/propose","/api/workspace","/api/snapshot","/api/example"):
             try:
-                actor=self.dp._actor(self.token(),self.server.aid,{"assessor"})
-                self.server.workspace_store.checkpoint(actor["id"])
+                self.server.workspace_store.checkpoint(self.request_actor_id)
             except Exception:
                 self.server.failed=True;return super().payload(503,{"error":"Encrypted checkpoint failed; progress was not acknowledged. Restart and inspect the previous archive."})
         return super().payload(status,data)

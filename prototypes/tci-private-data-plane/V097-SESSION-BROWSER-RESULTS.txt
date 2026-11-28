@@ -1,0 +1,2 @@
+PASS: explicit 401 expiration, same-account reauthentication, selected file/category retained and upload automatically resumed.
+PASS: legacy 403 expiration, same-account reauthentication, selected file/category retained and upload automatically resumed.

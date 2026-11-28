@@ -23,7 +23,10 @@ class SimpleHandler(Handler):
             else:data={}
             if self.path=="/api/login" and method=="POST":
                 token=self.dp.login(data["username"],data["password"]);return self.payload(200,{"token":token})
-            token=self.token();self.dp._actor(token,self.server.aid,{"assessor"})
+            try:
+                token=self.token();self.dp._session_user(token)
+            except Denied:return self.payload(401,{"error":"Your session has expired. Sign in again.","code":"SESSION_EXPIRED"})
+            actor=self.dp._actor(token,self.server.aid,{"assessor"});self.request_actor_id=actor["id"]
             assessment=self.server.assessment
             if method=="GET" and self.path=="/api/methodology":return self.payload(200,{**assessment.metadata(),"modelEnabled":self.server.model_enabled})
             if method=="GET" and self.path=="/api/analyze":return self.payload(200,assessment.analyze())

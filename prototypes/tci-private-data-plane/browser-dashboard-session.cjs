@@ -1,0 +1,14 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE||"playwright");
+const {spawn}=require("child_process"),readline=require("readline"),assert=require("assert/strict"),path=require("path");
+(async()=>{for(const legacy of [false,true]){let server,browser;try{
+server=spawn(process.env.TCI_PYTHON||"python3",[path.join(__dirname,"dashboard_session_test_server.py"),...(legacy?["--legacy"]:[])],{stdio:["pipe","pipe","pipe"],env:process.env});
+const rl=readline.createInterface({input:server.stdout});const ready=await new Promise((resolve,reject)=>{rl.once("line",l=>resolve(JSON.parse(l)));server.once("exit",()=>reject(Error("Server exit")));});
+browser=await chromium.launch({channel:"chrome",headless:true});const p=await browser.newPage();const errors=[];p.on("pageerror",e=>errors.push(e.message));await p.goto(ready.url);
+await p.locator("#loginform").getByLabel("Username").fill(ready.username);await p.locator("#loginform").getByLabel("Password").fill(ready.password);await p.locator("#loginform").getByRole("button",{name:"Sign in"}).click();await p.getByText("Production release locked").waitFor();
+await p.locator("nav").getByRole("button",{name:"Evidence",exact:true}).click();await p.locator("#files").setInputFiles({name:"fictional-evidence.txt",mimeType:"text/plain",buffer:Buffer.from("Fictional strategy mandate: approved strategy objective and original business problem.")});await p.locator("#fictional").check();await p.locator("#request").selectOption("SA-01");
+const expired=new Promise(resolve=>rl.once("line",resolve));server.stdin.write("EXPIRE\n");assert.equal(await expired,"EXPIRED");
+await p.getByRole("button",{name:"Upload & analyse"}).click();await p.getByRole("dialog",{name:"Sign in to continue"}).waitFor();assert.equal(await p.locator("#files").evaluate(e=>e.files.length),1);assert.equal(await p.locator("#request").inputValue(),"SA-01");
+await p.locator("#reauth-password").fill("wrong fictional password");await p.getByRole("button",{name:"Sign in and continue"}).click();await p.getByText("Incorrect login details. Try again.").waitFor();
+await p.locator("#reauth-password").fill(ready.password);await p.getByRole("button",{name:"Sign in and continue"}).click();await p.getByText("Evidence mapped. Continue to interviews.").waitFor();await p.getByText("fictional-evidence.txt",{exact:true}).waitFor();await p.getByText("1 / 32 categories declared",{exact:true}).waitFor();assert.deepEqual(errors,[]);
+console.log("PASS: "+(legacy?"legacy 403":"explicit 401")+" expiration, same-account reauthentication, selected file/category retained and upload automatically resumed.");
+}finally{if(browser)await browser.close();if(server)server.kill();}}})().catch(e=>{console.error(e);process.exit(1)});

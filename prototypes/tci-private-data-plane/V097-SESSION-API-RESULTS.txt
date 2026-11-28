@@ -1,0 +1,8 @@
+test_persistent_routes_role_scope_and_checkpoint_failure (test_dashboard_api.DashboardAPITests.test_persistent_routes_role_scope_and_checkpoint_failure) ... ok
+test_encrypted_checkpoint_and_restart (test_dashboard_persistent.DashboardPersistenceTests.test_encrypted_checkpoint_and_restart) ... ok
+test_refuses_old_workbench (test_dashboard_persistent.DashboardPersistenceTests.test_refuses_old_workbench) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.940s
+
+OK

@@ -32,7 +32,9 @@ class DashboardAPITests(unittest.TestCase):
                     u,p=accounts[role];return self.request(server,"/api/login",{"username":u,"password":p})[1]["token"]
                 assessor=sign("assessor");contributor=sign("contributor")
                 self.assertEqual(self.request(server,"/api/workspace",token=contributor)[0],403)
-                self.assertEqual(self.request(server,"/api/workspace",token=None)[0],403)
+                self.assertEqual(self.request(server,"/api/workspace",token=None)[0],401)
+                with patch.object(store.dp,"clock",return_value=store.dp.clock()+1801):
+                    code,body=self.request(server,"/api/workspace",token=assessor);self.assertEqual(code,401);self.assertEqual(body["code"],"SESSION_EXPIRED")
                 upload={"filename":"mock.txt","content":base64.b64encode(b"Fictional strategy objectives and original business problem.").decode(),"synthetic":True,"requestId":"SA-01"}
                 self.assertEqual(self.request(server,"/api/upload",upload,assessor,origin=False)[0],403)
                 self.assertEqual(self.request(server,"/api/upload",{**upload,"synthetic":False},assessor)[0],400)
